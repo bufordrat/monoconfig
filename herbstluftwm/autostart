@@ -1,9 +1,11 @@
 #!/bin/bash
 
-# old autostart starts here
 HOST=$(uname -n)
 
-# old default_as starts here
+#!/bin/bash
+
+# this is a simple config for herbstluftwm
+
 hc() {
     herbstclient "$@"
 }
@@ -161,14 +163,28 @@ hc unlock
 # or simply:
 hc detect_monitors
 
+# find the panel
+# panel=~/.config/herbstluftwm/panel.sh
+# [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
+# for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
+#     # start it on each monitor
+#     "$panel" $monitor &
+# done
 
-# old autostart picks back up here
 
+xsetroot -solid '#333333'
+
+#hc keybind $Mod+BackSpace rotate
 hc keybind $Mod+Return spawn urxvt
 hc keybind $Mod+backslash spawn emacsclient -c
+# hc keybind $Mod-Shift-p spawn sh -c 'dmenu_path | dmenu -f -fn "Bok Montecarlo-8" | xargs -d \\n xterm -hold -e'
 hc keybind $Mod-Shift-p spawn sh -c 'dmenu_path | dmenu -f -fn "Bok Montecarlo-8" | xargs -d \\n urxvt -e'
 hc keybind $Mod-p spawn sh -c "dmenu_path | dmenu_run_history -fn 'Bok Montecarlo-8'"
+# hc keybind $Mod+p spawn rofi -show run -theme ~/.config/rofi/gruvbox-dark-soft.rasi
 hc keybind Ctrl+$Mod+End spawn ~/bin/susp.sh 
+#hc keybind Mod1+backslash spawn urxvt -fn "xft:Misc Tamsyn:pixelsize=16" --color2 "#383838" -e peaclock
+#hc keybind Shift+Mod1+backslash spawn urxvt -fn "xft:Bok Montecarlo:pixelsize=6" -e asciiquarium
+#urxvt -fn "xft:misc tamsyn:pixelsize=16" --color2 DarkRed -e battop
 
 if [ $HOST == "rattus-rattus" ]; then
     hc keybind Mod1+F6 spawn mpc toggle
@@ -183,6 +199,8 @@ hc set window_border_active_color grey
 hc attr theme.inner_width 0
 hc attr theme.border_width 1
 
+
 hc set frame_gap 22
 
 hc pad 0 0 0 0 0
+
