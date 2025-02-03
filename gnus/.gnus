@@ -45,24 +45,11 @@
 (setq shr-use-fonts nil)                ;no proportional fonts please!
 (setq shr-use-colors nil)
 
-;; mailchecking daemon
-;; commenting out for now
-
-;; (gnus-demon-init)
-;; (setq gnus-demon-timestep 60)
-;; (defadvice gnus-demon-scan-news (around gnus-demon-timeout activate)
-;;        "Timeout for Gnus."
-;;        (with-timeout
-;;        (120 (message "Gnus timed out."))
-;;      ad-do-it))
-;; (gnus-demon-add-handler 'gnus-demon-scan-news 1 t)
-
 (defun matt-gnus-summary-scroll-down (lines)
   (interactive "p" gnus-summary-mode)
   (gnus-summary-scroll-up (- lines)))
 (define-key gnus-summary-mode-map (kbd "S-<return>") #'matt-gnus-summary-scroll-down)
 
-;; (set-face-attribute 'gnus-header nil :inherit 'unspecified)
 (setq gnus-mime-display-multipart-related-as-mixed t) ; display multipart related as mixed
 (setq gnus-article-loose-mime t)	; don't require MIME-Version:
 (setq gnus-inhibit-mime-unbuttonizing t) ; I want buttons (especially on multiparts)
