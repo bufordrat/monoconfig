@@ -2,8 +2,6 @@
 
 HOST=$(uname -n)
 
-#!/bin/bash
-
 # this is a simple config for herbstluftwm
 
 hc() {
@@ -204,3 +202,4 @@ hc set frame_gap 22
 
 hc pad 0 0 0 0 0
 
+. ~/.config/herbstluftwm/sequent_as
