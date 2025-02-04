@@ -1,4 +1,7 @@
 hc detect_monitors
 
 hc keybind Ctrl+$Mod+End spawn ~/bin/susp.sh 
+hc keybind $Mod-Shift-p spawn sh -c 'dmenu_path | dmenu -f -fn "Bok Montecarlo-8" | xargs -d \\n urxvt -e'
+hc keybind $Mod-p spawn sh -c "dmenu_path | dmenu_run_history -fn 'Bok Montecarlo-8'"
 
+hc set frame_gap 22
