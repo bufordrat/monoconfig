@@ -3,7 +3,13 @@
 HERBST_INSTALL_PATH = ~/.config/herbstluftwm
 HOST = $(shell uname -n | cut -d. -f1)
 
-all: herbstluftwm
+all: linux
+
+sequent: linux
+
+kleisli: linux
+
+linux: herbstluftwm
 
 herbstluftwm::
 	install -m 555 $@/autostart $(HERBST_INSTALL_PATH)/autostart
