@@ -15,7 +15,7 @@ all: $(HOST)
 
 
 # host rules
-sequent: linux dunst
+sequent: linux dunst firehol
 
 kleisli: linux
 
@@ -58,8 +58,12 @@ openssh:
 .PHONY: openssh
 
 gnupg:
-	install -m 444 $@/$(HOST)_gpg_agent_conf ~/.gnupg/gpg-agent.conf
+	install -m 444 $@/$(HOST)_gpg_agent_conf ~/.$@/gpg-agent.conf
 .PHONY: gnupg
+
+firehol:
+	gpg -d $@/$@_conf.gpg | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
+.PHONY: firehol
 
 
 # package manager rules
@@ -70,3 +74,4 @@ pacman::
 brew::
 	brew install $(MACOS_PACKAGES)
 .PHONY: brew
+
