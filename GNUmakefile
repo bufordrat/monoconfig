@@ -32,7 +32,8 @@ macos: $(MACOS_RULES)
 herbstluftwm::
 	install -m 555 $@/autostart $(CONFIG_PATH)/$@/autostart
 	install -m 555 $@/general_as $(CONFIG_PATH)/$@/general_as
-	install -m 555 $@/$(HOST)_as $(CONFIG_PATH)/$(HOST/)$(HOST)_as
+	install -m 555 $@/$(HOST)_as $(CONFIG_PATH)/$@/$(HOST)_as
+	install -m 444 $@/bg.png $(CONFIG_PATH)/bg.png
 .PHONY: herbstluftwm
 
 fish::
