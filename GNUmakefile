@@ -3,11 +3,11 @@
 CONFIG_PATH = ~/.config
 HOST = $(shell uname -n | cut -d. -f1)
 
-LINUX_PACKAGES = herbstluftwm fish
+LINUX_PACKAGES = herbstluftwm fish openssh
 MACOS_PACKAGES = fish iterm
 
-LINUX_RULES = herbstluftwm fish x11
-MACOS_RULES = fish iterm
+LINUX_RULES = herbstluftwm fish openssh x11 
+MACOS_RULES = fish iterm openssh
 
 
 # mother of all rules
@@ -52,6 +52,10 @@ iterm::
 x11::
 	install -m 555 $@/$(HOST)_xinitrc ~/.xinitrc
 .PHONY: x11
+
+openssh:
+	install -m 444 $@/$(HOST)_ssh_config ~/.ssh/config
+.PHONY: openssh
 
 
 # package manager rules
