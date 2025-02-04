@@ -3,7 +3,7 @@
 HERBST_INSTALL_PATH = ~/.config/herbstluftwm
 HOST = $(shell uname -n | cut -d. -f1)
 
-all: linux
+all: $(HOST)
 
 sequent: linux
 
