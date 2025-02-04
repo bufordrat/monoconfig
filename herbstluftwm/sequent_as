@@ -1,2 +1,4 @@
 hc detect_monitors
 
+hc keybind Ctrl+$Mod+End spawn ~/bin/susp.sh 
+

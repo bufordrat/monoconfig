@@ -1,2 +1,3 @@
 feh --bg-fill ~/.config/herbstluftwm/bg.png
 
+hc keybind Mod1+F6 spawn mpc toggle
