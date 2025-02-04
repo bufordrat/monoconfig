@@ -5,3 +5,6 @@ hc keybind $Mod-Shift-p spawn sh -c 'dmenu_path | dmenu -f -fn "Bok Montecarlo-8
 hc keybind $Mod-p spawn sh -c "dmenu_path | dmenu_run_history -fn 'Bok Montecarlo-8'"
 
 hc set frame_gap 22
+
+hc attr theme.inner_width 0
+hc attr theme.border_width 1

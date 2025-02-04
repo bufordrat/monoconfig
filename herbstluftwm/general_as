@@ -165,7 +165,4 @@ hc set always_show_frame 0
 hc set frame_transparent_width 1
 hc set window_border_active_color grey
 
-# hc attr theme.inner_width 0
-# hc attr theme.border_width 1
-
 hc pad 0 0 0 0 0
