@@ -13,7 +13,7 @@ substructural: macos
 
 linux: herbstluftwm fish
 
-macos: fish
+macos: fish iterm
 
 herbstluftwm::
 	install -m 555 $@/autostart $(CONFIG_PATH)/$@/autostart
@@ -30,3 +30,8 @@ fish::
 dunst::
 	install -m 444 $@/dunstrc $(CONFIG_PATH)/$@/dunstrc
 .PHONY: dunst
+
+iterm::
+	install -m 644 $@/hushlogin ~/.hushlogin
+.PHONY: iterm
+

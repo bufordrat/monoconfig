@@ -65,14 +65,6 @@ set -x LESS_TERMCAP_so (printf "\033[01;44;33m")
 set -x LESS_TERMCAP_ue (printf "\033[0m")
 set -x LESS_TERMCAP_us (printf "\033[01;32m")
 
-# start ssh-agent and gpg-agent upon login
-if status --is-login; and not set -q SSH_CLIENT
-   eval (ssh-agent -c)
-   ssh-add
-   gpg --decrypt --pinentry-mode loopback dummy.gpg > /dev/null
-   emacs --daemon
-end
-
 # global variables
 set -gx DIFFPROG diffmerge
 set -gx EDITOR figure_out_editor_variable
@@ -80,6 +72,3 @@ set -gx MANPATH /usr/share/man
 
 # ghcup stuff
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/teichman/.ghcup/bin # ghcup-env
-
-# opam stuff
-eval (opam env)
