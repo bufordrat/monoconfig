@@ -3,7 +3,7 @@
 CONFIG_PATH = ~/.config
 HOST = $(shell uname -n | cut -d. -f1)
 LINUX_PACKAGES = herbstluftwm fish
-MACOS_PACKAGES = fish
+MACOS_PACKAGES = fish iterm
 
 # mother of all rules
 all: $(HOST)
@@ -41,6 +41,10 @@ dunst::
 pacman::
 	sudo pacman -S $(LINUX_PACKAGES)
 .PHONY: pacman
+
+iterm::
+	install -m 644 $@/hushlogin ~/.hushlogin
+.PHONY: iterm
 
 brew::
 	brew install $(MACOS_PACKAGES)
