@@ -48,7 +48,8 @@ else
     end
 end
 
-# environment variables
+# path
+fish_add_path ~/bin
 
 # umask
 umask 022
