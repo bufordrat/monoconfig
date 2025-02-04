@@ -2,19 +2,25 @@
 
 CONFIG_PATH = ~/.config
 HOST = $(shell uname -n | cut -d. -f1)
+LINUX_PACKAGES = herbstluftwm fish
+MACOS_PACKAGES = fish
 
+# mother of all rules
 all: $(HOST)
 
+# host rules
 sequent: linux dunst
 
 kleisli: linux
 
 substructural: macos
 
-linux: herbstluftwm fish
+# os rules
+linux: $(LINUX_PACKAGES)
 
-macos: fish
+macos: $(MACOS_PACKAGES)
 
+# app rules
 herbstluftwm::
 	install -m 555 $@/autostart $(CONFIG_PATH)/$@/autostart
 	install -m 555 $@/general_as $(CONFIG_PATH)/$@/general_as
@@ -30,3 +36,12 @@ fish::
 dunst::
 	install -m 444 $@/dunstrc $(CONFIG_PATH)/$@/dunstrc
 .PHONY: dunst
+
+# package manager rules
+pacman::
+	sudo pacman -S $(LINUX_PACKAGES)
+.PHONY: pacman
+
+brew::
+	brew install $(MACOS_PACKAGES)
+.PHONY: brew
