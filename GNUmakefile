@@ -7,7 +7,7 @@ LINUX_PACKAGES = herbstluftwm fish
 MACOS_PACKAGES = fish iterm
 
 LINUX_RULES = herbstluftwm fish x11
-MAC_RULES = fish iterm
+MACOS_RULES = fish iterm
 
 
 # mother of all rules
