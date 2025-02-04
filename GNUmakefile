@@ -3,10 +3,10 @@
 CONFIG_PATH = ~/.config
 HOST = $(shell uname -n | cut -d. -f1)
 
-LINUX_PACKAGES = herbstluftwm fish openssh
+LINUX_PACKAGES = herbstluftwm fish openssh gnupg
 MACOS_PACKAGES = fish iterm
 
-LINUX_RULES = herbstluftwm fish openssh x11 
+LINUX_RULES = herbstluftwm fish openssh gnupg x11
 MACOS_RULES = fish iterm openssh
 
 
@@ -56,6 +56,10 @@ x11::
 openssh:
 	install -m 444 $@/$(HOST)_ssh_config ~/.ssh/config
 .PHONY: openssh
+
+gnupg:
+	install -m 444 $@/$(HOST)_gpg_agent_conf ~/.gnupg/gpg-agent.conf
+.PHONY: gnupg
 
 
 # package manager rules
