@@ -5,8 +5,10 @@ HOST = $(shell uname -n | cut -d. -f1)
 LINUX_PACKAGES = herbstluftwm fish
 MACOS_PACKAGES = fish iterm
 
+
 # mother of all rules
 all: $(HOST)
+
 
 # host rules
 sequent: linux dunst
@@ -15,10 +17,12 @@ kleisli: linux
 
 substructural: macos
 
+
 # os rules
 linux: $(LINUX_PACKAGES)
 
 macos: $(MACOS_PACKAGES)
+
 
 # app rules
 herbstluftwm::
@@ -37,14 +41,15 @@ dunst::
 	install -m 444 $@/dunstrc $(CONFIG_PATH)/$@/dunstrc
 .PHONY: dunst
 
+iterm::
+	install -m 644 $@/hushlogin ~/.hushlogin
+.PHONY: iterm
+
+
 # package manager rules
 pacman::
 	sudo pacman -S $(LINUX_PACKAGES)
 .PHONY: pacman
-
-iterm::
-	install -m 644 $@/hushlogin ~/.hushlogin
-.PHONY: iterm
 
 brew::
 	brew install $(MACOS_PACKAGES)
