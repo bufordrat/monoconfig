@@ -2,8 +2,12 @@
 
 CONFIG_PATH = ~/.config
 HOST = $(shell uname -n | cut -d. -f1)
+
 LINUX_PACKAGES = herbstluftwm fish
 MACOS_PACKAGES = fish iterm
+
+LINUX_RULES = herbstluftwm fish x11
+MAC_RULES = fish iterm
 
 
 # mother of all rules
@@ -19,9 +23,9 @@ substructural: macos
 
 
 # os rules
-linux: $(LINUX_PACKAGES)
+linux: $(LINUX_RULES)
 
-macos: $(MACOS_PACKAGES)
+macos: $(MACOS_RULES)
 
 
 # app rules
@@ -44,6 +48,10 @@ dunst::
 iterm::
 	install -m 644 $@/hushlogin ~/.hushlogin
 .PHONY: iterm
+
+x11::
+	install -m 555 $@/$(HOST)_xinitrc ~/.xinitrc
+.PHONY: x11
 
 
 # package manager rules

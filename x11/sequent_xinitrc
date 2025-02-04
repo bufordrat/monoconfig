@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# log errors
+rm -f /tmp/xinitrc.log
+exec 2>/tmp/xinitrc.log
+
+# trace your code
+set -x
+
+# turn off bell
+xset b off
+
+# get fonts inta whack
+xset fp rehash
+
+# dunst
+dunst &
+NOTIFY=notify-send
+FAILED=$(systemctl --no-legend --no-pager --failed | awk '{print $1}')
+if [ "$FAILED" != "" ]
+then $NOTIFY -a systemd -u critical "systemd failures" "$FAILED"
+fi
+
+# make sure firehol is running
+(
+    if [ "$(systemctl is-active firehol)" != "active" ]
+    then $NOTIFY -a arch -u critical "firehol is down!" "$(systemctl status firehol | head -12)"
+    fi
+) &
+
+# activate multiple monitors
+sh /home/teichman/.config/herbstluftwm/monitors-arandr.sh
+
+# compositor
+picom &
+
+# fire herbst up
+exec herbstluftwm -l
