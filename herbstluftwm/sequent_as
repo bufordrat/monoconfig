@@ -1,10 +1,16 @@
+# multi-monitor setup
 hc detect_monitors
 
-hc keybind Ctrl+$Mod+End spawn ~/bin/susp.sh 
+# launcher
 hc keybind $Mod-Shift-p spawn sh -c 'dmenu_path | dmenu -f -fn "Bok Montecarlo-8" | xargs -d \\n urxvt -e'
 hc keybind $Mod-p spawn sh -c "dmenu_path | dmenu_run_history -fn 'Bok Montecarlo-8'"
 
+# suspend
+hc keybind Ctrl+$Mod+End spawn ~/bin/susp.sh 
+
+# frame gap set for low-res display
 hc set frame_gap 22
 
+# I honestly don't know what this is; maybe delete it
 hc attr theme.inner_width 0
 hc attr theme.border_width 1

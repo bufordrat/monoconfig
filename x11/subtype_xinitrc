@@ -21,21 +21,11 @@ if [ "$FAILED" != "" ]
 then $NOTIFY -a systemd -u critical "systemd failures" "$FAILED"
 fi
 
-# make sure firehol is running
-(
-    if [ "$(systemctl is-active firehol)" != "active" ]
-    then $NOTIFY -a arch -u critical "firehol is down!" "$(systemctl status firehol | head -12)"
-    fi
-) &
-
-# activate multiple monitors
-sh /home/teichman/.config/herbstluftwm/monitors-arandr.sh
-
 # keybindings for X session
 xbindkeys
 
 # compositor
-picom -b
+picom -b -c
 
 # fire herbst up
 exec herbstluftwm -l
