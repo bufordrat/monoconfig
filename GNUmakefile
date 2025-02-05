@@ -32,20 +32,20 @@ macos: $(MACOS_RULES)
 
 # app/config rules
 herbstluftwm::
-	install -D -m 555 $@/autostart $(CONFIG_PATH)/$@/autostart
-	install -D -m 555 $@/general_as $(CONFIG_PATH)/$@/general_as
-	install -D -m 555 $@/$(HOST)_as $(CONFIG_PATH)/$@/$(HOST)_as
-	install -D -m 444 $@/bg.png $(CONFIG_PATH)/bg.png
+	install -m 555 $@/autostart $(CONFIG_PATH)/$@/autostart
+	install -m 555 $@/general_as $(CONFIG_PATH)/$@/general_as
+	install -m 555 $@/$(HOST)_as $(CONFIG_PATH)/$@/$(HOST)_as
+	install -m 444 $@/bg.png $(CONFIG_PATH)/bg.png
 .PHONY: herbstluftwm
 
 fish::
-	install -D -m 444 $@/config.fish $(CONFIG_PATH)/$@/config.fish
-	install -D -m 444 $@/general.fish $(CONFIG_PATH)/$@/general.fish
-	install -D -m 444 $@/$(HOST).fish $(CONFIG_PATH)/$@/$(HOST).fish
+	install -m 444 $@/config.fish $(CONFIG_PATH)/$@/config.fish
+	install -m 444 $@/general.fish $(CONFIG_PATH)/$@/general.fish
+	install -m 444 $@/$(HOST).fish $(CONFIG_PATH)/$@/$(HOST).fish
 .PHONY: fish
 
 dunst::
-	install -D -m 444 $@/dunstrc $(CONFIG_PATH)/$@/dunstrc
+	install -m 444 $@/dunstrc $(CONFIG_PATH)/$@/dunstrc
 .PHONY: dunst
 
 iterm::
