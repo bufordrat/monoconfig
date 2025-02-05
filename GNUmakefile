@@ -15,7 +15,7 @@ all: $(HOST)
 
 
 # host rules
-sequent: linux dunst firehol
+sequent: linux dunst firehol fstab
 
 kleisli: linux
 
@@ -28,7 +28,7 @@ linux: $(LINUX_RULES)
 macos: $(MACOS_RULES)
 
 
-# app rules
+# app/config rules
 herbstluftwm::
 	install -m 555 $@/autostart $(CONFIG_PATH)/$@/autostart
 	install -m 555 $@/general_as $(CONFIG_PATH)/$@/general_as
@@ -65,6 +65,10 @@ gnupg:
 firehol:
 	gpg -d $@/$@_conf.gpg | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
 .PHONY: firehol
+
+fstab:
+	sudo install -m 644 $@/$(HOST)_fstab /etc/fstab
+.PHONY: fstab
 
 
 # package manager rules
