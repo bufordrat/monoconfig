@@ -1,0 +1,12 @@
+# SMB level 6-2 desktop pattern
+feh --bg-fill ~/.config/herbstluftwm/bg.png
+
+# launcher
+hc keybind $Mod+Return spawn urxvt
+hc keybind $Mod+p spawn rofi -show run -theme ~/.config/rofi/gruvbox-dark-soft.rasi
+
+# suspend
+hc keybind Ctrl+$Mod+End spawn ~/bin/susp.sh
+
+# frame gap set for high-res display
+hc set frame_gap 40

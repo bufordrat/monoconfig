@@ -1,0 +1,14 @@
+ForwardX11 yes
+ForwardX11Trusted yes
+ForwardAgent yes
+Compression yes
+ServerAliveInterval 120
+
+ServerAliveInterval 600
+ServerAliveCountMax 48
+
+Host sequent sequent.lib.uchicago.edu stax staff
+  ProxyCommand /usr/bin/nc -X 5 -x localhost:2200 %h %p
+
+Host *
+  ForwardAgent yes
