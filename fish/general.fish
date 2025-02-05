@@ -70,6 +70,5 @@ set -x LESS_TERMCAP_us (printf "\033[01;32m")
 set -gx DIFFPROG diffmerge
 set -gx EDITOR figure_out_editor_variable
 set -gx MANPATH /usr/share/man
+set -gx BUFORD AAAAAH
 
-# ghcup stuff
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/teichman/.ghcup/bin # ghcup-env
