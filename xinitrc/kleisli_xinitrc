@@ -1,0 +1,5 @@
+exec 2>/tmp/xinitrc.log
+set -x
+xset b off
+picom -b -c --fading=false
+exec ssh-agent herbstluftwm -l

@@ -8,7 +8,7 @@ PI_PACKAGES = herbstluftwm
 MACOS_PACKAGES = fish iterm pinentry-mac
 
 ARCH_RULES = herbstluftwm fish openssh gnupg x11
-PI_PACKAGES = herbstluftwm 
+PI_RULES = herbstluftwm x11
 MACOS_RULES = fish iterm openssh gnupg
 
 
@@ -19,7 +19,7 @@ all: $(HOST)
 # host rules
 sequent: arch dunst firehol fstab
 
-kleisli: 
+kleisli: x11
 
 substructural: macos
 
@@ -54,9 +54,17 @@ iterm::
 	install -m 644 $@/hushlogin ~/.hushlogin
 .PHONY: iterm
 
-x11::
-	install -m 555 $@/$(HOST)_xinitrc ~/.xinitrc
-.PHONY: x11
+xdefaults::
+	install -m 444 $@/$(HOST)_xdefaults ~/.Xdefaults
+.PHONY: xdefaults
+
+xinitrc::
+	install -m 555 $@/.xinitrc ~/.xinitrc
+	install -m 555 $@/general_xinitrc ~/xinitrc/general_xinitrc
+	install -m 555 $@/$(HOST)_xinitrc ~/xinitrc/$(HOST)_xinitrc
+.PHONY: xinitrc
+
+x11: xinitrc xdefaults
 
 openssh:
 	install -m 444 $@/$(HOST)_ssh_config ~/.ssh/config
@@ -83,4 +91,3 @@ pacman::
 brew::
 	brew install $(MACOS_PACKAGES)
 .PHONY: brew
-
