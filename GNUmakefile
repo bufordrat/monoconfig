@@ -26,6 +26,14 @@ substructural: macos
 
 subtype: arch
 
+semigroup: 
+
+pitype:
+
+fomega:
+
+mzero: 
+
 
 # os rules
 arch: $(ARCH_RULES)
@@ -93,6 +101,8 @@ homebin::
 	install -m 555 $@/figure_out_editor_variable.sh $(HOMEBIN_DIR)/figure_out_editor_variable
 .PHONY: homebin
 
+# note: I have not yet set this repo up on semigroup, pitype, or
+# mzero, so these mpd config files are currently only here for backup
 mpd::
 	mkdir -p $(CONFIG_PATH)/mpd
 	install -m 444 $@/$(HOST)_mpd_conf $(CONFIG_PATH)/$@/mpd.conf
