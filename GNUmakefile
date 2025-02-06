@@ -18,9 +18,9 @@ all: $(HOST)
 
 
 # host rules
-sequent: arch dunst firehol fstab
+sequent: arch dunst firehol fstab 
 
-kleisli: x11 homebin
+kleisli: x11 homebin mpd
 
 substructural: macos
 
@@ -91,6 +91,11 @@ homebin::
 	install -m 555 $@/pi3sync.sh $(HOMEBIN_DIR)/pi3sync
 	install -m 555 $@/figure_out_editor_variable.sh $(HOMEBIN_DIR)/figure_out_editor_variable
 .PHONY: homebin
+
+mpd::
+	mkdir -p $(CONFIG_PATH)/mpd
+	install -m 444 $@/$(HOST)_mpd_conf $(CONFIG_PATH)/$@/mpd.conf
+.PHONY: mpd
 
 # package manager rules
 pacman::
