@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# log errors
+rm -f /tmp/xinitrc.log
+exec 2>/tmp/xinitrc.log
+
+# trace your code
+set -x
+
+# turn off bell
+xset b off
+
+# get fonts inta whack
+xset fp rehash
+
+# keybindings for X session
+xbindkeys

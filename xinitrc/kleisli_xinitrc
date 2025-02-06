@@ -1,5 +1,11 @@
-exec 2>/tmp/xinitrc.log
-set -x
-xset b off
+# dunst
+dunst &
+NOTIFY=notify-send
+FAILED=$(systemctl --no-legend --no-pager --failed | awk '{print $1}')
+if [ "$FAILED" != "" ]
+then $NOTIFY -a systemd -u critical "systemd failures" "$FAILED"
+fi
+
+# compositor
 picom -b -c --fading=false
-exec ssh-agent herbstluftwm -l
+

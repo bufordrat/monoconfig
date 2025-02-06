@@ -1,18 +1,3 @@
-#!/bin/sh
-
-# log errors
-rm -f /tmp/xinitrc.log
-exec 2>/tmp/xinitrc.log
-
-# trace your code
-set -x
-
-# turn off bell
-xset b off
-
-# get fonts inta whack
-xset fp rehash
-
 # dunst
 dunst &
 NOTIFY=notify-send
@@ -31,11 +16,5 @@ fi
 # activate multiple monitors
 sh /home/teichman/.config/herbstluftwm/monitors-arandr.sh
 
-# keybindings for X session
-xbindkeys
-
 # compositor
 picom -b
-
-# fire herbst up
-exec herbstluftwm -l
