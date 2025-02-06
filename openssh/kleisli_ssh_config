@@ -1,12 +1,9 @@
+ServerAliveInterval 600
+ServerAliveCountMax 48
+
 Host *
-  IgnoreUnknown AddKeysToAgent,UseKeychain
-  AddKeysToAgent yes
-  UseKeychain yes
   ForwardAgent yes
   IdentityFile ~/.ssh/id_rsa
-
-Host linux linux.cs.uchicago.edu
-  HostName linux.cs.uchicago.edu
 
 Host sequent sequent.lib.uchicago.edu
   HostName sequent.lib.uchicago.edu

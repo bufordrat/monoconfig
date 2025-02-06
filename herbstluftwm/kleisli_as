@@ -1,10 +1,12 @@
+# SMB level 6-2 desktop pattern
 feh --bg-fill ~/.config/herbstluftwm/bg.png
 
-hc keybind Mod1+F6 spawn mpc toggle
+# launcher
 hc keybind $Mod-Shift-p spawn sh -c 'dmenu_path | dmenu -f -fn "M+ 1mn-9" | xargs -d \\n urxvt -e'
 hc keybind $Mod-p spawn sh -c "dmenu_path | dmenu_run_history -fn 'M+ 1mn-9'"
 
-# remove this after redoing ssh-agent and gpg-agent
-urxvt -e ssh-add
+# mpd play/pause keybinding
+hc keybind Mod1+F6 spawn mpc toggle
 
+# frame gap set for high-res display
 hc set frame_gap 40

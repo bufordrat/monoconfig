@@ -20,7 +20,7 @@ all: $(HOST)
 # host rules
 sequent: arch dunst firehol fstab 
 
-kleisli: fish openssh gnupg x11 homebin mpd
+kleisli: arch mpd
 
 substructural: macos
 
