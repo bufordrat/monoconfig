@@ -73,6 +73,7 @@ openssh::
 .PHONY: openssh
 
 gnupg::
+	install -m 444 $@/dummy.gpg ~
 	install -m 444 $@/$(HOST)_gpg_agent_conf ~/.$@/gpg-agent.conf
 .PHONY: gnupg
 
