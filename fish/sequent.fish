@@ -1,10 +1,5 @@
-# start ssh-agent and gpg-agent upon login
-if status --is-login; and not set -q SSH_CLIENT
-   eval (ssh-agent -c)
-   ssh-add
-   gpg --decrypt --pinentry-mode loopback dummy.gpg > /dev/null
-   emacs --daemon
-end
+# fire up ssh-agent and gpg-agent
+source ~/.config/fish/ssh_gpg.fish
 
 # opam stuff
 eval (opam env)

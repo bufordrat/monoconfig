@@ -44,6 +44,7 @@ herbstluftwm::
 fish::
 	install -m 444 $@/config.fish $(CONFIG_PATH)/$@/config.fish
 	install -m 444 $@/general.fish $(CONFIG_PATH)/$@/general.fish
+	install -m 444 $@/ssh_gpg.fish $(CONFIG_PATH)/$@/ssh_gpg.fish
 	install -m 444 $@/$(HOST).fish $(CONFIG_PATH)/$@/$(HOST).fish
 .PHONY: fish
 
