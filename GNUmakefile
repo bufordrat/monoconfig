@@ -3,10 +3,12 @@
 CONFIG_PATH = ~/.config
 HOST = $(shell uname -n | cut -d. -f1)
 
-LINUX_PACKAGES = herbstluftwm fish openssh gnupg
+ARCH_PACKAGES = herbstluftwm fish openssh gnupg
+PI_PACKAGES = herbstluftwm 
 MACOS_PACKAGES = fish iterm pinentry-mac
 
-LINUX_RULES = herbstluftwm fish openssh gnupg x11
+ARCH_RULES = herbstluftwm fish openssh gnupg x11
+PI_PACKAGES = herbstluftwm 
 MACOS_RULES = fish iterm openssh gnupg
 
 
@@ -15,17 +17,17 @@ all: $(HOST)
 
 
 # host rules
-sequent: linux dunst firehol fstab
+sequent: arch dunst firehol fstab
 
 kleisli: 
 
 substructural: macos
 
-subtype: linux
+subtype: arch
 
 
 # os rules
-linux: $(LINUX_RULES)
+arch: $(ARCH_RULES)
 
 macos: $(MACOS_RULES)
 
@@ -75,7 +77,7 @@ fstab:
 
 # package manager rules
 pacman::
-	sudo pacman -S $(LINUX_PACKAGES)
+	sudo pacman -S $(ARCH_PACKAGES)
 .PHONY: pacman
 
 brew::
