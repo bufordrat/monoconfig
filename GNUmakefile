@@ -2,12 +2,13 @@
 
 CONFIG_PATH = ~/.config
 HOST = $(shell uname -n | cut -d. -f1)
+HOMEBIN_DIR = ~/bin
 
 ARCH_PACKAGES = herbstluftwm fish openssh gnupg
-PI_PACKAGES = herbstluftwm 
+PI_PACKAGES = herbstluftwm
 MACOS_PACKAGES = fish iterm pinentry-mac
 
-ARCH_RULES = herbstluftwm fish openssh gnupg x11
+ARCH_RULES = herbstluftwm fish openssh gnupg x11 homebin
 PI_RULES = herbstluftwm x11
 MACOS_RULES = fish iterm openssh gnupg
 
@@ -19,7 +20,7 @@ all: $(HOST)
 # host rules
 sequent: arch dunst firehol fstab
 
-kleisli: x11
+kleisli: x11 homebin
 
 substructural: macos
 
@@ -66,22 +67,29 @@ xinitrc::
 
 x11: xinitrc xdefaults
 
-openssh:
+openssh::
 	install -m 444 $@/$(HOST)_ssh_config ~/.ssh/config
 .PHONY: openssh
 
-gnupg:
+gnupg::
 	install -m 444 $@/$(HOST)_gpg_agent_conf ~/.$@/gpg-agent.conf
 .PHONY: gnupg
 
-firehol:
+firehol::
 	gpg -d $@/$@_conf.gpg | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
 .PHONY: firehol
 
-fstab:
+fstab::
 	sudo install -m 644 $@/$(HOST)_fstab /etc/fstab
 .PHONY: fstab
 
+homebin::
+	mkdir -p $(HOMEBIN_DIR)
+	install -m 555 $@/dmenu_run_history.sh $(HOMEBIN_DIR)/dmenu_run_history
+	install -m 555 $@/pi0sync.sh $(HOMEBIN_DIR)/pi0sync
+	install -m 555 $@/pi3sync.sh $(HOMEBIN_DIR)/pi3sync
+	install -m 555 $@/figure_out_editor_variable.sh $(HOMEBIN_DIR)/figure_out_editor_variable
+.PHONY: homebin
 
 # package manager rules
 pacman::
