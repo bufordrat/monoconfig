@@ -102,7 +102,8 @@ homebin::
 .PHONY: homebin
 
 # note: I have not yet set this repo up on semigroup, pitype, or
-# mzero, so these mpd config files are currently only here for backup
+# mzero, so these mpd config files are currently only here for backup;
+# the only one that's being used is kleisli
 mpd::
 	mkdir -p $(CONFIG_PATH)/mpd
 	install -m 444 $@/$(HOST)_mpd_conf $(CONFIG_PATH)/$@/mpd.conf
