@@ -20,7 +20,7 @@ all: $(HOST)
 # host rules
 sequent: arch dunst firehol fstab 
 
-kleisli: arch mpd
+kleisli: arch mpd samba
 
 substructural: macos
 
@@ -97,6 +97,11 @@ mpd::
 	mkdir -p $(CONFIG_PATH)/mpd
 	install -m 444 $@/$(HOST)_mpd_conf $(CONFIG_PATH)/$@/mpd.conf
 .PHONY: mpd
+
+samba::
+	sudo install -m 444 $@/$(HOST)_smb_conf /etc/samba/smb.conf
+.PHONY: samba
+
 
 # package manager rules
 pacman::
