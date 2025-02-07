@@ -5,6 +5,7 @@
 setopt extendedglob
 # End of lines configured by zsh-newuser-install
 
+# get man, git log, etc. not to use more/less in an Emacs shell
 if [ -n "$INSIDE_EMACS" ]
 then
   export MANPAGER=cat
@@ -21,10 +22,12 @@ then
   esac
 fi
 
+# make grep, ls, and diff colorful
 alias grep='grep --color=auto'
 alias ls='command ls -Fh --color=auto'
 alias diff='diff --color=auto'
 
+# a zsh reimplementation of the fish prompt
 shrink_path () {
         setopt localoptions
         setopt rc_quotes null_glob
@@ -119,6 +122,7 @@ shrink_path () {
         )
 }
 
+# use the fishy prompt
 setopt prompt_subst
 export PS1='%(0?,$(shrink_path -f) > ,%B%F{red}%? $(shrink_path -f) > %f%b)'
 
