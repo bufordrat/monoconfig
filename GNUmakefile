@@ -69,6 +69,7 @@ xdefaults::
 .PHONY: xdefaults
 
 xinitrc::
+	mkdir -p ~/xinitrc
 	install -m 555 $@/.xinitrc ~/.xinitrc
 	install -m 555 $@/general_xinitrc ~/xinitrc/general_xinitrc
 	install -m 555 $@/$(HOST)_xinitrc ~/xinitrc/$(HOST)_xinitrc
