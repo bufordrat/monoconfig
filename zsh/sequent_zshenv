@@ -1,3 +1,5 @@
 # this is for non-login shells, e.g. M-x compile
-eval $(opam env)
 export PATH=/home/teichman/bin:/home/teichman/.ghcup/bin:/home/teichman/.stack/bin:$PATH
+
+# opam
+opam --version > /dev/null && eval $(opam env)

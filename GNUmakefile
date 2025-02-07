@@ -4,13 +4,13 @@ CONFIG_PATH = ~/.config
 HOST = $(shell uname -n | cut -d. -f1)
 HOMEBIN_DIR = ~/bin
 
-ARCH_PACKAGES = herbstluftwm fish openssh gnupg
-PI_PACKAGES = herbstluftwm
+ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh
+PI_PACKAGES = herbstluftwm zsh 
 MACOS_PACKAGES = fish iterm pinentry-mac
 
-ARCH_RULES = herbstluftwm fish openssh gnupg x11 homebin
-PI_RULES = herbstluftwm x11
-MACOS_RULES = fish iterm openssh gnupg
+ARCH_RULES = herbstluftwm fish openssh gnupg x11 homebin zsh
+PI_RULES = herbstluftwm x11 zsh 
+MACOS_RULES = fish iterm openssh gnupg zsh
 
 
 # mother of all rules
@@ -18,11 +18,11 @@ all: $(HOST)
 
 
 # host rules
-sequent: arch dunst firehol fstab zsh
+sequent: arch dunst firehol fstab
 
 kleisli: arch mpd samba
 
-substructural: macos
+substructural: macos 
 
 subtype: arch
 
@@ -115,7 +115,10 @@ samba::
 .PHONY: samba
 
 zsh::
-	install -m 444 $@/$(HOST)_zshrc ~/.zshrc
+	mkdir -p ~/zshrc
+	install -m 444 $@/.zshrc ~/.zshrc
+	install -m 444 $@/general_zshrc ~/zshrc/general_zshrc
+	install -m 444 $@/$(HOST)_zshrc ~/zshrc/$(HOST)_zshrc
 	install -m 444 $@/$(HOST)_zshenv ~/.zshenv
 .PHONY: zsh
 
