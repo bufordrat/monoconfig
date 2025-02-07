@@ -18,7 +18,7 @@ all: $(HOST)
 
 
 # host rules
-sequent: arch dunst firehol fstab 
+sequent: arch dunst firehol fstab zsh
 
 kleisli: arch mpd samba
 
@@ -113,6 +113,11 @@ mpd::
 samba::
 	sudo install -m 444 $@/$(HOST)_smb_conf /etc/samba/smb.conf
 .PHONY: samba
+
+zsh::
+	install -m 444 $@/$(HOST)_zshrc ~/.zshrc
+	install -m 444 $@/$(HOST)_zshenv ~/.zshenv
+.PHONY: zsh
 
 
 # package manager rules
