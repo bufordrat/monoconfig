@@ -1,0 +1,7 @@
+# this is for non-login shells, e.g. M-x compile
+
+# opam stuff
+eval $(opam env)
+
+# path
+export PATH=/opt/homebrew/bin:/Users/teichman/bin:/Users/teichman/.local/bin:/Users/teichman/.ghcup/bin:/Users/teichman/.stack/bin:$PATH

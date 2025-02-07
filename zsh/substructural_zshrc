@@ -1,5 +1,5 @@
 # emacs tramp
-[[ "$-" == *i* ]] || { unsetopt zle && PS1='%m$ ' && return; }
+[ ! -n "$INSIDE_EMACS" ] && [ "$TERM" = dumb ] && { unsetopt zle && PS1='%m$ ' && return; }
 
 # get man, git log, etc. not to use more/less in an Emacs shell
 if [ -n "$INSIDE_EMACS" ]
@@ -7,8 +7,9 @@ then
   export MANPAGER=cat
   export PAGER=cat
   export TERM=ansi
+  export PS1='%(0?,$(shrink_path -f)> ,%B%F{red}%? $(shrink_path -f)> %f%b)'
   grep --version | grep GNU > /dev/null && alias grep='command grep --color=auto'
-  ls   --version | grep GNU > /dev/null && alias ls='command   ls   --color=auto'
+  type gls > /dev/null && alias ls='command gls --color=auto'
   diff --version | grep GNU > /dev/null && alias diff='command diff --color=auto'
   case "$0" in
   *zsh)
@@ -129,7 +130,7 @@ export PS1='%(0?,$(shrink_path -f) > ,%B%F{red}%? $(shrink_path -f) > %f%b)'
 eval $(opam env)
 
 # path
-export PATH=/home/teichman/bin:/home/teichman/.ghcup/bin:/home/teichman/.stack/bin:$PATH
+export PATH=/opt/homebrew/bin:/Users/teichman/bin:/Users/teichman/.local/bin:/Users/teichman/.ghcup/bin:/Users/teichman/.stack/bin:$PATH
 
 # get $EDITOR to behave in Emacs
 export EDITOR=figure_out_editor_variable
