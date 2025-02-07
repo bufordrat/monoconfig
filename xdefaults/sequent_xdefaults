@@ -1,0 +1,62 @@
+URxvt*modifier: super
+
+URxvt.saveLines:32767
+URxvt.scrollBar: false
+
+URxvt*font:	xft:Profont:regular:pixelsize=10
+URxvt*boldFont:	xft:Profont:regular:pixelsize=10
+
+URxvt.background-expr: scale keep { load "/home/teichman/background.png" }
+urxvt*transparent: false
+urxvt*shading: 30
+
+urxvt*VT100*translations: #override Ctrl Meta<Key>Y: insert-selection(PRIMARY, CUT_BUFFER0)
+
+URxvt*colorUL: #b4ff7a
+
+URxvt.perl-ext-common:  default,matcher
+URxvt.url-launcher:     /usr/bin/chromium
+URxvt.matcher.button:   1
+
+URxvt*termName: rxvt-unicode-256color
+
+URxvt.internalBorder:  15
+
+! special
+*.foreground:   #ccccc6
+*.background:   #1b1d1e
+*.cursorColor:  #ccccc6
+
+! black
+*.color0:       #1b1d1e
+*.color8:       #555753
+
+! red
+*.color1:       #af3f6a
+*.color9:       #ff7faa
+
+! green
+!*.color2:       #333333
+*.color2:       #33cc77
+*.color10:      #c8e7a8
+
+! yellow
+*.color3:       #f0ae24
+*.color11:      #ffd649
+
+! blue
+*.color4:       #204a87
+*.color12:      #3465a4
+
+! magenta
+*.color5:       #ff6600
+*.color13:      #f57900
+
+! cyan
+!*.color6:       #296682
+*.color6:       #89b6e2
+*.color14:      #46a4ff
+
+! white
+*.color7:       #cccccc
+*.color15:      #ffffff
