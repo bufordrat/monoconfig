@@ -4,6 +4,8 @@
 # get man, git log, etc. not to use more/less in an Emacs shell
 if [ -n "$INSIDE_EMACS" ]
 then
+  unsetopt ZLE CORRECT
+  unset zle_bracketed_paste
   export MANPAGER=cat
   export PAGER=cat
   export TERM=ansi
@@ -11,12 +13,6 @@ then
   grep --version | grep GNU > /dev/null && alias grep='command grep --color=auto'
   type gls > /dev/null && alias ls='command gls --color=auto'
   diff --version | grep GNU > /dev/null && alias diff='command diff --color=auto'
-  case "$0" in
-  *zsh)
-      unset    zle_bracketed_paste
-      unsetopt ZLE CORRECT
-      ;;
-  esac
 fi
 
 # we need opam and path in both .zshrc and .zshenv, so that e.g. M-x
