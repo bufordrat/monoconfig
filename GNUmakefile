@@ -9,7 +9,7 @@ PI_PACKAGES = herbstluftwm zsh
 MACOS_PACKAGES = fish iterm pinentry-mac
 
 ARCH_RULES = herbstluftwm fish openssh gnupg x11 homebin zsh
-PI_RULES = herbstluftwm x11 zsh 
+PI_RULES = herbstluftwm x11 zsh
 MACOS_RULES = fish iterm openssh gnupg zsh
 
 
