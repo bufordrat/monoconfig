@@ -20,7 +20,7 @@ all: $(HOST)
 # host rules
 sequent: arch dunst firehol fstab
 
-kleisli: arch mpd samba
+kleisli: arch mpd samba intel
 
 substructural: macos 
 
@@ -121,6 +121,10 @@ zsh::
 	install -m 444 $@/$(HOST)_zshrc ~/zshrc/$(HOST)_zshrc
 	install -m 444 $@/$(HOST)_zshenv ~/.zshenv
 .PHONY: zsh
+
+intel::
+	sudo install -m 444 $@/$(HOST)_20_intel_conf /etc/X11/xorg.conf.d/20-intel.conf
+.PHONY: intel
 
 
 # package manager rules
