@@ -9,7 +9,7 @@ then
   export MANPAGER=cat
   export PAGER=cat
   export TERM=ansi
-  export PS1='%(0?,$(shrink_path -f)> ,%B%F{red}%? $(shrink_path -f)> %f%b)'
+  # export PS1='%(0?,$(shrink_path -f) > ,%B%F{red}%? $(shrink_path -f)> %f%b)'
   grep --version | grep GNU > /dev/null && alias grep='command grep --color=auto'
   type gls > /dev/null && alias ls='command gls --color=auto'
   diff --version | grep GNU > /dev/null && alias diff='command diff --color=auto'
