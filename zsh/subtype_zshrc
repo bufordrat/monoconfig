@@ -1,0 +1,18 @@
+# emacs tramp
+[[ "$-" == *i* ]] || { unsetopt zle && PS1='%m$ ' && return; }
+
+# get man, git log, etc. not to use more/less in an Emacs shell
+if [ -n "$INSIDE_EMACS" ]
+then
+  unsetopt ZLE CORRECT
+  unset zle_bracketed_paste
+  export MANPAGER=cat
+  export PAGER=cat
+  export TERM=ansi
+  grep --version | grep GNU > /dev/null && alias grep='command grep --color=auto'
+  ls   --version | grep GNU > /dev/null && alias ls='command   ls   --color=auto'
+  diff --version | grep GNU > /dev/null && alias diff='command diff --color=auto'
+fi
+
+# get $EDITOR to behave in Emacs
+export EDITOR=figure_out_editor_variable

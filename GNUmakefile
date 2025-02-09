@@ -43,6 +43,7 @@ macos: $(MACOS_RULES)
 
 # app/config rules
 herbstluftwm::
+	mkdir -p $(CONFIG_PATH)/$@
 	install -m 555 $@/autostart $(CONFIG_PATH)/$@/autostart
 	install -m 555 $@/general_as $(CONFIG_PATH)/$@/general_as
 	install -m 555 $@/$(HOST)_as $(CONFIG_PATH)/$@/$(HOST)_as
@@ -50,6 +51,7 @@ herbstluftwm::
 .PHONY: herbstluftwm
 
 fish::
+	mkdir -p $(CONFIG_PATH)/$@
 	install -m 444 $@/config.fish $(CONFIG_PATH)/$@/config.fish
 	install -m 444 $@/general.fish $(CONFIG_PATH)/$@/general.fish
 	install -m 444 $@/ssh_gpg.fish $(CONFIG_PATH)/$@/ssh_gpg.fish
@@ -57,6 +59,7 @@ fish::
 .PHONY: fish
 
 dunst::
+	mkdir -p $(CONFIG_PATH)/$@
 	install -m 444 $@/dunstrc $(CONFIG_PATH)/$@/dunstrc
 .PHONY: dunst
 
@@ -69,10 +72,10 @@ xdefaults::
 .PHONY: xdefaults
 
 xinitrc::
-	mkdir -p ~/xinitrc
+	mkdir -p ~/$@
 	install -m 555 $@/.xinitrc ~/.xinitrc
-	install -m 555 $@/general_xinitrc ~/xinitrc/general_xinitrc
-	install -m 555 $@/$(HOST)_xinitrc ~/xinitrc/$(HOST)_xinitrc
+	install -m 555 $@/general_xinitrc ~/$@/general_xinitrc
+	install -m 555 $@/$(HOST)_xinitrc ~/$@/$(HOST)_xinitrc
 .PHONY: xinitrc
 
 x11: xinitrc xdefaults
@@ -82,6 +85,7 @@ openssh::
 .PHONY: openssh
 
 gnupg::
+	mkdir -p ~/.$@
 	install -m 444 $@/dummy.gpg ~
 	install -m 444 $@/$(HOST)_gpg_agent_conf ~/.$@/gpg-agent.conf
 .PHONY: gnupg
