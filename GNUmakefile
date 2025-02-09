@@ -30,7 +30,7 @@ semigroup:
 
 pitype:
 
-fomega:
+fomega: fish openssh gnupg zsh homebin
 
 mzero: 
 
@@ -85,7 +85,7 @@ openssh::
 .PHONY: openssh
 
 gnupg::
-	mkdir -p ~/.$@
+	mkdir -m 700 -p ~/.$@
 	install -m 444 $@/dummy.gpg ~
 	install -m 444 $@/$(HOST)_gpg_agent_conf ~/.$@/gpg-agent.conf
 .PHONY: gnupg
