@@ -6,7 +6,7 @@ hc keybind $Mod-Shift-p spawn sh -c 'dmenu_path | dmenu -f -fn "Bok Montecarlo-8
 hc keybind $Mod-p spawn sh -c "dmenu_path | dmenu_run_history -fn 'Bok Montecarlo-8'"
 
 # suspend
-hc keybind Ctrl+$Mod+End spawn ~/bin/susp.sh 
+hc keybind Ctrl+$Mod+End spawn ~/bin/susp
 
 # frame gap set for low-res display
 hc set frame_gap 22

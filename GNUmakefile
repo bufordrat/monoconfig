@@ -103,10 +103,12 @@ fstab::
 
 homebin::
 	mkdir -p $(HOMEBIN_DIR)
+	# install -m 555 $@/borgtastic.sh $(HOMEBIN_DIR)/borgtastic
 	install -m 555 $@/dmenu_run_history.sh $(HOMEBIN_DIR)/dmenu_run_history
 	install -m 555 $@/pi0sync.sh $(HOMEBIN_DIR)/pi0sync
 	install -m 555 $@/pi3sync.sh $(HOMEBIN_DIR)/pi3sync
 	install -m 555 $@/figure_out_editor_variable.sh $(HOMEBIN_DIR)/figure_out_editor_variable
+	install -m 555 $@/$(HOST)_susp.sh $(HOMEBIN_DIR)/susp
 .PHONY: homebin
 
 # note: I have not yet set this repo up on semigroup, pitype, or
