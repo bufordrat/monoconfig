@@ -2,6 +2,6 @@
 if status --is-login; and not set -q SSH_CLIENT
    eval (ssh-agent -c)
    ssh-add
-   gpg --decrypt --pinentry-mode loopback dummy.gpg > /dev/null
+   while not gpg -d --pinentry=loopback dummy.gpg 1> /dev/null 2>&1 ; : ; end
    emacs --daemon
 end
