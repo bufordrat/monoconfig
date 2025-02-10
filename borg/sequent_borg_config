@@ -1,0 +1,4 @@
+#  -*- mode: sh -*-
+# borg config for sequent
+BACKUPSDIR=/media/sequent-backup/backup
+ROOT=$HOME

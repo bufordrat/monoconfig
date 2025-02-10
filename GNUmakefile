@@ -18,7 +18,7 @@ all: $(HOST)
 
 
 # host rules
-sequent: arch dunst firehol fstab
+sequent: arch dunst firehol fstab borg
 
 kleisli: arch mpd samba intel
 
@@ -103,7 +103,6 @@ fstab::
 
 homebin::
 	mkdir -p $(HOMEBIN_DIR)
-	# install -m 555 $@/borgtastic.sh $(HOMEBIN_DIR)/borgtastic
 	install -m 555 $@/dmenu_run_history.sh $(HOMEBIN_DIR)/dmenu_run_history
 	install -m 555 $@/pi0sync.sh $(HOMEBIN_DIR)/pi0sync
 	install -m 555 $@/pi3sync.sh $(HOMEBIN_DIR)/pi3sync
@@ -149,6 +148,11 @@ bash::
 	install -m 444 $@/$(HOST)_bashrc ~/.bashrc
 	install -m 444 $@/$(HOST)_bash_profile ~/.bash_profile
 .PHONY: bash
+
+borg::
+	install -m 555 $@/borgtastic.sh $(HOMEBIN_DIR)/borgtastic
+	install -m 444 $@/$(HOST)_borg_config $(CONFIG_PATH)/borg-config
+.PHONY: borg
 
 
 # package manager rules
