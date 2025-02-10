@@ -134,6 +134,7 @@ intel::
 
 raspi::
 	sudo install -m 755 $@/$(HOST)_boot_config_txt /boot/firmware/config.txt
+	sudo install -m 644 $@/$(HOST)_console_setup /etc/default/console-setup
 .PHONY: raspi
 
 
