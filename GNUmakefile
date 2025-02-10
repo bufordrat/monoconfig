@@ -9,7 +9,7 @@ PI_PACKAGES = fish openssh gnupg zsh
 MACOS_PACKAGES = fish iterm pinentry-mac
 
 ARCH_RULES = herbstluftwm fish openssh gnupg x11 homebin zsh
-PI_RULES = fish openssh gnupg homebin zsh mpd
+PI_RULES = fish openssh gnupg homebin zsh mpd raspi
 MACOS_RULES = fish iterm openssh gnupg zsh
 
 
@@ -131,6 +131,10 @@ zsh::
 intel::
 	sudo install -m 444 $@/$(HOST)_20_intel_conf /etc/X11/xorg.conf.d/20-intel.conf
 .PHONY: intel
+
+raspi::
+	sudo install -m 755 $@/$(HOST)_boot_config_txt /boot/firmware/config.txt
+.PHONY: raspi
 
 
 # package manager rules
