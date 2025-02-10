@@ -14,14 +14,5 @@ then
   diff --version | grep GNU > /dev/null && alias diff='command diff --color=auto'
 fi
 
-# we need opam and path in both .zshrc and .zshenv, so that e.g. M-x
-# shell has opam and ghcup on the path
-
-# opam
-$(opam env)
-
-# path
-export PATH=/home/teichman/bin:/home/teichman/.ghcup/bin:/home/teichman/.stack/bin:$PATH
-
 # get $EDITOR to behave in Emacs
 export EDITOR=figure_out_editor_variable

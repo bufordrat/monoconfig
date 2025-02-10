@@ -1,5 +1,5 @@
-# this is for non-login shells, e.g. M-x compile
-export PATH=/home/teichman/bin:/home/teichman/.ghcup/bin:/home/teichman/.stack/bin:$PATH
+# path
+export PATH=/home/teichman/bin:/home/teichman/.ghcup/bin:/home/teichman/.stack/bin:/home/teichman/.local/bin:$PATH
 
 # opam
 opam --version > /dev/null && eval $(opam env)
