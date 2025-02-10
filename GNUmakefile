@@ -8,9 +8,9 @@ ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh
 PI_PACKAGES = fish openssh gnupg zsh 
 MACOS_PACKAGES = fish iterm pinentry-mac
 
-ARCH_RULES = herbstluftwm fish openssh gnupg x11 homebin zsh
-PI_RULES = fish openssh gnupg homebin zsh mpd raspi
-MACOS_RULES = fish iterm openssh gnupg zsh
+ARCH_RULES = herbstluftwm bash fish zsh openssh gnupg x11 homebin
+PI_RULES = bash fish zsh openssh gnupg homebin mpd raspi
+MACOS_RULES = bash fish zsh iterm openssh gnupg
 
 
 # mother of all rules
@@ -94,7 +94,7 @@ gnupg::
 
 firehol::
 	pgrep gpg-agent
-	gpg -d $@/$@_conf.gpg | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
+	gpg -d --pinentry=loopback $@/$@_conf.gpg | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
 .PHONY: firehol
 
 fstab::
@@ -140,8 +140,13 @@ raspi::
 
 netctl::
 	pgrep gpg-agent
-	gpg -d ~/.secrets/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -D LAMBDATASTIC='include(/dev/stdin)' $@/eduroam | sudo install -m 644 /dev/stdin /etc/$@/eduroam
+	gpg -d --pinentry=loopback ~/.secrets/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -D LAMBDATASTIC='include(/dev/stdin)' $@/eduroam | sudo install -m 644 /dev/stdin /etc/$@/eduroam
 .PHONY: netctl
+
+bash::
+	install -m 444 $@/$(HOST)_bashrc ~/.bashrc
+	install -m 444 $@/$(HOST)_bash_profile ~/.bash_profile
+.PHONY: bash
 
 
 # package manager rules

@@ -1,0 +1,11 @@
+#
+# ~/.bashrc
+#
+
+alias ls='ls --color=auto'
+PS1='[\u@\h \W]\$ '
+
+PATH=/home/teichman/.ghcup/bin:/home/teichman/bin:/home/teichman/.stack/bin:/home/teichman/.local/bin:$PATH
+eval $(opam env)
+
+export EDITOR=figure_out_editor_variable
