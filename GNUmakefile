@@ -24,7 +24,7 @@ kleisli: arch mpd samba intel
 
 substructural: macos 
 
-subtype: arch
+subtype: arch netctl
 
 semigroup: 
 
@@ -93,6 +93,7 @@ gnupg::
 .PHONY: gnupg
 
 firehol::
+	pgrep gpg-agent
 	gpg -d $@/$@_conf.gpg | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
 .PHONY: firehol
 
@@ -136,6 +137,11 @@ raspi::
 	sudo install -m 755 $@/$(HOST)_boot_config_txt /boot/firmware/config.txt
 	sudo install -m 644 $@/$(HOST)_console_setup /etc/default/console-setup
 .PHONY: raspi
+
+netctl::
+	pgrep gpg-agent
+	gpg -d ~/.secrets/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -D LAMBDATASTIC='include(/dev/stdin)' $@/eduroam | sudo install -m 644 /dev/stdin /etc/$@/eduroam
+.PHONY: netctl
 
 
 # package manager rules

@@ -1,0 +1,15 @@
+Description='eduroam'
+Interface=wlp0s20f3 
+Connection=wireless
+Security=wpa-configsection
+ESSID=eduroam
+IP=dhcp
+Priority=10
+WPAConfigSection=(
+'priority=1'
+'ssid="eduroam"'
+'key_mgmt=WPA-EAP'
+'eap=PEAP'
+'identity="teichman@uchicago.edu"'
+'password="LAMBDATASTIC"'
+)
