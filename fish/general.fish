@@ -48,7 +48,7 @@ else
     end
 end
 
-# path
+# homebin path
 fish_add_path ~/bin
 
 # umask
