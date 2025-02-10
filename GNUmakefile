@@ -5,11 +5,11 @@ HOST = $(shell uname -n | cut -d. -f1)
 HOMEBIN_DIR = ~/bin
 
 ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh
-PI_PACKAGES = herbstluftwm zsh 
+PI_PACKAGES = fish openssh gnupg zsh 
 MACOS_PACKAGES = fish iterm pinentry-mac
 
 ARCH_RULES = herbstluftwm fish openssh gnupg x11 homebin zsh
-PI_RULES = herbstluftwm x11 zsh
+PI_RULES = fish openssh gnupg homebin zsh mpd
 MACOS_RULES = fish iterm openssh gnupg zsh
 
 
@@ -30,7 +30,7 @@ semigroup:
 
 pitype:
 
-fomega: fish openssh gnupg zsh homebin
+fomega: pi 
 
 mzero: 
 
@@ -39,6 +39,8 @@ mzero:
 arch: $(ARCH_RULES)
 
 macos: $(MACOS_RULES)
+
+pi: $(PI_RULES)
 
 
 # app/config rules
