@@ -13,11 +13,6 @@ ARCH_RULES = $(BASIC_RULES) herbstluftwm x11
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm 
 
-# packages to install (needs work)
-ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie
-PI_PACKAGES = fish openssh gnupg zsh mpd
-MACOS_PACKAGES = fish iterm pinentry-mac opam
-
 # mother of all rules
 all: $(HOST)
 
@@ -169,6 +164,11 @@ emacs::
 	install -m 444 $@/$(HOST)-init.el ~/.emacs.d/lisp/$(HOST)-init.el
 .PHONY: emacs
 
+# packages to install
+ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie
+PI_PACKAGES = fish openssh gnupg zsh mpd
+MACOS_PACKAGES = fish iterm pinentry-mac opam
+
 # package manager rules
 pacman::
 	sudo pacman -S $(ARCH_PACKAGES)
@@ -177,3 +177,4 @@ pacman::
 brew::
 	brew install $(MACOS_PACKAGES)
 .PHONY: brew
+
