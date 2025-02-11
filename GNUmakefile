@@ -8,9 +8,10 @@ ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh
 PI_PACKAGES = fish openssh gnupg zsh 
 MACOS_PACKAGES = fish iterm pinentry-mac
 
-ARCH_RULES = emacs herbstluftwm bash fish zsh openssh gnupg x11 homebin
-PI_RULES = emacs bash fish zsh openssh gnupg homebin mpd raspi
-MACOS_RULES = homebin emacs bash fish zsh iterm openssh gnupg
+ESSENTIALS = homebin emacs bash fish zsh openssh gnupg
+ARCH_RULES = $(ESSENTIALS) herbstluftwm x11 
+PI_RULES = $(ESSENTIALS) mpd raspi
+MACOS_RULES = $(ESSENTIALS) iterm 
 
 
 # mother of all rules
