@@ -1,22 +1,25 @@
 # -*- makefile-gmake -*-
 
-CONFIG_PATH = ~/.config
+# hostname
 HOST = $(shell uname -n | cut -d. -f1)
+
+# important paths
+CONFIG_PATH = ~/.config
 HOMEBIN_DIR = ~/bin
 
-ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh
-PI_PACKAGES = fish openssh gnupg zsh 
-MACOS_PACKAGES = fish iterm pinentry-mac
-
+# make rulesets
 ESSENTIALS = homebin emacs bash fish zsh openssh gnupg
 ARCH_RULES = $(ESSENTIALS) herbstluftwm x11 
 PI_RULES = $(ESSENTIALS) mpd raspi
 MACOS_RULES = $(ESSENTIALS) iterm 
 
+# packages to install (needs work)
+ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh
+PI_PACKAGES = fish openssh gnupg zsh 
+MACOS_PACKAGES = fish iterm pinentry-mac
 
 # mother of all rules
 all: $(HOST)
-
 
 # host rules
 sequent: arch dunst firehol fstab borg
@@ -37,14 +40,12 @@ mzero:
 
 profunctor: macos
 
-
 # os rules
 arch: $(ARCH_RULES)
 
 macos: $(MACOS_RULES)
 
 pi: $(PI_RULES)
-
 
 # app/config rules
 herbstluftwm::
@@ -110,8 +111,6 @@ homebin::
 	install -m 555 $@/pi0sync.sh $(HOMEBIN_DIR)/pi0sync
 	install -m 555 $@/pi3sync.sh $(HOMEBIN_DIR)/pi3sync
 	install -m 555 $@/figure_out_editor_variable.sh $(HOMEBIN_DIR)/figure_out_editor_variable
-	# will need to move this out into a separate rule, since Macs don't need a susp script
-	# install -m 555 $@/$(HOST)_susp.sh $(HOMEBIN_DIR)/susp
 .PHONY: homebin
 
 # note: I have not yet set this repo up on semigroup, pitype, or
@@ -167,7 +166,6 @@ emacs::
 	install -m 444 $@/general-init-nw.el ~/.emacs.d/lisp/general-init-nw.el
 	install -m 444 $@/$(HOST)-init.el ~/.emacs.d/lisp/$(HOST)-init.el
 .PHONY: emacs
-
 
 # package manager rules
 pacman::
