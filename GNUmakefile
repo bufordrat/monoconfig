@@ -96,8 +96,9 @@ gnupg::
 	install -m 444 $@/$(HOST)_gpg_agent_conf ~/.$@/gpg-agent.conf
 .PHONY: gnupg
 
-firehol::
+firehol: homebin
 	pgrep gpg-agent
+	gpg -d --pinentry=loopback ~/dummy.gpg
 	gpg -d --pinentry=loopback $@/$@_conf.gpg | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
 .PHONY: firehol
 
@@ -142,8 +143,9 @@ raspi::
 	sudo install -m 644 $@/$(HOST)_console_setup /etc/default/console-setup
 .PHONY: raspi
 
-netctl::
+netctl: homebin
 	pgrep gpg-agent
+	gpg -d --pinentry=loopback ~/dummy.gpg
 	gpg -d --pinentry=loopback ~/.secrets/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -D LAMBDATASTIC='include(/dev/stdin)' $@/eduroam | sudo install -m 644 /dev/stdin /etc/$@/eduroam
 .PHONY: netctl
 
