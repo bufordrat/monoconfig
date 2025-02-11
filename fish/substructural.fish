@@ -1,5 +1,5 @@
-# global variables
-set -U fish_user_paths /opt/homebrew/bin $fish_user_paths
+# add homebrew to path
+fish_add_path /opt/homebrew/bin
 
 # opam stuff
 eval (opam env)

@@ -10,7 +10,7 @@ MACOS_PACKAGES = fish iterm pinentry-mac
 
 ARCH_RULES = emacs herbstluftwm bash fish zsh openssh gnupg x11 homebin
 PI_RULES = emacs bash fish zsh openssh gnupg homebin mpd raspi
-MACOS_RULES = emacs bash fish zsh iterm openssh gnupg
+MACOS_RULES = homebin emacs bash fish zsh iterm openssh gnupg
 
 
 # mother of all rules
@@ -33,6 +33,8 @@ pitype:
 fomega: pi 
 
 mzero: 
+
+profunctor: macos
 
 
 # os rules
@@ -107,7 +109,8 @@ homebin::
 	install -m 555 $@/pi0sync.sh $(HOMEBIN_DIR)/pi0sync
 	install -m 555 $@/pi3sync.sh $(HOMEBIN_DIR)/pi3sync
 	install -m 555 $@/figure_out_editor_variable.sh $(HOMEBIN_DIR)/figure_out_editor_variable
-	install -m 555 $@/$(HOST)_susp.sh $(HOMEBIN_DIR)/susp
+	# will need to move this out into a separate rule, since Macs don't need a susp script
+	# install -m 555 $@/$(HOST)_susp.sh $(HOMEBIN_DIR)/susp
 .PHONY: homebin
 
 # note: I have not yet set this repo up on semigroup, pitype, or
@@ -156,7 +159,12 @@ borg::
 
 emacs::
 	mkdir -p ~/.emacs.d/lisp
-	install -m 444 $@/*.el ~/.emacs.d/lisp
+	install -m 444 $@/entry-point.el ~/.emacs.d/lisp/entry-point.el
+	install -m 444 $@/fonts.el ~/.emacs.d/lisp/fonts.el
+	install -m 444 $@/fishy-prompt.el ~/.emacs.d/lisp/fishy-prompt.el
+	install -m 444 $@/general-init.el ~/.emacs.d/lisp/general-init.el
+	install -m 444 $@/general-init-nw.el ~/.emacs.d/lisp/general-init-nw.el
+	install -m 444 $@/$(HOST)-init.el ~/.emacs.d/lisp/$(HOST)-init.el
 .PHONY: emacs
 
 

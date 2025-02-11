@@ -1,7 +1,8 @@
-# this is for non-login shells, e.g. M-x compile
-
-# opam stuff
+# opam
 eval $(opam env)
 
 # path
 export PATH=/opt/homebrew/bin:/Users/teichman/bin:/Users/teichman/.local/bin:/Users/teichman/.ghcup/bin:/Users/teichman/.stack/bin:$PATH
+
+# get $EDITOR to behave in Emacs
+export EDITOR=figure_out_editor_variable
