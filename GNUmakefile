@@ -4,19 +4,19 @@
 HOST = $(shell uname -n | cut -d. -f1)
 
 # important paths
-CONFIG_PATH = ~/.config
+CONFIG_DIR = ~/.config
 HOMEBIN_DIR = ~/bin
 
 # make rulesets
-ESSENTIALS = homebin emacs bash fish zsh openssh gnupg
-ARCH_RULES = $(ESSENTIALS) herbstluftwm x11 
-PI_RULES = $(ESSENTIALS) mpd raspi
-MACOS_RULES = $(ESSENTIALS) iterm 
+BASIC_RULES = homebin emacs bash fish zsh openssh gnupg
+ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 
+PI_RULES = $(BASIC_RULES) mpd raspi
+MACOS_RULES = $(BASIC_RULES) iterm 
 
 # packages to install (needs work)
-ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh
-PI_PACKAGES = fish openssh gnupg zsh 
-MACOS_PACKAGES = fish iterm pinentry-mac
+ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie
+PI_PACKAGES = fish openssh gnupg zsh mpd
+MACOS_PACKAGES = fish iterm pinentry-mac opam
 
 # mother of all rules
 all: $(HOST)
@@ -49,24 +49,24 @@ pi: $(PI_RULES)
 
 # app/config rules
 herbstluftwm::
-	mkdir -p $(CONFIG_PATH)/$@
-	install -m 555 $@/autostart $(CONFIG_PATH)/$@/autostart
-	install -m 555 $@/general_as $(CONFIG_PATH)/$@/general_as
-	install -m 555 $@/$(HOST)_as $(CONFIG_PATH)/$@/$(HOST)_as
-	install -m 444 $@/bg.png $(CONFIG_PATH)/bg.png
+	mkdir -p $(CONFIG_DIR)/$@
+	install -m 555 $@/autostart $(CONFIG_DIR)/$@/autostart
+	install -m 555 $@/general_as $(CONFIG_DIR)/$@/general_as
+	install -m 555 $@/$(HOST)_as $(CONFIG_DIR)/$@/$(HOST)_as
+	install -m 444 $@/bg.png $(CONFIG_DIR)/bg.png
 .PHONY: herbstluftwm
 
 fish::
-	mkdir -p $(CONFIG_PATH)/$@
-	install -m 444 $@/config.fish $(CONFIG_PATH)/$@/config.fish
-	install -m 444 $@/general.fish $(CONFIG_PATH)/$@/general.fish
-	install -m 444 $@/ssh_gpg.fish $(CONFIG_PATH)/$@/ssh_gpg.fish
-	install -m 444 $@/$(HOST).fish $(CONFIG_PATH)/$@/$(HOST).fish
+	mkdir -p $(CONFIG_DIR)/$@
+	install -m 444 $@/config.fish $(CONFIG_DIR)/$@/config.fish
+	install -m 444 $@/general.fish $(CONFIG_DIR)/$@/general.fish
+	install -m 444 $@/ssh_gpg.fish $(CONFIG_DIR)/$@/ssh_gpg.fish
+	install -m 444 $@/$(HOST).fish $(CONFIG_DIR)/$@/$(HOST).fish
 .PHONY: fish
 
 dunst::
-	mkdir -p $(CONFIG_PATH)/$@
-	install -m 444 $@/dunstrc $(CONFIG_PATH)/$@/dunstrc
+	mkdir -p $(CONFIG_DIR)/$@
+	install -m 444 $@/dunstrc $(CONFIG_DIR)/$@/dunstrc
 .PHONY: dunst
 
 iterm::
@@ -117,8 +117,8 @@ homebin::
 # mzero, so these mpd config files are currently only here for backup;
 # the only one that's being used is kleisli
 mpd::
-	mkdir -p $(CONFIG_PATH)/mpd
-	install -m 444 $@/$(HOST)_mpd_conf $(CONFIG_PATH)/$@/mpd.conf
+	mkdir -p $(CONFIG_DIR)/mpd
+	install -m 444 $@/$(HOST)_mpd_conf $(CONFIG_DIR)/$@/mpd.conf
 .PHONY: mpd
 
 samba::
@@ -154,7 +154,7 @@ bash::
 
 borg::
 	install -m 555 $@/borgtastic.sh $(HOMEBIN_DIR)/borgtastic
-	install -m 444 $@/$(HOST)_borg_config $(CONFIG_PATH)/borg-config
+	install -m 444 $@/$(HOST)_borg_config $(CONFIG_DIR)/borg-config
 .PHONY: borg
 
 emacs::
