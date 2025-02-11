@@ -8,9 +8,9 @@ ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh
 PI_PACKAGES = fish openssh gnupg zsh 
 MACOS_PACKAGES = fish iterm pinentry-mac
 
-ARCH_RULES = herbstluftwm bash fish zsh openssh gnupg x11 homebin
-PI_RULES = bash fish zsh openssh gnupg homebin mpd raspi
-MACOS_RULES = bash fish zsh iterm openssh gnupg
+ARCH_RULES = emacs herbstluftwm bash fish zsh openssh gnupg x11 homebin
+PI_RULES = emacs bash fish zsh openssh gnupg homebin mpd raspi
+MACOS_RULES = emacs bash fish zsh iterm openssh gnupg
 
 
 # mother of all rules
@@ -153,6 +153,11 @@ borg::
 	install -m 555 $@/borgtastic.sh $(HOMEBIN_DIR)/borgtastic
 	install -m 444 $@/$(HOST)_borg_config $(CONFIG_PATH)/borg-config
 .PHONY: borg
+
+emacs::
+	mkdir -p ~/.emacs.d/lisp
+	install -m 444 $@/*.el ~/.emacs.d/lisp
+.PHONY: emacs
 
 
 # package manager rules
