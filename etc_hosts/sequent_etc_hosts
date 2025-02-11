@@ -1,0 +1,8 @@
+# Static table lookup for hostnames.
+# See hosts(5) for details.
+
+127.0.0.1	localhost
+::1		localhost
+127.0.1.1	sequent.localdomain	sequent	
+127.0.0.1	wwwdev
+127.0.0.1	loopdev

@@ -17,7 +17,7 @@ MACOS_RULES = $(BASIC_RULES) iterm
 all: $(HOST)
 
 # host rules
-sequent: arch dunst firehol fstab borg
+sequent: arch dunst firehol fstab borg etc_hosts
 
 kleisli: arch mpd samba intel
 
@@ -163,6 +163,10 @@ emacs::
 	install -m 444 $@/general-init-nw.el ~/.emacs.d/lisp/general-init-nw.el
 	install -m 444 $@/$(HOST)-init.el ~/.emacs.d/lisp/$(HOST)-init.el
 .PHONY: emacs
+
+etc_hosts::
+	sudo install -m 444 $@/$(HOST)_etc_hosts /etc/hosts
+.PHONY: etc_hosts
 
 # packages to install
 ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie
