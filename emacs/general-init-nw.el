@@ -8,7 +8,10 @@
 (global-set-key (kbd "C-c m") 'magit-clone)
 (global-set-key (kbd "M-+") #'scroll-up-line)
 (global-set-key (kbd "M-_") #'scroll-down-line)
+
+;; replacements for GUI Emacs keybindings
 (global-set-key (kbd "M-;") #'comment-line)
+(global-set-key (kbd "M-o") #'other-window)
 
 ;; function calls
 (winner-mode 1)
