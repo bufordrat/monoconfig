@@ -8,6 +8,7 @@
 (global-set-key (kbd "C-c m") 'magit-clone)
 (global-set-key (kbd "M-+") #'scroll-up-line)
 (global-set-key (kbd "M-_") #'scroll-down-line)
+(global-set-key (kbd "M-;") #'comment-line)
 
 ;; function calls
 (winner-mode 1)

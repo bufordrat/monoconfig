@@ -2,10 +2,10 @@
 (cd "~")
 
 ;; keybindings
-(global-set-key (kbd "C-c v") 'visual-line-mode)
+(global-set-key (kbd "C-c v") #'visual-line-mode)
 (global-set-key (kbd "C-c f") #'mt-change-font-family)
 (global-set-key (kbd "C-c s") #'mt-change-font-size)
-(global-set-key (kbd "C-c m") 'magit-clone)
+(global-set-key (kbd "C-c m") #'magit-clone)
 (global-set-key (kbd "M-+") #'scroll-up-line)
 (global-set-key (kbd "M-_") #'scroll-down-line)
 (global-set-key (kbd "M-;") #'comment-line)
