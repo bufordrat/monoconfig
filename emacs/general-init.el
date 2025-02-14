@@ -12,6 +12,10 @@
 ;; replacements for GUI Emacs keybindings
 (global-set-key (kbd "M-;") #'comment-line)
 (global-set-key (kbd "M-o") #'other-window)
+(global-set-key (kbd "C-x ,") #'previous-buffer)
+(global-set-key (kbd "C-x .") #'next-buffer)
+(global-set-key (kbd "C-c ,") #'winner-undo)
+(global-set-key (kbd "C-c .") #'winner-redo)
 
 ;; function calls
 (winner-mode 1)
