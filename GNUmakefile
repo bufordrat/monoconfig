@@ -3,7 +3,7 @@
 # hostname
 HOST = $(shell uname -n | cut -d. -f1)
 
-n# important paths
+# important paths
 CONFIG_DIR = ~/.config
 HOMEBIN_DIR = ~/bin
 
