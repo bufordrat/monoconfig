@@ -170,8 +170,8 @@ etc_hosts::
 
 # packages to install
 ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie ascii
-PI_PACKAGES = fish openssh gnupg zsh mpd
-MACOS_PACKAGES = fish iterm pinentry-mac opam
+PI_PACKAGES = fish openssh gnupg zsh mpd ascii
+MACOS_PACKAGES = fish iterm pinentry-mac opam ascii
 
 # package manager rules
 pacman::
