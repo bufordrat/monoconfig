@@ -3,7 +3,7 @@
 # hostname
 HOST = $(shell uname -n | cut -d. -f1)
 
-# important paths
+n# important paths
 CONFIG_DIR = ~/.config
 HOMEBIN_DIR = ~/bin
 
@@ -169,7 +169,7 @@ etc_hosts::
 .PHONY: etc_hosts
 
 # packages to install
-ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie
+ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie ascii
 PI_PACKAGES = fish openssh gnupg zsh mpd
 MACOS_PACKAGES = fish iterm pinentry-mac opam
 
