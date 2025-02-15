@@ -14,8 +14,8 @@
 (global-set-key (kbd "M-o") #'other-window)
 (global-set-key (kbd "C-x ,") #'previous-buffer)
 (global-set-key (kbd "C-x .") #'next-buffer)
-(global-set-key (kbd "C-c ,") #'winner-undo)
-(global-set-key (kbd "C-c .") #'winner-redo)
+(global-set-key (kbd "C-c 9") #'winner-undo)
+(global-set-key (kbd "C-c 0") #'winner-redo)
 
 ;; function calls
 (winner-mode 1)
