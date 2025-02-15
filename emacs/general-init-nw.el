@@ -18,8 +18,6 @@
 (global-set-key (kbd "C-c 0") #'winner-redo)
 
 ;; temporarily turning these keybindings off for off-weaning
-(global-unset-key (kbd "C-c <left>"))
-(global-unset-key (kbd "C-c <right>"))
 (global-unset-key (kbd "C-x o"))
 (global-unset-key (kbd "C-x C-;"))
 
