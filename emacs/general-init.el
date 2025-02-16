@@ -27,6 +27,7 @@
 (size-indication-mode 1)
 (display-time)
 (show-paren-mode 1)
+(xclip-mode 1)
 
 ;; menu bar stuff
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
