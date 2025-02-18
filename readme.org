@@ -8,8 +8,8 @@ install all and only the configuration files that are relevant to that
 machine.  It determines which configuration files to install by
 checking the hostname of the machine it is running on.
 
-This makefile is not packaged for use by anyone else on any other
-machines.  Nonetheless, please feel free to browse the many files in
-this repository and copy any config out of them that may be useful to
-you.
-
+This makefile is idiosyncratic to Matt and is not intended for use by
+anyone else on any other machines.  Nonetheless, if you are in the
+middle of banging on your own configuration, please feel free to
+browse the many files in this repository and copy anything out of them
+that may be useful to you.
