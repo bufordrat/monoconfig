@@ -17,6 +17,14 @@
 ;; load pdf tools
 (pdf-loader-install)
 
+;; dired icons & doom modeline
+(require 'nerd-icons)
+(require 'nerd-icons-dired)
+(mt-turnon-gui 1)
+(setopt doom-modeline-hud t)
+(setopt doom-modeline-minor-modes t)
+(setopt doom-modeline-window-width-limit 60)
+
 ;; setopts
 (setopt org-file-apps
    '((auto-mode . emacs)
