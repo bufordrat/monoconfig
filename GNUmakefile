@@ -35,6 +35,8 @@ mzero:
 
 profunctor: macos
 
+hedwig: zsh
+
 # os rules
 arch: $(ARCH_RULES)
 

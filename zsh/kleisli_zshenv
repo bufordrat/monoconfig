@@ -1,4 +1,4 @@
-# this is for non-login shells, e.g. M-x compile
+# for both non-login and login shells
 export PATH=/home/teichman/bin:/home/teichman/.ghcup/bin:/home/teichman/.stack/bin:/home/teichman/.local/bin:$PATH
 
 # opam

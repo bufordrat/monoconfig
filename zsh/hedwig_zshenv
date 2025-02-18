@@ -1,0 +1,2 @@
+# for both non-login and login shells
+export PATH="/usr/local/bin:/home/teichman/bin:$PATH"
