@@ -163,6 +163,7 @@ emacs::
 	install -m 444 $@/general-init.el ~/.emacs.d/lisp
 	install -m 444 $@/general-init-nw.el ~/.emacs.d/lisp
 	install -m 444 $@/$(HOST)-init.el ~/.emacs.d/lisp/$(HOST)-init.el
+	cat $@/init-message.txt
 .PHONY: emacs
 
 etc_hosts::
