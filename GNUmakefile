@@ -163,6 +163,7 @@ emacs::
 	install -m 444 $@/toggle-gui.el ~/.emacs.d/lisp
 	install -m 444 $@/general-init.el ~/.emacs.d/lisp
 	install -m 444 $@/$(HOST)-init.el ~/.emacs.d/lisp/$(HOST)-init.el
+	cp ~/.emacs.d/customizes.el $@/customizes/$(HOST)_customizes
 .PHONY: emacs
 
 etc_hosts::
