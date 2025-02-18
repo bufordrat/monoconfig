@@ -1,6 +1,0 @@
-
-to use this emacs config, add the following lines to your ~/emacs.d/init.el:
-
-  (add-to-list 'load-path (concat user-emacs-directory "lisp"))
-  (with-demoted-errors "%s" (load-library "entry-point"))
-
