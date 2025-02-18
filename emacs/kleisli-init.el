@@ -17,6 +17,11 @@
 ;; meta key
 (setopt x-super-keysym 'meta)
 
+;; agda
+(with-demoted-errors "%S"
+  (load-file (let ((coding-system-for-read 'utf-8))
+               (shell-command-to-string "agda-mode locate"))))
+
 ;; other setopts
 (setopt org-file-apps
    '((auto-mode . emacs)

@@ -14,6 +14,11 @@
 (setopt doom-modeline-minor-modes t)
 (setopt doom-modeline-window-width-limit 60)
 
+;; agda
+(with-demoted-errors "%S"
+  (load-file (let ((coding-system-for-read 'utf-8))
+               (shell-command-to-string "agda-mode locate"))))
+
 ;; other setopts
 (setopt display-battery-mode t)
 (setopt org-file-apps
