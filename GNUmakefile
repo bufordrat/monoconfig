@@ -156,7 +156,8 @@ borg::
 
 emacs::
 	mkdir -p ~/.emacs.d/lisp
-	install -m 444 $@/entry-point.el ~/.emacs.d/lisp
+	test -f ~/.emacs.d/customizes.el || touch ~/.emacs.d/customizes.el
+	install -m 444 $@/init.el ~/.emacs.d
 	install -m 444 $@/fonts.el ~/.emacs.d/lisp
 	install -m 444 $@/fishy-prompt.el ~/.emacs.d/lisp
 	install -m 444 $@/toggle-gui.el ~/.emacs.d/lisp
