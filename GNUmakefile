@@ -156,11 +156,12 @@ borg::
 
 emacs::
 	mkdir -p ~/.emacs.d/lisp
-	install -m 444 $@/entry-point.el ~/.emacs.d/lisp/entry-point.el
-	install -m 444 $@/fonts.el ~/.emacs.d/lisp/fonts.el
-	install -m 444 $@/fishy-prompt.el ~/.emacs.d/lisp/fishy-prompt.el
-	install -m 444 $@/general-init.el ~/.emacs.d/lisp/general-init.el
-	install -m 444 $@/general-init-nw.el ~/.emacs.d/lisp/general-init-nw.el
+	install -m 444 $@/entry-point.el ~/.emacs.d/lisp
+	install -m 444 $@/fonts.el ~/.emacs.d/lisp
+	install -m 444 $@/fishy-prompt.el ~/.emacs.d/lisp
+	install -m 444 $@/toggle-gui.el ~/.emacs.d/lisp
+	install -m 444 $@/general-init.el ~/.emacs.d/lisp
+	install -m 444 $@/general-init-nw.el ~/.emacs.d/lisp
 	install -m 444 $@/$(HOST)-init.el ~/.emacs.d/lisp/$(HOST)-init.el
 .PHONY: emacs
 

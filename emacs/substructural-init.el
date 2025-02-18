@@ -6,7 +6,15 @@
 ;; haskell lsp
 (add-hook 'haskell-mode-hook 'eglot-ensure)
 
-;; setopts
+;; dired icons & doom modeline
+(require 'nerd-icons)
+(require 'nerd-icons-dired)
+(mt-turnon-gui 1)
+(setopt doom-modeline-hud t)
+(setopt doom-modeline-minor-modes t)
+(setopt doom-modeline-window-width-limit 60)
+
+;; other setopts
 (setopt display-battery-mode t)
 (setopt org-file-apps
    '((auto-mode . emacs)

@@ -6,7 +6,18 @@
 ;; load pdf tools
 (pdf-loader-install)
 
-;; setopts
+;; dired icons & doom modeline
+(require 'nerd-icons)
+(require 'nerd-icons-dired)
+(mt-turnon-gui 1)
+(setopt doom-modeline-hud t)
+(setopt doom-modeline-minor-modes t)
+(setopt doom-modeline-window-width-limit 60)
+
+;; meta key
+(setopt x-super-keysym 'meta)
+
+;; other setopts
 (setopt display-battery-mode t)
 (setopt org-file-apps
    '((auto-mode . emacs)
@@ -15,4 +26,3 @@
      ("\\.x?html?\\'" . "firefox %s")
      ("\\.pdf\\'" . default)))
 (setopt shell-file-name "/usr/bin/zsh")
-(setopt x-super-keysym 'meta)
