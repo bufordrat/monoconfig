@@ -1,15 +1,58 @@
-* Summary
+* monoconfig
 
-=monoconfig= is a makefile that allows [[https://github.com/bufordrat][Matt]] to keep the configuration
-for every configurable app he uses on every machine he uses in one
-place.  It also provides a simple one-command install that can be run
-on any of the machines that [[https://github.com/bufordrat][Matt]] is currently using, which will
-install all and only the configuration files that are relevant to that
-machine.  It determines which configuration files to install by
-checking the hostname of the machine it is running on.
+=monoconfig= is a makefile that:
 
-This makefile is idiosyncratic to [[https://github.com/bufordrat][Matt]] and is not intended for use by
-anyone else on any other machines.  Nonetheless, if you are in the
-middle of banging on your own configuration, please feel free to
-browse the many files in this repository and copy anything out of them
-that may be useful to you.
++ can install every one of Matt's config files in one command
++ works on any one of Matt's (many) machines
+
+This makefile is not built for anyone else to use.  However, if, by
+some chance, you do find anything in this repo helpful, please feel
+free to use it.
+
+* Features
+
++ =m4= and =gpg= for injecting secrets into config files
++ installs machine-specific config by checking the hostname
++ the installed config files are write-only, preventing changes from
+  accidentally slipping past the version control goalie
++ backs up non-installable config (such as =emacs= customizes) in this
+  repository
++ configuration is abstracted into general and host-specific
+  components
+
+* Quickstart
+
+#+begin_example
+  $ cd /path/to/this/repo
+  $ make
+#+end_example
+
+* Policies
+
+=monoconfig= is most felicitously used in conjunction with certain
+policies, which it is up to the user to live by:
+
++ your home directory contains a dedicated subdirectory, call it
+  =data=
++ every file you might want to open, edit, or back up, including this
+  repository, lives in =data=
++ everything else on your system, including the contents of =~= that
+  are not in =~/data=, is disposable, because it can be reinstalled
+
+* Background
+
+Some years ago, I bought a new laptop and decided to put Linux on it.
+I could not remotely get it to work.  So I decided to learn Linux, in
+order to finally be able to use Not-Windows on my wonderful new
+machine.  Real black diamond of a learning curve, but I never would
+have been able to do it without [[https://linuxcommand.org/tlcl.php][this incredible book]].
+
+It's a foregone conclusion that once you start using Linux, you're
+going to be hacking on config files.  And so I hacked, endlessly, for
+fourteen years, before realizing one day that I was living in a
+special hell of my own making.  What special hell is that, you ask?
+Why, it's the hell of config files, edited in place, for over a
+decade, scattered all your filesystem, across over ten different
+hosts, *with nothing version controlled*.
+
+It was time to put everything in one place, forever.

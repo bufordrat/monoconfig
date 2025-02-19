@@ -28,7 +28,7 @@
 (display-time)
 (show-paren-mode 1)
 (fringe-mode '(1 . 1))
-0
+
 ;; menu bar stuff
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -38,6 +38,9 @@
 ;; package-initialize
 (setq package-enable-at-startup nil)
 (package-initialize)
+
+;; vlf
+(require 'vlf-setup)
 
 ;; repos
 (dolist (arc '(("melpa-stable" . "http://stable.melpa.org/packages/")
