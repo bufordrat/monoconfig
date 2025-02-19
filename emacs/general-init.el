@@ -27,7 +27,7 @@
 (size-indication-mode 1)
 (display-time)
 (show-paren-mode 1)
-(fringe-mode '(1 . 1))
+(fringe-mode '(nil . 0))
 
 ;; menu bar stuff
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
