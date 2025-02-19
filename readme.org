@@ -3,7 +3,7 @@
 =monoconfig= is a makefile that allows [[https://github.com/bufordrat][Matt]] to keep the configuration
 for every configurable app he uses on every machine he uses in one
 place.  It also provides a simple one-command install that can be run
-on any of the machines that Matt is currently using, which will
+on any of the machines that [[https://github.com/bufordrat][Matt]] is currently using, which will
 install all and only the configuration files that are relevant to that
 machine.  It determines which configuration files to install by
 checking the hostname of the machine it is running on.
