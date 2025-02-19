@@ -31,3 +31,5 @@
      ("\\.pdf\\'" . default)))
 (setopt shell-file-name "/usr/bin/zsh")
 
+;; xclip
+(xclip-mode 1)

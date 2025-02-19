@@ -19,3 +19,6 @@
      ("\\.x?html?\\'" . "open %s")
      ("\\.pdf\\'" . default)))
 (setopt shell-file-name "/bin/zsh")
+
+;; xclip
+(xclip-mode 1)

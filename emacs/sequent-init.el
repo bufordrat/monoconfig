@@ -35,3 +35,6 @@
 (setopt shell-file-name "/usr/bin/zsh")
 (setopt x-super-keysym 'meta)
 (setopt browse-url-secondary-browser-function 'browse-url-firefox)
+
+;; xclip
+(xclip-mode 1)
