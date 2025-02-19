@@ -5,8 +5,8 @@
 + can install every one of Matt's config files in one command
 + works on any one of Matt's (many) machines
 
-This makefile is not built for anyone else to use.  However, if, by
-some chance, you do find anything in this repo helpful, please feel
+This makefile is not built for anyone else to use.  However, if by
+some chance you do find anything in this repo helpful, please feel
 free to use it.
 
 * Features
