@@ -152,5 +152,5 @@
 (setq proced-enable-color-flag t)
 (setq ring-bell-function 'ignore)
 (setq tooltip-mode nil)
-(setq truncate-lines t)
+(setq truncate-lines nil)
 (setq tuareg-opam-insinuate t)
