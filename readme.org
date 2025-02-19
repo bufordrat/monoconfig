@@ -34,7 +34,7 @@ policies, which it is up to the user to live by:
 + your home directory contains a dedicated subdirectory, call it
   =data=
 + every file you might want to open, edit, or back up, including this
-  repository, lives in =data=
+  repository, lives in =~/data=
 + everything else on your system, including the contents of =~= that
   are not in =~/data=, is disposable, because it can be reinstalled
 
