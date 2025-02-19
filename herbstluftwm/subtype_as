@@ -2,7 +2,7 @@
 feh --bg-fill ~/.config/herbstluftwm/bg.png
 
 # launcher
-hc keybind $Mod-p spawn sh -c "dmenu_path | dmenu_run_history -fn 'M+ 1mn-11'"
+hc keybind $Mod-p spawn sh -c "dmenu_path | dmenu_run_history -fn 'M+ 1mn-10'"
 
 # suspend
 hc keybind Ctrl+$Mod+End spawn ~/bin/susp.sh

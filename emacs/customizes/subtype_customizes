@@ -1,0 +1,31 @@
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(badwolf))
+ '(custom-safe-themes
+   '("16ab866312f1bd47d1304b303145f339eac46bbc8d655c9bfa423b957aa23cc9" default))
+ '(doom-modeline-height 45))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(diredfl-compressed-file-suffix ((t (:foreground "tomato4"))))
+ '(diredfl-date-time ((t (:foreground "light goldenrod"))))
+ '(diredfl-dir-heading ((t (:foreground "gold"))))
+ '(diredfl-dir-name ((t (:foreground "white"))))
+ '(diredfl-dir-priv ((t (:foreground "sandy brown"))))
+ '(diredfl-exec-priv ((t (:foreground "dark goldenrod"))))
+ '(diredfl-file-name ((t (:foreground "wheat"))))
+ '(diredfl-file-suffix ((t (:foreground "tan"))))
+ '(diredfl-ignored-file-name ((t (:foreground "tomato3"))))
+ '(diredfl-link-priv ((t (:foreground "tomato"))))
+ '(diredfl-no-priv ((t (:foreground "chocolate"))))
+ '(diredfl-number ((t (:foreground "salmon4"))))
+ '(diredfl-rare-priv ((t (:foreground "Green"))))
+ '(diredfl-read-priv ((t (:foreground "navajo white"))))
+ '(diredfl-write-priv ((t (:foreground "tan")))))
+
+
