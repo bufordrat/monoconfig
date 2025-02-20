@@ -51,10 +51,11 @@ learning curve.
 
 It's a foregone conclusion that once you start using Linux, you're
 going to be hacking on config files.  And so I hacked, endlessly, for
-fourteen years, before realizing that I'd been living under a fog of
-primordial dread.  A special hell of my own making, which took the
-form of config files, edited in place, thousands of times over
-thousands of hours, scattered all over my filesystem, across more than
-ten different hosts, *with nothing version controlled*.
+at least fourteen years, before eventually realizing that I'd hacked
+myself into a corner.  I was forced to admit that I'd been living
+under a hellish fog of my own making, which took the form of config
+files, edited in place, thousands of times over thousands of hours,
+scattered all over my filesystem, across more than ten different
+hosts, *with nothing version controlled*.
 
 It was time to put everything in one place, forever.
