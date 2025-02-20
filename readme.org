@@ -29,7 +29,7 @@ free to use it.
 * Lifestyle
 
 In its idiomatic use, =monoconfig= encourages the following
-(informally-enforced) lifestyle policies:
+(informally-enforced) lifestyle:
 
 + your home directory contains a dedicated subdirectory, call it
   =data=
