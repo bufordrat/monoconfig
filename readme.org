@@ -40,7 +40,7 @@ free to use it.
 
 Never again live in fear of blowing away your home directory.  As long
 as =~/data= is backed up, you are backed up; all else is ephemera
-that ended up there because you ran an app.
+whose only reason for existing is that you ran an app.
 
 * Background
 
