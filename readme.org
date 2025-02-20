@@ -19,6 +19,13 @@ free to use it.
 + configuration is abstracted into general and host-specific
   components
 
+* Quickstart
+
+#+begin_example
+  $ cd /path/to/this/repo
+  $ make
+#+end_example
+
 * Lifestyle
 
 In its idiomatic use, =monoconfig= encourages the following
@@ -31,13 +38,6 @@ In its idiomatic use, =monoconfig= encourages the following
 + everything else on your system, including the contents of =~= that
   are not in =~/data=, is to be treated disposable, because it can be
   reinstalled
-
-* Quickstart
-
-#+begin_example
-  $ cd /path/to/this/repo
-  $ make
-#+end_example
 
 * Background
 
