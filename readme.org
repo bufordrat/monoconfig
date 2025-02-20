@@ -40,15 +40,13 @@ free to use it.
 
 Never again live in fear of blowing away your home directory.  As long
 as =~/data= is backed up, you are backed up; all else is ephemera
-created automatically by one of your apps.
+that ended up there because you ran an app.
 
 * Background
 
 Some years ago, I bought a new laptop and decided to put Linux on it.
-I could not remotely get it to work.  So I decided to learn Linux, in
-order to finally be able to use Not-Windows on my wonderful new
-machine.  Real black diamond of a learning curve, but I never would
-have been able to do it without [[https://linuxcommand.org/tlcl.php][this incredible book]].
+Boy, oh boy, did that not work.  I decided to learn Linux in order to
+make it work, which was a real black diamond of a learning curve.
 
 It's a foregone conclusion that once you start using Linux, you're
 going to be hacking on config files.  And so I hacked, endlessly, for
