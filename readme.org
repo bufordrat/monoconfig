@@ -14,8 +14,8 @@ free to use it.
 + =m4= and =gpg= for injecting secrets into config files
 + the hostname determines which machine-specific config gets installed
 + the installed config files are write-only
-+ backs up non-installable config (such as =emacs= customizes) in this
-  repository
++ non-installable config (such as =emacs= customizes) gets backed up
+  automatically in this repository
 + abstract configuration featuring general and host-specific
   components
 
