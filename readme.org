@@ -26,18 +26,17 @@ free to use it.
   $ make
 #+end_example
 
-* Lifestyle
+* Semi-stateless Lifestyle
 
-In its idiomatic use, =monoconfig= encourages the following
-(informally-enforced) lifestyle:
+=monoconfig= encourages the following semi-stateless lifestyle:
 
 + your home directory contains a dedicated subdirectory, call it
   =data=
 + every file you might want to open, edit, or back up, including this
   repository, lives in =~/data=
 + everything else on your system, including the contents of =~= that
-  are not in =~/data=, is to be treated disposable, because it can be
-  reinstalled
+  are not in =~/data=, is to be treated as disposable, because it can
+  be reinstalled
 
 * Background
 
