@@ -30,7 +30,7 @@ free to use it.
 
 =monoconfig= encourages the following semi-stateless lifestyle:
 
-+ your home directory contains a dedicated subdirectory, call it
++ your home directory contains a dedicated subdirectory; call it
   =data=
 + every file you might want to open, edit, or back up, including this
   repository, lives in =~/data=
