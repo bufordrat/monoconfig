@@ -12,11 +12,11 @@ free to use it.
 * Features
 
 + =m4= and =gpg= for injecting secrets into config files
-+ installs machine-specific config by checking the hostname
++ the hostname determines which machine-specific config gets installed
 + the installed config files are write-only
 + backs up non-installable config (such as =emacs= customizes) in this
   repository
-+ configuration is abstracted into general and host-specific
++ abstract configuration featuring general and host-specific
   components
 
 * Quickstart
