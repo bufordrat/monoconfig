@@ -38,6 +38,9 @@ free to use it.
   are not in =~/data=, is to be treated as disposable, because it can
   be reinstalled
 
+Never again live in fear of blowing away your home directory.  As long
+as =~/data= is backed up, you are backed up.
+
 * Background
 
 Some years ago, I bought a new laptop and decided to put Linux on it.
