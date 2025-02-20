@@ -39,8 +39,8 @@ free to use it.
   be reinstalled
 
 Never again live in fear of blowing away your home directory.  As long
-as =~/data= is backed up, you are backed up, and everything else is
-transitory detritus created by one of your apps.
+as =~/data= is backed up, you are backed up; all else is ephemera
+created automatically by one of your apps.
 
 * Background
 
