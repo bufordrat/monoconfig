@@ -95,8 +95,8 @@ gnupg::
 
 firehol: homebin
 	pgrep gpg-agent
-	gpg -d --pinentry=loopback ~/dummy.gpg
-	gpg -d --pinentry=loopback $@/$@_conf.gpg | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
+	gpg -d --pinentry-mode loopback ~/dummy.gpg
+	gpg -d --pinentry-mode loopback $@/$@_conf.gpg | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
 .PHONY: firehol
 
 fstab::
@@ -142,8 +142,8 @@ raspi::
 
 netctl: homebin
 	pgrep gpg-agent
-	gpg -d --pinentry=loopback ~/dummy.gpg
-	gpg -d --pinentry=loopback ~/.secrets/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -D LAMBDATASTIC='include(/dev/stdin)' $@/eduroam | sudo install -m 644 /dev/stdin /etc/$@/eduroam
+	gpg -d --pinentry-mode loopback ~/dummy.gpg
+	gpg -d --pinentry-mode loopback ~/.secrets/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -D LAMBDATASTIC='include(/dev/stdin)' $@/eduroam | sudo install -m 644 /dev/stdin /etc/$@/eduroam
 .PHONY: netctl
 
 bash::
