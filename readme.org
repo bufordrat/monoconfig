@@ -19,24 +19,25 @@ free to use it.
 + configuration is abstracted into general and host-specific
   components
 
-* Quickstart
+* Lifestyle
 
-#+begin_example
-  $ cd /path/to/this/repo
-  $ make
-#+end_example
-
-* Policies
-
-=monoconfig= is most felicitously used in conjunction with certain
-policies, which it is up to the user to live by:
+In its idiomatic use, =monoconfig= encourages the following
+(informally-enforced) lifestyle policies:
 
 + your home directory contains a dedicated subdirectory, call it
   =data=
 + every file you might want to open, edit, or back up, including this
   repository, lives in =~/data=
 + everything else on your system, including the contents of =~= that
-  are not in =~/data=, is disposable, because it can be reinstalled
+  are not in =~/data=, is to be treated disposable, because it can be
+  reinstalled
+
+* Quickstart
+
+#+begin_example
+  $ cd /path/to/this/repo
+  $ make
+#+end_example
 
 * Background
 
