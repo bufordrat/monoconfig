@@ -87,4 +87,3 @@
     (if is-bitmap
 	(mt-change-font-size-bitmap size-int)
       (mt-change-font-size-truetype font-string))))
-
