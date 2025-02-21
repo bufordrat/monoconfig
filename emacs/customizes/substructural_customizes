@@ -6,7 +6,7 @@
  '(custom-enabled-themes '(gruvbox))
  '(custom-safe-themes
    '("b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d" default))
- '(doom-modeline-height 35))
+ '(doom-modeline-height 40))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
