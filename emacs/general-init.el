@@ -1,3 +1,9 @@
+;; load matt's personal elisp
+(with-demoted-errors "%s" (load-library "fonts"))
+(with-demoted-errors "%s" (load-library "fishy-prompt"))
+(with-demoted-errors "%s" (load-library "toggle-gui"))
+(with-demoted-errors "%s" (load-library "shells"))
+
 ;; cd to homedir
 (cd "~")
 
@@ -6,6 +12,8 @@
 (global-set-key (kbd "C-c f -") #'mt-change-font-family)
 (global-set-key (kbd "C-c f h") #'mt-change-font-size)
 (global-set-key (kbd "C-c g") #'gui-mode)
+(global-set-key (kbd "C-c \\") #'mt-shell)
+(global-set-key (kbd "C-c |") #'eshell)
 (global-set-key (kbd "C-c m") #'magit-clone)
 (global-set-key (kbd "M-+") #'scroll-up-line)
 (global-set-key (kbd "M-_") #'scroll-down-line)
