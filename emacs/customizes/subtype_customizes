@@ -6,7 +6,7 @@
  '(custom-enabled-themes '(badwolf))
  '(custom-safe-themes
    '("16ab866312f1bd47d1304b303145f339eac46bbc8d655c9bfa423b957aa23cc9" default))
- '(doom-modeline-height 45))
+ '(doom-modeline-height 50))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -20,6 +20,8 @@
  '(diredfl-exec-priv ((t (:foreground "dark goldenrod"))))
  '(diredfl-file-name ((t (:foreground "wheat"))))
  '(diredfl-file-suffix ((t (:foreground "tan"))))
+ '(diredfl-flag-mark ((t (:foreground "aquamarine"))))
+ '(diredfl-flag-mark-line ((t (:foreground "turquoise"))))
  '(diredfl-ignored-file-name ((t (:foreground "tomato3"))))
  '(diredfl-link-priv ((t (:foreground "tomato"))))
  '(diredfl-no-priv ((t (:foreground "chocolate"))))

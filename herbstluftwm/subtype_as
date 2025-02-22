@@ -9,3 +9,7 @@ hc keybind Ctrl+$Mod+End spawn ~/bin/susp.sh
 
 # frame gap set for high-res display
 hc set frame_gap 40
+
+# emacsclient shortcut key
+hc keybind $Mod+backslash spawn emacsclient -c "~/github/mine/monoconfig"
+

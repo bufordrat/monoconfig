@@ -14,3 +14,6 @@ hc set frame_gap 22
 # I honestly don't know what this is; maybe delete it
 hc attr theme.inner_width 0
 hc attr theme.border_width 1
+
+# emacsclient shortcut key
+hc keybind $Mod+backslash spawn emacsclient -c
