@@ -6,7 +6,7 @@
 ;; dired icons & doom modeline
 (require 'nerd-icons)
 (require 'nerd-icons-dired)
-(mt-turnon-gui 1)
+(gui-mode 1)
 (setopt doom-modeline-hud t)
 (setopt doom-modeline-minor-modes t)
 (setopt doom-modeline-window-width-limit 60)
