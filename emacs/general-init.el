@@ -3,8 +3,8 @@
 
 ;; keybindings
 (global-set-key (kbd "C-c v") #'visual-line-mode)
-(global-set-key (kbd "C-c f") #'mt-change-font-family)
-(global-set-key (kbd "C-c s") #'mt-change-font-size)
+(global-set-key (kbd "C-c f f") #'mt-change-font-family)
+(global-set-key (kbd "C-c f s") #'mt-change-font-size)
 (global-set-key (kbd "C-c g") #'gui-mode)
 (global-set-key (kbd "C-c m") #'magit-clone)
 (global-set-key (kbd "M-+") #'scroll-up-line)
