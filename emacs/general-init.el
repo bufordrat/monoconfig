@@ -86,6 +86,10 @@
 (setq message-send-mail-function 'smtpmail-send-it)
 (setq smtpmail-smtp-service 587)
 
+;; use web-mode for html
+(dolist (ext '("\\.xhtml$" "\\.htm$" "\\.html$"))
+  (add-to-list 'auto-mode-alist (cons ext 'web-mode)))
+
 ;; bbdb
 (with-eval-after-load 'bbdb
   (bbdb-initialize 'gnus 'message 'anniv))

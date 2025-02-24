@@ -16,4 +16,4 @@ hc attr theme.inner_width 0
 hc attr theme.border_width 1
 
 # emacsclient shortcut key
-hc keybind $Mod+backslash spawn emacsclient -c
+hc keybind $Mod+backslash spawn emacsclient -c "~/Code/GitHub/monoconfig"

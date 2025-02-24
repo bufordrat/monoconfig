@@ -12,4 +12,3 @@ hc set frame_gap 40
 
 # emacsclient shortcut key
 hc keybind $Mod+backslash spawn emacsclient -c "~/github/mine/monoconfig"
-
