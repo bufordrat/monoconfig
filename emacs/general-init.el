@@ -77,8 +77,10 @@
 
 ;; completion
 (with-demoted-errors "%S"
-  (vertico-mode +1)
-  (vertico-prescient-mode +1))
+  (vertico-mode +1))
+(require 'orderless)
+(setq completion-styles '(orderless basic)
+      completion-category-overrides '((file (styles basic partial-completion))))
 
 ;; message mode
 (setq message-send-mail-function 'smtpmail-send-it)
