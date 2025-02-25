@@ -8,7 +8,6 @@
    '("332a945a80a202248b21963da38e842aa35b09d1b43c26144bd517943855fe8a" "b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d" default))
  '(diredfl-global-mode t nil (diredfl))
  '(doom-modeline-height 25)
- '(marginalia-mode t)
  '(package-selected-packages
    '(orderless vertico-prescient vertico diff-hl zenburn-theme yaml xclip wgrep web-mode vterm vlf virtualenvwrapper vagrant-tramp vagrant use-package typescript-mode tuareg ttl-mode treemacs-icons-dired transpose-frame svg-clock slack skewer-mode selectrum-prescient rjsx-mode reason-mode pyvenv python-black py-yapf py-isort py-autopep8 psysh psgml php-mode pg pdf-tools pacman ox-twbs ox-pandoc ormolu oceanic-theme nodejs-repl nix-mode nerd-icons-dired multi-web-mode merlin marginalia magit lsp-mode json-reformat json-mode ini-mode indium htmlize haskell-mode gutenberg gruvbox-theme fzf flymake-python-pyflakes fish-mode fish-completion exec-path-from-shell evil erlang emacsshot elm-mode eglot editorconfig edit-indirect eat dune doom-modeline django-theme django-mode django-commands disk-usage diredfl csv-mode bbdb bash-completion badwolf-theme all-the-icons afternoon-theme)))
 (custom-set-faces
