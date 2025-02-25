@@ -77,10 +77,8 @@
 
 ;; completion
 (with-demoted-errors "%S"
-  (selectrum-mode +1)
-  (selectrum-prescient-mode +1)
-  (prescient-persist-mode +1)
-  (marginalia-mode +1))
+  (vertico-mode +1)
+  (vertico-prescient-mode +1))
 
 ;; message mode
 (setq message-send-mail-function 'smtpmail-send-it)
