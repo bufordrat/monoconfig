@@ -23,6 +23,8 @@
  '(diredfl-exec-priv ((t (:foreground "dark goldenrod"))))
  '(diredfl-file-name ((t (:foreground "wheat"))))
  '(diredfl-file-suffix ((t (:foreground "tan"))))
+ '(diredfl-flag-mark ((t (:foreground "aquamarine"))))
+ '(diredfl-flag-mark-line ((t (:foreground "turquoise"))))
  '(diredfl-ignored-file-name ((t (:foreground "tomato3"))))
  '(diredfl-link-priv ((t (:foreground "tomato"))))
  '(diredfl-no-priv ((t (:foreground "chocolate"))))
@@ -30,3 +32,4 @@
  '(diredfl-rare-priv ((t (:foreground "Green"))))
  '(diredfl-read-priv ((t (:foreground "navajo white"))))
  '(diredfl-write-priv ((t (:foreground "tan")))))
+
