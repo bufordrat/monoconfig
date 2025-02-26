@@ -14,9 +14,13 @@ BASIC_RULES = homebin emacs bash fish zsh openssh gnupg
 ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 python
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python
+INTERNET_RULES = install-python
 
 # mother of all rules
 all: $(HOST)
+
+# use the internet
+internet: all $(INTERNET_RULES)
 
 # host rules
 sequent: arch dunst firehol fstab borg etc_hosts
