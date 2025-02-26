@@ -6,12 +6,14 @@ HOST = $(shell uname -n | cut -d. -f1)
 # important paths
 CONFIG_DIR = ~/.config
 HOMEBIN_DIR = ~/bin
+VENV_DIR = $(HOME)/virtualenvs/envs/lsp
+VENV_REQUIREMENTS_DIR = $(HOME)/virtualenvs/config/lsp
 
 # make rulesets
 BASIC_RULES = homebin emacs bash fish zsh openssh gnupg
-ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 
+ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 python
 PI_RULES = $(BASIC_RULES) mpd raspi
-MACOS_RULES = $(BASIC_RULES) iterm 
+MACOS_RULES = $(BASIC_RULES) iterm python
 
 # mother of all rules
 all: $(HOST)
@@ -172,6 +174,22 @@ emacs::
 etc_hosts::
 	sudo install -m 444 $@/$(HOST)_etc_hosts /etc/hosts
 .PHONY: etc_hosts
+
+remove-lsp-virtualenv::
+	rm -rf $(VENV_DIR)
+.PHONY: remove-lsp-virtualenv
+
+make-lsp-virtualenv::
+	mkdir -p $(VENV_DIR)
+	python -m venv $(VENV_DIR)
+.PHONY: make-lsp-virtualenv
+
+pip-install-lsp::
+	mkdir -p $(VENV_REQUIREMENTS_DIR)
+	install -m 444 $@/config_lsp_requirements $(VENV_REQUIREMENTS_DIR)/requirements.txt
+	source $(VENV_DIR)/bin/activate && python -m ensurepip && pip install --upgrade pip && pip install -r $(VENV_REQUIREMENTS_DIR)/requirements.txt && deactivate
+
+python: remove-lsp-virtualenv make-lsp-virtualenv pip-install-lsp
 
 # packages to install
 ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie ascii xclip
