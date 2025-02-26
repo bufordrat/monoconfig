@@ -79,6 +79,8 @@
 (use-package vertico
   :ensure t
   :config (vertico-mode))
+(define-key vertico-map (kbd "RET") 'vertico-exit-input)
+(define-key vertico-map (kbd "M-RET") 'vertico-exit)
 (use-package marginalia
   :ensure t
   :custom
