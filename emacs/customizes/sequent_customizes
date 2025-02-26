@@ -17,20 +17,20 @@
 		     doom-modeline dune eat edit-indirect editorconfig
 		     eglot elm-mode emacsshot erlang evil
 		     exec-path-from-shell fish-completion fish-mode
-		     flymake-python-pyflakes fzf gruvbox-theme
-		     gutenberg haskell-mode htmlize indium ini-mode
-		     json-mode json-reformat lsp-mode magit marginalia
-		     merlin multi-web-mode nerd-icons-dired nix-mode
-		     nodejs-repl oceanic-theme orderless ormolu
-		     ox-pandoc ox-twbs pacman pdf-tools pg php-mode
-		     psgml psysh py-autopep8 py-isort py-yapf
-		     python-black pyvenv reason-mode rjsx-mode
-		     selectrum-prescient skewer-mode svg-clock
-		     transpose-frame treemacs-icons-dired ttl-mode
-		     tuareg typescript-mode use-package vagrant
-		     vagrant-tramp vertico vertico-prescient
-		     virtualenvwrapper vlf vterm web-mode wgrep xclip
-		     yaml zenburn-theme)))
+		     flycheck flymake-python-pyflakes fzf
+		     gruvbox-theme gutenberg haskell-mode htmlize
+		     indium ini-mode json-mode json-reformat lsp-mode
+		     magit marginalia merlin multi-web-mode
+		     nerd-icons-dired nix-mode nodejs-repl
+		     oceanic-theme orderless ormolu ox-pandoc ox-twbs
+		     pacman pdf-tools pg php-mode psgml psysh
+		     py-autopep8 py-isort py-yapf python-black pyvenv
+		     reason-mode rjsx-mode selectrum-prescient
+		     skewer-mode svg-clock transpose-frame
+		     treemacs-icons-dired ttl-mode tuareg
+		     typescript-mode use-package vagrant vagrant-tramp
+		     vertico vertico-prescient virtualenvwrapper vlf
+		     vterm web-mode wgrep xclip yaml zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
