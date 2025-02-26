@@ -179,17 +179,16 @@ remove-lsp-virtualenv::
 	rm -rf $(VENV_DIR)
 .PHONY: remove-lsp-virtualenv
 
-make-lsp-virtualenv::
+python::
 	mkdir -p $(VENV_DIR)
-	python -m venv $(VENV_DIR)
+	install -m 444 $@/config_lsp_requirements $(VENV_REQUIREMENTS_DIR)/requirements.txt
 .PHONY: make-lsp-virtualenv
 
-pip-install-lsp::
+install-python:: remove-lsp-virtualenv python
+	python3 -m venv $(VENV_DIR)
 	mkdir -p $(VENV_REQUIREMENTS_DIR)
-	install -m 444 $@/config_lsp_requirements $(VENV_REQUIREMENTS_DIR)/requirements.txt
-	source $(VENV_DIR)/bin/activate && python -m ensurepip && pip install --upgrade pip && pip install -r $(VENV_REQUIREMENTS_DIR)/requirements.txt && deactivate
-
-python: remove-lsp-virtualenv make-lsp-virtualenv pip-install-lsp
+	source $(VENV_DIR)/bin/activate && python3 -m ensurepip && pip install --upgrade pip && pip install -r $(VENV_REQUIREMENTS_DIR)/requirements.txt && deactivate
+.PHONY: install-python
 
 # packages to install
 ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie ascii xclip
