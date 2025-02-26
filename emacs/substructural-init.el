@@ -31,3 +31,6 @@
 
 ;; xclip
 (xclip-mode 1)
+
+;; fire up a dired buffer visiting monoconfig
+(dired "~/Github/mine/monoconfig")
