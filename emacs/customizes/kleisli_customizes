@@ -5,8 +5,23 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(gruvbox))
  '(custom-safe-themes
-   '("b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d" default))
- '(doom-modeline-height 45))
+   '("836b0bc16dbd2aed387e552edabd4d67d227961efa3af412da387eb3e010d76b"
+     "b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d"
+     default))
+ '(doom-modeline-height 45)
+ '(package-selected-packages
+   '(all-the-icons-dired badwolf-theme bbdb command-log-mode csharp-mode
+			 csv csv-mode diredfl doom-modeline dune eat
+			 ein emms exec-path-from-shell fish-mode
+			 gruvbox-theme haskell-mode htmlize image+
+			 info-colors info-rename-buffer json-mode
+			 keepass-mode keypression lsp-mode magit
+			 marginalia merlin mingus mpdmacs
+			 nerd-icons-dired nix-mode notmuch orderless
+			 pdf-tools php-mode projectile
+			 selectrum-prescient simple-mpc tuareg
+			 unidecode vertico vlf vterm web-mode xclip
+			 yaml-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
