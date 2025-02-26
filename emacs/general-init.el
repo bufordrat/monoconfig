@@ -76,11 +76,23 @@
   (add-hook 'compilation-filter-hook 'my-colorize-compilation-buffer))
 
 ;; completion
-(with-demoted-errors "%S"
-  (selectrum-mode +1)
-  (selectrum-prescient-mode +1)
-  (prescient-persist-mode +1)
-  (marginalia-mode +1))
+(use-package vertico
+  :ensure t
+  :config (vertico-mode))
+(use-package marginalia
+  :ensure t
+  :custom
+  (marginalia-max-relative-age 0)
+  :init
+  (marginalia-mode))
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
+(setq read-file-name-completion-ignore-case t)
+(setq read-buffer-completion-ignore-case t)
+(setq extended-command-suggest-shorter nil)
 
 ;; message mode
 (setq message-send-mail-function 'smtpmail-send-it)

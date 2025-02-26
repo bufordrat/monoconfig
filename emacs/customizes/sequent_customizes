@@ -9,7 +9,7 @@
  '(diredfl-global-mode t nil (diredfl))
  '(doom-modeline-height 25)
  '(package-selected-packages
-   '(diff-hl zenburn-theme yaml xclip wgrep web-mode vterm vlf virtualenvwrapper vagrant-tramp vagrant use-package typescript-mode tuareg ttl-mode treemacs-icons-dired transpose-frame svg-clock slack skewer-mode selectrum-prescient rjsx-mode reason-mode pyvenv python-black py-yapf py-isort py-autopep8 psysh psgml php-mode pg pdf-tools pacman ox-twbs ox-pandoc ormolu oceanic-theme nodejs-repl nix-mode nerd-icons-dired multi-web-mode merlin marginalia magit lsp-mode json-reformat json-mode ini-mode indium htmlize haskell-mode gutenberg gruvbox-theme fzf flymake-python-pyflakes fish-mode fish-completion exec-path-from-shell evil erlang emacsshot elm-mode eglot editorconfig edit-indirect eat dune doom-modeline django-theme django-mode django-commands disk-usage diredfl csv-mode bbdb bash-completion badwolf-theme all-the-icons afternoon-theme)))
+   '(orderless vertico-prescient vertico diff-hl zenburn-theme yaml xclip wgrep web-mode vterm vlf virtualenvwrapper vagrant-tramp vagrant use-package typescript-mode tuareg ttl-mode treemacs-icons-dired transpose-frame svg-clock slack skewer-mode selectrum-prescient rjsx-mode reason-mode pyvenv python-black py-yapf py-isort py-autopep8 psysh psgml php-mode pg pdf-tools pacman ox-twbs ox-pandoc ormolu oceanic-theme nodejs-repl nix-mode nerd-icons-dired multi-web-mode merlin marginalia magit lsp-mode json-reformat json-mode ini-mode indium htmlize haskell-mode gutenberg gruvbox-theme fzf flymake-python-pyflakes fish-mode fish-completion exec-path-from-shell evil erlang emacsshot elm-mode eglot editorconfig edit-indirect eat dune doom-modeline django-theme django-mode django-commands disk-usage diredfl csv-mode bbdb bash-completion badwolf-theme all-the-icons afternoon-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -23,6 +23,8 @@
  '(diredfl-exec-priv ((t (:foreground "dark goldenrod"))))
  '(diredfl-file-name ((t (:foreground "wheat"))))
  '(diredfl-file-suffix ((t (:foreground "tan"))))
+ '(diredfl-flag-mark ((t (:foreground "aquamarine"))))
+ '(diredfl-flag-mark-line ((t (:foreground "turquoise"))))
  '(diredfl-ignored-file-name ((t (:foreground "tomato3"))))
  '(diredfl-link-priv ((t (:foreground "tomato"))))
  '(diredfl-no-priv ((t (:foreground "chocolate"))))
@@ -30,3 +32,4 @@
  '(diredfl-rare-priv ((t (:foreground "Green"))))
  '(diredfl-read-priv ((t (:foreground "navajo white"))))
  '(diredfl-write-priv ((t (:foreground "tan")))))
+
