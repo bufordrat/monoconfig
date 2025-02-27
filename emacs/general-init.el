@@ -169,6 +169,9 @@
 ;; dired
 (with-demoted-errors "%s" (diredfl-global-mode +1))
 
+;; setq-default-s
+(setq-default truncate-lines t)
+
 ;; setq-s
 ;;  (these used to be customizes, but were moved in here; see other .el
 ;;   files for more domain-specific setq-s/setopts)
@@ -190,5 +193,5 @@
 (setq proced-enable-color-flag t)
 (setq ring-bell-function 'ignore)
 (setq tooltip-mode nil)
-(setq truncate-lines t)
+(setq truncate-partial-width-windows nil)
 (setq tuareg-opam-insinuate t)
