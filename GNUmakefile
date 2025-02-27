@@ -3,11 +3,17 @@
 # hostname
 HOST = $(shell uname -n | cut -d. -f1)
 
-# important paths
+# paths
 CONFIG_DIR = ~/.config
 HOMEBIN_DIR = ~/bin
-VENV_DIR = $(HOME)/virtualenvs/envs/lsp
-VENV_REQUIREMENTS_DIR = $(HOME)/virtualenvs/config/lsp
+ENVS_DIR = $(HOME)/envs
+ENVS_CONFIG_DIR = $(ENVS_DIR)/config
+VENV_NAME = py-basics
+VENV_DIR = $(ENVS_DIR)/virtualenvs/py-default
+VENV_REQUIREMENTS_DIR = $(ENVS_CONFIG_DIR)/$(VENV_NAME)
+SWITCH_NAME = ocaml-basics
+SWITCH_VERSION = 4.14.1
+OCAML_BASICS = dune utop prelude etude spinup
 
 # make rulesets
 BASIC_RULES = homebin emacs bash fish zsh openssh gnupg
@@ -179,20 +185,32 @@ etc_hosts::
 	sudo install -m 444 $@/$(HOST)_etc_hosts /etc/hosts
 .PHONY: etc_hosts
 
-remove-lsp-virtualenv::
+remove-virtualenv::
 	rm -rf $(VENV_DIR)
-.PHONY: remove-lsp-virtualenv
+.PHONY: remove-virtualenv
 
 python::
 	mkdir -p $(VENV_REQUIREMENTS_DIR)
 	install -m 444 $@/config_lsp_requirements $(VENV_REQUIREMENTS_DIR)/requirements.txt
 .PHONY: python
 
-install-python:: remove-lsp-virtualenv python
+install-python:: remove-virtualenv python
 	mkdir -p $(VENV_DIR)
 	python3 -m venv $(VENV_DIR)
 	source $(VENV_DIR)/bin/activate && python3 -m ensurepip && pip install --upgrade pip && pip install -r $(VENV_REQUIREMENTS_DIR)/requirements.txt && deactivate
 .PHONY: install-python
+
+remove-switch::
+	opam switch remove -y $(SWITCH_NAME) || true
+.PHONY: remove-switch
+
+update-opam::
+	opam switch set default && eval $(opam env) && opam update -y && opam upgrade -y
+.PHONY: update-opam
+
+install-ocaml:: update-opam remove-switch
+	opam switch create -y $(SWITCH_NAME) $(SWITCH_VERSION) && opam switch set $(SWITCH_NAME) && eval $(opam env) && opam repository add dldc 'https://dldc.lib.uchicago.edu/opam' && opam update -y && opam upgrade -y && opam install -y $(OCAML_BASICS) && opam switch set ocaml-basics && eval $(opam env)
+.PHONY: install-ocaml
 
 # packages to install
 ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie ascii xclip

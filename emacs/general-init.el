@@ -125,7 +125,7 @@
 (require 'org-tempo)
 
 ;; python
-(defvar mt-venv-path "~/virtualenvs/envs/lsp")
+(defvar mt-venv-path "~/envs/virtualenvs/py-default")
 (pyvenv-mode +1)
 (pyvenv-activate mt-venv-path)
 (add-hook 'python-mode-hook 'eglot-ensure)
