@@ -11,4 +11,4 @@ hc keybind Ctrl+$Mod+End spawn ~/bin/susp.sh
 hc set frame_gap 40
 
 # emacsclient shortcut key
-hc keybind $Mod+backslash spawn emacsclient -c
+hc keybind $Mod+backslash spawn emacsclient -cn
