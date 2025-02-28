@@ -1,0 +1,23 @@
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("51400-teacher-edition"
+ (filename . "~/Github/mine/mpcs-fp/51400-teacher-edition/")
+ (front-context-string . ".git\n  -rw------")
+ (rear-context-string . "2B Feb 20 11:01 ")
+ (position . 226)
+ (last-modified 26558 32504 370075 0))
+("substructural-init.el"
+ (filename . "~/Github/mine/monoconfig/emacs/substructural-init.el")
+ (front-context-string)
+ (rear-context-string . "ne/monoconfig\")\n")
+ (position . 940)
+ (last-modified 26558 32139 698628 0))
+("general-init.el"
+ (filename . "~/Github/mine/monoconfig/emacs/general-init.el")
+ (front-context-string . ";; load matt's p")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26558 32135 188375 0))
+)

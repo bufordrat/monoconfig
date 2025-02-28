@@ -179,6 +179,7 @@ emacs::
 	install -m 444 $@/general-init.el ~/.emacs.d/lisp
 	install -m 444 $@/$(HOST)-init.el ~/.emacs.d/lisp/$(HOST)-init.el
 	cp ~/.emacs.d/customizes.el $@/customizes/$(HOST)_customizes
+	cp ~/.emacs.d/bookmarks $@/bookmarks/$(HOST)_bookmarks
 .PHONY: emacs
 
 etc_hosts::
