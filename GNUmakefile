@@ -211,7 +211,7 @@ install-ocaml:: remove-switch
 # packages to install
 ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie ascii xclip
 PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
-MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip
+MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make
 
 # package manager rules
 pacman::
