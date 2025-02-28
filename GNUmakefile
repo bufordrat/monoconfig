@@ -204,11 +204,7 @@ remove-switch::
 	opam switch remove -y $(SWITCH_NAME) || true
 .PHONY: remove-switch
 
-update-opam::
-	opam switch set default && eval $(opam env) && opam update -y && opam upgrade -y
-.PHONY: update-opam
-
-install-ocaml:: update-opam remove-switch
+install-ocaml:: remove-switch
 	opam switch create -y $(SWITCH_NAME) $(SWITCH_VERSION) && opam switch set $(SWITCH_NAME) && eval $(opam env) && opam repository add dldc 'https://dldc.lib.uchicago.edu/opam' && opam update -y && opam upgrade -y && opam install -y $(OCAML_BASICS) && opam switch set ocaml-basics && eval $(opam env)
 .PHONY: install-ocaml
 
