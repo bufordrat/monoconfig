@@ -1,0 +1,11 @@
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("51400-teacher-edition"
+ (filename . "~/github/mine/mpcs-fp/51400-teacher-edition/")
+ (front-context-string . "assignments\n  dr")
+ (rear-context-string . "0K Nov 26 21:18 ")
+ (position . 222)
+ (last-modified 26557 4714 273741 452000))
+)
