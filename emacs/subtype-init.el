@@ -11,8 +11,7 @@
 (require 'nerd-icons-dired)
 (gui-mode 1)
 (setopt doom-modeline-hud t)
-(setopt doom-modeline-minor-modes t)
-(setopt doom-modeline-window-width-limit 60)
+(setopt doom-modeline-window-width-limit 50)
 
 ;; meta key
 (setopt x-super-keysym 'meta)

@@ -1,5 +1,8 @@
 # -*- makefile-gmake -*-
 
+# run it in bash
+SHELL = bash
+
 # hostname
 HOST = $(shell uname -n | cut -d. -f1)
 
@@ -121,6 +124,7 @@ homebin::
 	install -m 555 $@/pi0sync.sh $(HOMEBIN_DIR)/pi0sync
 	install -m 555 $@/pi3sync.sh $(HOMEBIN_DIR)/pi3sync
 	install -m 555 $@/figure_out_editor_variable.sh $(HOMEBIN_DIR)/figure_out_editor_variable
+	install -m 555 $@/sudo-lockout.sh $(HOMEBIN_DIR)/sudo-lockout
 .PHONY: homebin
 
 # note: I have not yet set this repo up on semigroup, pitype, or
@@ -135,7 +139,7 @@ samba::
 	sudo install -m 444 $@/$(HOST)_smb_conf /etc/samba/smb.conf
 .PHONY: samba
 
-zsh::
+zsh::n
 	mkdir -p ~/zshrc
 	install -m 444 $@/.zshrc ~/.zshrc
 	install -m 444 $@/general_zshrc ~/zshrc/general_zshrc
