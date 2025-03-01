@@ -1,4 +1,5 @@
 # add homebrew to path
+fish_add_path /opt/homebrew/opt/make/libexec/gnubin
 fish_add_path /opt/homebrew/bin
 
 # opam stuff

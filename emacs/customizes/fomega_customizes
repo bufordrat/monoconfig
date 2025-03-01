@@ -5,7 +5,9 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(gruvbox))
  '(custom-safe-themes
-   '("836b0bc16dbd2aed387e552edabd4d67d227961efa3af412da387eb3e010d76b" default)))
+   '("836b0bc16dbd2aed387e552edabd4d67d227961efa3af412da387eb3e010d76b" default))
+ '(package-selected-packages
+   '(pyvenv orderless vertico use-package vlf xclip tuareg selectrum-prescient python nerd-icons-dired merlin marginalia magit haskell-mode gruvbox-theme fish-mode doom-modeline diredfl bbdb badwolf-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

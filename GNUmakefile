@@ -179,6 +179,7 @@ emacs::
 	install -m 444 $@/general-init.el ~/.emacs.d/lisp
 	install -m 444 $@/$(HOST)-init.el ~/.emacs.d/lisp/$(HOST)-init.el
 	cp ~/.emacs.d/customizes.el $@/customizes/$(HOST)_customizes
+	cp ~/.emacs.d/bookmarks $@/bookmarks/$(HOST)_bookmarks
 .PHONY: emacs
 
 etc_hosts::
@@ -204,18 +205,14 @@ remove-switch::
 	opam switch remove -y $(SWITCH_NAME) || true
 .PHONY: remove-switch
 
-update-opam::
-	opam switch set default && eval $(opam env) && opam update -y && opam upgrade -y
-.PHONY: update-opam
-
-install-ocaml:: update-opam remove-switch
-	opam switch create -y $(SWITCH_NAME) $(SWITCH_VERSION) && opam switch set $(SWITCH_NAME) && eval $(opam env) && opam repository add dldc 'https://dldc.lib.uchicago.edu/opam' && opam update -y && opam upgrade -y && opam install -y $(OCAML_BASICS) && opam switch set ocaml-basics && eval $(opam env)
+install-ocaml:: remove-switch
+	opam switch create -y $(SWITCH_NAME) $(SWITCH_VERSION) && opam switch set $(SWITCH_NAME) && eval $$(opam env) && opam repository add dldc 'https://dldc.lib.uchicago.edu/opam' && opam update -y && opam upgrade -y && opam install -y $(OCAML_BASICS) && opam switch set ocaml-basics && eval $$(opam env)
 .PHONY: install-ocaml
 
 # packages to install
 ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie ascii xclip
 PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
-MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip
+MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make
 
 # package manager rules
 pacman::

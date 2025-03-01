@@ -3,9 +3,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(gruvbox))
+ '(custom-enabled-themes '(ef-owl))
  '(custom-safe-themes
-   '("836b0bc16dbd2aed387e552edabd4d67d227961efa3af412da387eb3e010d76b"
+   '("b9c002dc827fb75b825da3311935c9f505d48d7ee48f470f0aa7ac5d2a595ab2"
+     "d6b369a3f09f34cdbaed93eeefcc6a0e05e135d187252e01b0031559b1671e97"
+     "cee5c56dc8b95b345bfe1c88d82d48f89e0f23008b0c2154ef452b2ce348da37"
+     "90185f1d8362727f2aeac7a3d67d3aec789f55c10bb47dada4eefb2e14aa5d01"
+     "aff0396925324838889f011fd3f5a0b91652b88f5fd0611f7b10021cc76f9e09"
+     "836b0bc16dbd2aed387e552edabd4d67d227961efa3af412da387eb3e010d76b"
      "b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d"
      default))
  '(doom-modeline-height 35)
@@ -13,7 +18,7 @@
    '(abyss-theme afternoon-theme all-the-icons-dired ample-theme
 		 auto-complete badwolf-theme csv-mode diredfl
 		 disk-usage doom-modeline dune eat edit-indirect
-		 elfeed exec-path-from-shell fish-mode
+		 ef-themes elfeed exec-path-from-shell fish-mode
 		 gruber-darker-theme gruvbox-theme haskell-mode
 		 htmlize json-mode leuven-theme magit marginalia
 		 markdown-mode merlin-eldoc nerd-icons-dired
