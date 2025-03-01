@@ -9,27 +9,6 @@
  '(doom-modeline-height 50)
  '(package-selected-packages
    '(ef-themes pyvenv orderless vertico yaml-mode xclip web-mode vterm vlf use-package tuareg solarized-theme slp selectrum-prescient projectile php-mode pdf-tools ox-gfm nerd-icons-dired multi-web-mode merlin marginalia magit lsp-python-ms json-reformat json-mode idris-mode hydra htmlize haskell-mode gutenberg gruvbox-theme gnuplot gh-md forth-mode flycheck-eglot fish-mode exec-path-from-shell elm-mode eat dune doom-modeline diredfl csv-mode bbdb badwolf-theme 0blayout)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(diredfl-compressed-file-suffix ((t (:foreground "tomato4"))))
- '(diredfl-date-time ((t (:foreground "light goldenrod"))))
- '(diredfl-dir-heading ((t (:foreground "gold"))))
- '(diredfl-dir-name ((t (:foreground "white"))))
- '(diredfl-dir-priv ((t (:foreground "sandy brown"))))
- '(diredfl-exec-priv ((t (:foreground "dark goldenrod"))))
- '(diredfl-file-name ((t (:foreground "wheat"))))
- '(diredfl-file-suffix ((t (:foreground "tan"))))
- '(diredfl-flag-mark ((t (:foreground "aquamarine"))))
- '(diredfl-flag-mark-line ((t (:foreground "turquoise"))))
- '(diredfl-ignored-file-name ((t (:foreground "tomato3"))))
- '(diredfl-link-priv ((t (:foreground "tomato"))))
- '(diredfl-no-priv ((t (:foreground "chocolate"))))
- '(diredfl-number ((t (:foreground "salmon4"))))
- '(diredfl-rare-priv ((t (:foreground "Green"))))
- '(diredfl-read-priv ((t (:foreground "navajo white"))))
- '(diredfl-write-priv ((t (:foreground "tan")))))
+
 
 

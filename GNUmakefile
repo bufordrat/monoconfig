@@ -16,7 +16,7 @@ VENV_DIR = $(ENVS_DIR)/virtualenvs/py-default
 VENV_REQUIREMENTS_DIR = $(ENVS_CONFIG_DIR)/$(VENV_NAME)
 SWITCH_NAME = ocaml-basics
 SWITCH_VERSION = 4.14.1
-OCAML_BASICS = dune utop prelude etude spinup
+OCAML_BASICS = dune utop prelude etude spinup mrmime ocamlnet cmdliner ocamlformat ocp-index alcotest
 
 # make rulesets
 BASIC_RULES = homebin emacs bash fish zsh openssh gnupg
