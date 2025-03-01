@@ -6,18 +6,40 @@
  '(bookmark-sort-flag t)
  '(custom-enabled-themes '(gruvbox))
  '(custom-safe-themes
-   '("836b0bc16dbd2aed387e552edabd4d67d227961efa3af412da387eb3e010d76b"
+   '("59c36051a521e3ea68dc530ded1c7be169cd19e8873b7994bfc02a216041bf3b"
+     "36c5acdaf85dda0dad1dd3ad643aacd478fb967960ee1f83981d160c52b3c8ac"
+     "5a0ddbd75929d24f5ef34944d78789c6c3421aa943c15218bac791c199fc897d"
+     "8363207a952efb78e917230f5a4d3326b2916c63237c1f61d7e5fe07def8d378"
+     "51fa6edfd6c8a4defc2681e4c438caf24908854c12ea12a1fbfd4d055a9647a3"
+     "00d7122017db83578ef6fba39c131efdcb59910f0fac0defbe726da8072a0729"
+     "ae20535e46a88faea5d65775ca5510c7385cbf334dfa7dde93c0cd22ed663ba0"
+     "a3a71b922fb6cbf9283884ac8a9109935e04550bcc5d2a05414a58c52a8ffc47"
+     "3d9938bbef24ecee9f2632cb25339bf2312d062b398f0dfb99b918f8f11e11b1"
+     "fae5872ff90462502b3bedfe689c02d2fa281bc63d33cb007b94a199af6ccf24"
+     "b3ba955a30f22fe444831d7bc89f6466b23db8ce87530076d1f1c30505a4c23b"
+     "b41d0a9413fb0034cea34eb8c9f89f6e243bdd76bccecf8292eb1fefa42eaf0a"
+     "541282f66e5cc83918994002667d2268f0a563205117860e71b7cb823c1a11e9"
+     "19b62f442479efd3ca4c1cef81c2311579a98bbc0f3684b49cdf9321bd5dfdbf"
+     "b9c002dc827fb75b825da3311935c9f505d48d7ee48f470f0aa7ac5d2a595ab2"
+     "cee5c56dc8b95b345bfe1c88d82d48f89e0f23008b0c2154ef452b2ce348da37"
+     "211621592803ada9c81ec8f8ba0659df185f9dc06183fcd0e40fbf646c995f23"
+     "1ad12cda71588cc82e74f1cabeed99705c6a60d23ee1bb355c293ba9c000d4ac"
+     "d6b369a3f09f34cdbaed93eeefcc6a0e05e135d187252e01b0031559b1671e97"
+     "d609d9aaf89d935677b04d34e4449ba3f8bbfdcaaeeaab3d21ee035f43321ff1"
+     "90185f1d8362727f2aeac7a3d67d3aec789f55c10bb47dada4eefb2e14aa5d01"
+     "aff0396925324838889f011fd3f5a0b91652b88f5fd0611f7b10021cc76f9e09"
+     "836b0bc16dbd2aed387e552edabd4d67d227961efa3af412da387eb3e010d76b"
      "b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d"
      default))
  '(doom-modeline-height 45)
  '(package-selected-packages
    '(all-the-icons-dired badwolf-theme bbdb command-log-mode csharp-mode
 			 csv csv-mode diredfl doom-modeline dune eat
-			 ein emms exec-path-from-shell fish-mode
-			 gruvbox-theme haskell-mode htmlize image+
-			 info-colors info-rename-buffer json-mode
-			 keepass-mode keypression lsp-mode magit
-			 marginalia merlin mingus mpdmacs
+			 ef-themes ein emms exec-path-from-shell
+			 fish-mode gruvbox-theme haskell-mode htmlize
+			 image+ info-colors info-rename-buffer
+			 json-mode keepass-mode keypression lsp-mode
+			 magit marginalia merlin mingus mpdmacs
 			 nerd-icons-dired nix-mode notmuch orderless
 			 pdf-tools php-mode projectile pyvenv
 			 selectrum-prescient simple-mpc tuareg
