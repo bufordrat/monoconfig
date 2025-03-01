@@ -139,7 +139,7 @@ samba::
 	sudo install -m 444 $@/$(HOST)_smb_conf /etc/samba/smb.conf
 .PHONY: samba
 
-zsh::n
+zsh::
 	mkdir -p ~/zshrc
 	install -m 444 $@/.zshrc ~/.zshrc
 	install -m 444 $@/general_zshrc ~/zshrc/general_zshrc

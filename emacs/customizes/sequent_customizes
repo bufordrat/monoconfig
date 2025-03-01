@@ -5,28 +5,68 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(badwolf))
  '(custom-safe-themes
-   '("332a945a80a202248b21963da38e842aa35b09d1b43c26144bd517943855fe8a"
+   '("d9af98af9613efe2ca6adf9d010c10abf0f3d4dd3987a87dae2a4750b4ab1ee9"
+     "acfe7ff6aacb9432f124cde4e35d6d2b4bc52916411de73a6ccded9750c9fa97"
+     "b4acb7ef3ffcad8fb45a359698ed1faac314230069a69f3eb3416f27b01f7b5a"
+     "b8bd60a23b9e2f08b0c437231ee84f2dacc70fdc4d5a0fb87229bb9926273fdd"
+     "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e"
+     "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58"
+     "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d"
+     "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a"
+     "12bacee81d067acf07dec4c867be541a04744a6ac6a39636de25a2c77e9b573c"
+     "937401a2e532f2c8c881b6b3f20d9d4b6b9405bccf72ea6289c9d3f4507eb1ab"
+     "7b602fe4a324dc18877dde647eb6f2ff9352566ce16d0b888bfcb870d0abfd70"
+     "fbf73690320aa26f8daffdd1210ef234ed1b0c59f3d001f342b9c0bbf49f531c"
+     "ae426fc51c58ade49774264c17e666ea7f681d8cae62570630539be3d06fd964"
+     "570263442ce6735821600ec74a9b032bc5512ed4539faf61168f2fdf747e0668"
+     "adaf421037f4ae6725aa9f5654a2ed49e2cd2765f71e19a7d26a454491b486eb"
+     "f64189544da6f16bab285747d04a92bd57c7e7813d8c24c30f382f087d460a33"
+     "545ab1a535c913c9214fe5b883046f02982c508815612234140240c129682a68"
+     "00cec71d41047ebabeb310a325c365d5bc4b7fab0a681a2a108d32fb161b4006"
+     "57e3f215bef8784157991c4957965aa31bac935aca011b29d7d8e113a652b693"
+     "af4dc574b2f96f5345d55b98af024e2db9b9bbf1872b3132bc66dffbf5e1ba1d"
+     "251ed7ecd97af314cd77b07359a09da12dcd97be35e3ab761d4a92d8d8cf9a71"
+     "da75eceab6bea9298e04ce5b4b07349f8c02da305734f7c0c8c6af7b5eaa9738"
+     "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
+     "9d29a302302cce971d988eb51bd17c1d2be6cd68305710446f658958c0640f68"
+     "e3daa8f18440301f3e54f2093fe15f4fe951986a8628e98dcd781efbec7a46f2"
+     "eca44f32ae038d7a50ce9c00693b8986f4ab625d5f2b4485e20f22c47f2634ae"
+     "49acd691c89118c0768c4fb9a333af33e3d2dca48e6f79787478757071d64e68"
+     "a44e2d1636a0114c5e407a748841f6723ed442dc3a0ed086542dc71b92a87aee"
+     "631c52620e2953e744f2b56d102eae503017047fb43d65ce028e88ef5846ea3b"
+     "2dd4951e967990396142ec54d376cced3f135810b2b69920e77103e0bcedfba9"
+     "157ebac6b6353f20e915b92287a3ff5eab02eb54ef111bbda7e04a83701ca4e4"
+     "836b0bc16dbd2aed387e552edabd4d67d227961efa3af412da387eb3e010d76b"
+     "1ad12cda71588cc82e74f1cabeed99705c6a60d23ee1bb355c293ba9c000d4ac"
+     "cd5f8f91cc2560c017cc9ec24a9ab637451e36afd22e00a03e08d7b1b87c29ca"
+     "a3a71b922fb6cbf9283884ac8a9109935e04550bcc5d2a05414a58c52a8ffc47"
+     "ae20535e46a88faea5d65775ca5510c7385cbf334dfa7dde93c0cd22ed663ba0"
+     "00d7122017db83578ef6fba39c131efdcb59910f0fac0defbe726da8072a0729"
+     "36c5acdaf85dda0dad1dd3ad643aacd478fb967960ee1f83981d160c52b3c8ac"
+     "332a945a80a202248b21963da38e842aa35b09d1b43c26144bd517943855fe8a"
      "b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d"
      default))
  '(diredfl-global-mode t nil (diredfl))
  '(doom-modeline-height 25)
  '(package-selected-packages
    '(afternoon-theme all-the-icons badwolf-theme bash-completion bbdb
-		     csv-mode diff-hl diredfl disk-usage
-		     django-commands django-mode django-theme
-		     doom-modeline dune eat edit-indirect editorconfig
-		     eglot elm-mode emacsshot erlang evil
+		     color-theme-sanityinc-tomorrow csv-mode diff-hl
+		     diredfl disk-usage django-commands django-mode
+		     django-theme doom-modeline doom-themes dune eat
+		     edit-indirect editorconfig ef-themes eglot
+		     elm-mode emacsshot erlang evil
 		     exec-path-from-shell fish-completion fish-mode
 		     flycheck flymake-python-pyflakes fzf
 		     gruvbox-theme gutenberg haskell-mode htmlize
 		     indium ini-mode json-mode json-reformat lsp-mode
-		     magit marginalia merlin multi-web-mode
-		     nerd-icons-dired nix-mode nodejs-repl
-		     oceanic-theme orderless ormolu ox-pandoc ox-twbs
-		     pacman pdf-tools pg php-mode psgml psysh
-		     py-autopep8 py-isort py-yapf python-black pyvenv
-		     reason-mode rjsx-mode selectrum-prescient
-		     skewer-mode svg-clock transpose-frame
+		     magit marginalia merlin modus-themes
+		     multi-web-mode nerd-icons-dired nix-mode
+		     nodejs-repl nord-theme oceanic-theme orderless
+		     ormolu ox-pandoc ox-twbs pacman pdf-tools pg
+		     php-mode psgml psysh py-autopep8 py-isort py-yapf
+		     python-black pyvenv reason-mode reykjavik-theme
+		     rjsx-mode selectrum-prescient skewer-mode
+		     svg-clock tao-theme transpose-frame
 		     treemacs-icons-dired ttl-mode tuareg
 		     typescript-mode use-package vagrant vagrant-tramp
 		     vertico vertico-prescient virtualenvwrapper vlf
@@ -53,4 +93,5 @@
  '(diredfl-rare-priv ((t (:foreground "Green"))))
  '(diredfl-read-priv ((t (:foreground "navajo white"))))
  '(diredfl-write-priv ((t (:foreground "tan")))))
+
 
