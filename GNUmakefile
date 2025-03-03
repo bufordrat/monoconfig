@@ -205,13 +205,34 @@ install-python:: remove-virtualenv python
 	source $(VENV_DIR)/bin/activate && python3 -m ensurepip && pip install --upgrade pip && pip install -r $(VENV_REQUIREMENTS_DIR)/requirements.txt && deactivate
 .PHONY: install-python
 
+install-opam::
+	if [ -d ~/.opam ]; then echo 'opam already initialized'; else cd ~ && opam init -y && cd -; fi
+.PHONY: install-opam
+
 remove-switch::
 	opam switch remove -y $(SWITCH_NAME) || true
 .PHONY: remove-switch
 
-install-ocaml:: remove-switch
+install-ocaml:: install-opam remove-switch
 	opam switch create -y $(SWITCH_NAME) $(SWITCH_VERSION) && opam switch set $(SWITCH_NAME) && eval $$(opam env) && opam repository add dldc 'https://dldc.lib.uchicago.edu/opam' && opam update -y && opam upgrade -y && opam install -y $(OCAML_BASICS) && opam switch set ocaml-basics && eval $$(opam env)
 .PHONY: install-ocaml
+
+install-ghcup::
+	ghcup nuke
+	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | env BOOTSTRAP_HASKELL_NONINTERACTIVE=1 BOOTSTRAP_HASKELL_MINIMAL=1 sh
+	ghcup install stack 3.3.1
+	ghcup set stack 3.3.1
+	ghcup install hls 2.9.0.1
+	ghcup set hls 2.9.0.1
+.PHONY: install-ghcup
+
+install-agda:: 
+	rm -rf ~/tmp/agda
+	mkdir -p ~/tmp/agda
+	git clone 'https://github.com/agda/agda' ~/tmp/agda
+	cp ~/tmp/agda/stack-9.6.6.yaml ~/tmp/agda/stack.yaml
+	make -C ~/tmp/agda install
+.PHONY: install-agda
 
 # packages to install
 ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie ascii xclip
