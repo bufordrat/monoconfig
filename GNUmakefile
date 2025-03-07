@@ -239,6 +239,7 @@ install-agda::
 	install -m 444 $(CABAL_AGDA_DIR)/*.el ~/.emacs.d/agda
 	ghcup rm cabal 3.14.1.1
 	ghcup rm ghc 9.8.4
+	rm -rf ~/.cabal
 .PHONY: install-agda
 
 # packages to install
