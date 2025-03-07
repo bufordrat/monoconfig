@@ -17,6 +17,8 @@ VENV_REQUIREMENTS_DIR = $(ENVS_CONFIG_DIR)/$(VENV_NAME)
 SWITCH_NAME = ocaml-basics
 SWITCH_VERSION = 4.14.1
 OCAML_BASICS = dune utop prelude etude spinup mrmime ocamlnet cmdliner ocamlformat ocp-index alcotest
+CABAL_AGDA_ELISP = $(shell agda-mode locate)
+CABAL_AGDA_DIR = $(shell dirname $(CABAL_AGDA_ELISP))
 
 # make rulesets
 BASIC_RULES = homebin emacs bash fish zsh openssh gnupg
@@ -226,12 +228,17 @@ install-ghcup::
 	ghcup set hls 2.9.0.1
 .PHONY: install-ghcup
 
-install-agda:: 
-	rm -rf ~/tmp/agda
-	mkdir -p ~/tmp/agda
-	git clone 'https://github.com/agda/agda' ~/tmp/agda
-	cp ~/tmp/agda/stack-9.6.6.yaml ~/tmp/agda/stack.yaml
-	make -C ~/tmp/agda install
+install-agda::
+	ghcup install cabal 3.14.1.1
+	ghcup install ghc 9.8.4
+	ghcup set cabal 3.14.1.1
+	ghcup set ghc 9.8.4
+	cabal update
+	cabal install --overwrite-policy=always --installdir $(HOMEBIN_DIR) --install-method=copy Agda
+	mkdir -p ~/.emacs.d/agda
+	install -m 444 $(CABAL_AGDA_DIR)/*.el ~/.emacs.d/agda
+	ghcup rm cabal 3.14.1.1
+	ghcup rm ghc 9.8.4
 .PHONY: install-agda
 
 # packages to install

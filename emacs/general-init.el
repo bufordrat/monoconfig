@@ -52,6 +52,9 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
+;; get ~/bin on the exec-path
+(add-to-list 'exec-path (expand-file-name "~/bin"))
+
 ;; vlf
 (require 'vlf-setup)
 

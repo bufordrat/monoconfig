@@ -7,6 +7,6 @@ Section "Device"
 
   # Option "AccelMethod" "sna"
   # Option "DRI" "iris"
-  # Option "TearFree" "false"
+  Option "TearFree" "true"
   # Option "SwapbuffersWait" "false"
 EndSection

@@ -2,8 +2,9 @@
 (setq custom-file "~/.emacs.d/customizes.el")
 (load custom-file)
 
-;; get ~/.emacs.d/lisp on the load path
+;; get ~/.emacs.d/lisp and ~/.emacs.d/agda on the load path
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
+(add-to-list 'load-path (concat user-emacs-directory "agda"))
 
 ;; determine init code to load conditionally on hostname and os
 (setq host-init (concat (car (split-string (system-name) "\\.")) "-init"))
