@@ -20,7 +20,7 @@
 ;; agda
 (with-demoted-errors "%S"
   (load-file (let ((coding-system-for-read 'utf-8))
-               "~/.emacs.d/agda/agda2.el")))
+               (shell-command-to-string "agda --emacs-mode locate"))))
 
 ;; other setopts
 (setopt org-file-apps

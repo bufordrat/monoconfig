@@ -228,19 +228,29 @@ install-ghcup::
 	ghcup set hls 2.9.0.1
 .PHONY: install-ghcup
 
+# ghcup rm ghc 9.8.4
+# ghcup rm cabal 3.14.1.1
+
 install-agda::
 	ghcup install cabal 3.14.1.1
 	ghcup install ghc 9.8.4
 	ghcup set cabal 3.14.1.1
 	ghcup set ghc 9.8.4
 	cabal update
-	cabal install --overwrite-policy=always --installdir $(HOMEBIN_DIR) --install-method=copy Agda
-	mkdir -p ~/.emacs.d/agda
-	install -m 444 $(CABAL_AGDA_DIR)/*.el ~/.emacs.d/agda
-	ghcup rm cabal 3.14.1.1
-	ghcup rm ghc 9.8.4
-	rm -rf ~/.cabal
+	cabal install --overwrite-policy=always --install-method=copy Agda
 .PHONY: install-agda
+
+install-agda-stdlib::
+	mkdir -p ~/tmp/agda
+	cd ~/tmp/agda && wget -O stdlib.tar.gz "https://github.com/agda/agda-stdlib/archive/v2.2.tar.gz" && tar xzvf stdlib.tar.gz && cd agda-stdlib-2.2 && cabal install
+	mkdir -p $(CONFIG_DIR)/agda
+	echo '$$HERE/agda-stdlib-2.2/standard-library.agda-lib' > $(CONFIG_DIR)/agda/libraries
+	echo standard-library > $(CONFIG_DIR)/agda/defaults
+
+install-emacs-mode::
+	chmod 644 ~/.emacs.d/init.el
+	agda-mode setup
+	install -m 444 emacs/init.el ~/.emacs.d/init.el
 
 # packages to install
 ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie ascii xclip
@@ -248,9 +258,9 @@ PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make
 
 # package manager rules
-pacman::
+no-longer-have-a-good-name-for-this::
 	sudo pacman -S $(ARCH_PACKAGES)
-.PHONY: pacman
+.PHONY: no-longer-have-a-good-name-for-this
 
 brew::
 	brew install $(MACOS_PACKAGES)
