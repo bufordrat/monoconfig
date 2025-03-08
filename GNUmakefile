@@ -237,12 +237,12 @@ install-agda::
 	ghcup set cabal 3.14.1.1
 	ghcup set ghc 9.8.4
 	cabal update
-	cabal install --overwrite-policy=always --install-method=copy Agda
+	cabal install --overwrite-policy=always Agda
 .PHONY: install-agda
 
 install-agda-stdlib::
 	mkdir -p ~/tmp/agda
-	cd ~/tmp/agda && wget -O stdlib.tar.gz "https://github.com/agda/agda-stdlib/archive/v2.2.tar.gz" && tar xzvf stdlib.tar.gz && cd agda-stdlib-2.2 && cabal install
+	cd ~/tmp/agda && wget -O stdlib.tar.gz "https://github.com/agda/agda-stdlib/archive/v2.2.tar.gz" && tar xzvf stdlib.tar.gz && cd agda-stdlib-2.2 && cabal install --overwrite-policy=always 
 	mkdir -p $(CONFIG_DIR)/agda
 	echo '$$HERE/agda-stdlib-2.2/standard-library.agda-lib' > $(CONFIG_DIR)/agda/libraries
 	echo standard-library > $(CONFIG_DIR)/agda/defaults
