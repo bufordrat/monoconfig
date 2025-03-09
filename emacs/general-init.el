@@ -139,6 +139,9 @@
   (define-key python-mode-map (kbd "M-p")
     'flymake-goto-prev-error))
 
+;; get ~/.local/bin on load-path
+(add-to-list 'load-path (expand-file-name "~/.local/bin"))
+
 ;; ocaml
 (when (executable-find "opam")
   (let ((opam-share (car (with-demoted-errors "%S" (process-lines "opam" "var" "share"))))

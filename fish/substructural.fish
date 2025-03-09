@@ -2,6 +2,9 @@
 fish_add_path /opt/homebrew/opt/make/libexec/gnubin
 fish_add_path /opt/homebrew/bin
 
+# add ~/local/bin to path for Agda
+fish_add_path ~/.local/bin
+
 # opam stuff
 eval (opam env)
 
