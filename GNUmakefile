@@ -228,16 +228,13 @@ install-haskell::
 	ghcup set hls 2.9.0.1
 .PHONY: install-haskell
 
-# ghcup rm ghc 9.8.4
-# ghcup rm cabal 3.14.1.1
-
 install-agda:: install-haskell
 	ghcup install cabal 3.14.1.1
 	ghcup install ghc 9.8.4
 	ghcup set cabal 3.14.1.1
 	ghcup set ghc 9.8.4
 	cabal update
-	cabal install --overwrite-policy=always Agda
+	cabal install --overwrite-policy=always --installdir $(HOMEBIN_DIR) --install-method=copy Agda
 	ghcup rm cabal 3.14.1.1
 	ghcup rm ghc 9.8.4
 	rm -rf $(CONFIG_DIR)/agda
@@ -246,11 +243,6 @@ install-agda:: install-haskell
 	echo $(CONFIG_DIR)/agda/agda-stdlib-2.2/standard-library.agda-lib > $(CONFIG_DIR)/agda/libraries
 	echo standard-library > $(CONFIG_DIR)/agda/defaults
 .PHONY: install-agda
-
-# install-emacs-mode::
-# 	chmod 644 ~/.emacs.d/init.el
-# 	agda-mode setup
-# 	install -m 444 emacs/init.el ~/.emacs.d/init.el
 
 # packages to install
 ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie ascii xclip
