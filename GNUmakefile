@@ -17,8 +17,7 @@ VENV_REQUIREMENTS_DIR = $(ENVS_CONFIG_DIR)/$(VENV_NAME)
 SWITCH_NAME = ocaml-basics
 SWITCH_VERSION = 4.14.1
 OCAML_BASICS = dune utop prelude etude spinup mrmime ocamlnet cmdliner ocamlformat ocp-index alcotest
-CABAL_AGDA_ELISP = $(shell agda-mode locate)
-CABAL_AGDA_DIR = $(shell dirname $(CABAL_AGDA_ELISP))
+AGDA_DIR = $(CONFIG_DIR)/agda
 
 # make rulesets
 BASIC_RULES = homebin emacs bash fish zsh openssh gnupg
@@ -237,11 +236,11 @@ install-agda:: install-haskell
 	cabal install --overwrite-policy=always --installdir $(HOMEBIN_DIR) --install-method=copy Agda
 	ghcup rm cabal 3.14.1.1
 	ghcup rm ghc 9.8.4
-	rm -rf $(CONFIG_DIR)/agda
-	mkdir -p $(CONFIG_DIR)/agda
-	cd $(CONFIG_DIR)/agda && wget -O stdlib.tar.gz "https://github.com/agda/agda-stdlib/archive/v2.2.tar.gz" && tar xzvf stdlib.tar.gz
-	echo $(CONFIG_DIR)/agda/agda-stdlib-2.2/standard-library.agda-lib > $(CONFIG_DIR)/agda/libraries
-	echo standard-library > $(CONFIG_DIR)/agda/defaults
+	rm -rf $(AGDA_DIR)
+	mkdir $(AGDA_DIR)
+	cd $(AGDA_DIR) && wget -O stdlib.tar.gz "https://github.com/agda/agda-stdlib/archive/v2.2.tar.gz" && tar xzvf stdlib.tar.gz
+	echo $(AGDA_DIR)/agda-stdlib-2.2/standard-library.agda-lib > $(AGDA_DIR)/libraries
+	echo standard-library > $(AGDA_DIR)/defaults
 .PHONY: install-agda
 
 # packages to install
