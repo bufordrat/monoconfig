@@ -26,7 +26,7 @@ BASIC_RULES = homebin emacs bash fish zsh openssh gnupg
 ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 python
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python
-INTERNET_RULES = install-python install-ocaml
+INTERNET_RULES = install-python install-ocaml install-agda
 
 # mother of all rules
 all: $(HOST)
