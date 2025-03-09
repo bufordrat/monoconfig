@@ -191,6 +191,11 @@ etc_hosts::
 	sudo install -m 444 $@/$(HOST)_etc_hosts /etc/hosts
 .PHONY: etc_hosts
 
+# TODO: fill this in
+kw-pacman::
+	:
+.PHONY: kw-pacman
+
 remove-virtualenv::
 	rm -rf $(VENV_DIR)
 .PHONY: remove-virtualenv
@@ -249,7 +254,7 @@ PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make
 
 # package manager rules
-no-longer-have-a-good-name-for-this::
+pacman::
 	sudo pacman -S $(ARCH_PACKAGES)
 .PHONY: no-longer-have-a-good-name-for-this
 
