@@ -219,33 +219,33 @@ install-ocaml:: install-opam remove-switch
 	opam switch create -y $(SWITCH_NAME) $(SWITCH_VERSION) && opam switch set $(SWITCH_NAME) && eval $$(opam env) && opam repository add dldc 'https://dldc.lib.uchicago.edu/opam' && opam update -y && opam upgrade -y && opam install -y $(OCAML_BASICS) && opam switch set ocaml-basics && eval $$(opam env)
 .PHONY: install-ocaml
 
-install-ghcup::
+install-haskell::
 	ghcup nuke
 	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | env BOOTSTRAP_HASKELL_NONINTERACTIVE=1 BOOTSTRAP_HASKELL_MINIMAL=1 sh
 	ghcup install stack 3.3.1
 	ghcup set stack 3.3.1
 	ghcup install hls 2.9.0.1
 	ghcup set hls 2.9.0.1
-.PHONY: install-ghcup
+.PHONY: install-haskell
 
 # ghcup rm ghc 9.8.4
 # ghcup rm cabal 3.14.1.1
 
-install-agda::
+install-agda:: install-haskell
 	ghcup install cabal 3.14.1.1
 	ghcup install ghc 9.8.4
 	ghcup set cabal 3.14.1.1
 	ghcup set ghc 9.8.4
 	cabal update
 	cabal install --overwrite-policy=always Agda
-.PHONY: install-agda
-
-install-agda-stdlib::
+	ghcup rm cabal 3.14.1.1
+	ghcup rm ghc 9.8.4
 	rm -rf $(CONFIG_DIR)/agda
 	mkdir -p $(CONFIG_DIR)/agda
-	cd $(CONFIG_DIR)/agda && wget -O stdlib.tar.gz "https://github.com/agda/agda-stdlib/archive/v2.2.tar.gz" && tar xzvf stdlib.tar.gz && cd agda-stdlib-2.2 && cabal install --overwrite-policy=always
+	cd $(CONFIG_DIR)/agda && wget -O stdlib.tar.gz "https://github.com/agda/agda-stdlib/archive/v2.2.tar.gz" && tar xzvf stdlib.tar.gz
 	echo $(CONFIG_DIR)/agda/agda-stdlib-2.2/standard-library.agda-lib > $(CONFIG_DIR)/agda/libraries
 	echo standard-library > $(CONFIG_DIR)/agda/defaults
+.PHONY: install-agda
 
 # install-emacs-mode::
 # 	chmod 644 ~/.emacs.d/init.el
