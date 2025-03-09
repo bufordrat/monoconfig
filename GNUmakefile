@@ -17,7 +17,9 @@ VENV_REQUIREMENTS_DIR = $(ENVS_CONFIG_DIR)/$(VENV_NAME)
 SWITCH_NAME = ocaml-basics
 SWITCH_VERSION = 4.14.1
 OCAML_BASICS = dune utop prelude etude spinup mrmime ocamlnet cmdliner ocamlformat ocp-index alcotest
-AGDA_DIR = $(CONFIG_DIR)/agda
+CABAL_VERSION = 3.14.1.1
+GHC_VERSION = 9.8.4
+AGDA_STDLIB_VERSION = 2.2
 
 # make rulesets
 BASIC_RULES = homebin emacs bash fish zsh openssh gnupg
@@ -228,19 +230,19 @@ install-haskell::
 .PHONY: install-haskell
 
 install-agda:: install-haskell
-	ghcup install cabal 3.14.1.1
-	ghcup install ghc 9.8.4
-	ghcup set cabal 3.14.1.1
-	ghcup set ghc 9.8.4
+	ghcup install cabal $(CABAL_VERSION)
+	ghcup install ghc $(GHC_VERSION)
+	ghcup set cabal $(CABAL_VERSION)
+	ghcup set ghc $(GHC_VERSION)
 	cabal update
 	cabal install --overwrite-policy=always --install-method=copy Agda
-	ghcup rm cabal 3.14.1.1
-	ghcup rm ghc 9.8.4
-	rm -rf $(AGDA_DIR)
-	mkdir $(AGDA_DIR)
-	cd $(AGDA_DIR) && wget -O stdlib.tar.gz "https://github.com/agda/agda-stdlib/archive/v2.2.tar.gz" && tar xzvf stdlib.tar.gz
-	echo $(AGDA_DIR)/agda-stdlib-2.2/standard-library.agda-lib > $(AGDA_DIR)/libraries
-	echo standard-library > $(AGDA_DIR)/defaults
+	ghcup rm cabal $(CABAL_VERSION)
+	ghcup rm ghc $(GHC_VERSION)
+	rm -rf $$(agda --print-agda-app-dir)
+	mkdir -p $$(agda --print-agda-app-dir)
+	cd $$(agda --print-agda-app-dir) && wget -O stdlib.tar.gz 'https://github.com/agda/agda-stdlib/archive/v$(AGDA_STDLIB_VERSION).tar.gz' && tar xzvf stdlib.tar.gz
+	echo $$(agda --print-agda-app-dir)/agda-stdlib-$(AGDA_STDLIB_VERSION)/standard-library.agda-lib > $$(agda --print-agda-app-dir)/libraries
+	echo standard-library > $$(agda --print-agda-app-dir)/defaults
 .PHONY: install-agda
 
 # packages to install
