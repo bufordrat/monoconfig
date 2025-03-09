@@ -233,7 +233,7 @@ install-agda:: install-haskell
 	ghcup set cabal 3.14.1.1
 	ghcup set ghc 9.8.4
 	cabal update
-	cabal install --overwrite-policy=always --installdir $(HOMEBIN_DIR) --install-method=copy Agda
+	cabal install --overwrite-policy=always --install-method=copy Agda
 	ghcup rm cabal 3.14.1.1
 	ghcup rm ghc 9.8.4
 	rm -rf $(AGDA_DIR)
