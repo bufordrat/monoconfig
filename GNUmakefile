@@ -23,7 +23,7 @@ AGDA_STDLIB_VERSION = 2.2
 
 # make rulesets
 BASIC_RULES = homebin emacs bash fish zsh openssh gnupg
-ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 python
+ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 python etc_pacman_conf
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python
 INTERNET_RULES = install-python install-ocaml install-agda
@@ -193,10 +193,9 @@ etc_hosts::
 	sudo install -m 444 $@/$(HOST)_etc_hosts /etc/hosts
 .PHONY: etc_hosts
 
-# TODO: fill this in
-kw-pacman::
-	:
-.PHONY: kw-pacman
+etc_pacman_conf::
+	sudo install -m 444 $@/$(HOST)_pacman_conf /etc/pacman.conf
+.PHONY: pacman_conf
 
 remove-virtualenv::
 	rm -rf $(VENV_DIR)
