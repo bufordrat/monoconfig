@@ -257,7 +257,7 @@ MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
 # package manager rules
 pacman::
 	sudo pacman -S $(ARCH_PACKAGES)
-.PHONY: no-longer-have-a-good-name-for-this
+.PHONY: pacman
 
 brew::
 	brew install $(MACOS_PACKAGES)
