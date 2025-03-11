@@ -20,5 +20,13 @@
      ("\\.pdf\\'" . default)))
 (setopt shell-file-name "/bin/zsh")
 
+;; agda
+(with-demoted-errors "%S"
+  (load-file (let ((coding-system-for-read 'utf-8))
+               (shell-command-to-string "agda-mode locate"))))
+
 ;; xclip
 (xclip-mode 1)
+
+;; fire up a dired buffer visiting monoconfig
+(dired "~/github/mine/monoconfig")
