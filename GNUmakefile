@@ -49,7 +49,7 @@ pitype:
 
 fomega: pi 
 
-mzero: 
+mzero:
 
 profunctor: macos
 
@@ -240,6 +240,7 @@ install-agda:: install-haskell
 	ghcup set ghc $(GHC_VERSION)
 	cabal update
 	cabal install --overwrite-policy=always --install-method=copy Agda
+	cd $(shell dirname $(shell agda-mode locate)) && emacs --batch --eval '(push "." load-path)' -f batch-byte-compile eri.el *.el
 	ghcup rm cabal $(CABAL_VERSION)
 	ghcup rm ghc $(GHC_VERSION)
 	rm -rf $$(agda --print-agda-app-dir)
@@ -262,4 +263,3 @@ pacman::
 brew::
 	brew install $(MACOS_PACKAGES)
 .PHONY: brew
-
