@@ -134,8 +134,8 @@
   (define-key python-mode-map (kbd "M-p")
     'flymake-goto-prev-error))
 
-;; get ~/.local/bin on load-path
-(add-to-list 'load-path (expand-file-name "~/.local/bin"))
+;; get ~/.local/bin on exec-path
+(add-to-list 'exec-path (expand-file-name "~/.local/bin"))
 
 ;; ocaml
 (when (executable-find "opam")

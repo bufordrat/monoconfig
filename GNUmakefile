@@ -49,7 +49,7 @@ pitype:
 
 fomega: pi 
 
-mzero: 
+mzero:
 
 profunctor: macos
 
@@ -240,6 +240,7 @@ install-agda:: install-haskell
 	ghcup set ghc $(GHC_VERSION)
 	cabal update
 	cabal install --overwrite-policy=always --install-method=copy Agda
+	cd $(shell dirname $(shell agda-mode locate)) && emacs --batch --eval '(push "." load-path)' -f batch-byte-compile eri.el *.el
 	ghcup rm cabal $(CABAL_VERSION)
 	ghcup rm ghc $(GHC_VERSION)
 	rm -rf $$(agda --print-agda-app-dir)
@@ -252,14 +253,13 @@ install-agda:: install-haskell
 # packages to install
 ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie ascii xclip
 PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
-MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make
+MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
 
 # package manager rules
 pacman::
 	sudo pacman -S $(ARCH_PACKAGES)
-.PHONY: no-longer-have-a-good-name-for-this
+.PHONY: pacman
 
 brew::
 	brew install $(MACOS_PACKAGES)
 .PHONY: brew
-
