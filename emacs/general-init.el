@@ -36,11 +36,6 @@
 (size-indication-mode 1)
 (display-time)
 (show-paren-mode 1)
-(fringe-mode '(1 . 1))
-
-;; add 1-character margin to all windows
-(add-hook 'window-configuration-change-hook
-	     (lambda () (set-window-margins nil 1)))
 
 ;; menu bar stuff
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
