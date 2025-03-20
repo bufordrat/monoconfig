@@ -71,22 +71,36 @@ herbstluftwm::
 	install -m 444 $@/bg.png $(CONFIG_DIR)/bg.png
 .PHONY: herbstluftwm
 
-fish::
-	mkdir -p $(CONFIG_DIR)/$@
-	install -m 444 $@/config.fish $(CONFIG_DIR)/$@/config.fish
-	install -m 444 $@/general.fish $(CONFIG_DIR)/$@/general.fish
-	install -m 444 $@/ssh_gpg.fish $(CONFIG_DIR)/$@/ssh_gpg.fish
-	install -m 444 $@/$(HOST).fish $(CONFIG_DIR)/$@/$(HOST).fish
+_FISH_DIR := $(shell mkdir -p $(CONFIG_DIR)/fish)
+
+fish: $(CONFIG_DIR)/fish/config.fish $(CONFIG_DIR)/fish/general.fish $(CONFIG_DIR)/fish/ssh_gpg.fish $(CONFIG_DIR)/fish/$(HOST).fish
 .PHONY: fish
+
+$(CONFIG_DIR)/fish:
+	mkdir -p $@
+
+$(CONFIG_DIR)/fish/config.fish: fish/config.fish 
+	install -m 444 fish/config.fish $@
+
+$(CONFIG_DIR)/fish/general.fish: fish/general.fish 
+	install -m 444 $< $@
+
+$(CONFIG_DIR)/fish/ssh_gpg.fish: fish/ssh_gpg.fish 
+	install -m 444 $< $@
+
+$(CONFIG_DIR)/fish/$(HOST).fish: fish/$(HOST).fish 
+	install -m 444 $< $@
 
 dunst::
 	mkdir -p $(CONFIG_DIR)/$@
 	install -m 444 $@/dunstrc $(CONFIG_DIR)/$@/dunstrc
 .PHONY: dunst
 
-iterm::
-	install -m 644 $@/hushlogin ~/.hushlogin
+iterm: ~/.hushlogin
 .PHONY: iterm
+
+~/.hushlogin: iterm/hushlogin
+	install -m 644 $< $@
 
 xdefaults::
 	install -m 444 $@/$(HOST)_xdefaults ~/.Xdefaults
