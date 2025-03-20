@@ -148,6 +148,10 @@
 
 (autoload 'merlin-mode "merlin" nil t nil)
 (add-hook 'tuareg-mode-hook 'merlin-mode t)
+(add-hook
+ 'tuareg-mode-hook
+ (lambda ()
+    (keymap-set tuareg-mode-map "C-c C-c" #'projectile-compile-project)))
 (add-hook 'caml-mode-hook 'merlin-mode t)
 
 (advice-add 'make-comint :around #'my-utop-workaround)
