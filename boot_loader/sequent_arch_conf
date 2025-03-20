@@ -1,0 +1,5 @@
+title Arch Linux
+linux /vmlinuz-linux
+initrd /intel-ucode.img
+initrd /initramfs-linux.img
+options cryptdevice=UUID=ccc962c1-777f-4fe6-893e-91985512f383:cryptlvm root=/dev/SequentGrp/root rw
