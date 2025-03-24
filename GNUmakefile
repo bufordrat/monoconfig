@@ -23,7 +23,7 @@ AGDA_STDLIB_VERSION = 2.2
 
 # make rulesets
 BASIC_RULES = homebin emacs bash fish zsh openssh gnupg
-ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 python etc_pacman_conf
+ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 python etc_pacman_conf boot_loader
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python
 INTERNET_RULES = install-python install-ocaml install-agda
@@ -249,6 +249,13 @@ install-agda:: install-haskell
 	echo $$(agda --print-agda-app-dir)/agda-stdlib-$(AGDA_STDLIB_VERSION)/standard-library.agda-lib > $$(agda --print-agda-app-dir)/libraries
 	echo standard-library > $$(agda --print-agda-app-dir)/defaults
 .PHONY: install-agda
+
+boot_loader::
+	mkdir -p /boot/loader/entries
+	sudo install -m 555 $@/loader_conf /boot/loader/loader.conf
+	sudo install -m 555 $@/sequent_arch_conf /boot/loader/entries/arch.conf
+	sudo install -m 555 $@/sequent_arch_lts_conf /boot/loader/entries/arch-lts.conf
+.PHONY: boot_loader
 
 # packages to install
 ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie ascii xclip
