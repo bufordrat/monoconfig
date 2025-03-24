@@ -10,7 +10,7 @@
 
 (define-minor-mode gui-mode
   "Mode for non-nw Emacs."
-  :init-value t
+  :init-value nil
   (if gui-mode
       (progn (mt-turnon-current-direds 1)
 	     (doom-modeline-mode 1))
