@@ -232,18 +232,19 @@ install-haskell::
 	ghcup set stack 3.3.1
 	ghcup install hls 2.9.0.1
 	ghcup set hls 2.9.0.1
+	ghcup install ghc $(GHC_VERSION)
+	ghcup set ghc $(GHC_VERSION)
+	mkdir -p ~/.stack
+	install -m 444 $@/config_yaml ~/.stack/config.yaml
 .PHONY: install-haskell
 
 install-agda:: install-haskell
 	ghcup install cabal $(CABAL_VERSION)
-	ghcup install ghc $(GHC_VERSION)
 	ghcup set cabal $(CABAL_VERSION)
-	ghcup set ghc $(GHC_VERSION)
 	cabal update
 	cabal install --overwrite-policy=always --install-method=copy Agda
 	cd $(shell dirname $(shell agda-mode locate)) && emacs --batch --eval '(push "." load-path)' -f batch-byte-compile eri.el *.el
 	ghcup rm cabal $(CABAL_VERSION)
-	ghcup rm ghc $(GHC_VERSION)
 	rm -rf $$(agda --print-agda-app-dir)
 	mkdir -p $$(agda --print-agda-app-dir)
 	cd $$(agda --print-agda-app-dir) && wget -O stdlib.tar.gz 'https://github.com/agda/agda-stdlib/archive/v$(AGDA_STDLIB_VERSION).tar.gz' && tar xzvf stdlib.tar.gz
