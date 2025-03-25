@@ -253,8 +253,9 @@ install-agda:: install-haskell
 
 boot_loader::
 	mkdir -p /boot/loader/entries
-	lsblk -P -o fstype,uuid | grep crypto_LUKS | awk -F= '{print $$3}' | tr -d '"\012' | m4 -D SIGMALICIOUS='include(/dev/stdin)' $@/$(HOST)_arch_conf | sudo install -m 444 /dev/stdin /boot/loader/entries/arch.conf
-	lsblk -P -o fstype,uuid | grep crypto_LUKS | awk -F= '{print $$3}' | tr -d '"\012' | m4 -D SIGMALICIOUS='include(/dev/stdin)' $@/$(HOST)_arch_lts_conf | sudo install -m 444 /dev/stdin /boot/loader/entries/arch-lts.conf
+	install -m 555 $@/loader_conf /boot/loader/loader.conf
+	lsblk -P -o fstype,uuid | grep crypto_LUKS | awk -F= '{print $$3}' | tr -d '"\012' | m4 -D SIGMALICIOUS='include(/dev/stdin)' $@/$(HOST)_arch_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch.conf
+	lsblk -P -o fstype,uuid | grep crypto_LUKS | awk -F= '{print $$3}' | tr -d '"\012' | m4 -D SIGMALICIOUS='include(/dev/stdin)' $@/$(HOST)_arch_lts_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch-lts.conf
 .PHONY: boot_loader
 
 mkinitcpio_conf:
@@ -262,7 +263,8 @@ mkinitcpio_conf:
 .PHONY: mkinitcpio_conf
 
 # packages to install
-ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie m4 ascii xclip 
+ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie m4 ascii xclip
+AUR_PACKAGES = yay profont-otb ttf-mplus montecarlo-font
 PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
 
