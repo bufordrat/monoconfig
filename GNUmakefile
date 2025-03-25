@@ -24,7 +24,7 @@ AGDA_STDLIB_VERSION = 2.2
 # make rulesets
 BASIC_RULES = homebin emacs bash fish zsh openssh gnupg
 ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 python etc_pacman_conf boot_loader
-# boot_loader
+
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python
 INTERNET_RULES = install-python install-ocaml install-agda
