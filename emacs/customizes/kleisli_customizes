@@ -41,7 +41,8 @@
 			 json-mode keepass-mode keypression lsp-mode
 			 magit marginalia merlin mingus mpdmacs
 			 nerd-icons-dired nix-mode notmuch orderless
-			 pdf-tools php-mode projectile pyvenv
+			 pdf-tools php-mode projectile py-autopep8
+			 py-isort python-black pyvenv
 			 selectrum-prescient simple-mpc tuareg
 			 unidecode vertico vlf vterm web-mode xclip
 			 yaml-mode)))
