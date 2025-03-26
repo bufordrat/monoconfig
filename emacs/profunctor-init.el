@@ -8,7 +8,6 @@
 (require 'nerd-icons-dired)
 (gui-mode 1)
 (setopt doom-modeline-hud t)
-(setopt doom-modeline-minor-modes t)
 (setopt doom-modeline-window-width-limit 60)
 
 ;; setopts
