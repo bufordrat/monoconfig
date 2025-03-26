@@ -266,7 +266,7 @@ mkinitcpio_conf:
 .PHONY: mkinitcpio_conf
 
 # packages to install
-ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm udisks udiskie m4 ascii xclip
+ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-xinit xorg-twm xorg-xclock xterm udisks2 udiskie m4 ascii xclip
 AUR_PACKAGES = yay profont-otb ttf-mplus montecarlo-font
 PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
