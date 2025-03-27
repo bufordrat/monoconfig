@@ -10,7 +10,7 @@
   (interactive)
   (if matt-embiggened-yet
       (set-face-font 'default matt-default-font)
-    (set-face-font 'default "Misc Fixed 18"))
+    (set-face-font 'default "Misc Fixed 20"))
   (setq matt-embiggened-yet (not matt-embiggened-yet)))
 (global-set-key (kbd "<f10>") 'embiggen)
 
@@ -47,4 +47,4 @@
 (xclip-mode 1)
 
 ;; fire up a dired buffer visiting monoconfig
-(dired "~/Code/GitHub/monoconfig")
+(dired "~/stuff/github/monoconfig")

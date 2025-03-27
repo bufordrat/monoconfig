@@ -5,8 +5,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(dash diredfl doom-modeline marginalia nerd-icons nerd-icons-dired
-	  orderless pdf-tools pyvenv vertico vlf xclip)))
+   '(dash diredfl doom-modeline gruvbox-theme magit marginalia nerd-icons
+	  nerd-icons-dired orderless pdf-tools pyvenv vertico vlf
+	  xclip)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
