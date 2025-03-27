@@ -4,13 +4,36 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(badwolf))
+ '(custom-safe-themes
+   '("d046915b6ed8e52c9a94462388b26c714b2411b0b2b0c6d89ee3981938056240"
+     "836b0bc16dbd2aed387e552edabd4d67d227961efa3af412da387eb3e010d76b"
+     default))
+ '(doom-modeline-height 25)
  '(package-selected-packages
-   '(dash diredfl doom-modeline gruvbox-theme magit marginalia nerd-icons
-	  nerd-icons-dired orderless pdf-tools pyvenv vertico vlf
-	  xclip)))
+   '(badwolf-theme dash diredfl doom-modeline gruvbox-theme haskell-mode
+		   magit marginalia nerd-icons nerd-icons-dired
+		   orderless pdf-tools pyvenv vertico vlf xclip)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(diredfl-compressed-file-suffix ((t (:foreground "tomato4"))))
+ '(diredfl-date-time ((t (:foreground "light goldenrod"))))
+ '(diredfl-dir-heading ((t (:foreground "gold"))))
+ '(diredfl-dir-name ((t (:foreground "white"))))
+ '(diredfl-dir-priv ((t (:foreground "sandy brown"))))
+ '(diredfl-exec-priv ((t (:foreground "dark goldenrod"))))
+ '(diredfl-file-name ((t (:foreground "wheat"))))
+ '(diredfl-file-suffix ((t (:foreground "tan"))))
+ '(diredfl-flag-mark ((t (:foreground "aquamarine"))))
+ '(diredfl-flag-mark-line ((t (:foreground "turquoise"))))
+ '(diredfl-ignored-file-name ((t (:foreground "tomato3"))))
+ '(diredfl-link-priv ((t (:foreground "tomato"))))
+ '(diredfl-no-priv ((t (:foreground "chocolate"))))
+ '(diredfl-number ((t (:foreground "salmon4"))))
+ '(diredfl-rare-priv ((t (:foreground "Green"))))
+ '(diredfl-read-priv ((t (:foreground "navajo white"))))
+ '(diredfl-write-priv ((t (:foreground "tan")))))
+
