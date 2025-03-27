@@ -115,6 +115,7 @@ gnupg::
 .PHONY: gnupg
 
 firehol: homebin
+	sudo mkdir -p /etc/firehol
 	pgrep gpg-agent
 	gpg -d --pinentry-mode loopback ~/dummy.gpg
 	gpg -d --pinentry-mode loopback $@/$@_conf.gpg | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
@@ -228,7 +229,7 @@ install-ocaml:: install-opam remove-switch
 .PHONY: install-ocaml
 
 install-haskell::
-	ghcup nuke
+	ghcup nuke || true
 	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | env BOOTSTRAP_HASKELL_NONINTERACTIVE=1 BOOTSTRAP_HASKELL_MINIMAL=1 sh
 	ghcup install stack 3.3.1
 	ghcup set stack 3.3.1
@@ -240,7 +241,8 @@ install-haskell::
 	install -m 444 $@/config_yaml ~/.stack/config.yaml
 .PHONY: install-haskell
 
-install-agda:: install-haskell
+install-agda::
+# install-haskell
 	ghcup install cabal $(CABAL_VERSION)
 	ghcup set cabal $(CABAL_VERSION)
 	cabal update
@@ -248,7 +250,6 @@ install-agda:: install-haskell
 	cd $(shell dirname $(shell agda-mode locate)) && emacs --batch --eval '(push "." load-path)' -f batch-byte-compile eri.el *.el
 	ghcup rm cabal $(CABAL_VERSION)
 	rm -rf $$(agda --print-agda-app-dir)
-	mkdir -p $$(agda --print-agda-app-dir)
 	cd $$(agda --print-agda-app-dir) && wget -O stdlib.tar.gz 'https://github.com/agda/agda-stdlib/archive/v$(AGDA_STDLIB_VERSION).tar.gz' && tar xzvf stdlib.tar.gz
 	echo $$(agda --print-agda-app-dir)/agda-stdlib-$(AGDA_STDLIB_VERSION)/standard-library.agda-lib > $$(agda --print-agda-app-dir)/libraries
 	echo standard-library > $$(agda --print-agda-app-dir)/defaults
@@ -266,8 +267,8 @@ mkinitcpio_conf:
 .PHONY: mkinitcpio_conf
 
 # packages to install
-ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-xinit xorg-twm xorg-xclock xterm udisks2 udiskie m4 ascii xclip picom dhcpcd
-AUR_PACKAGES = yay profont-otb ttf-mplus montecarlo-font
+ARCH_PACKAGES = herbstluftwm fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-xinit xorg-twm xorg-xclock xterm udisks2 udiskie m4 ascii xclip picom dhcpcd dmenu borg wget xaw3d
+AUR_PACKAGES = yay profont-otb ttf-mplus montecarlo-font firehol
 PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
 
