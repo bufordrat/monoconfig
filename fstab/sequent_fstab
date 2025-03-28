@@ -1,0 +1,6 @@
+# /dev/mapper/vga-root
+UUID=76ed8393-2f64-48a6-ab79-6293d1e86a0d	/         	ext4      	rw,relatime	0 1
+
+# /dev/nvme0n1p1
+UUID=19CC-8425      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
