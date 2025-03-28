@@ -105,6 +105,8 @@ xinitrc::
 x11: xinitrc xdefaults
 
 openssh::
+	mkdir -p ~/.ssh
+	install -m 444 $@/authorized_keys ~/.ssh/authorized_keys
 	install -m 444 $@/$(HOST)_ssh_config ~/.ssh/config
 .PHONY: openssh
 
