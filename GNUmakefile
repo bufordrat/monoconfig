@@ -275,6 +275,10 @@ AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font firehol
 PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
 
+syncthing_devices:
+	syncthing cli config devices list | while read device; do echo -n $(syncthing cli config devices $device name get); echo -n '	'; echo $device; done | column -s '	' -t
+.PHONY: syncthing_devices
+
 # package manager rules
 pacman::
 	sudo pacman -S $(ARCH_PACKAGES)
