@@ -4,7 +4,7 @@
    do (with-current-buffer buf
 	(when (eq major-mode 'dired-mode)
 	  (nerd-icons-dired-mode turnon))))
-  (if (equal turnon 1)
+  (if (> turnon 0)
       (add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
     (remove-hook 'dired-mode-hook #'nerd-icons-dired-mode)))
 

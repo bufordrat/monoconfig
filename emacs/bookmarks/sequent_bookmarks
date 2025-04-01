@@ -3,9 +3,21 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("GNUmakefile"
- (filename . "~/stuff/github/monoconfig/GNUmakefile")
- (front-context-string . "# -*- makefile-g")
+ (filename . "~/Code/GitHub/monoconfig/GNUmakefile")
+ (front-context-string . "s && eval $$(opa")
+ (rear-context-string . " set ocaml-basic")
+ (position . 5882)
+ (last-modified 26561 61602 521056 287000))
+("sequent-init.el"
+ (filename . "~/Code/GitHub/monoconfig/emacs/sequent-init.el")
+ (front-context-string . ";; bitmap font s")
  (rear-context-string)
  (position . 1)
- (last-modified 26596 29153 987432 969000))
+ (last-modified 26556 57974 896087 401000))
+("general-init.el"
+ (filename . "~/Code/GitHub/monoconfig/emacs/general-init.el")
+ (front-context-string . ";; load matt's p")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26593 44441 921823 225000))
 )
