@@ -276,7 +276,7 @@ PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
 
 syncthing_devices:
-	@syncthing cli config devices list | while read device; do echo -n $$(syncthing cli config devices $$device name get); echo -n '	'; echo $$device; done | column -s '	' -t
+	@syncthing cli config devices list | while read device; do printf "%s\t%s\n" "$$(syncthing cli config devices $$device name get)" $$device; done | column -s "`printf '\t'`" -t
 .PHONY: syncthing_devices
 
 # package manager rules
