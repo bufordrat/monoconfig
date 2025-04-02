@@ -269,9 +269,9 @@ mkinitcpio_conf:
 	install -m 555 $@/$(HOST)_mkinitcpio_conf /etc/mkinitcpio.conf
 .PHONY: mkinitcpio_conf
 
-setup_syncthing:
+syncthing:
 	gpg -d $@/$(HOST)_syncthing_setup.gpg 2> /dev/null | sh
-.PHONY: setup_syncthing
+.PHONY: syncthing
 
 # packages to install
 ARCH_PACKAGES = linux-lts lvm2 herbstluftwm bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-xinit xorg-twm xorg-xclock xterm m4 ascii xclip picom dhcpcd dmenu borg wget xaw3d xorg-fonts-misc firefox virtualbox virtualbox-host-modules-arch vagrant 
