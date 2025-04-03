@@ -9,8 +9,8 @@
 #+begin_example
   $ sudo dd bs=4M if=path/to/archlinux-version-x86_64.iso of=/dev/disk/by-id/usb-My_flash_drive conv=fsync oflag=direct status=progress
 #+end_example
-+ note: =/dev/disk/by/id-usb-My_flash_drive= is the device name, not
-  the partition name
++ =/dev/disk/by/id-usb-My_flash_drive= is the device name, not the
+  partition name
 + so: =/dev/sda=, not =/dev/sda1=
 * inside the arch stick environment
 ** will connect to ethernet automatically
