@@ -1,0 +1,134 @@
+#+TITLE: arch instructions for sequent
+#+AUTHOR: matt
+#+DATE: <2025-04-03 Thu>
+
+* download arch iso
+https://archlinux.org/download/
+https://mirrors.edge.kernel.org/archlinux/iso/2025.04.01/
+* dd iso to usb drive
+#+begin_example
+  $ sudo dd bs=4M if=path/to/archlinux-version-x86_64.iso of=/dev/disk/by-id/usb-My_flash_drive conv=fsync oflag=direct status=progress
+#+end_example
++ note: =/dev/disk/by/id-usb-My_flash_drive= is the device name, not
+  the partition name
++ so: =/dev/sda=, not =/dev/sda1=
+* inside the arch stick environment
+** will connect to ethernet automatically
+** update arch stick system clock
+#+begin_example
+  # timedatectl
+#+end_example
+** create hard drive partitions
+#+begin_example
+  # fdisk -l
+#+end_example
++ choose EFI partition for =/boot= partition and GPT for everything
+  else
++ recommended size for =/boot=: 1 GB
++ no =/home= partition on =sequent=; shove the remainder in =/=
+  partition
++ =/boot= is unencrypted
++ the rest is encrypted
+** format boot partition as FAT32
+#+begin_example
+  mkfs.fat -F 32 /dev/efi_system/partition
+#+end_example
+** format root partition as a luks container
+#+begin_example
+  # cryptsetup luksFormat /dev/root_partition
+#+end_example
++ partition name here, dawg, NOT device name
++ =/dev/sda1=, NOT =/dev/sda=
+** open (i.e. decrypt) luks container
+#+begin_example
+  # cryptsetup open /dev/root_partition cryptlvm
+#+end_example
++ you can choose the name =cryptlvm=, but I don't ever bother choosing
+  anything else
+** create physical volume
+#+begin_example
+  # pvcreate /dev/mapper/cryptlvm
+#+end_example
+** create logical volume group
+#+begin_example
+  # vgcreate vga /dev/mapper/cryptlvm
+#+end_example
+** create logical root volume
+#+begin_example
+  # lvcreate -l 100%FREE vga -n root
+#+end_example
+** format logical root volume
+#+begin_example
+  # mkfs.ext4 /dev/vga/root
+#+end_example
+** mount partitions
+#+begin_example
+  # mount /dev/vga/root /mnt
+  # mkdir /mnt/boot
+  # mount --mkdir /dev/efi_system_partition /mnt/boot
+#+end_example
+** rank arch mirrors
+#+begin_example
+  # reflector --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+#+end_example
+** pacstrap
+#+begin_example
+  # pacstrap -K /mnt base base-devel linux linux-firmware intel-ucode dhcpcd lvm2 vim emacs git
+#+end_example
+** generate fstab
+#+begin_example
+  # genfstab -U /mnt >> /mnt/etc/fstab
+#+end_example
++ do =>=, obviously, if you need to blatt over a dysfunctional =fstab=
+** chroot in
+#+begin_example
+  # arch-chroot /mnt
+#+end_example
+* inside the chroot
+** set time zone
+#+begin_example
+  # ln -sf /usr/share/zoneinfo/US/Central /etc/localtime
+#+end_example
+** generate =/etc/adjtime=
+#+begin_example
+  # hwclock --systohc
+#+end_example
+** generate locales
+#+begin_example
+  # locale-gen
+#+end_example
+** create =locale.conf=
+#+begin_example
+  # echo 'LANG=en_US.UTF-8' > /etc/locale.conf
+#+end_example
+** set hostname
+#+begin_example
+  # echo sequent > /etc/hostname
+#+end_example
+** add =keyboard=, =encrypt=, and =lvm2= hooks to =mkinitcpio.conf=:
+#+begin_example
+  HOOKS=(base udev autodetect keyboard encrypt lvm2 keymap modconf block filesystems fsck)
+#+end_example
+** confirm that EFI variables are copacetic
+#+begin_example
+  # efivar --list
+#+end_example
+** install =systemd-boot=
+#+begin_example
+  # bootctl install
+#+end_example
+** get =monoconfig=
+#+begin_example
+  # cd /tmp
+  # git clone git@github.com:bufordrat/monoconfig
+#+end_example
+** install the matt arch package basics
+#+begin_example
+  # cd /tmp/monoconfig
+  # make pacman
+#+end_example
+** install bootloader files
+#+begin_example
+  # cd /tmp/monoconfig
+  # make chroot_boot_loader
+#+end_example
