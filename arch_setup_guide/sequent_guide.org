@@ -105,18 +105,6 @@
 #+begin_example
   # echo sequent > /etc/hostname
 #+end_example
-** add =keyboard=, =encrypt=, and =lvm2= hooks to =mkinitcpio.conf=:
-#+begin_example
-  HOOKS=(base udev autodetect keyboard encrypt lvm2 keymap modconf block filesystems fsck)
-#+end_example
-** confirm that EFI variables are copacetic
-#+begin_example
-  # efivar --list
-#+end_example
-** install =systemd-boot=
-#+begin_example
-  # bootctl install
-#+end_example
 ** get =monoconfig=
 #+begin_example
   # cd /tmp
@@ -131,4 +119,16 @@
 #+begin_example
   # cd /tmp/monoconfig
   # make chroot_boot_loader
+#+end_example
+** install mkinitcpio.conf including =keyboard=, =encrypt=, and =lvm2= hooks:
+#+begin_example
+  # make mkinitcpio_conf
+#+end_example
+** confirm that EFI variables are copacetic
+#+begin_example
+  # efivar --list
+#+end_example
+** install =systemd-boot=
+#+begin_example
+  # bootctl install
 #+end_example
