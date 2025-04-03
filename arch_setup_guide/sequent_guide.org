@@ -3,8 +3,8 @@
 #+DATE: <2025-04-03 Thu>
 
 * download arch iso
-https://archlinux.org/download/
-https://mirrors.edge.kernel.org/archlinux/iso/2025.04.01/
++ https://archlinux.org/download/
++ https://mirrors.edge.kernel.org/archlinux/iso/2025.04.01/
 * dd iso to usb drive
 #+begin_example
   $ sudo dd bs=4M if=path/to/archlinux-version-x86_64.iso of=/dev/disk/by-id/usb-My_flash_drive conv=fsync oflag=direct status=progress
