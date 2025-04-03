@@ -261,15 +261,15 @@ install-agda::
 boot_loader::
 	mkdir -p /boot/loader/entries
 	sudo install -m 555 $@/loader_conf /boot/loader/loader.conf
-	lsblk -P -o fstype,uuid | grep crypto_LUKS | awk -F= '{print $$3}' | tr -d '"\012' | m4 -D SIGMALICIOUS='include(/dev/stdin)' $@/$(HOST)_arch_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch.conf
-	lsblk -P -o fstype,uuid | grep crypto_LUKS | awk -F= '{print $$3}' | tr -d '"\012' | m4 -D SIGMALICIOUS='include(/dev/stdin)' $@/$(HOST)_arch_lts_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch-lts.conf
+	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -D SIGMALICIOUS='include(/dev/stdin)' $@/$(HOST)_arch_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch.conf
+	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -D SIGMALICIOUS='include(/dev/stdin)' $@/$(HOST)_arch_lts_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch-lts.conf
 .PHONY: boot_loader
 
 chroot_boot_loader::
 	mkdir -p /boot/loader/entries
 	sudo install -m 555 boot_loader/loader_conf /boot/loader/loader.conf
-	lsblk -P -o fstype,uuid | grep crypto_LUKS | awk -F= '{print $$3}' | tr -d '"\012' | m4 -D SIGMALICIOUS='include(/dev/stdin)' boot_loader/sequent_arch_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch.conf
-	lsblk -P -o fstype,uuid | grep crypto_LUKS | awk -F= '{print $$3}' | tr -d '"\012' | m4 -D SIGMALICIOUS='include(/dev/stdin)' boot_loader/sequent_arch_lts_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch-lts.conf
+	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -D SIGMALICIOUS='include(/dev/stdin)' boot_loader/sequent_arch_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch.conf
+	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -D SIGMALICIOUS='include(/dev/stdin)' boot_loader/sequent_arch_lts_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch-lts.conf
 .PHONY: boot_loader
 
 mkinitcpio_conf:
