@@ -132,3 +132,5 @@
 #+begin_example
   # bootctl install
 #+end_example
+** congratulations; it's time to boot into your new machine
+
