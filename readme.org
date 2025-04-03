@@ -24,6 +24,7 @@ free to use it.
 #+begin_example
   $ cd /path/to/this/repo
   $ make
+  $ make internet
 #+end_example
 
 * Semi-stateless Lifestyle
