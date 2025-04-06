@@ -132,5 +132,15 @@
 #+begin_example
   # bootctl install
 #+end_example
+** create =teichman= user
+#+begin_example
+  $ useradd -m -u 1158 -g 11158 -G wheel -s /usr/bin/fish teichman
+#+end_example
++ uid: 1158
++ gid: 11158
++ groups: wheel
++ shell: fish
++ =-m= to create homedir
+** set =teichman='s password
 ** congratulations; it's time to boot into your new machine
 
