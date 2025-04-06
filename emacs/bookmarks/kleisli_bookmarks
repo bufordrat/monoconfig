@@ -2,7 +2,13 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("GNUmakefile"
+(("cdCollection"
+ (filename . "~/Stuff/Music/cdCollection/")
+ (front-context-string . "10cc\n  drwx-----")
+ (rear-context-string . "0K Apr  3  2022 ")
+ (position . 276)
+ (last-modified 26603 19337 228136 263000))
+("GNUmakefile"
  (filename . "~/Stuff/GitHub/mine/monoconfig/GNUmakefile")
  (front-context-string . " BOOTSTRAP_HASKE")
  (rear-context-string . "_ADJUST_BASHRC=0")
