@@ -1,5 +1,5 @@
 #+TITLE: arch instructions for sequent
-#+AUTHOR: matt
+#+AUTHOR: Matt Teichman
 #+DATE: <2025-04-03 Thu>
 
 * download arch iso
@@ -21,6 +21,7 @@
 ** create hard drive partitions
 #+begin_example
   # fdisk -l
+  # fdisk /dev/nvme0n1
 #+end_example
 + choose EFI partition for =/boot= partition and GPT for everything
   else
