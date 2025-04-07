@@ -94,6 +94,7 @@
 #+begin_example
   # hwclock --systohc
 #+end_example
+** uncomment =en_US.UTF-8 UTF-8= in =/etc/locale.gen=
 ** generate locales
 #+begin_example
   # locale-gen
@@ -109,7 +110,7 @@
 ** get =monoconfig=
 #+begin_example
   # cd /tmp
-  # git clone git@github.com:bufordrat/monoconfig
+  # git clone https://github.com/bufordrat/monoconfig
 #+end_example
 ** install the matt arch package basics
 #+begin_example

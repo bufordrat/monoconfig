@@ -274,7 +274,7 @@ chroot_boot_loader::
 .PHONY: boot_loader
 
 mkinitcpio_conf:
-	install -m 555 $@/$(HOST)_mkinitcpio_conf /etc/mkinitcpio.conf
+	install -m 555 $@/sequent_mkinitcpio_conf /etc/mkinitcpio.conf
 .PHONY: mkinitcpio_conf
 
 syncthing:
