@@ -140,11 +140,11 @@
 #+end_example
 ** create =teichman= group
 #+begin_example
-  $ groupadd teichman -g 11158
+  # groupadd teichman -g 11158
 #+end_example
 ** create =teichman= user
 #+begin_example
-  $ useradd -m -u 1158 -g 11158 -G wheel -s /usr/bin/fish teichman
+  # useradd -m -u 1158 -g 11158 -G wheel -s /usr/bin/fish teichman
 #+end_example
 + uid: 1158
 + gid: 11158
