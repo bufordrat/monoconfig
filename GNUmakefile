@@ -283,7 +283,7 @@ syncthing:
 	@echo 'device name:'
 	syncthing -device-id
 	@echo 'api key:'
-	syncthing cli config guy apikey get
+	syncthing cli config gui apikey get
 .PHONY: syncthing
 
 syncthing_devices:
