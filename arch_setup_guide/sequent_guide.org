@@ -74,7 +74,7 @@
 #+end_example
 ** pacstrap
 #+begin_example
-  # pacstrap -K /mnt base base-devel linux linux-firmware intel-ucode dhcpcd lvm2 vim emacs git
+  # pacstrap -K /mnt base base-devel linux linux-firmware intel-ucode dhcpcd lvm2 vim efivar fish emacs git
 #+end_example
 ** generate fstab
 #+begin_example
@@ -126,6 +126,10 @@
 #+begin_example
   # make mkinitcpio_conf
 #+end_example
+** build initramfs
+#+begin_example
+  # mkinitcpio -P
+#+end_example
 ** confirm that EFI variables are copacetic
 #+begin_example
   # efivar --list
@@ -133,6 +137,10 @@
 ** install =systemd-boot=
 #+begin_example
   # bootctl install
+#+end_example
+** create =teichman= group
+#+begin_example
+  $ groupadd teichman -g 11158
 #+end_example
 ** create =teichman= user
 #+begin_example
@@ -144,5 +152,5 @@
 + shell: fish
 + =-m= to create homedir
 ** set =teichman='s password
+** give group =wheel= sudo privileges in =visudo=
 ** congratulations; it's time to boot into your new machine
-
