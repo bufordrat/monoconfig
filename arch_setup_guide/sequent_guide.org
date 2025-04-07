@@ -13,6 +13,8 @@
   partition name
 + so: =/dev/sda=, not =/dev/sda1=
 * inside the arch stick environment
+** don't forget to request an IP from sysadmins if this is a new machine
++ https://dldc.lib.uchicago.edu/forms/requests.php
 ** will connect to ethernet automatically
 ** update arch stick system clock
 #+begin_example
