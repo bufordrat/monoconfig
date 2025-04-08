@@ -20,6 +20,7 @@ OCAML_BASICS = dune utop prelude etude spinup mrmime ocamlnet cmdliner ocamlform
 CABAL_VERSION = 3.14.1.1
 GHC_VERSION = 9.8.4
 AGDA_STDLIB_VERSION = 2.2
+ETHERFACE_NAME = $(shell ip addr | sed -n '/^[0-9]: en/p' | grep -oE 'en.+?:' | tr -d ':')
 
 # make rulesets
 BASIC_RULES = homebin emacs bash fish zsh openssh gnupg
@@ -121,7 +122,7 @@ firehol: homebin
 	sudo mkdir -p /etc/firehol
 	pgrep gpg-agent
 	gpg -d --pinentry-mode loopback ~/dummy.gpg
-	gpg -d --pinentry-mode loopback $@/$@_conf.gpg | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
+	gpg -d --pinentry-mode loopback $@/$@_conf.gpg | m4 -D IOTARIFFIC=$(ETHERFACE_NAME) | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
 .PHONY: firehol
 
 fstab::
@@ -136,6 +137,7 @@ homebin::
 	install -m 555 $@/semigroupsync.sh $(HOMEBIN_DIR)/semigroupsync
 	install -m 555 $@/figure_out_editor_variable.sh $(HOMEBIN_DIR)/figure_out_editor_variable
 	install -m 555 $@/sudo-lockout.sh $(HOMEBIN_DIR)/sudo-lockout
+	install -m 555 $@/randomount.sh $(HOMEBIN_DIR)/randomount
 .PHONY: homebin
 
 # note: I have not yet set this repo up on semigroup, pitype, or
