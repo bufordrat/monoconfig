@@ -11,7 +11,7 @@ hc keybind Ctrl+$Mod+End spawn xtrlock
 # frame gap set for low-res display
 hc set frame_gap 22
 
-# I honestly don't know what this is; maybe delete it
+# this sets the borders of the active/non-active window
 hc attr theme.inner_width 0
 hc attr theme.border_width 1
 
