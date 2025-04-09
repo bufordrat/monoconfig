@@ -265,15 +265,15 @@ install-agda:: install-haskell
 boot_loader::
 	mkdir -p /boot/loader/entries
 	sudo install -m 555 $@/loader_conf /boot/loader/loader.conf
-	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -P -D SIGMALICIOUS='include(/dev/stdin)' $@/$(HOST)_arch_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch.conf
-	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -P -D SIGMALICIOUS='include(/dev/stdin)' $@/$(HOST)_arch_lts_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch-lts.conf
+	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -P -D SIGMALICIOUS='m4_include(/dev/stdin)' $@/$(HOST)_arch_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch.conf
+	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -P -D SIGMALICIOUS='m4_include(/dev/stdin)' $@/$(HOST)_arch_lts_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch-lts.conf
 .PHONY: boot_loader
 
 chroot_boot_loader::
 	mkdir -p /boot/loader/entries
 	sudo install -m 555 boot_loader/loader_conf /boot/loader/loader.conf
-	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -P -D SIGMALICIOUS='include(/dev/stdin)' boot_loader/sequent_arch_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch.conf
-	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -P -D SIGMALICIOUS='include(/dev/stdin)' boot_loader/sequent_arch_lts_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch-lts.conf
+	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -P -D SIGMALICIOUS='m4_include(/dev/stdin)' boot_loader/sequent_arch_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch.conf
+	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -P -D SIGMALICIOUS='m4_include(/dev/stdin)' boot_loader/sequent_arch_lts_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch-lts.conf
 .PHONY: boot_loader
 
 mkinitcpio_conf:
@@ -294,7 +294,7 @@ syncthing_devices:
 .PHONY: syncthing_devices
 
 # packages to install
-ARCH_PACKAGES = linux-lts lvm2 herbstluftwm bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-xinit xorg-twm xorg-xclock xterm m4 ascii xclip picom dhcpcd dmenu borg wget xaw3d xorg-fonts-misc firefox virtualbox virtualbox-host-modules-arch vagrant less man
+ARCH_PACKAGES = linux-lts lvm2 herbstluftwm bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm m4 ascii xclip picom dhcpcd dmenu borg wget xaw3d xorg-fonts-misc firefox virtualbox virtualbox-host-modules-arch vagrant less man
 AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font firehol 
 PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
