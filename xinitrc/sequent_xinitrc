@@ -17,4 +17,4 @@ fi
 sh /home/teichman/.config/herbstluftwm/monitors-arandr.sh
 
 # compositor
-picom -b
+picom -b --no-fading-openclose
