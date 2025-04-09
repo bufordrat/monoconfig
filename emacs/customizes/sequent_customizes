@@ -12,7 +12,7 @@
  '(package-selected-packages
    '(badwolf-theme dash diredfl doom-modeline gruvbox-theme magit
 		   marginalia nerd-icons nerd-icons-dired orderless
-		   pdf-tools pyvenv vertico vlf xclip)))
+		   pdf-tools pyvenv tuareg vertico vlf xclip)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
