@@ -20,7 +20,7 @@ OCAML_BASICS = dune utop prelude etude spinup mrmime ocamlnet cmdliner ocamlform
 CABAL_VERSION = 3.14.1.1
 GHC_VERSION = 9.8.4
 AGDA_STDLIB_VERSION = 2.2
-ETHERFACE_NAME = $(shell ip addr | sed -n '/^[0-9]: en/p' | grep -oE 'en.+?:' | tr -d ':')
+ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
 BASIC_RULES = homebin emacs bash fish zsh openssh gnupg
@@ -122,6 +122,7 @@ firehol: homebin
 	sudo mkdir -p /etc/firehol
 	pgrep gpg-agent
 	gpg -d --pinentry-mode loopback ~/dummy.gpg
+	ip address show $(ETHERFACE_NAME) > /dev/null 
 	gpg -d --pinentry-mode loopback $@/$@_conf.gpg | m4 -P -D IOTARIFFIC=$(ETHERFACE_NAME) | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
 .PHONY: firehol
 
