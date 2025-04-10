@@ -173,7 +173,7 @@ raspi::
 netctl: homebin
 	pgrep gpg-agent
 	gpg -d --pinentry-mode loopback ~/dummy.gpg
-	gpg -d --pinentry-mode loopback ~/.secrets/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P -D LAMBDATASTIC='m4_include(/dev/stdin)' $@/eduroam | sudo install -m 644 /dev/stdin /etc/$@/eduroam
+	gpg -d --pinentry-mode loopback ~/.secrets/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/eduroam | sudo install -m 644 /dev/stdin /etc/$@/eduroam
 .PHONY: netctl
 
 bash::
