@@ -148,19 +148,19 @@
 
 (autoload 'merlin-mode "merlin" nil t nil)
 (add-hook 'tuareg-mode-hook 'merlin-mode t)
-(add-hook
- 'tuareg-mode-hook
- (lambda ()
-    (keymap-set tuareg-mode-map "C-c C-c" #'projectile-compile-project)))
+;; (add-hook
+;;  'tuareg-mode-hook
+;;  (lambda ()
+;;     (keymap-set tuareg-mode-map "C-c C-c" #'projectile-compile-project)))
 (add-hook 'caml-mode-hook 'merlin-mode t)
 
-(advice-add 'make-comint :around #'my-utop-workaround)
+;; (advice-add 'make-comint :around #'my-utop-workaround)
 
-(defun my-utop-workaround (orig-fun name &rest args)
-  (if (not (equal name "OCaml"))
-      (apply orig-fun name args)
-    (let ((process-connection-type nil))
-      (apply orig-fun name args))))
+;; (defun my-utop-workaround (orig-fun name &rest args)
+;;   (if (not (equal name "OCaml"))
+;;       (apply orig-fun name args)
+;;     (let ((process-connection-type nil))
+;;       (apply orig-fun name args))))
 
 ;; haskell
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
@@ -204,18 +204,18 @@
 ;; utop-mode stuff
 ;; not working yet
 
-;; (autoload 'utop "utop" "Toplevel for OCaml" t)
-;; (defvar kw-utop-init-file-name ".utopinit")
-;; (setq utop-command (format "opam exec -- dune utop . -- -emacs -init %s" kw-utop-init-file-name))
-;; (autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
-;; (add-hook 'tuareg-mode-hook 'utop-minor-mode)
-;; (with-eval-after-load 'utop-minor-mode
-;;   (dolist (k '("M-<return>" "S-<return>" "C-<return>"))
-;;     (define-key utop-mode-map (kbd k) 'utop-eval-input-auto-end))
-;;   (define-key utop-mode-map (kbd "C-c C-d") 'utop-kill))
+(autoload 'utop "utop" "Toplevel for OCaml" t)
+(defvar kw-utop-init-file-name ".utopinit")
+(setq utop-command (format "opam exec -- dune utop . -- -emacs -init %s" kw-utop-init-file-name))
+(autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
+(add-hook 'tuareg-mode-hook 'utop-minor-mode)
+(with-eval-after-load 'utop-minor-mode
+  (dolist (k '("M-<return>" "S-<return>" "C-<return>"))
+    (define-key utop-mode-map (kbd k) 'utop-eval-input-auto-end))
+  (define-key utop-mode-map (kbd "C-c C-d") 'utop-kill))
 
-;; (add-hook 'tuareg-mode-hook
-;;           (lambda ()
-;;             (if (locate-dominating-file default-directory "dune-project")
-;;                 (setq-local tuareg-interactive-program utop-command)
-;;               (setq-local tuareg-interactive-program "opam exec -- ocaml -nopromptcont"))))
+(add-hook 'tuareg-mode-hook
+          (lambda ()
+            (if (locate-dominating-file default-directory "dune-project")
+                (setq-local tuareg-interactive-program utop-command)
+              (setq-local tuareg-interactive-program "opam exec -- ocaml -nopromptcont"))))
