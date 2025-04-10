@@ -237,7 +237,7 @@ install-ocaml:: install-opam remove-switch
 
 install-haskell::
 	ghcup nuke || true
-	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | env BOOTSTRAP_HASKELL_NONINTERACTIVE=1 BOOTSTRAP_HASKELL_MINIMAL=1 sh
+	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | env2 BOOTSTRAP_HASKELL_NONINTERACTIVE=1 BOOTSTRAP_HASKELL_MINIMAL=1 sh
 	ghcup install stack 3.3.1
 	ghcup set stack 3.3.1
 	ghcup install hls 2.9.0.1
@@ -265,8 +265,8 @@ install-agda:: install-haskell
 boot_loader::
 	mkdir -p /boot/loader/entries
 	sudo install -m 555 $@/loader_conf /boot/loader/loader.conf
-	sudo install -m 555 $@/sequent_arch_conf /boot/loader/entries/arch.conf
-	sudo install -m 555 $@/sequent_arch_lts_conf /boot/loader/entries/arch.conf
+	sudo install -m 555 $@/$(HOST)_arch_conf /boot/loader/entries/arch.conf
+	sudo install -m 555 $@/$(HOST)_arch_lts_conf /boot/loader/entries/arch-lts.conf
 .PHONY: boot_loader
 
 # not yet tested; check the output after first using
