@@ -9,3 +9,7 @@ Host sequent sequent.lib.uchicago.edu
   HostName sequent.lib.uchicago.edu
   User teichman
   ProxyCommand /usr/bin/nc -X 5 -x localhost:2200 %h %p
+
+Host staff
+  HostName staff.lib.uchicago.edu
+  ProxyJump sequent.lib.uchicago.edu

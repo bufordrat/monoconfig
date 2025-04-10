@@ -154,13 +154,13 @@
     (keymap-set tuareg-mode-map "C-c C-c" #'projectile-compile-project)))
 (add-hook 'caml-mode-hook 'merlin-mode t)
 
-;; (advice-add 'make-comint :around #'my-utop-workaround)
+(advice-add 'make-comint :around #'my-utop-workaround)
 
-;; (defun my-utop-workaround (orig-fun name &rest args)
-;;   (if (not (equal name "OCaml"))
-;;       (apply orig-fun name args)
-;;     (let ((process-connection-type nil))
-;;       (apply orig-fun name args))))
+(defun my-utop-workaround (orig-fun name &rest args)
+  (if (not (equal name "OCaml"))
+      (apply orig-fun name args)
+    (let ((process-connection-type nil))
+      (apply orig-fun name args))))
 
 ;; haskell
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)

@@ -11,5 +11,5 @@ WPAConfigSection=(
 'key_mgmt=WPA-EAP'
 'eap=PEAP'
 'identity="teichman@uchicago.edu"'
-'password="LAMBDATASTIC"'
+'password="m4_include(/dev/stdin)"'
 )
