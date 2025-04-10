@@ -200,3 +200,22 @@
 (setq tooltip-mode nil)
 (setq truncate-partial-width-windows nil)
 (setq tuareg-opam-insinuate t)
+
+;; utop-mode stuff
+;; not working yet
+
+;; (autoload 'utop "utop" "Toplevel for OCaml" t)
+;; (defvar kw-utop-init-file-name ".utopinit")
+;; (setq utop-command (format "opam exec -- dune utop . -- -emacs -init %s" kw-utop-init-file-name))
+;; (autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
+;; (add-hook 'tuareg-mode-hook 'utop-minor-mode)
+;; (with-eval-after-load 'utop-minor-mode
+;;   (dolist (k '("M-<return>" "S-<return>" "C-<return>"))
+;;     (define-key utop-mode-map (kbd k) 'utop-eval-input-auto-end))
+;;   (define-key utop-mode-map (kbd "C-c C-d") 'utop-kill))
+
+;; (add-hook 'tuareg-mode-hook
+;;           (lambda ()
+;;             (if (locate-dominating-file default-directory "dune-project")
+;;                 (setq-local tuareg-interactive-program utop-command)
+;;               (setq-local tuareg-interactive-program "opam exec -- ocaml -nopromptcont"))))
