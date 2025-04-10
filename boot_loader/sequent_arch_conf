@@ -2,4 +2,4 @@ title Arch Linux
 linux /vmlinuz-linux
 initrd /intel-ucode.img
 initrd /initramfs-linux.img
-options cryptdevice=UUID=SIGMALICIOUS:cryptlvm root=/dev/vga/root rw
+options cryptdevice=UUID=9f4a73ce-664c-4426-964d-cfa8b14129a1:cryptlvm root=/dev/vga/root rw
