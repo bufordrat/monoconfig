@@ -206,7 +206,7 @@
 
 (autoload 'utop "utop" "Toplevel for OCaml" t)
 (defvar kw-utop-init-file-name ".utopinit")
-(setq utop-command (format "opam exec -- dune utop . -- -emacs -init %s" kw-utop-init-file-name))
+(setq utop-command "opam exec -- dune utop . -- -emacs")
 (autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
 (add-hook 'tuareg-mode-hook 'utop-minor-mode)
 (with-eval-after-load 'utop-minor-mode
