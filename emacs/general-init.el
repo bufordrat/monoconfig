@@ -148,10 +148,10 @@
 
 (autoload 'merlin-mode "merlin" nil t nil)
 (add-hook 'tuareg-mode-hook 'merlin-mode t)
-;; (add-hook
-;;  'tuareg-mode-hook
-;;  (lambda ()
-;;     (keymap-set tuareg-mode-map "C-c C-c" #'projectile-compile-project)))
+(add-hook
+ 'tuareg-mode-hook
+ (lambda ()
+    (keymap-set tuareg-mode-map "C-c C-c" #'projectile-compile-project)))
 (add-hook 'caml-mode-hook 'merlin-mode t)
 
 ;; (advice-add 'make-comint :around #'my-utop-workaround)
@@ -202,7 +202,6 @@
 (setq tuareg-opam-insinuate t)
 
 ;; utop-mode stuff
-;; not working yet
 
 (autoload 'utop "utop" "Toplevel for OCaml" t)
 (defvar kw-utop-init-file-name ".utopinit")
@@ -211,8 +210,9 @@
 (add-hook 'tuareg-mode-hook 'utop-minor-mode)
 (with-eval-after-load 'utop-minor-mode
   (dolist (k '("M-<return>" "S-<return>" "C-<return>"))
-    (define-key utop-mode-map (kbd k) 'utop-eval-input-auto-end))
-  (define-key utop-mode-map (kbd "C-c C-d") 'utop-kill))
+    (keymap-set utop-mode-map k 'utop-eval-input-auto-end))
+  (keymap-set utop-mode-map "C-c C-k" 'utop-exit)
+  (keymap-set utop-minor-mode-map "C-c C-k" 'utop-exit))
 
 (add-hook 'tuareg-mode-hook
           (lambda ()
