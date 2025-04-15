@@ -19,8 +19,8 @@
 (global-set-key (kbd "M-_") #'scroll-down-line)
 (global-set-key (kbd "C-*") #'split-window-right)
 (global-set-key (kbd "C-&") #'split-window-below)
-(global-set-key (kbd "C-<") #'delete-window)
-(global-set-key (kbd "C-^") #'delete-other-windows)
+(global-set-key (kbd "C-^") #'delete-window)
+(global-set-key (kbd "C-+") #'delete-other-windows)
 
 ;; replacements for GUI Emacs keybindings
 (global-set-key (kbd "M-;") #'comment-line)
