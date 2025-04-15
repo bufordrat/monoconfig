@@ -24,8 +24,8 @@
 		 markdown-mode merlin-eldoc nerd-icons-dired
 		 nodejs-repl nord-theme orderless pdf-tools peg
 		 php-mode projectile pyvenv qrencode
-		 selectrum-prescient solo-jazz-theme ttl-mode utop
-		 vertico vlf vterm web-mode xclip yaml yaml-mode)))
+		 selectrum-prescient solo-jazz-theme ttl-mode tuareg
+		 utop vertico vlf vterm web-mode xclip yaml yaml-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
