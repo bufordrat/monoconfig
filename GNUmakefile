@@ -37,8 +37,7 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg
-# etc_hosts
+sequent: arch dunst firehol borg etc_hosts
 # fstab
 
 kleisli: arch mpd samba intel
