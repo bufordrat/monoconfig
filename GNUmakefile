@@ -188,6 +188,7 @@ borg::
 
 emacs::
 	mkdir -p ~/.emacs.d/lisp
+	mkdir -p ~/.squiggles
 	test -f ~/.emacs.d/customizes.el || touch ~/.emacs.d/customizes.el
 	install -m 444 $@/init.el ~/.emacs.d
 	install -m 444 $@/fonts.el ~/.emacs.d/lisp
