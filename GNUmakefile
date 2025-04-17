@@ -24,7 +24,7 @@ ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
 BASIC_RULES = homebin emacs bash fish zsh openssh gnupg
-ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 python etc_pacman_conf boot_loader
+ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 python etc_pacman_conf boot_loader fstab
 
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python
@@ -37,8 +37,7 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts
-# fstab
+sequent: arch dunst firehol borg etc_hosts 
 
 kleisli: arch mpd samba intel
 
@@ -126,7 +125,7 @@ firehol: homebin
 .PHONY: firehol
 
 fstab::
-	sudo install -m 644 $@/$(HOST)_fstab /etc/fstab
+	cp /etc/fstab $@/$(HOST)_fstab
 .PHONY: fstab
 
 homebin::

@@ -204,6 +204,7 @@
 (setq tooltip-mode nil)
 (setq truncate-partial-width-windows nil)
 (setq tuareg-opam-insinuate t)
+(setq auto-save-default nil)
 
 ;; toggling this off for now, I think it's messing things up
 ;; (setq split-width-threshold 0)
