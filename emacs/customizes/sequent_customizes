@@ -13,8 +13,8 @@
    '(badwolf-theme dash diredfl doom-modeline dune edit-indirect
 		   gruvbox-theme htmlize magit marginalia
 		   markdown-mode nerd-icons nerd-icons-dired orderless
-		   pdf-tools projectile pyvenv tuareg utop vertico vlf
-		   xclip)))
+		   pdf-tools projectile pyvenv syncthing tuareg utop
+		   vertico vlf xclip)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

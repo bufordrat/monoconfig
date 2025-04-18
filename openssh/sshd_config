@@ -1,0 +1,11 @@
+# use only authorized keys file
+AuthorizedKeysFile	.ssh/authorized_keys
+
+# no passwords!
+PasswordAuthentication no
+
+# extra super no passwords with a cherry on top!
+KbdInteractiveAuthentication no
+
+# X11 forwarding for those sweet sweet Emacs clients
+X11Forwarding yes

@@ -1,0 +1,5 @@
+* systemctl commands
+$ systemctl --user status mpd
+$ systemctl --user start mpd
+$ systemctl --user enable mpd
+$ systemctl --user restart mpd

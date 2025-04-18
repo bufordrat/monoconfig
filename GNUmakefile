@@ -108,6 +108,7 @@ openssh::
 	mkdir -p ~/.ssh
 	install -m 444 $@/authorized_keys ~/.ssh/authorized_keys
 	install -m 444 $@/$(HOST)_ssh_config ~/.ssh/config
+	sudo install -m 444 $@/sshd_config /etc/ssh/sshd_config
 .PHONY: openssh
 
 gnupg::
