@@ -1,7 +1,3 @@
 Host *
   ForwardX11 yes
   ForwardAgent yes
-
-Host 52.90.208.45
-  User teichman
-  IdentityFile ~/.ssh/id_rsa
