@@ -23,7 +23,8 @@ AGDA_STDLIB_VERSION = 2.2
 ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
-BASIC_RULES = homebin emacs bash fish zsh openssh gnupg
+BASIC_RULES = homebin emacs bash fish zsh gnupg
+# openssh
 ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 python etc_pacman_conf boot_loader fstab
 
 PI_RULES = $(BASIC_RULES) mpd raspi
