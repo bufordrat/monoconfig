@@ -78,9 +78,9 @@ LocalFileSigLevel = Optional
 [core]
 Include = /etc/pacman.d/mirrorlist
 
-[kw-emacs]
-SigLevel = Never
-Server = http://www.lib.uchicago.edu/keith/pkgrepo/kw-emacs/$arch
+# [kw-emacs]
+# SigLevel = Never
+# Server = http://www.lib.uchicago.edu/keith/pkgrepo/kw-emacs/$arch
 
 # [extra-testing]
 # Include = /etc/pacman.d/mirrorlist
