@@ -25,9 +25,6 @@ URxvt*termName: rxvt-unicode-256color
 
 URxvt.internalBorder:  15
 
-URxvt.iso14755: true
-URxvt.iso14755_52: false
-
 ! special
 *.foreground:   #ccccc6
 *.background:   #1b1d1e
