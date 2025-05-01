@@ -17,10 +17,14 @@
 (global-set-key (kbd "C-c m") #'magit-clone)
 (global-set-key (kbd "M-+") #'scroll-up-line)
 (global-set-key (kbd "M-_") #'scroll-down-line)
-(global-set-key (kbd "C-*") #'split-window-right)
-(global-set-key (kbd "C-&") #'split-window-below)
-(global-set-key (kbd "C-^") #'delete-window)
-(global-set-key (kbd "C-+") #'delete-other-windows)
+;; (global-set-key (kbd "C-*") #'split-window-right)
+(global-set-key (kbd "M-p") #'split-window-right)
+;; (global-set-key (kbd "C-&") #'split-window-below)
+(global-set-key (kbd "M-]") #'split-window-below)
+;; (global-set-key (kbd "C-^") #'delete-window)
+(global-set-key (kbd "M-i") #'delete-window)
+;; (global-set-key (kbd "C-+") #'delete-other-windows)
+(global-set-key (kbd "M-SPC") #'delete-other-windows)
 
 ;; replacements for GUI Emacs keybindings
 (global-set-key (kbd "M-;") #'comment-line)
