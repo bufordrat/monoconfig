@@ -43,9 +43,10 @@
 			 nerd-icons-dired nix-mode notmuch orderless
 			 pdf-tools php-mode projectile py-autopep8
 			 py-isort python-black pyvenv
-			 selectrum-prescient simple-mpc tuareg
-			 unidecode vertico vlf vterm web-mode xclip
-			 yaml-mode)))
+			 selectrum-prescient simple-mpc syncthing
+			 tuareg unidecode vertico vlf vterm web-mode
+			 xclip yaml-mode))
+ '(syncthing-default-server-token "RJbgF75mVgDQGjMhXcYVCVhX5aUjoZmc"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
