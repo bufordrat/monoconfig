@@ -39,7 +39,7 @@ internet: all $(INTERNET_RULES)
 # host rules
 sequent: arch dunst firehol borg etc_hosts 
 
-kleisli: arch mpd samba intel
+kleisli: arch mpd samba intel abcde
 
 substructural: macos 
 
@@ -297,6 +297,10 @@ syncthing:
 syncthing_devices:
 	@syncthing cli config devices list | while read device; do printf "%s\t%s\n" "$$(syncthing cli config devices $$device name get)" $$device; done | column -s "`printf '\t'`" -t
 .PHONY: syncthing_devices
+
+abcde:
+	install -m 444 $@/$(HOST)_$@_conf ~/.abcde.conf
+.PHONY: abcde
 
 # packages to install
 ARCH_PACKAGES = linux-lts lvm2 herbstluftwm bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm m4 ascii xclip picom dhcpcd dmenu borg wget xaw3d xorg-fonts-misc firefox virtualbox virtualbox-host-modules-arch vagrant less man net-tools
