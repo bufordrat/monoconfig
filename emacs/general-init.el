@@ -3,6 +3,7 @@
 (with-demoted-errors "%s" (load-library "fishy-prompt"))
 (with-demoted-errors "%s" (load-library "toggle-gui"))
 (with-demoted-errors "%s" (load-library "shells"))
+(with-demoted-errors "%s" (load-library "ocaml"))
 
 ;; cd to homedir
 (cd "~")
