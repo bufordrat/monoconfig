@@ -1,9 +1,10 @@
 ;; TODO: mli-p is not working yet
 (defun mli-p (path)
-  (seq-every-p #'identity '((file-writable-p path)
-			    (file-exists-p path)
-			    (or (equal (file-name-extension path) "mli")
-				(equal (file-name-extension path) "shutoffmli")))))
+  (seq-every-p
+   #'identity
+   '((not (file-directory-p path))
+     (or (equal (file-name-extension path) "mli")
+	 (equal (file-name-extension path) "shutoffmli")))))
 
 (defun mli-dired-toggle ()
   (interactive)
