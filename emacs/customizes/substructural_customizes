@@ -28,6 +28,7 @@
 		 selectrum-prescient solo-jazz-theme syncthing
 		 ttl-mode tuareg utop vertico vlf vterm web-mode xclip
 		 yaml yaml-mode))
+ '(python-shell-process-environment '("PYTHON_BASIC_REPL=1"))
  '(syncthing-default-server-token "KxjecUv6gmRYvsjCc3MSvGbR2ZzyKyam"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

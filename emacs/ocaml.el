@@ -1,4 +1,3 @@
-;; TODO: mli-p is not working yet
 (defun mli-p (path)
   (and (not (file-directory-p path))
        (or (equal (file-name-extension path) "mli")
@@ -12,8 +11,10 @@
 	 (new-extension (cond ((equal old-extension "mli") "shutoffmli")
 			      ((equal old-extension "shutoffmli") "mli")
 			      (t old-extension)))
-	 (new-path (file-name-with-extension old-filename new-extension)))
-    (if (equal old-extension new-extension)
-	(message "Not an .mli file.")
-      (rename-file old-path new-path)
-      (revert-buffer))))
+	 (new-path (if old-extension
+		       (file-name-with-extension old-filename new-extension)
+		     old-path)))
+    (unless (mli-p old-path)
+      (error "Not an .mli file."))
+    (rename-file old-path new-path)
+    (revert-buffer)))
