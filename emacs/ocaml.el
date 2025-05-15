@@ -24,9 +24,11 @@
     (revert-buffer)))
 
 (defun suitable-buffer-p ()
-  (let ((current-extension (file-name-extension buffer-file-name)))
-    (or (eq major-mode 'tuareg-mode)
-	(equal current-extension "shutoffmli"))))
+  (if buffer-file-name
+      (let ((current-extension (file-name-extension buffer-file-name)))
+	(or (eq major-mode 'tuareg-mode)
+	    (equal current-extension "shutoffmli")))
+    nil))
 
 (defun mli-buffer-toggle ()
   (if (suitable-buffer-p)
@@ -36,3 +38,8 @@
 	(find-alternate-file new-path)
 	(revert-buffer nil t))
     (message "You aren't in a Tuareg buffer.")))
+
+(defun mli-toggle ()
+  (cond ((suitable-buffer-p) (mli-buffer-toggle))
+	((eq major-mode 'dired-mode) (mli-dired-toggle))
+	(t nil))
