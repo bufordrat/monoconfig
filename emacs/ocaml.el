@@ -2,8 +2,8 @@
 (defun mli-p (path)
   (seq-every-p #'identity '((file-writable-p path)
 			    (file-exists-p path)
-			    (or (equal (filename-extension path) "mli")
-				(equal (filename-extension path) "shutoffmli")))))
+			    (or (equal (file-name-extension path) "mli")
+				(equal (file-name-extension path) "shutoffmli")))))
 
 (defun mli-dired-toggle ()
   (interactive)
