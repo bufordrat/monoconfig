@@ -1,4 +1,12 @@
+;; TODO: mli-p is not working yet
+(defun mli-p (path)
+  (seq-every-p #'identity '((file-writable-p path)
+			    (file-exists-p path)
+			    (or (equal (filename-extension path) "mli")
+				(equal (filename-extension path) "shutoffmli")))))
+
 (defun mli-dired-toggle ()
+  (interactive)
   (let* ((old-path (dired-get-filename))
 	 (old-filename (file-name-sans-extension old-path))
 	 (old-extension (file-name-extension old-path))
@@ -6,5 +14,7 @@
 			      ((equal old-extension "shutoffmli") "mli")
 			      (t old-extension)))
 	 (new-path (file-name-with-extension old-filename new-extension)))
-    (progn (rename-file old-path new-path)
-	   (revert-buffer))))
+    (if (equal old-extension new-extension)
+	(message "Not an .mli file.")
+      (rename-file old-path new-path)
+      (revert-buffer))))
