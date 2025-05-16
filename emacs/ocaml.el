@@ -30,6 +30,13 @@
 	    (equal current-extension "shutoffmli")))
     nil))
 
+(defun suitable-ml-buffer-p ()
+  (if buffer-file-name
+      (let ((current-extension (file-name-extension buffer-file-name)))
+	(and (eq major-mode 'tuareg-mode)
+	     (equal current-extension "ml")))
+    nil))
+
 (defun mli-buffer-toggle ()
   (let* ((old-path buffer-file-name)
 	 (new-path (transform-path old-path)))
@@ -111,7 +118,8 @@ delete one and try again."))
 
 (defun mli-toggle ()
   (interactive)
-  (cond ((suitable-mli-buffer-p) (mli-buffer-toggle))
+  (cond ((suitable-ml-buffer-p) (ml-buffer-toggle))
+	((suitable-mli-buffer-p) (mli-buffer-toggle))
 	((eq major-mode 'dired-mode) (mli-dired-toggle))
 	(t (error "You aren't in a Tuareg buffer."))))
 
