@@ -64,15 +64,20 @@
 (defun validate-ml-path (path)
   (let* ((mli-path (replace-extension path "mli"))
 	 (shutoffmli-path (replace-extension path "shutoffmli"))
+	 (mli-path-short (file-name-nondirectory mli-path))
+	 (shutoffmli-path-short (file-name-nondirectory shutoffmli-path))
 	 (mli-exists (file-exists-p mli-path))
 	 (shutoffmli-exists (file-exists-p shutoffmli-path)))
     (when (and mli-exists shutoffmli-exists)
       (error
-       ".mli and .shutoffmli correspondents of this file both exist; please
-delete one and try again."))
+       (format "%s and %s both exist; please delete one and try again."
+	       mli-path-short
+	       shutoffmli-path-short)))
     (when (and (not mli-exists)
 	       (not shutoffmli-exists))
-      (error "This .ml file has no .mli correspondent."))))
+      (error
+       (format "%s does not exist; please create it."
+	       mli-path-short)))))
 
 (defun the-file-at (path1 path2)
   (if (file-exists-p path1) path1 path2))
