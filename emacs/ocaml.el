@@ -127,24 +127,6 @@
 ;;     (async-shell-command "one of the rsyncs" (window-buffer w1))
 ;;     (async-shell-command "one of the rsyncs" (window-buffer w2))))
 
-(defun mt-3-thing ()
-  (let* ((_ (delete-other-windows))
-         (w0 (selected-window))
-         (cmd0 "date")
-         (cmd1 "cal")
-         (cmd2 "lsblk")
-         (w1 (split-window-right))
-         (w2 (split-window-right)))
-    (balance-windows)
-    (cl-loop
-     for (win cmd) in `((,w0 ,cmd0) (,w1 ,cmd1) (,w2 ,cmd2))
-     do (with-selected-window win
-          (let ((buf (get-buffer-create (format "*%s*" cmd))))
-            (display-buffer buf '(display-buffer-same-window))
-            (with-current-buffer buf
-              (erase-buffer)
-              (async-shell-command cmd (current-buffer))))))))
-
 ;; (progn (delete-other-windows)
 ;;        (split-window-right)
 ;;        (split-window-right)

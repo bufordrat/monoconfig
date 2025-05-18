@@ -4,6 +4,7 @@
 (with-demoted-errors "%s" (load-library "toggle-gui"))
 (with-demoted-errors "%s" (load-library "shells"))
 (with-demoted-errors "%s" (load-library "ocaml"))
+(with-demoted-errors "%s" (load-library "music-sync"))
 
 ;; cd to homedir
 (cd "~")
