@@ -7,8 +7,14 @@ ServerAliveInterval 120
 ServerAliveInterval 600
 ServerAliveCountMax 48
 
-Host sequent sequent.lib.uchicago.edu stax staff
+Host sequent sequent.lib.uchicago.edu
+  HostName sequent.lib.uchicago.edu
+  User teichman
   ProxyCommand /usr/bin/nc -X 5 -x localhost:2200 %h %p
+
+Host stax stax.lib.uchicago.edu
+  HostName stax.lib.uchicago.edu
+  User teichman
 
 Host *
   ForwardAgent yes

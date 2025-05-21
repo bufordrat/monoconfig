@@ -200,6 +200,7 @@ emacs::
 	install -m 444 $@/shells.el ~/.emacs.d/lisp
 	install -m 444 $@/ocaml.el ~/.emacs.d/lisp
 	install -m 444 $@/music-sync.el ~/.emacs.d/lisp
+	install -m 444 $@/bastion.el ~/.emacs.d/lisp
 	install -m 444 $@/general-init.el ~/.emacs.d/lisp
 	install -m 444 $@/$(HOST)-init.el ~/.emacs.d/lisp/$(HOST)-init.el
 	cp ~/.emacs.d/customizes.el $@/customizes/$(HOST)_customizes
