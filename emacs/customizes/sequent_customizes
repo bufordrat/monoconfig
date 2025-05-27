@@ -11,10 +11,11 @@
  '(doom-modeline-height 25)
  '(package-selected-packages
    '(badwolf-theme dash diredfl doom-modeline dune edit-indirect
-		   gruvbox-theme htmlize magit marginalia
+		   fish-mode gruvbox-theme htmlize magit marginalia
 		   markdown-mode nerd-icons nerd-icons-dired orderless
 		   pdf-tools projectile pyvenv syncthing tuareg utop
-		   vertico vlf web-mode xclip)))
+		   vertico vlf web-mode xclip))
+ '(python-shell-process-environment '("PYTHON_BASIC_REPL=1")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
