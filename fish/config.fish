@@ -1,10 +1,2 @@
-# prompt
-if test "$TERM" = "dumb"
-    function fish_prompt
-	echo "\$ "
-    end
-else
-    function fish_prompt
-	echo "trampless\$ "
-    end
-end
+source ~/.config/fish/general.fish
+source ~/.config/fish/(uname -n | cut -d. -f1).fish
