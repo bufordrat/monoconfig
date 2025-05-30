@@ -4,10 +4,13 @@
 
 # $ env TERM=dumb bash
 
-if [ "$TERM" = "dumb" ] # for tramping in
+if # for tramping in
+    [ "$TERM" = "dumb" ]
 then :
-elif [ -n "$INSIDE_EMACS" ] # for M-x shell
-then alias ls='ls --color=auto'
+elif # for M-x shell
+    [ -n "$INSIDE_EMACS" ]
+then PS1='[\u@\h \W]\$ '
+     alias ls='ls --color=auto'
 
      PATH=/home/teichman/.ghcup/bin:/home/teichman/bin:/home/teichman/.stack/bin:/home/teichman/.local/bin:$PATH
      eval $(opam env)
