@@ -1,1 +1,11 @@
-:
+# there is no way to make a fish login shell work with Tramp, so I am
+# instead using this hack
+
+# since fish doesn't provide an option to turn off the hidden
+# ansi-escaped path when it launches, I am using bash as my login
+# shell to make Tramp happy
+
+# when TERM isn't dumb, it'll just exec fish in login mode so that I
+# can pretend fish is my login shell
+
+[ ! "$TERM" = "dumb" ] && exec fish -l
