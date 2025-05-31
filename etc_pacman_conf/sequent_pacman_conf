@@ -85,9 +85,6 @@ Server = http://www.lib.uchicago.edu/keith/pkgrepo/kw-emacs/$arch
 # [extra-testing]
 # Include = /etc/pacman.d/mirrorlist
 
-#[community-testing]
-#Include = /etc/pacman.d/mirrorlist
-
 [extra]
 Include = /etc/pacman.d/mirrorlist
 

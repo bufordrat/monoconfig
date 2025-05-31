@@ -259,11 +259,11 @@ install-agda:: install-haskell
 	ghcup install cabal $(CABAL_VERSION)
 	ghcup set cabal $(CABAL_VERSION)
 	cabal update
-	cabal install --overwrite-policy=always --install-method=copy Agda
+	cabal v2-install --overwrite-policy=always --install-method=copy Agda
 	cd $$(shell dirname $$(shell agda-mode locate)) && emacs --batch --eval '(push "." load-path)' -f batch-byte-compile eri.el *.el || true
 	ghcup rm cabal $(CABAL_VERSION)
 	rm -rf $$(agda --print-agda-app-dir)
-	mkdir $$(agda --print-agda-app-dir)
+	mkdir -p $$(agda --print-agda-app-dir)
 	cd $$(agda --print-agda-app-dir) && wget -O stdlib.tar.gz 'https://github.com/agda/agda-stdlib/archive/v$(AGDA_STDLIB_VERSION).tar.gz' && tar xzvf stdlib.tar.gz
 	echo $$(agda --print-agda-app-dir)/agda-stdlib-$(AGDA_STDLIB_VERSION)/standard-library.agda-lib > $$(agda --print-agda-app-dir)/libraries
 	echo standard-library > $$(agda --print-agda-app-dir)/defaults
