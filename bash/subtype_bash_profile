@@ -1,1 +1,2 @@
-:
+[ ! "$TERM" = "dumb" ] && exec fish -l
+

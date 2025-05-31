@@ -1,19 +1,21 @@
-#
-# ~/.bashrc
-#
+# see bash_profile for explanation about the exec fish
 
-alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+# note: if I want to launch bash and have it not be fish, run:
 
-if [ -n "$INSIDE_EMACS" ]
-then
-   export MANPAGER=cat
-   export PAGER=cat
-   export TERM=dumb
+# $ env TERM=dumb bash
+
+if # for tramping in
+    [ "$TERM" = "dumb" ]
+then :
+elif # for M-x shell
+    [ -n "$INSIDE_EMACS" ]
+then PS1='[\u@\h \W]\$ '
+     alias ls='ls --color=auto'
+
+     PATH=/home/teichman/.ghcup/bin:/home/teichman/bin:/home/teichman/.stack/bin:/home/teichman/.local/bin:$PATH
+     eval $(opam env)
+
+     export EDITOR=figure_out_editor_variable
+else # firing up a normal terminal
+    exec fish 
 fi
-
-PATH=/home/teichman/.ghcup/bin:/home/teichman/bin:/home/teichman/.stack/bin:/home/teichman/.local/bin:$PATH
-
-eval $(opam env)
-
-export EDITOR=figure_out_editor_variable
