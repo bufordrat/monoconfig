@@ -4,8 +4,11 @@ source ~/.config/fish/ssh_gpg.fish
 # opam stuff
 eval (opam env)
 
-# ghcup stuff
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/teichman/.ghcup/bin # ghcup-env
+# ghcup
+fish_add_path ~/.ghcup/bin
 
-# more local binary paths
+# cabal
+fish_add_path ~/.cabal/bin
+
+# binaries installed by cabal
 fish_add_path ~/.local/bin
