@@ -211,9 +211,6 @@
 (setq tuareg-opam-insinuate t)
 (setq auto-save-default nil)
 
-;; toggling this off for now, I think it's messing things up
-;; (setq split-width-threshold 0)
-
 ;; utop-mode stuff
 
 (autoload 'utop "utop" "Toplevel for OCaml" t)
@@ -232,3 +229,15 @@
             (if (locate-dominating-file default-directory "dune-project")
                 (setq-local tuareg-interactive-program utop-command)
               (setq-local tuareg-interactive-program "opam exec -- ocaml -nopromptcont"))))
+
+(defun utop-previous-prompt ()
+  (re-search-backward "^utop\\[?")
+  (re-search-backward "^utop\\[?")
+  (move-beginning-of-line 1)
+  (re-search-forward "^utop\\[??]")
+  ;; (forward-word)
+  ;; (forward-word)
+  ;; (forward-char)
+  ;; (forward-char)
+  ;; (forward-char)
+  )
