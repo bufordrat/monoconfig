@@ -19,5 +19,5 @@ fi
 # get $EDITOR to behave in Emacs
 export EDITOR=figure_out_editor_variable
 
-# get systemd to not use a pager
+# get systemd not to use a pager
 export SYSTEMD_PAGER=
