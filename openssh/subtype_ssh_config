@@ -3,6 +3,7 @@ ForwardX11Trusted yes
 ForwardAgent yes
 Compression yes
 ServerAliveInterval 120
+AddKeysToAgent yes
 
 ServerAliveInterval 600
 ServerAliveCountMax 48

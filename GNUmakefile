@@ -162,7 +162,6 @@ zsh::
 	install -m 444 $@/general_zshrc ~/zshrc/general_zshrc
 	install -m 444 $@/$(HOST)_zshrc ~/zshrc/$(HOST)_zshrc
 	install -m 444 $@/$(HOST)_zshenv ~/.zshenv
-	install -m 444 $@/$(HOST)_zlogin ~/.zlogin || true
 .PHONY: zsh
 
 intel::
@@ -204,6 +203,7 @@ emacs::
 	install -m 444 $@/bastion.el ~/.emacs.d/lisp
 	install -m 444 $@/general-init.el ~/.emacs.d/lisp
 	install -m 444 $@/$(HOST)-init.el ~/.emacs.d/lisp/$(HOST)-init.el
+	systemctl --user edit --full --stdin emacs.service < $@/unit_files/$(HOST)_emacs_service || true
 	cp ~/.emacs.d/customizes.el $@/customizes/$(HOST)_customizes
 	cp ~/.emacs.d/bookmarks $@/bookmarks/$(HOST)_bookmarks
 .PHONY: emacs
