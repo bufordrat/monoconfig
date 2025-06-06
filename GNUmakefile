@@ -123,7 +123,6 @@ gnupg::
 
 firehol: homebin
 	sudo mkdir -p /etc/firehol
-	pgrep gpg-agent
 	gpg -d --pinentry-mode loopback ~/dummy.gpg
 	ip address show $(ETHERFACE_NAME) > /dev/null 
 	gpg -d --pinentry-mode loopback $@/$@_conf.gpg | m4 -P -D IOTARIFFIC=$(ETHERFACE_NAME) | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
@@ -174,7 +173,6 @@ raspi::
 .PHONY: raspi
 
 netctl: homebin
-	pgrep gpg-agent
 	gpg -d --pinentry-mode loopback ~/dummy.gpg
 	gpg -d --pinentry-mode loopback ~/.secrets/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/eduroam | sudo install -m 644 /dev/stdin /etc/$@/eduroam
 .PHONY: netctl
