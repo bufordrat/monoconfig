@@ -8,6 +8,9 @@ Host *
 Host linux linux.cs.uchicago.edu
   HostName linux.cs.uchicago.edu
 
+Host staff staff.lib.uchicago.edu
+  HostName staff.lib.uchicago.edu
+
 Host sequent sequent.lib.uchicago.edu
   HostName sequent.lib.uchicago.edu
   User teichman
