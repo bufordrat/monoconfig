@@ -1,0 +1,2 @@
+* systemd command on =subtype= and =kleisli=
+sudo systemctl enable netctl-auto@wlp0s20f3.service
