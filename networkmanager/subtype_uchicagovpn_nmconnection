@@ -24,9 +24,6 @@ useragent=AnyConnect Linux_64 4.7.00136
 xmlconfig-flags=0
 service-type=org.freedesktop.NetworkManager.openconnect
 
-[vpn-secrets]
-lasthost=cvpn.uchicago.edu
-
 [ipv4]
 method=auto
 
