@@ -306,6 +306,7 @@ abcde:
 
 networkmanager:
 	sudo install -m 600 $@/$(HOST)_uchicagovpn_nmconnection /etc/NetworkManager/system-connections/UChicagoVPN.nmconnection
+	gpg -d --pinentry-mode loopback ~/.secrets/rutherford_fios_router.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_fios_h2ypv_nmconnection | sudo install -m 644 /dev/stdin /etc/NetworkManager/system-connections/Fios-h2YPv.nmconnection
 .PHONY: networkmanager
 
 # packages to install
