@@ -304,6 +304,10 @@ abcde:
 	install -m 444 $@/$(HOST)_$@_conf ~/.abcde.conf
 .PHONY: abcde
 
+networkmanager:
+	sudo install -m 600 $@/$(HOST)_uchicagovpn_nmconnection /etc/NetworkManager/system-connections/UChicagoVPN.nmconnection
+.PHONY: networkmanager
+
 # packages to install
 ARCH_PACKAGES = linux-lts lvm2 herbstluftwm bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm m4 ascii xclip picom dhcpcd dmenu borg wget xaw3d xorg-fonts-misc firefox virtualbox virtualbox-host-modules-arch vagrant less man net-tools
 AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font firehol 
