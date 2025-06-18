@@ -23,7 +23,8 @@ AGDA_STDLIB_VERSION = 2.2
 ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
-BASIC_RULES = homebin openssh emacs bash fish zsh gnupg 
+BASIC_RULES = homebin openssh emacs bash fish zsh gnupg
+NETWORK_MANAGER = networkmanager networkmanager-openconnect network-manager-applet nm-connection-editor
 ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 sshd python etc_pacman_conf boot_loader fstab
 
 PI_RULES = $(BASIC_RULES) mpd raspi
@@ -39,11 +40,11 @@ internet: all $(INTERNET_RULES)
 # host rules
 sequent: arch dunst firehol borg etc_hosts 
 
-kleisli: arch mpd samba intel abcde
+kleisli: arch mpd samba intel abcde $(NETWORK_MANAGER)
 
 substructural: macos 
 
-subtype: arch netctl
+subtype: arch netctl $(NETWORK_MANAGER)
 
 semigroup: 
 
