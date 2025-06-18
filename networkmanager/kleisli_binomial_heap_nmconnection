@@ -1,0 +1,21 @@
+[connection]
+id=BinomialHeap
+uuid=e7450e46-4758-4485-9307-8d352514fd38
+type=wifi
+
+[wifi]
+mode=infrastructure
+ssid=Binomial Heap
+
+[wifi-security]
+key-mgmt=wpa-psk
+psk=m4_include(/dev/stdin)
+
+[ipv4]
+method=auto
+
+[ipv6]
+addr-gen-mode=stable-privacy
+method=auto
+
+[proxy]
