@@ -1,5 +1,6 @@
 ServerAliveInterval 600
 ServerAliveCountMax 48
+AddKeysToAgent yes
 
 Host *
   ForwardAgent yes

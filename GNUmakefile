@@ -24,7 +24,6 @@ ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
 BASIC_RULES = homebin openssh emacs bash fish zsh gnupg
-NETWORK_MANAGER = networkmanager networkmanager-openconnect network-manager-applet nm-connection-editor
 ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 sshd python etc_pacman_conf boot_loader fstab
 
 PI_RULES = $(BASIC_RULES) mpd raspi
@@ -40,11 +39,11 @@ internet: all $(INTERNET_RULES)
 # host rules
 sequent: arch dunst firehol borg etc_hosts 
 
-kleisli: arch mpd samba intel abcde $(NETWORK_MANAGER)
+kleisli: arch mpd samba intel abcde
 
 substructural: macos 
 
-subtype: arch netctl $(NETWORK_MANAGER)
+subtype: arch netctl 
 
 semigroup: 
 
@@ -188,7 +187,12 @@ borg::
 	install -m 444 $@/$(HOST)_borg_config $(CONFIG_DIR)/borg-config
 .PHONY: borg
 
-emacs::
+systemd:
+	systemctl --user enable emacs
+	systemctl --user enable ssh-agent
+.PHONY: systemd
+
+emacs: systemd
 	mkdir -p ~/.emacs.d/lisp
 	mkdir -p ~/.squiggles
 	test -f ~/.emacs.d/customizes.el || touch ~/.emacs.d/customizes.el
@@ -306,12 +310,14 @@ abcde:
 .PHONY: abcde
 
 networkmanager:
-	sudo install -m 600 $@/$(HOST)_uchicagovpn_nmconnection /etc/NetworkManager/system-connections/UChicagoVPN.nmconnection
+	sudo install -m 600 $@/uchicagovpn_nmconnection /etc/NetworkManager/system-connections/UChicagoVPN.nmconnection
 	gpg -d --pinentry-mode loopback ~/.secrets/rutherford_fios_router.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_fios_h2ypv_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/Fios-h2YPv.nmconnection
+	gpg -d --pinentry-mode loopback ~/.secrets/binomial_heap.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_binomial_heap_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/BinomialHeap.nmconnection
 .PHONY: networkmanager
 
 # packages to install
-ARCH_PACKAGES = linux-lts lvm2 herbstluftwm bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm m4 ascii xclip picom dhcpcd dmenu borg wget xaw3d xorg-fonts-misc firefox virtualbox virtualbox-host-modules-arch vagrant less man net-tools
+NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet nm-connection-editor webkit2gtk webkit2gtk-4.1
+ARCH_PACKAGES = linux-lts lvm2 herbstluftwm bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm m4 ascii xclip picom dhcpcd dmenu borg wget xaw3d xorg-fonts-misc firefox virtualbox virtualbox-host-modules-arch vagrant less man net-tools $(NM_PACKAGES)
 AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font firehol 
 PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget

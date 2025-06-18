@@ -1,4 +1,4 @@
-# path
+# for both non-login and login shells
 export PATH=/home/teichman/bin:/home/teichman/.ghcup/bin:/home/teichman/.stack/bin:/home/teichman/.local/bin:/home/teichman/.cabal/bin:$PATH
 
 # opam

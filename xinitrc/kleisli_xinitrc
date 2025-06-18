@@ -9,3 +9,5 @@ fi
 # compositor
 picom -b -c --fading=false
 
+# nm-applet for authentication to UChicago VPN
+nm-applet &
