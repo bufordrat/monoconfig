@@ -43,7 +43,7 @@ kleisli: arch mpd samba intel abcde
 
 substructural: macos 
 
-subtype: arch netctl 
+subtype: arch netctl networkmanager
 
 semigroup: 
 
