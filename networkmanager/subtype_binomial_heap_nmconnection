@@ -1,0 +1,23 @@
+[connection]
+id=Binomial Heap
+uuid=562df2b1-9f19-4030-9d7c-bd93a6655c1c
+type=wifi
+interface-name=wlp0s20f3
+
+[wifi]
+mode=infrastructure
+ssid=Binomial Heap
+
+[wifi-security]
+auth-alg=open
+key-mgmt=wpa-psk
+psk=m4_include(/dev/stdin)
+
+[ipv4]
+method=auto
+
+[ipv6]
+addr-gen-mode=default
+method=auto
+
+[proxy]
