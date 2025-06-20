@@ -21,3 +21,7 @@ export EDITOR=figure_out_editor_variable
 
 # get systemd not to use a pager
 export SYSTEMD_PAGER=
+
+# make zsh aware of ssh-agent
+UID="$(id -u teichman)"
+export SSH_AUTH_SOCK="/run/user/$UID/ssh-agent.socket"
