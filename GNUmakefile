@@ -317,7 +317,7 @@ networkmanager:
 .PHONY: networkmanager
 
 # packages to install
-NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet nm-connection-editor webkit2gtk webkit2gtk-4.1 libnma libnma-common libnma-gtk4
+NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1 
 ARCH_PACKAGES = linux-lts lvm2 herbstluftwm bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm m4 ascii xclip picom dhcpcd dmenu borg wget xaw3d xorg-fonts-misc firefox virtualbox virtualbox-host-modules-arch vagrant less man net-tools $(NM_PACKAGES)
 AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font firehol 
 PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
