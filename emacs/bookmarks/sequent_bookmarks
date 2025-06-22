@@ -2,7 +2,13 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("spinup"
+(("github"
+ (filename . "~/stuff/github/")
+ (front-context-string)
+ (rear-context-string . "0K Jun  2 09:47 ")
+ (position . 778)
+ (last-modified 26687 19659 390707 648000))
+("spinup"
  (filename . "~/stuff/github/spinup/")
  (front-context-string . "lib\n  -rw-r--r--")
  (rear-context-string . "0K Apr 15 10:22 ")

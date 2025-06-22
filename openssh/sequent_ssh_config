@@ -1,3 +1,17 @@
 Host *
   ForwardX11 yes
   ForwardAgent yes
+
+AddKeysToAgent yes
+
+Host motacilla
+  HostName motacilla.lib.uchicago.edu
+  User teichman
+
+Host nest
+  HostName nest.lib.uchicago.edu
+  User teichman
+
+Host nesttrain
+  HostName nesttrain.lib.uchicago.edu
+  User teichman
