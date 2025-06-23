@@ -1,8 +1,10 @@
 [connection]
 id=UChicagoVPN
-uuid=313fa0ef-dc93-4479-bc73-fcd3f4eef560
+uuid=450d650a-d56f-4dcb-b7a7-7093aa015c23
 type=vpn
-permissions=user:teichman:;
+autoconnect=false
+autoconnect-retries=0
+timestamp=1750375513
 
 [vpn]
 authtype=password
@@ -22,13 +24,17 @@ resolve-flags=2
 stoken_source=disabled
 useragent=AnyConnect Linux_64 4.7.00136
 xmlconfig-flags=0
+persistent=true
 service-type=org.freedesktop.NetworkManager.openconnect
+
+[vpn-secrets]
+lasthost=cvpn.uchicago.edu
 
 [ipv4]
 method=auto
 
 [ipv6]
-addr-gen-mode=default
+addr-gen-mode=stable-privacy
 method=auto
 
 [proxy]
