@@ -1,10 +1,11 @@
 ServerAliveInterval 600
 ServerAliveCountMax 48
 AddKeysToAgent yes
+ForwardAgent yes
+IdentityFile ~/.ssh/id_rsa
 
-Host *
-  ForwardAgent yes
-  IdentityFile ~/.ssh/id_rsa
+Host staff
+  HostName staff.lib.uchicago.edu
 
 Host sequent
   HostName sequent.lib.uchicago.edu

@@ -24,7 +24,7 @@ ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
 BASIC_RULES = homebin openssh emacs bash fish zsh gnupg
-ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 sshd python etc_pacman_conf boot_loader fstab
+ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 sshd python etc_pacman_conf boot_loader fstab networkmanager
 
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python
@@ -43,7 +43,7 @@ kleisli: arch mpd samba intel abcde
 
 substructural: macos 
 
-subtype: arch netctl networkmanager
+subtype: arch netctl
 
 semigroup: 
 
