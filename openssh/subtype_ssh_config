@@ -1,25 +1,11 @@
-ForwardX11 yes
-ForwardX11Trusted yes
-ForwardAgent yes
-Compression yes
-ServerAliveInterval 120
-AddKeysToAgent yes
-
 ServerAliveInterval 600
 ServerAliveCountMax 48
-
-Host sequent sequent.lib.uchicago.edu
-  HostName sequent.lib.uchicago.edu
-  User teichman
-  ProxyCommand /usr/bin/nc -X 5 -x localhost:2200 %h %p
-
-Host staff staff.lib.uchicago.edu
-  HostName staff.lib.uchicago.edu
-  User teichman
-
-Host stax stax.lib.uchicago.edu
-  HostName stax.lib.uchicago.edu
-  User teichman
+AddKeysToAgent yes
 
 Host *
   ForwardAgent yes
+  IdentityFile ~/.ssh/id_rsa
+
+Host sequent
+  HostName sequent.lib.uchicago.edu
+  ProxyJump staff.lib.uchicago.edu
