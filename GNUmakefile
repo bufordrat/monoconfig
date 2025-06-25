@@ -320,15 +320,15 @@ networkmanager:
 
 git-backup: homebin
 	mkdir -p $(GITHUB_BKUP_DIR)
-	git -C $(GITHUB_BKUP_DIR) clone https://github.com/bufordrat/spinup || true
-	git -C $(GITHUB_BKUP_DIR) clone https://github.com/bufordrat/etude || true
-	git -C $(GITHUB_BKUP_DIR) clone https://github.com/bufordrat/anonymizer || true
-	git -C $(GITHUB_BKUP_DIR) clone https://github.com/bufordrat/elucidations-blog || true 
-	git -C $(GITHUB_BKUP_DIR) clone https://github.com/uchicago-library/mboxer || true
-	git -C $(GITHUB_BKUP_DIR) clone https://github.com/uchicago-library/attachment-converter || true
-	git -C $(GITHUB_BKUP_DIR) clone https://github.com/uchicago-library/universal-viewer-uchicago || true
-	git -C $(GITHUB_BKUP_DIR) clone https://github.com/uchicago-library/homebrew-attc || true
-	git -C $(GITHUB_BKUP_DIR) clone https://github.com/uchicago-library/sfx || true
+	git -C $(GITHUB_BKUP_DIR) clone git@github.com:bufordrat/spinup || true
+	git -C $(GITHUB_BKUP_DIR) clone git@github.com:bufordrat/etude || true
+	git -C $(GITHUB_BKUP_DIR) clone git@github.com:bufordrat/anonymizer || true
+	git -C $(GITHUB_BKUP_DIR) clone git@github.com:bufordrat/elucidations-blog || true 
+	git -C $(GITHUB_BKUP_DIR) clone git@github.com:uchicago-library/mboxer || true
+	git -C $(GITHUB_BKUP_DIR) clone git@github.com:uchicago-library/attachment-converter || true
+	git -C $(GITHUB_BKUP_DIR) clone git@github.com:uchicago-library/universal-viewer-uchicago || true
+	git -C $(GITHUB_BKUP_DIR) clone git@github.com:uchicago-library/homebrew-attc || true
+	git -C $(GITHUB_BKUP_DIR) clone git@github.com:uchicago-library/sfx || true
 	update_branches $(GITHUB_BKUP_DIR)
 .PHONY: git-backup
 
