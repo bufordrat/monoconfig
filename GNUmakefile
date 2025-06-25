@@ -194,7 +194,7 @@ systemd:
 	systemctl --user enable ssh-agent
 .PHONY: systemd
 
-emacs: systemd
+emacs:
 	mkdir -p ~/.emacs.d/lisp
 	mkdir -p ~/.squiggles
 	test -f ~/.emacs.d/customizes.el || touch ~/.emacs.d/customizes.el

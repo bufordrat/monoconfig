@@ -5,13 +5,12 @@ Host *
   ForwardAgent yes
   IdentityFile ~/.ssh/id_rsa
 
-Host linux linux.cs.uchicago.edu
+Host linux
   HostName linux.cs.uchicago.edu
 
-Host staff staff.lib.uchicago.edu
+Host staff
   HostName staff.lib.uchicago.edu
 
-Host sequent sequent.lib.uchicago.edu
+Host sequent
   HostName sequent.lib.uchicago.edu
-  User teichman
-  ProxyCommand /usr/bin/nc -X 5 -x localhost:2200 %h %p
+  ProxyJump staff.lib.uchicago.edu
