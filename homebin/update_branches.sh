@@ -7,7 +7,7 @@ do
   (
     cd "$dir"
     $NOT git fetch --all
-    for branch in $(git branch -a --format "%(refname:short)" | grep -o "^.*origin/[^#].*$" | sed "s/origin\///");
+    for branch in $(git branch -a --format "%(refname:short)" | sed '/^origin\//!d;s;^origin/;;');
     do $NOT git checkout    "$branch";
        $NOT git pull origin "$branch" ;
     done
