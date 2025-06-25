@@ -21,6 +21,7 @@ CABAL_VERSION = 3.14.1.1
 GHC_VERSION = 9.8.4
 AGDA_STDLIB_VERSION = 2.2
 ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
+GITHUB_BKUP_DIR=$(shell cat git-backup/$(HOST)_path)
 
 # make rulesets
 BASIC_RULES = homebin openssh emacs bash fish zsh gnupg
@@ -37,7 +38,7 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts 
+sequent: arch dunst firehol borg etc_hosts git_backup
 
 kleisli: arch mpd samba intel abcde
 
@@ -141,6 +142,7 @@ homebin::
 	install -m 555 $@/figure_out_editor_variable.sh $(HOMEBIN_DIR)/figure_out_editor_variable
 	install -m 555 $@/sudo-lockout.sh $(HOMEBIN_DIR)/sudo-lockout
 	install -m 555 $@/randomount.sh $(HOMEBIN_DIR)/randomount
+	install -m 555 $@/update_branches.sh $(HOMEBIN_DIR)/update_branches
 .PHONY: homebin
 
 # note: I have not yet set this repo up on semigroup, pitype, or
@@ -315,6 +317,20 @@ networkmanager:
 	gpg -d --pinentry-mode loopback ~/.secrets/binomial_heap.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_binomial_heap_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/BinomialHeap.nmconnection
 	gpg -d --pinentry-mode loopback ~/.secrets/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_eduroam_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/eduroam.nmconnection
 .PHONY: networkmanager
+
+git-backup: homebin
+	mkdir -p $(GITHUB_BKUP_DIR)
+	git -C $(GITHUB_BKUP_DIR) clone https://github.com/bufordrat/spinup || true
+	git -C $(GITHUB_BKUP_DIR) clone https://github.com/bufordrat/etude || true
+	git -C $(GITHUB_BKUP_DIR) clone https://github.com/bufordrat/anonymizer || true
+	git -C $(GITHUB_BKUP_DIR) clone https://github.com/bufordrat/elucidations-blog || true 
+	git -C $(GITHUB_BKUP_DIR) clone https://github.com/uchicago-library/mboxer || true
+	git -C $(GITHUB_BKUP_DIR) clone https://github.com/uchicago-library/attachment-converter || true
+	git -C $(GITHUB_BKUP_DIR) clone https://github.com/uchicago-library/universal-viewer-uchicago || true
+	git -C $(GITHUB_BKUP_DIR) clone https://github.com/uchicago-library/homebrew-attc || true
+	git -C $(GITHUB_BKUP_DIR) clone https://github.com/uchicago-library/sfx || true
+	update_branches $(GITHUB_BKUP_DIR)
+.PHONY: git-backup
 
 # packages to install
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm
