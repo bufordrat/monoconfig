@@ -142,7 +142,7 @@ homebin::
 	install -m 555 $@/figure_out_editor_variable.sh $(HOMEBIN_DIR)/figure_out_editor_variable
 	install -m 555 $@/sudo-lockout.sh $(HOMEBIN_DIR)/sudo-lockout
 	install -m 555 $@/randomount.sh $(HOMEBIN_DIR)/randomount
-	install -m 555 $@/update_branches.sh $(HOMEBIN_DIR)/update_branches
+	install -m 555 $@/update-branches.sh $(HOMEBIN_DIR)/update-branches
 .PHONY: homebin
 
 # note: I have not yet set this repo up on semigroup, pitype, or
