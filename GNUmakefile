@@ -25,7 +25,7 @@ GITHUB_BKUP_DIR=$(shell cat git-backup/$(HOST)_path)
 
 # make rulesets
 BASIC_RULES = homebin openssh emacs bash fish zsh gnupg
-ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 sshd python etc_pacman_conf boot_loader fstab networkmanager
+ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 sshd python etc_pacman_conf boot_loader fstab
 
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python
@@ -38,13 +38,13 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts git_backup
+sequent: arch dunst firehol borg etc_hosts git-backup
 
-kleisli: arch mpd samba intel abcde
+kleisli: arch mpd samba intel abcde networkmanager
 
 substructural: macos 
 
-subtype: arch netctl
+subtype: arch netctl networkmanager
 
 semigroup: 
 
@@ -329,13 +329,12 @@ git-backup: homebin
 	git -C $(GITHUB_BKUP_DIR) clone git@github.com:uchicago-library/universal-viewer-uchicago || true
 	git -C $(GITHUB_BKUP_DIR) clone git@github.com:uchicago-library/homebrew-attc || true
 	git -C $(GITHUB_BKUP_DIR) clone git@github.com:uchicago-library/sfx || true
-	update_branches $(GITHUB_BKUP_DIR)
 .PHONY: git-backup
 
 # packages to install
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1 
-ARCH_PACKAGES = linux-lts lvm2 herbstluftwm bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode m4 ascii xclip picom dhcpcd dmenu borg wget xaw3d xorg-fonts-misc firefox virtualbox virtualbox-host-modules-arch vagrant less man net-tools cronie $(X11_PACKAGES) $(NM_PACKAGES)
+ARCH_PACKAGES = linux-lts lvm2 herbstluftwm bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode m4 ascii xclip picom dhcpcd dmenu borg wget xaw3d xorg-fonts-misc firefox virtualbox virtualbox-host-modules-arch vagrant less man net-tools cronie $(X11_PACKAGES)
 AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font firehol 
 PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
