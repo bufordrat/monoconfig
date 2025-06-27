@@ -317,6 +317,12 @@ networkmanager:
 	gpg -d --pinentry-mode loopback ~/.secrets/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_eduroam_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/eduroam.nmconnection
 .PHONY: networkmanager
 
+cron:
+	mkdir -p ~/.cron
+	install -m 444 $@/$(HOST)_crontab ~/.cron
+	crontab ~/.cron/$(HOST)_crontab
+.PHONY: cron
+
 # packages to install
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1 
