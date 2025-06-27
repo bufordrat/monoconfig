@@ -17,5 +17,5 @@ then PS1='[\u@\h \W]\$ '
 
      export EDITOR=figure_out_editor_variable
 else # firing up a normal terminal
-    exec fish 
+     :
 fi
