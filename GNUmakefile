@@ -21,7 +21,6 @@ CABAL_VERSION = 3.14.1.1
 GHC_VERSION = 9.8.4
 AGDA_STDLIB_VERSION = 2.2
 ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
-GITHUB_BKUP_DIR=$(shell cat git-backup/$(HOST)_path)
 
 # make rulesets
 BASIC_RULES = homebin openssh emacs bash fish zsh gnupg
@@ -38,7 +37,7 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts git-backup
+sequent: arch dunst firehol borg etc_hosts
 
 kleisli: arch mpd samba intel abcde networkmanager
 
@@ -317,19 +316,6 @@ networkmanager:
 	gpg -d --pinentry-mode loopback ~/.secrets/binomial_heap.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_binomial_heap_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/BinomialHeap.nmconnection
 	gpg -d --pinentry-mode loopback ~/.secrets/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_eduroam_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/eduroam.nmconnection
 .PHONY: networkmanager
-
-git-backup: homebin
-	mkdir -p $(GITHUB_BKUP_DIR)
-	git -C $(GITHUB_BKUP_DIR) clone git@github.com:bufordrat/spinup || true
-	git -C $(GITHUB_BKUP_DIR) clone git@github.com:bufordrat/etude || true
-	git -C $(GITHUB_BKUP_DIR) clone git@github.com:bufordrat/anonymizer || true
-	git -C $(GITHUB_BKUP_DIR) clone git@github.com:bufordrat/elucidations-blog || true 
-	git -C $(GITHUB_BKUP_DIR) clone git@github.com:uchicago-library/mboxer || true
-	git -C $(GITHUB_BKUP_DIR) clone git@github.com:uchicago-library/attachment-converter || true
-	git -C $(GITHUB_BKUP_DIR) clone git@github.com:uchicago-library/universal-viewer-uchicago || true
-	git -C $(GITHUB_BKUP_DIR) clone git@github.com:uchicago-library/homebrew-attc || true
-	git -C $(GITHUB_BKUP_DIR) clone git@github.com:uchicago-library/sfx || true
-.PHONY: git-backup
 
 # packages to install
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm
