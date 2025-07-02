@@ -87,3 +87,8 @@
     (if is-bitmap
 	(mt-change-font-size-bitmap size-int)
       (mt-change-font-size-truetype font-string))))
+
+(defun mt-hires-sequent-client ()
+  (interactive)
+  (mt-change-font-family "M+ 1mn")
+  (mt-change-font-size "18"))
