@@ -327,7 +327,7 @@ cron:
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1 
 ARCH_PACKAGES = linux-lts lvm2 herbstluftwm bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode m4 ascii xclip picom dhcpcd dmenu borg wget xaw3d xorg-fonts-misc xorg-bdftopcf xorg-font-util firefox virtualbox virtualbox-host-modules-arch vagrant less man net-tools cronie $(X11_PACKAGES)
-TEMP_ARCH_PACKAGES = docker docker-compose
+TEMP_ARCH_PACKAGES = docker docker-compose oxigraph
 AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font firehol 
 PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
