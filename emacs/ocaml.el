@@ -16,10 +16,7 @@
 
 (defun mli-dired-toggle ()
   (interactive)
-  (let* ((old-path (progn (when (dired-buffer-stale-p)
-			    (progn (message "It only looks like the .mli toggle isn't working because you forgot to revert your dired buffer.")
-				   (revert-buffer)))
-			  (dired-get-filename)))
+  (let* ((old-path (dired-get-filename))
 	 (new-path (transform-path old-path)))
     (unless (mli-p old-path)
       (error "Not an .mli file."))
@@ -40,9 +37,24 @@
 	     (equal current-extension "ml")))
     nil))
 
+(defun refresh-relevant-direds ()
+  (cl-loop
+   with current-dir = (expand-file-name default-directory)
+   for buf being the buffers
+   do (with-current-buffer buf
+	(when (and (eq major-mode 'dired-mode)
+		   (equal (expand-file-name default-directory)
+			  current-dir))
+	  (revert-buffer)))))
+
+(defun refresh-mli-buffer (path-to-mli)
+  (let ((mli-buffer (get-file-buffer (expand-file-name path-to-mli))))
+    (with-current-buffer mli-buffer (mli-buffer-toggle))))
+
 (defun mli-buffer-toggle ()
   (let* ((old-path buffer-file-name)
 	 (new-path (transform-path old-path)))
+    (save-buffer)
     (rename-file old-path new-path)
     (find-alternate-file new-path)
     (revert-buffer nil t)))
