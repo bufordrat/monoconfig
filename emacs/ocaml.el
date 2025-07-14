@@ -16,7 +16,9 @@
 
 (defun mli-dired-toggle ()
   (interactive)
-  (let* ((old-path (progn (revert-buffer)
+  (let* ((old-path (progn (when (dired-buffer-stale-p)
+			    (progn (message "It only looks like the .mli toggle isn't working because you forgot to revert your dired buffer.")
+				   (revert-buffer)))
 			  (dired-get-filename)))
 	 (new-path (transform-path old-path)))
     (unless (mli-p old-path)
