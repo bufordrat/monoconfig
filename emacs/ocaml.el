@@ -16,7 +16,8 @@
 
 (defun mli-dired-toggle ()
   (interactive)
-  (let* ((old-path (dired-get-filename))
+  (let* ((old-path (progn (revert-buffer)
+			  (dired-get-filename)))
 	 (new-path (transform-path old-path)))
     (unless (mli-p old-path)
       (error "Not an .mli file."))
