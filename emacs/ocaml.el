@@ -99,15 +99,13 @@
 	 (mli-exists (file-exists-p mli-path))
 	 (shutoffmli-exists (file-exists-p shutoffmli-path)))
     (when (and mli-exists shutoffmli-exists)
-      (error
-       (format "%s and %s both exist; please delete one and try again."
-	       mli-path-short
-	       shutoffmli-path-short)))
+      (error "%s and %s both exist; please delete one and try again."
+	     mli-path-short
+	     shutoffmli-path-short))
     (when (and (not mli-exists)
 	       (not shutoffmli-exists))
-      (error
-       (format "%s does not exist; please create it."
-	       mli-path-short)))))
+      (error "%s does not exist; please create it."
+	     mli-path-short))))
 
 (defun the-file-at (path1 path2)
   (if (file-exists-p path1) path1 path2))
@@ -128,10 +126,9 @@
       (rename-file start-path new-path)
       (update-buffer-names start-path new-path)
       (refresh-relevant-direds)
-      (message
-       (format "Renaming %s to %s..."
+      (message "Renaming %s to %s..."
 	       start-path-short
-	       new-path-short)))))
+	       new-path-short))))
 
 (defun mli-toggle ()
   (interactive)
