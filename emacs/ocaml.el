@@ -14,13 +14,27 @@
 		     old-path)))
     new-path))
 
+(defun update-buffer-names (old new)
+  (when-let ((buf (get-file-buffer old)))
+    (if-let ((win (get-buffer-window buf)))
+        (with-current-buffer buf
+          (with-selected-window win
+            (find-alternate-file new)))
+      (let ((config (current-window-configuration)))
+        (with-current-buffer buf
+          (find-alternate-file new)
+          (set-window-configuration config))))))
+
 (defun mli-dired-toggle ()
   (interactive)
+  (when (dired-buffer-stale-p)
+    (error "Your dired buffer is stale; please revert."))
   (let* ((old-path (dired-get-filename))
 	 (new-path (transform-path old-path)))
     (unless (mli-p old-path)
       (error "Not an .mli file."))
     (rename-file old-path new-path)
+    (update-buffer-names old-path new-path)
     (revert-buffer)))
 
 (defun suitable-mli-buffer-p ()
@@ -57,7 +71,8 @@
     (save-buffer)
     (rename-file old-path new-path)
     (find-alternate-file new-path)
-    (revert-buffer nil t)))
+    (revert-buffer nil t)
+    (refresh-relevant-direds)))
 
 (defun derive-mli-path (old-path)
   (let* ((old-filename (file-name-sans-extension old-path))
@@ -111,6 +126,8 @@
     (when (or (file-exists-p mli-path)
 	      (file-exists-p shutoffmli-path))
       (rename-file start-path new-path)
+      (update-buffer-names start-path new-path)
+      (refresh-relevant-direds)
       (message
        (format "Renaming %s to %s..."
 	       start-path-short
