@@ -17,14 +17,11 @@ VENV_REQUIREMENTS_DIR = $(ENVS_CONFIG_DIR)/$(VENV_NAME)
 SWITCH_NAME = ocaml-basics
 SWITCH_VERSION = 4.14.2
 OCAML_BASICS = dune utop prelude etude spinup mrmime ocamlnet cmdliner ocamlformat ocp-index alcotest
-CABAL_VERSION = 3.14.1.1
-GHC_VERSION = 9.8.4
-AGDA_STDLIB_VERSION = 2.2
 ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
 BASIC_RULES = homebin openssh emacs bash fish zsh gnupg
-ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 sshd python etc_pacman_conf boot_loader fstab
+ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 sshd python etc_pacman_conf boot_loader fstab opensmtpd
 
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python
@@ -37,7 +34,7 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts
+sequent: arch dunst firehol borg etc_hosts cron
 
 kleisli: arch mpd samba intel abcde networkmanager
 
@@ -65,7 +62,7 @@ macos: $(MACOS_RULES)
 pi: $(PI_RULES)
 
 # app/config rules
-herbstluftwm::
+herbstluftwm:
 	mkdir -p $(CONFIG_DIR)/$@
 	install -m 555 $@/autostart $(CONFIG_DIR)/$@/autostart
 	install -m 555 $@/general_as $(CONFIG_DIR)/$@/general_as
@@ -73,7 +70,7 @@ herbstluftwm::
 	install -m 444 $@/bg.png $(CONFIG_DIR)/bg.png
 .PHONY: herbstluftwm
 
-fish::
+fish:
 	mkdir -p $(CONFIG_DIR)/$@
 	install -m 444 $@/config.fish $(CONFIG_DIR)/$@/config.fish
 	install -m 444 $@/general.fish $(CONFIG_DIR)/$@/general.fish
@@ -81,20 +78,20 @@ fish::
 	install -m 444 $@/$(HOST).fish $(CONFIG_DIR)/$@/$(HOST).fish
 .PHONY: fish
 
-dunst::
+dunst:
 	mkdir -p $(CONFIG_DIR)/$@
 	install -m 444 $@/dunstrc $(CONFIG_DIR)/$@/dunstrc
 .PHONY: dunst
 
-iterm::
+iterm:
 	install -m 644 $@/hushlogin ~/.hushlogin
 .PHONY: iterm
 
-xdefaults::
+xdefaults:
 	install -m 444 $@/$(HOST)_xdefaults ~/.Xdefaults
 .PHONY: xdefaults
 
-xinitrc::
+xinitrc:
 	mkdir -p ~/$@
 	install -m 555 $@/.xinitrc ~/.xinitrc
 	install -m 555 $@/general_xinitrc ~/$@/general_xinitrc
@@ -104,7 +101,7 @@ xinitrc::
 x11: xinitrc xdefaults
 
 
-openssh::
+openssh:
 	mkdir -p ~/.ssh
 	install -m 444 $@/authorized_keys ~/.ssh/authorized_keys
 	install -m 444 $@/$(HOST)_ssh_config ~/.ssh/config
@@ -115,7 +112,7 @@ sshd:
 	sudo install -m 444 $@/$(HOST)_sshd_config /etc/ssh/sshd_config
 .PHONY: sshd
 
-gnupg::
+gnupg:
 	mkdir -m 700 -p ~/.$@
 	install -m 444 $@/dummy.gpg ~
 	install -m 444 $@/$(HOST)_gpg_agent_conf ~/.$@/gpg-agent.conf
@@ -128,11 +125,11 @@ firehol: homebin
 	gpg -d --pinentry-mode loopback $@/$@_conf.gpg | m4 -P -D IOTARIFFIC=$(ETHERFACE_NAME) | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
 .PHONY: firehol
 
-fstab::
+fstab:
 	cp /etc/fstab $@/$(HOST)_fstab
 .PHONY: fstab
 
-homebin::
+homebin:
 	mkdir -p $(HOMEBIN_DIR)
 	install -m 555 $@/dmenu_run_history.sh $(HOMEBIN_DIR)/dmenu_run_history
 	install -m 555 $@/pi0sync.sh $(HOMEBIN_DIR)/pi0sync
@@ -147,16 +144,16 @@ homebin::
 # note: I have not yet set this repo up on semigroup, pitype, or
 # mzero, so these mpd config files are currently only here for backup;
 # the only one that's being used is kleisli
-mpd::
+mpd:
 	mkdir -p $(CONFIG_DIR)/mpd
 	install -m 444 $@/$(HOST)_mpd_conf $(CONFIG_DIR)/$@/mpd.conf
 .PHONY: mpd
 
-samba::
+samba:
 	sudo install -m 444 $@/$(HOST)_smb_conf /etc/samba/smb.conf
 .PHONY: samba
 
-zsh::
+zsh:
 	mkdir -p ~/zshrc
 	install -m 444 $@/.zshrc ~/.zshrc
 	install -m 444 $@/general_zshrc ~/zshrc/general_zshrc
@@ -164,11 +161,11 @@ zsh::
 	install -m 444 $@/$(HOST)_zshenv ~/.zshenv
 .PHONY: zsh
 
-intel::
+intel:
 	sudo install -m 444 $@/$(HOST)_20_intel_conf /etc/X11/xorg.conf.d/20-intel.conf
 .PHONY: intel
 
-raspi::
+raspi:
 	sudo install -m 755 $@/$(HOST)_boot_config_txt /boot/firmware/config.txt
 	sudo install -m 644 $@/$(HOST)_console_setup /etc/default/console-setup
 .PHONY: raspi
@@ -178,12 +175,12 @@ netctl: homebin
 	gpg -d --pinentry-mode loopback ~/.secrets/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/eduroam | sudo install -m 644 /dev/stdin /etc/$@/eduroam
 .PHONY: netctl
 
-bash::
+bash:
 	install -m 444 $@/$(HOST)_bashrc ~/.bashrc
 	install -m 444 $@/$(HOST)_bash_profile ~/.bash_profile
 .PHONY: bash
 
-borg::
+borg:
 	install -m 555 $@/borgtastic.sh $(HOMEBIN_DIR)/borgtastic
 	install -m 444 $@/$(HOST)_borg_config $(CONFIG_DIR)/borg-config
 .PHONY: borg
@@ -191,6 +188,8 @@ borg::
 systemd:
 	systemctl --user enable emacs
 	systemctl --user enable ssh-agent
+	sudo systemctl enable cronie
+	sudo systemctl enable smtpd
 .PHONY: systemd
 
 emacs:
@@ -212,34 +211,34 @@ emacs:
 	cp ~/.emacs.d/bookmarks $@/bookmarks/$(HOST)_bookmarks
 .PHONY: emacs
 
-etc_hosts::
+etc_hosts:
 	sudo install -m 444 $@/$(HOST)_etc_hosts /etc/hosts
 .PHONY: etc_hosts
 
-etc_pacman_conf::
+etc_pacman_conf:
 	sudo install -m 444 $@/$(HOST)_pacman_conf /etc/pacman.conf
 .PHONY: pacman_conf
 
-remove-virtualenv::
+remove-virtualenv:
 	rm -rf $(VENV_DIR)
 .PHONY: remove-virtualenv
 
-python::
+python:
 	mkdir -p $(VENV_REQUIREMENTS_DIR)
 	install -m 444 $@/config_lsp_requirements $(VENV_REQUIREMENTS_DIR)/requirements.txt
 .PHONY: python
 
-install-python:: remove-virtualenv python
+install-python: remove-virtualenv python
 	mkdir -p $(VENV_DIR)
 	python3 -m venv $(VENV_DIR)
 	source $(VENV_DIR)/bin/activate && python3 -m ensurepip && pip install --upgrade pip && pip install -r $(VENV_REQUIREMENTS_DIR)/requirements.txt && deactivate
 .PHONY: install-python
 
-install-opam::
+install-opam:
 	if [ -d ~/.opam ]; then echo 'opam already initialized'; else cd ~ && opam init -y && cd -; fi
 .PHONY: install-opam
 
-remove-switch::
+remove-switch:
 	opam switch remove -y $(SWITCH_NAME) || true
 .PHONY: remove-switch
 
@@ -247,20 +246,26 @@ install-ocaml: install-opam remove-switch
 	opam switch create -y $(SWITCH_NAME) $(SWITCH_VERSION) && opam switch set $(SWITCH_NAME) && eval $$(opam env) && opam repository add dldc 'https://dldc.lib.uchicago.edu/opam' && opam update -y && opam upgrade -y && opam install -y $(OCAML_BASICS) && opam switch set ocaml-basics && eval $$(opam env)
 .PHONY: install-ocaml
 
-install-haskell::
+STACK_VERSION = 3.3.1
+HLS_VERSION = 2.9.0.1
+CABAL_VERSION = 3.14.1.1
+GHC_VERSION = 9.8.4
+AGDA_STDLIB_VERSION = 2.2
+
+install-haskell:
 	ghcup nuke || true
 	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | env BOOTSTRAP_HASKELL_NONINTERACTIVE=1 BOOTSTRAP_HASKELL_MINIMAL=1 sh
-	ghcup install stack 3.3.1
-	ghcup set stack 3.3.1
-	ghcup install hls 2.9.0.1
-	ghcup set hls 2.9.0.1
+	ghcup install stack $(STACK_VERSION)
+	ghcup set stack $(STACK_VERSION)
+	ghcup install hls $(HLS_VERSION)
+	ghcup set hls $(HLS_VERSION)
 	ghcup install ghc $(GHC_VERSION)
 	ghcup set ghc $(GHC_VERSION)
 	mkdir -p ~/.stack
 	install -m 444 $@/config_yaml ~/.stack/config.yaml
 .PHONY: install-haskell
 
-install-agda:: install-haskell
+install-agda: install-haskell
 	ghcup install cabal $(CABAL_VERSION)
 	ghcup set cabal $(CABAL_VERSION)
 	cabal update
@@ -274,7 +279,7 @@ install-agda:: install-haskell
 	echo standard-library > $$(agda --print-agda-app-dir)/defaults
 .PHONY: install-agda
 
-boot_loader::
+boot_loader:
 	mkdir -p /boot/loader/entries
 	sudo install -m 555 $@/loader_conf /boot/loader/loader.conf
 	sudo install -m 555 $@/$(HOST)_arch_conf /boot/loader/entries/arch.conf
@@ -282,7 +287,7 @@ boot_loader::
 .PHONY: boot_loader
 
 # not yet tested; check the output after first using
-generate_boot_loader::
+generate_boot_loader:
 	mkdir -p /boot/loader/entries
 	sudo install -m 555 boot_loader/loader_conf /boot/loader/loader.conf
 	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -P -D SIGMALICIOUS='m4_include(/dev/stdin)' $@/sequent_arch_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch.conf
@@ -323,10 +328,14 @@ cron:
 	crontab ~/.cron/$(HOST)_crontab
 .PHONY: cron
 
+opensmtpd:
+	sudo install -m 444 $@/$(HOST)_smtpd_conf /etc/smtpd/smtpd.conf
+.PHONY: opensmtpd
+
 # packages to install
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1 
-ARCH_PACKAGES = linux-lts lvm2 herbstluftwm bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode m4 ascii xclip picom dhcpcd dmenu borg wget xaw3d xorg-fonts-misc xorg-bdftopcf xorg-font-util firefox virtualbox virtualbox-host-modules-arch vagrant less man net-tools cronie $(X11_PACKAGES)
+ARCH_PACKAGES = linux-lts lvm2 herbstluftwm bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode m4 ascii xclip picom dhcpcd dmenu borg wget xaw3d xorg-fonts-misc xorg-bdftopcf xorg-font-util firefox virtualbox virtualbox-host-modules-arch vagrant less man net-tools cronie opensmtpd s-nail $(X11_PACKAGES)
 TEMP_ARCH_PACKAGES = docker docker-compose oxigraph
 AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font firehol 
 PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
