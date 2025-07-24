@@ -1,2 +1,8 @@
 # DAILY: git backup
 0 3 * * * /home/teichman/bin/update-branches /home/teichman/stuff/github
+
+# DAILY: run attc kaegiw test if there are updates to any branches
+0 3 * * * make make -C /home/teichman/stuff/testing/attc -j -k
+
+# WEEKLY: run attc kaegiw test regardless of updates
+0 1 * * 6 make make -C /home/teichman/stuff/testing/attc -j -k FORCE_TESTS=true
