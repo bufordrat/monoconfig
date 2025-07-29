@@ -5,3 +5,12 @@ autopep8
 isort
 pyright
 requests
+torch
+jupyterlab
+tiktoken
+matplotlib
+tensorflow
+tqdm
+numpy
+pandas
+psutil
