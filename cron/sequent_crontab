@@ -1,3 +1,5 @@
+SSH_AUTH_SOCK=/run/user/1158/ssh-agent.socket
+
 # DAILY: git backup
 0 3 * * * /home/teichman/bin/update-branches /home/teichman/stuff/github
 
