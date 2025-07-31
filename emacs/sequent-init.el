@@ -42,8 +42,11 @@
 (setopt shell-file-name "/usr/bin/zsh")
 (setopt x-super-keysym 'meta)
 (setopt browse-url-secondary-browser-function 'browse-url-firefox)
+
+;; local mail stuff
 (setq display-time-use-mail-icon t
       display-time-mail-string "\N{E-MAIL SYMBOL}")
+(setq message-send-mail-function 'message-send-mail-with-sendmail)
 
 ;; xclip
 (xclip-mode 1)
