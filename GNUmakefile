@@ -332,6 +332,10 @@ opensmtpd:
 	sudo install -m 444 $@/$(HOST)_smtpd_conf /etc/smtpd/smtpd.conf
 .PHONY: opensmtpd
 
+gnus:
+	install -m 444 $@/$(HOST)_gnus_el ~/.gnus.el
+.PHONY: gnus
+
 # packages to install
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1 
