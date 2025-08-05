@@ -34,13 +34,13 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts cron gnus
+sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd
 
-kleisli: arch mpd samba intel abcde networkmanager
+kleisli: arch mpd samba intel abcde networkmanager emacs-systemd
 
 substructural: macos 
 
-subtype: arch netctl networkmanager
+subtype: arch netctl networkmanager emacs-systemd
 
 semigroup: 
 
@@ -192,6 +192,10 @@ systemd:
 	sudo systemctl enable smtpd
 .PHONY: systemd
 
+emacs-systemd:
+	systemctl --user edit --full --stdin emacs.service < $@/unit_files/$(HOST)_emacs_service || true
+.PHONY: emacs-systemd
+
 emacs:
 	mkdir -p ~/.emacs.d/lisp
 	mkdir -p ~/.squiggles
@@ -206,7 +210,6 @@ emacs:
 	install -m 444 $@/bastion.el ~/.emacs.d/lisp
 	install -m 444 $@/general-init.el ~/.emacs.d/lisp
 	install -m 444 $@/$(HOST)-init.el ~/.emacs.d/lisp/$(HOST)-init.el
-	systemctl --user edit --full --stdin emacs.service < $@/unit_files/$(HOST)_emacs_service || true
 	cp ~/.emacs.d/customizes.el $@/customizes/$(HOST)_customizes
 	cp ~/.emacs.d/bookmarks $@/bookmarks/$(HOST)_bookmarks
 .PHONY: emacs

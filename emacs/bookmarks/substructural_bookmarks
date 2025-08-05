@@ -2,7 +2,13 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("GNUmakefile"
+(("github"
+ (filename . "~/Github/mine/")
+ (front-context-string . "  /Users/teichma")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26741 5066 465765 0))
+("GNUmakefile"
  (filename . "~/Github/mine/monoconfig/GNUmakefile")
  (front-context-string . "# -*- makefile-g")
  (rear-context-string)
