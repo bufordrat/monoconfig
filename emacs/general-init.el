@@ -140,9 +140,12 @@
 (defvar python-mode-map)
 (with-eval-after-load 'python
   (define-key python-mode-map (kbd "M-n") 
-    'flymake-goto-next-error)
+	      'flymake-goto-next-error)
   (define-key python-mode-map (kbd "M-p")
-    'flymake-goto-prev-error))
+	      'flymake-goto-prev-error)
+  (add-hook 'python-mode-hook
+            (lambda ()
+              (setq-local parens-require-spaces nil))))
 
 ;; get ~/.local/bin on exec-path
 (add-to-list 'exec-path (expand-file-name "~/.local/bin"))
