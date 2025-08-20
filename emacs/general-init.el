@@ -167,13 +167,11 @@
     (keymap-set tuareg-mode-map "C-c C-c" #'projectile-compile-project)))
 (add-hook 'caml-mode-hook 'merlin-mode t)
 
-;; (advice-add 'make-comint :around #'my-utop-workaround)
-
-;; (defun my-utop-workaround (orig-fun name &rest args)
-;;   (if (not (equal name "OCaml"))
-;;       (apply orig-fun name args)
-;;     (let ((process-connection-type nil))
-;;       (apply orig-fun name args))))
+(add-hook 'tuareg-mode-hook
+          (lambda ()
+            (if (locate-dominating-file default-directory "dune-project")
+                (setq-local tuareg-interactive-program "opam exec -- dune exec ../lib/repl.exe")
+              (setq-local tuareg-interactive-program "opam exec -- ocaml -nopromptcont"))))
 
 ;; haskell
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
@@ -214,34 +212,3 @@
 (setq truncate-partial-width-windows nil)
 (setq tuareg-opam-insinuate t)
 (setq auto-save-default nil)
-
-;; utop-mode stuff
-
-(autoload 'utop "utop" "Toplevel for OCaml" t)
-(defvar kw-utop-init-file-name ".utopinit")
-(setq utop-command "opam exec -- dune utop . -- -emacs")
-(autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
-(add-hook 'tuareg-mode-hook 'utop-minor-mode)
-(with-eval-after-load 'utop-minor-mode
-  (dolist (k '("M-<return>" "S-<return>" "C-<return>"))
-    (keymap-set utop-mode-map k 'utop-eval-input-auto-end))
-  (keymap-set utop-mode-map "C-c C-k" 'utop-exit)
-  (keymap-set utop-minor-mode-map "C-c C-k" 'utop-exit))
-
-(add-hook 'tuareg-mode-hook
-          (lambda ()
-            (if (locate-dominating-file default-directory "dune-project")
-                (setq-local tuareg-interactive-program utop-command)
-              (setq-local tuareg-interactive-program "opam exec -- ocaml -nopromptcont"))))
-
-(defun utop-previous-prompt ()
-  (re-search-backward "^utop\\[?")
-  (re-search-backward "^utop\\[?")
-  (move-beginning-of-line 1)
-  (re-search-forward "^utop\\[??]")
-  ;; (forward-word)
-  ;; (forward-word)
-  ;; (forward-char)
-  ;; (forward-char)
-  ;; (forward-char)
-  )
