@@ -18,6 +18,7 @@
      ("\\.x?html?\\'" . "open %s")
      ("\\.pdf\\'" . default)))
 (setopt shell-file-name "/bin/zsh")
+(setopt dired-use-ls-dired nil)
 
 ;; agda
 (with-demoted-errors "%S"
@@ -28,4 +29,4 @@
 (xclip-mode 1)
 
 ;; fire up a dired buffer visiting monoconfig
-(dired "~/github/mine/monoconfig")
+(dired "~/stuff/github/monoconfig")
