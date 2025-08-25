@@ -159,6 +159,14 @@
     (when (and opam-bin (file-directory-p opam-bin))
       (add-to-list 'exec-path opam-bin))))
 
+;; get ocaml repl command to run dune from the project root
+(defun tuareg-run-ocaml/in-project-root (func &rest args)
+  (let ((default-directory
+         (projectile-acquire-root)))
+    (apply func args)))
+
+(advice-add #'tuareg-run-ocaml :around #'tuareg-run-ocaml/in-project-root)
+
 (autoload 'merlin-mode "merlin" nil t nil)
 (add-hook 'tuareg-mode-hook 'merlin-mode t)
 (add-hook
@@ -169,17 +177,8 @@
 (add-hook 'tuareg-mode-hook
           (lambda ()
             (if (locate-dominating-file default-directory "dune-project")
-                (setq-local tuareg-interactive-program "opam exec -- dune exec ../lib/repl.exe")
+                (setq-local tuareg-interactive-program "opam exec -- dune exec lib/repl.exe")
               (setq-local tuareg-interactive-program "opam exec -- ocaml -nopromptcont"))))
-
-;; get ocaml repl command to run dune from the project root
-(defun tuareg-run-ocaml/in-project-root (func &rest args)
-  (let ((default-directory
-         (or (locate-dominating-file default-directory "dune-project")
-             default-directory)))
-    (apply func args)))
-
-(advice-add #'tuareg-run-ocaml :around #'tuareg-run-ocaml/in-project-root)
 
 ;; haskell
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
