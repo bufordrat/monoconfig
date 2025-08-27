@@ -20,7 +20,7 @@
 ;; dired icons & doom modeline
 (require 'nerd-icons)
 (require 'nerd-icons-dired)
-(gui-mode 1)
+;; (gui-mode 1)
 (setopt doom-modeline-hud t)
 (setopt doom-modeline-window-width-limit 50)
 
