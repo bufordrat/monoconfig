@@ -6,5 +6,11 @@ SSH_AUTH_SOCK=/run/user/1158/ssh-agent.socket
 # DAILY: run attc kaegiw test if there are updates to any branches
 0 3 * * * make -C /home/teichman/stuff/testing/attc -j -k
 
+# DAILY: run spinup tests if there are updates to any branches
+0 3 * * * make -C /home/teichman/stuff/testing/spinup -j -k
+
 # WEEKLY: run attc kaegiw test regardless of updates
 0 1 * * 6 make -C /home/teichman/stuff/testing/attc -j -k FORCE_TESTS=true
+
+# WEEKLY: run spinup tests regardless of updates
+0 1 * * 6 make -C /home/teichman/stuff/testing/spinup -j -k FORCE_TESTS=true
