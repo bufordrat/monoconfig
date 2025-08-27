@@ -2,7 +2,10 @@
   (cl-loop
    for buf being the buffers
    do (with-current-buffer buf
-	(when (eq major-mode 'dired-mode)
+	(when (and (eq major-mode 'dired-mode)
+		   (not (string-match-p
+			 tramp-file-name-regexp
+			 default-directory)))
 	  (nerd-icons-dired-mode turnon))))
   (if (> turnon 0)
       (add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
