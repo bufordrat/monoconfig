@@ -16,11 +16,7 @@ VENV_DIR = $(ENVS_DIR)/virtualenvs/py-default
 VENV_REQUIREMENTS_DIR = $(ENVS_CONFIG_DIR)/$(VENV_NAME)
 SWITCH_NAME = ocaml-basics
 SWITCH_VERSION = 4.14.2
-<<<<<<< HEAD
-OCAML_BASICS = dune utop prelude etude spinup mrmime ocamlnet cmdliner ocamlformat ocp-index alcotest
-=======
 OCAML_BASICS = dune utop prelude etude spinup mrmime ocamlnet cmdliner ocamlformat ocp-index alcotest xmlm camlpdf ezxmlm alcotest
->>>>>>> 0764ba1bafa67d9f235a38ead66a4a7c9b0e3af4
 ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
@@ -254,23 +250,13 @@ install-ocaml: install-opam remove-switch
 	opam switch create -y $(SWITCH_NAME) $(SWITCH_VERSION) && opam switch set $(SWITCH_NAME) && eval $$(opam env) && opam repository add dldc 'https://dldc.lib.uchicago.edu/opam' && opam update -y && opam upgrade -y && opam install -y $(OCAML_BASICS) && opam switch set ocaml-basics && eval $$(opam env)
 .PHONY: install-ocaml
 
-<<<<<<< HEAD
 CABAL_VERSION = 3.14.1.1
 STACK_VERSION = 3.3.1
 HLS_VERSION = 2.10.0.0
 GHC_VERSION = 9.6.7
 AGDA_STDLIB_VERSION = 2.2
 
-install-haskell::
-=======
-STACK_VERSION = 3.3.1
-HLS_VERSION = 2.9.0.1
-CABAL_VERSION = 3.14.1.1
-GHC_VERSION = 9.8.4
-AGDA_STDLIB_VERSION = 2.2
-
 install-haskell:
->>>>>>> 0764ba1bafa67d9f235a38ead66a4a7c9b0e3af4
 	ghcup nuke || true
 	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | env BOOTSTRAP_HASKELL_NONINTERACTIVE=1 BOOTSTRAP_HASKELL_MINIMAL=1 sh
 	ghcup install stack $(STACK_VERSION)
