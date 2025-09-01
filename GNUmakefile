@@ -252,8 +252,8 @@ install-ocaml: install-opam remove-switch
 
 CABAL_VERSION = 3.14.1.1
 STACK_VERSION = 3.3.1
-HLS_VERSION = 2.10.0.0
-GHC_VERSION = 9.6.7
+HLS_VERSION = 2.11.0.0
+GHC_VERSION = 9.10.2
 AGDA_STDLIB_VERSION = 2.2
 
 install-haskell:
