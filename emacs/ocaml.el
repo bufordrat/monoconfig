@@ -14,13 +14,27 @@
 		     old-path)))
     new-path))
 
+(defun update-buffer-names (old new)
+  (when-let ((buf (get-file-buffer old)))
+    (if-let ((win (get-buffer-window buf)))
+        (with-current-buffer buf
+          (with-selected-window win
+            (find-alternate-file new)))
+      (let ((config (current-window-configuration)))
+        (with-current-buffer buf
+          (find-alternate-file new)
+          (set-window-configuration config))))))
+
 (defun mli-dired-toggle ()
   (interactive)
+  (when (dired-buffer-stale-p)
+    (error "Your dired buffer is stale; please revert."))
   (let* ((old-path (dired-get-filename))
 	 (new-path (transform-path old-path)))
     (unless (mli-p old-path)
       (error "Not an .mli file."))
     (rename-file old-path new-path)
+    (update-buffer-names old-path new-path)
     (revert-buffer)))
 
 (defun suitable-mli-buffer-p ()
@@ -37,12 +51,28 @@
 	     (equal current-extension "ml")))
     nil))
 
+(defun refresh-relevant-direds ()
+  (cl-loop
+   with current-dir = (expand-file-name default-directory)
+   for buf being the buffers
+   do (with-current-buffer buf
+	(when (and (eq major-mode 'dired-mode)
+		   (equal (expand-file-name default-directory)
+			  current-dir))
+	  (revert-buffer)))))
+
+(defun refresh-mli-buffer (path-to-mli)
+  (let ((mli-buffer (get-file-buffer (expand-file-name path-to-mli))))
+    (with-current-buffer mli-buffer (mli-buffer-toggle))))
+
 (defun mli-buffer-toggle ()
   (let* ((old-path buffer-file-name)
 	 (new-path (transform-path old-path)))
+    (save-buffer)
     (rename-file old-path new-path)
     (find-alternate-file new-path)
-    (revert-buffer nil t)))
+    (revert-buffer nil t)
+    (refresh-relevant-direds)))
 
 (defun derive-mli-path (old-path)
   (let* ((old-filename (file-name-sans-extension old-path))
@@ -69,15 +99,13 @@
 	 (mli-exists (file-exists-p mli-path))
 	 (shutoffmli-exists (file-exists-p shutoffmli-path)))
     (when (and mli-exists shutoffmli-exists)
-      (error
-       (format "%s and %s both exist; please delete one and try again."
-	       mli-path-short
-	       shutoffmli-path-short)))
+      (error "%s and %s both exist; please delete one and try again."
+	     mli-path-short
+	     shutoffmli-path-short))
     (when (and (not mli-exists)
 	       (not shutoffmli-exists))
-      (error
-       (format "%s does not exist; please create it."
-	       mli-path-short)))))
+      (error "%s does not exist; please create it."
+	     mli-path-short))))
 
 (defun the-file-at (path1 path2)
   (if (file-exists-p path1) path1 path2))
@@ -96,10 +124,11 @@
     (when (or (file-exists-p mli-path)
 	      (file-exists-p shutoffmli-path))
       (rename-file start-path new-path)
-      (message
-       (format "Renaming %s to %s..."
+      (update-buffer-names start-path new-path)
+      (refresh-relevant-direds)
+      (message "Renaming %s to %s..."
 	       start-path-short
-	       new-path-short)))))
+	       new-path-short))))
 
 (defun mli-toggle ()
   (interactive)
