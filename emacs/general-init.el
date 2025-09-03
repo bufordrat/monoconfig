@@ -195,6 +195,9 @@
 ;; setq-default-s
 (setq-default truncate-lines t)
 
+;; projectile
+(require 'projectile)
+
 ;; setq-s
 ;;  (these used to be customizes, but were moved in here; see other .el
 ;;   files for more domain-specific setq-s/setopts)
