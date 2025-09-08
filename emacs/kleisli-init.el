@@ -37,3 +37,5 @@
 ;; fire up a dired buffer visiting monoconfig
 (dired "~/Stuff/GitHub/mine/monoconfig/")
 
+;; haskell lsp
+(add-hook 'haskell-mode-hook 'eglot-ensure)
