@@ -1,3 +1,4 @@
+PATH=/home/teichman/.opam/ocaml-basics/bin:/home/teichman/bin:/home/teichman/.ghcup/bin:/home/teichman/.stack/bin:/home/teichman/.local/bin:/home/teichman/.cabal/bin:/home/teichman/envs/virtualenvs/py-default/bin:/usr/local/bin:/usr/bin
 SSH_AUTH_SOCK=/run/user/1158/ssh-agent.socket
 
 # DAILY: git backup
