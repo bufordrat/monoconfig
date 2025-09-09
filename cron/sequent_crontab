@@ -1,4 +1,3 @@
-PATH=/home/teichman/.opam/ocaml-basics/bin:/home/teichman/bin:/home/teichman/.ghcup/bin:/home/teichman/.stack/bin:/home/teichman/.local/bin:/home/teichman/.cabal/bin:/home/teichman/envs/virtualenvs/py-default/bin:/usr/local/bin:/usr/bin
 SSH_AUTH_SOCK=/run/user/1158/ssh-agent.socket
 
 # DAILY: git backup
@@ -11,7 +10,7 @@ SSH_AUTH_SOCK=/run/user/1158/ssh-agent.socket
 0 3 * * * make -C /home/teichman/stuff/testing/spinup -j -k
 
 # WEEKLY: run attc kaegiw test regardless of updates
-0 1 * * 6 make -C /home/teichman/stuff/testing/attc -j -k FORCE_TESTS=true
+0 1 * * 6 zsh -c 'make -C /home/teichman/stuff/testing/attc -j -k FORCE_TESTS=true'
 
 # WEEKLY: run spinup tests regardless of updates
 0 1 * * 6 make -C /home/teichman/stuff/testing/spinup -j -k FORCE_TESTS=true
