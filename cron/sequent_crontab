@@ -13,4 +13,4 @@ SSH_AUTH_SOCK=/run/user/1158/ssh-agent.socket
 0 1 * * 6 zsh -c 'make -C /home/teichman/stuff/testing/attc -j -k FORCE_TESTS=true'
 
 # WEEKLY: run spinup tests regardless of updates
-0 1 * * 6 make -C /home/teichman/stuff/testing/spinup -j -k FORCE_TESTS=true
+0 1 * * 6 zsh -c 'make -C /home/teichman/stuff/testing/spinup -j -k FORCE_TESTS=true'
