@@ -221,7 +221,7 @@ etc_hosts:
 
 etc_pacman_conf:
 	sudo install -m 444 $@/$(HOST)_pacman_conf /etc/pacman.conf
-.PHONY: pacman_conf
+.PHONY: etc_pacman_conf
 
 remove-virtualenv:
 	rm -rf $(VENV_DIR)
