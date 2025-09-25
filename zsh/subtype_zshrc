@@ -14,9 +14,6 @@ then
   diff --version | grep GNU > /dev/null && alias diff='command diff --color=auto'
 fi
 
-# get $EDITOR to behave in Emacs
-export EDITOR=figure_out_editor_variable
-
 # make zsh aware of ssh-agent
 UID="$(id -u teichman)"
 export SSH_AUTH_SOCK="/run/user/$UID/ssh-agent.socket"

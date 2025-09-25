@@ -1,3 +1,5 @@
+# TODO: update this comment in light of systemctl ssh agent etc.
+
 # see bash_profile for explanation about the exec fish
 
 # note: if I want to launch bash and have it not be fish, run:
@@ -16,6 +18,7 @@ then PS1='[\u@\h \W]\$ '
      eval $(opam env)
 
      export EDITOR=figure_out_editor_variable
+     export DIFFPROG=diffmerge
 else # firing up a normal terminal
     :
 fi

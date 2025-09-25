@@ -34,7 +34,7 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd etc_pacman_conf systemd
+sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd etc_pacman_conf etc_sudoers systemd
 
 kleisli: arch mpd samba intel abcde networkmanager emacs-systemd 
 
@@ -339,6 +339,14 @@ opensmtpd:
 gnus:
 	install -m 444 $@/$(HOST)_gnus_el ~/.gnus.el
 .PHONY: gnus
+
+xauth:
+	sudo install -m 444 $@/$(HOST)_xauthority /root/.Xauthority
+.PHONY: xauth
+
+etc_sudoers:
+	sudo install -m 440 $@/$(HOST)_etc_sudoers /etc/sudoers
+.PHONY: etc_sudoers
 
 # packages to install
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm

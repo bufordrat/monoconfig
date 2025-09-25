@@ -16,6 +16,7 @@ then PS1='[\u@\h \W]\$ '
      eval $(opam env)
 
      export EDITOR=figure_out_editor_variable
+     export DIFFPROG=diffmerge
 else # firing up a normal terminal
     exec fish 
 fi

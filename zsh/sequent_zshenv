@@ -1,5 +1,14 @@
 # path
 export PATH=/home/teichman/bin:/home/teichman/.ghcup/bin:/home/teichman/.stack/bin:/home/teichman/.local/bin:/home/teichman/.cabal/bin:$PATH
 
+# get $EDITOR to behave in Emacs
+export EDITOR=figure_out_editor_variable
+
+# NOOO VIMDIFF NOOOOOOOOOO
+export DIFFPROG=diffmerge
+
+# get systemd not to use a pager
+export SYSTEMD_PAGER=
+
 # opam
 opam --version > /dev/null && eval $(opam env)
