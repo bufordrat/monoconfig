@@ -6,18 +6,20 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(badwolf))
  '(custom-safe-themes
-   '("d046915b6ed8e52c9a94462388b26c714b2411b0b2b0c6d89ee3981938056240"
+   '("836b0bc16dbd2aed387e552edabd4d67d227961efa3af412da387eb3e010d76b"
+     "8363207a952efb78e917230f5a4d3326b2916c63237c1f61d7e5fe07def8d378"
+     "d046915b6ed8e52c9a94462388b26c714b2411b0b2b0c6d89ee3981938056240"
      default))
  '(doom-modeline-height 25)
  '(package-selected-packages
    '(badwolf-theme dash diredfl doom-modeline dune edit-indirect
 		   fish-mode gruvbox-theme htmlize magit marginalia
 		   markdown-mode nerd-icons nerd-icons-dired orderless
-		   pdf-tools projectile pyvenv syncthing tuareg utop
-		   vertico vlf web-mode xclip))
+		   pacman pdf-tools projectile pyvenv syncthing tuareg
+		   unidecode utop vertico vlf web-mode xclip))
  '(python-shell-process-environment '("PYTHON_BASIC_REPL=1"))
  '(smtpmail-smtp-server "localhost")
- '(smtpmail-smtp-service 25))
+ '(smtpmail-smtp-service 25 t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

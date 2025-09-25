@@ -103,11 +103,7 @@ Include = /etc/pacman.d/mirrorlist
 #SigLevel = Optional TrustAll
 #Server = file:///home/custompkgs
 
-#[kw]
-#SigLevel = Optional TrustAll
-#Server = http://www.lib.uchicago.edu/keith/pkgrepo/kw/$arch
-
-#[kw-aur]
-#SigLevel = Optional TrustAll
-#Server = http://www.lib.uchicago.edu/keith/pkgrepo/kw-aur/$arch
+[kw]
+SigLevel = Optional TrustAll
+Server = http://www.lib.uchicago.edu/keith/pkgrepo/kw/$arch
 

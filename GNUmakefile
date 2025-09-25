@@ -34,7 +34,7 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd systemd
+sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd etc_pacman_conf systemd
 
 kleisli: arch mpd samba intel abcde networkmanager emacs-systemd 
 
