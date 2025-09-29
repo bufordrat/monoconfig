@@ -345,7 +345,8 @@ xauth:
 .PHONY: xauth
 
 etc_sudoers:
-	sudo install -m 440 $@/$(HOST)_etc_sudoers /etc/sudoers
+	sudo install -m 440 $@/$(HOST)_01_fix_diffprog /etc/sudoers.d/01_fix_diffprog
+	sudo visudo -c
 .PHONY: etc_sudoers
 
 # packages to install
