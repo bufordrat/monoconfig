@@ -6,10 +6,10 @@ if [ "$FAILED" != "" ]
 then $NOTIFY -a systemd -u critical "systemd failures" "$FAILED"
 fi
 
-# make sure firehol is running
+# make sure firewalld is running
 (
-    if [ "$(systemctl is-active firehol)" != "active" ]
-    then $NOTIFY -a arch -u critical "firehol is down!" "$(systemctl status firehol | head -12)"
+    if [ "$(systemctl is-active firewalld)" != "active" ]
+    then $NOTIFY -a arch -u critical "firewalld is down!" "$(systemctl status firewalld | head -12)"
     fi
 ) &
 
