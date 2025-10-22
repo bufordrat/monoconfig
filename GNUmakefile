@@ -353,7 +353,7 @@ etc_sudoers:
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1
 DOCKER_PACKAGES = docker docker-compose docker-buildx
-ARCH_PACKAGES = linux-lts lvm2 herbstluftwm bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode firewalld m4 ascii xclip picom dhcpcd dmenu borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama $(X11_PACKAGES) $(DOCKER_PACKAGES) $(NM_PACKAGES)
+ARCH_PACKAGES = linux-lts lvm2 herbstluftwm bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode firewalld m4 ascii xclip picom dhcpcd dmenu borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop $(X11_PACKAGES) $(DOCKER_PACKAGES) $(NM_PACKAGES)
 AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font
 
 # other platforms' packages
