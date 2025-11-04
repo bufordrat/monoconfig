@@ -11,13 +11,14 @@
      "d046915b6ed8e52c9a94462388b26c714b2411b0b2b0c6d89ee3981938056240"
      default))
  '(doom-modeline-height 25)
+ '(explicit-shell-file-name "zsh")
  '(package-selected-packages
-   '(badwolf-theme dash diredfl doom-modeline dune edit-indirect
-		   fish-mode gruvbox-theme htmlize magit marginalia
-		   markdown-mode nerd-icons nerd-icons-dired orderless
-		   pacman pdf-tools projectile pyvenv simple-httpd
-		   syncthing tuareg unidecode utop vertico vlf
-		   web-mode xclip))
+   '(badwolf-theme dash diredfl docker dockerfile-mode doom-modeline dune
+		   edit-indirect ellama fish-mode gruvbox-theme
+		   htmlize magit marginalia markdown-mode nerd-icons
+		   nerd-icons-dired odig orderless pacman pdf-tools
+		   projectile pyvenv simple-httpd syncthing tuareg
+		   unidecode utop vertico vlf web-mode xclip))
  '(pacman-pacdiff-command "sudo -S env DIFFPROG=diffmerge pacdiff")
  '(python-shell-process-environment '("PYTHON_BASIC_REPL=1"))
  '(smtpmail-smtp-server "localhost")
