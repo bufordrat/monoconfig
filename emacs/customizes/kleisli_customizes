@@ -35,17 +35,17 @@
  '(package-selected-packages
    '(all-the-icons-dired badwolf-theme bbdb command-log-mode csharp-mode
 			 csv csv-mode diredfl doom-modeline dune eat
-			 ef-themes ein emms exec-path-from-shell
-			 fish-mode gruvbox-theme haskell-mode htmlize
-			 image+ info-colors info-rename-buffer
-			 json-mode keepass-mode keypression lsp-mode
-			 magit marginalia merlin mingus mpdmacs
-			 nerd-icons-dired nix-mode notmuch orderless
-			 pdf-tools php-mode projectile py-autopep8
-			 py-isort python-black pyvenv
-			 selectrum-prescient simple-mpc syncthing
-			 tuareg unidecode vertico vlf vterm web-mode
-			 xclip yaml-mode))
+			 ef-themes ein ellama emms
+			 exec-path-from-shell fish-mode gruvbox-theme
+			 haskell-mode htmlize image+ info-colors
+			 info-rename-buffer json-mode keepass-mode
+			 keypression lsp-mode magit marginalia merlin
+			 mingus mpdmacs nerd-icons-dired nix-mode
+			 notmuch orderless pdf-tools php-mode
+			 projectile py-autopep8 py-isort python-black
+			 pyvenv selectrum-prescient simple-mpc
+			 syncthing tuareg unidecode vertico vlf vterm
+			 web-mode xclip yaml-mode))
  '(syncthing-default-server-token "RJbgF75mVgDQGjMhXcYVCVhX5aUjoZmc"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
