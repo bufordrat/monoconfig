@@ -349,6 +349,10 @@ etc_sudoers:
 	sudo visudo -c
 .PHONY: etc_sudoers
 
+ollama-systemd:
+	sudo systemctl edit --full --stdin ollama.service < $@/$(HOST)_ollama_service || true
+.PHONY: ollama-systemd
+
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1
