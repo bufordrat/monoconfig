@@ -34,7 +34,7 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd etc_pacman_conf etc_sudoers systemd
+sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd
 
 kleisli: arch mpd samba intel abcde networkmanager emacs-systemd 
 
@@ -348,6 +348,10 @@ etc_sudoers:
 	sudo install -m 440 $@/$(HOST)_01_fix_diffprog /etc/sudoers.d/01_fix_diffprog
 	sudo visudo -c
 .PHONY: etc_sudoers
+
+ollama-systemd:
+	sudo systemctl edit --full --stdin ollama.service < $@/$(HOST)_ollama_service || true
+.PHONY: ollama-systemd
 
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d

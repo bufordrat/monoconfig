@@ -14,6 +14,7 @@ SuccessExitStatus=15
 # The location of the SSH auth socket varies by distribution, and some
 # set it from PAM, so don't override by default.
 Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+Environment="OLLAMA_API_BASE=http://127.0.0.1:11434"
 Restart=on-failure
 
 [Install]
