@@ -38,4 +38,7 @@
 (dired "~/Stuff/GitHub/mine/monoconfig/")
 
 ;; haskell lsp
-(add-hook 'haskell-mode-hook 'eglot-ensure)
+;; Thu Nov  6 09:21:28 AM CST 2025
+;; commenting this out because it's broken for the moment
+;; need to fix
+;; (add-hook 'haskell-mode-hook 'eglot-ensure)
