@@ -192,6 +192,7 @@
 
 ;; dired
 (with-demoted-errors "%s" (diredfl-global-mode +1))
+(keymap-unset dired-mode-map "i" t)
 
 ;; setq-default-s
 (setq-default truncate-lines t)
