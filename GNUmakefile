@@ -36,7 +36,7 @@ internet: all $(INTERNET_RULES)
 # host rules
 sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd
 
-kleisli: arch mpd samba intel abcde networkmanager emacs-systemd 
+kleisli: arch etc_hosts mpd samba intel abcde networkmanager emacs-systemd 
 
 substructural: macos 
 
@@ -185,7 +185,11 @@ borg:
 	install -m 444 $@/$(HOST)_borg_config $(CONFIG_DIR)/borg-config
 .PHONY: borg
 
-systemd:
+docker-perms:
+	sudo usermod -aG docker $$(whoami)
+.PHONY: docker-perms
+
+systemd: docker-perms
 	systemctl --user enable emacs
 	systemctl --user enable ssh-agent
 	sudo systemctl enable cronie
