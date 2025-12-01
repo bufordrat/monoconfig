@@ -121,9 +121,15 @@ openssh:
 	install -m 444 $@/$(HOST)_ssh_config ~/.ssh/config
 .PHONY: openssh
 
+ifneq ($(UNAMEOS),Android)
+# (this hack is here to get the paths in termux on a smartphone to
+# line up with paths on normal UNIX systems)
+	PREFIX =
+endif
+
 sshd:
 	mkdir -p ~/.ssh
-	sudo install -m 444 $@/$(HOST)_sshd_config /etc/ssh/sshd_config
+	sudo install -m 444 $@/$(HOST)_sshd_config $(PREFIX)/etc/ssh/sshd_config
 .PHONY: sshd
 
 gnupg:
@@ -381,6 +387,7 @@ AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font
 # other platforms' packages
 PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
+TERMUX_PACKAGES = openssh termux-services zsh 
 
 # package manager rules
 pacman: 
@@ -391,6 +398,11 @@ pacman:
 brew:
 	brew install $(MACOS_PACKAGES)
 .PHONY: brew
+
+setup-termux:
+	brew install $(TERMUX_PACKAGES)
+	sv-enable sshd
+.PHONY: setup-termux
 
 collect-garbage:
 	sudo pacman -Rs $(TEMP_PACKAGES)
