@@ -35,7 +35,7 @@ ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 sshd python etc_pacman_conf boot_lo
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python
 INTERNET_RULES = install-python install-ocaml install-agda
-ANDROID_RULES = bash
+ANDROID_RULES = zsh
 
 # mother of all rules
 all: $(HOST)
