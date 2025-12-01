@@ -5,3 +5,5 @@
 
 # keep termux alive when minimized
 termux-wake-lock
+
+echo your mom
