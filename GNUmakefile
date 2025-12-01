@@ -35,7 +35,7 @@ ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 sshd python etc_pacman_conf boot_lo
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python
 INTERNET_RULES = install-python install-ocaml install-agda
-ANDROID_RULES = bash
+ANDROID_RULES = bash termux-sshd
 
 # mother of all rules
 all: $(HOST)
@@ -122,7 +122,6 @@ openssh:
 .PHONY: openssh
 
 sshd:
-	mkdir -p ~/.ssh
 	sudo install -m 444 $@/$(HOST)_sshd_config /etc/ssh/sshd_config
 .PHONY: sshd
 
@@ -370,6 +369,10 @@ etc_sudoers:
 ollama-systemd:
 	sudo systemctl edit --full --stdin ollama.service < $@/$(HOST)_ollama_service || true
 .PHONY: ollama-systemd
+
+termux-sshd:
+	install -m 444 $@/$(HOST)_sshd_config $PREFIX/etc/ssh/sshd_config
+.PHONY: termux-sshd
 
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d
