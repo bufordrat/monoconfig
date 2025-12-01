@@ -1,0 +1,4 @@
+# -*- shell-script -*-
+
+# emacs tramp
+[[ "$-" == *i* ]] || { unsetopt zle && PS1='%m$ ' && return; }

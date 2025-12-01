@@ -4,8 +4,6 @@
 
 # note: if I want to launch bash and have it not be fish, run:
 
-# $ env TERM=dumb bash
-
 if # for tramping in
     [ "$TERM" = "dumb" ]
 then :
