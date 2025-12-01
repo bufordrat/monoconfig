@@ -35,7 +35,7 @@ ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 sshd python etc_pacman_conf boot_lo
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python
 INTERNET_RULES = install-python install-ocaml install-agda
-ANDROID_RULES = zsh
+ANDROID_RULES = zsh termux-sshd
 
 # mother of all rules
 all: $(HOST)
@@ -398,6 +398,7 @@ brew:
 
 setup-termux:
 	brew install $(TERMUX_PACKAGES)
+	chsh -s zsh
 	sv-enable sshd
 .PHONY: setup-termux
 
