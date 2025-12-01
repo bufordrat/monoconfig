@@ -121,15 +121,9 @@ openssh:
 	install -m 444 $@/$(HOST)_ssh_config ~/.ssh/config
 .PHONY: openssh
 
-ifneq ($(UNAMEOS),Android)
-# (this hack is here to get the paths in termux on a smartphone to
-# line up with paths on normal UNIX systems)
-	PREFIX =
-endif
-
 sshd:
 	mkdir -p ~/.ssh
-	sudo install -m 444 $@/$(HOST)_sshd_config $(PREFIX)/etc/ssh/sshd_config
+	sudo install -m 444 $@/$(HOST)_sshd_config /etc/ssh/sshd_config
 .PHONY: sshd
 
 gnupg:
