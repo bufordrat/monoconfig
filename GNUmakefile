@@ -3,8 +3,17 @@
 # run it in bash
 SHELL = bash
 
+# darwin, gnu/linux, or android
+UNAMEOS = $(shell uname -o | cut -d. -f1)
+
 # hostname
-HOST = $(shell uname -n | cut -d. -f1)
+ifeq ($(UNAMEOS),Android)
+# (this hack is necessary to run monoconfig on a smartphone because
+# termux does not expose a true hostname)
+	HOST = pixel8
+else
+	HOST = $(shell uname -n | cut -d. -f1)
+endif
 
 # paths
 CONFIG_DIR = ~/.config
@@ -26,6 +35,7 @@ ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 sshd python etc_pacman_conf boot_lo
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python
 INTERNET_RULES = install-python install-ocaml install-agda
+ANDROID_RULES = bash
 
 # mother of all rules
 all: $(HOST)
@@ -54,12 +64,16 @@ profunctor: macos
 
 hedwig: homebin zsh emacs
 
+pixel8: android
+
 # os rules
 arch: $(ARCH_RULES)
 
 macos: $(MACOS_RULES)
 
 pi: $(PI_RULES)
+
+android: $(ANDROID_RULES)
 
 # app/config rules
 herbstluftwm:
