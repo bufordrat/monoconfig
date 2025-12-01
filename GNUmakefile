@@ -371,7 +371,7 @@ ollama-systemd:
 .PHONY: ollama-systemd
 
 termux-sshd:
-	install -m 444 $@/$(HOST)_sshd_config $PREFIX/etc/ssh/sshd_config
+	install -m 444 $@/$(HOST)_sshd_config $(PREFIX)/etc/ssh/sshd_config
 .PHONY: termux-sshd
 
 # arch packages
