@@ -148,6 +148,7 @@ homebin:
 	install -m 555 $@/pi0sync.sh $(HOMEBIN_DIR)/pi0sync
 	install -m 555 $@/pi3sync.sh $(HOMEBIN_DIR)/pi3sync
 	install -m 555 $@/photosync.sh $(HOMEBIN_DIR)/photosync
+	install -m 555 $@/phonesync.sh $(HOMEBIN_DIR)/phonesync
 	install -m 555 $@/semigroupsync.sh $(HOMEBIN_DIR)/semigroupsync
 	install -m 555 $@/figure_out_editor_variable.sh $(HOMEBIN_DIR)/figure_out_editor_variable
 	install -m 555 $@/sudo-lockout.sh $(HOMEBIN_DIR)/sudo-lockout
