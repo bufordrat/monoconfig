@@ -1,9 +1,12 @@
 # -*- shell-script -*-
 
+if [[ "$TERM" == "xterm-256color" ]]
+then termux-wake-lock
+else :
+fi
+
 # emacs tramp
 [[ "$-" == *i* ]] || { unsetopt zle && PS1='%m$ ' && return; }
 
 # navigate to monoconfig dir
 cd ~/monoconfig
-
-
