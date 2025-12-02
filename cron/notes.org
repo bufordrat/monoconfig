@@ -12,4 +12,4 @@
     (setq message-send-mail-function 'message-send-mail-with-sendmail)
   #+end_example
 ** troubleshooting
-+ see [[../opensmtp/notes.org][these notes]] if there's an error with =opensmtpd='s =lockspool=
++ see [[../opensmtpd/notes.org][these notes]] if there's an error with =opensmtpd='s =lockspool=
