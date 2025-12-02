@@ -35,7 +35,7 @@ ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 sshd python etc_pacman_conf boot_lo
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python
 INTERNET_RULES = install-python install-ocaml install-agda
-ANDROID_RULES = zsh termux-sshd
+ANDROID_RULES = zsh termux-sshd termux-wake-lock
 
 # mother of all rules
 all: $(HOST)
@@ -373,6 +373,10 @@ ollama-systemd:
 termux-sshd:
 	install -m 444 $@/$(HOST)_sshd_config $(PREFIX)/etc/ssh/sshd_config
 .PHONY: termux-sshd
+
+termux-wake-lock:
+	$@
+.PHONY: termux-wakelock
 
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d
