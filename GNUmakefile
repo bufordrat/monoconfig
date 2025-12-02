@@ -353,7 +353,7 @@ cron:
 
 # TODO: this rule is not currently being used; I would like to make it
 # a dependency for the opensmtpd rule in the event that further
-# testing reveals it to be necessary
+# testing reveals it to be necessary in opensmtpd >= 7.8 versions
 install-opensmtpd:
 	sudo chmod o-w /var/spool/mail
 .PHONY: install-opensmtpd
