@@ -3,4 +3,7 @@
 # emacs tramp
 [[ "$-" == *i* ]] || { unsetopt zle && PS1='%m$ ' && return; }
 
+# navigate to monoconfig dir
+cd ~/monoconfig
+
 
