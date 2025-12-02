@@ -1,0 +1,12 @@
+* gotchas with =opensmtpd=
+** it seems to want the permissions on =/var/spool/mail= to be 1775
++ otherwise, you get this error:
+  #+begin_example
+    Dec 02 13:15:40 kleisli lockspool[7666]: /var/mail: will not deliver to world-writable spool
+    Dec 02 13:15:40 kleisli mail.local[7664]: lockspool: unable to get lock
+  #+end_example
++ it's possible that it just wants the sticky bit to be set, in which
+  case 1777 is also ok?  matter for further investigation
+* crontinuous integration
++ for instructions on setting up crontinuous integration, please see
+  [[../cron/notes.org][these notes]]
