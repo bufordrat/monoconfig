@@ -1,0 +1,15 @@
+* crontinuous integration
+** to set up
++ install =.gnus.el= using =monoconfig=
++ =pacman= install =cronie= and =opensmtpd=
++ =systemctl enable= etc. =cronie= and =opensmtpd=
++ install =/etc/smtpd/smtpd.conf= using =monoconfig=
++ add the following to the host's Emacs init file:
+  #+begin_example
+    ;; local mail stuff
+    (setq display-time-use-mail-icon t
+          display-time-mail-string "\N{E-MAIL SYMBOL}")
+    (setq message-send-mail-function 'message-send-mail-with-sendmail)
+  #+end_example
+** troubleshooting
++ see [[../opensmtp/notes.org][these notes]] if there's an error with =opensmtpd='s =lockspool=
