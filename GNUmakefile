@@ -46,7 +46,7 @@ internet: all $(INTERNET_RULES)
 # host rules
 sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd
 
-kleisli: arch etc_hosts mpd samba intel abcde networkmanager emacs-systemd 
+kleisli: arch etc_hosts cron gnus mpd samba intel abcde networkmanager emacs-systemd 
 
 substructural: macos 
 
