@@ -34,6 +34,11 @@
 ;; xclip
 (xclip-mode 1)
 
+;; local mail stuff
+(setq display-time-use-mail-icon t
+      display-time-mail-string "\N{E-MAIL SYMBOL}")
+(setq message-send-mail-function 'message-send-mail-with-sendmail)
+
 ;; fire up a dired buffer visiting monoconfig
 (dired "~/Stuff/GitHub/mine/monoconfig/")
 
