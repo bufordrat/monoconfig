@@ -1,8 +1,7 @@
 # -*- shell-script -*-
 
-if [ -n "$SSH_CONNECTION" ]
-then :
-else termux-wake-lock
+if [ -z "$SSH_CONNECTION" ]
+then termux-wake-lock
 fi
 
 # emacs tramp
