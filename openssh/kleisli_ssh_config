@@ -9,3 +9,8 @@ Host *
 Host sequent
   HostName sequent.lib.uchicago.edu
   ProxyJump staff.lib.uchicago.edu
+
+Host pixel8
+  User u0_a339
+  HostName 10.0.0.131
+  Port 8022

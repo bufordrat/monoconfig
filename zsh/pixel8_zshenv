@@ -3,7 +3,4 @@
 # emacs tramp
 [[ "$-" == *i* ]] || { unsetopt zle && PS1='%m$ ' && return; }
 
-# keep termux alive when minimized
-termux-wake-lock
-
 
