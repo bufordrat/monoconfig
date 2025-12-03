@@ -1,1 +1,1 @@
-(setq gnus-select-method '(nnml ""))
+(setq gnus-select-method '(nnmaildir "local" (directory "~/.maildir")))
