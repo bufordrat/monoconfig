@@ -1,3 +1,14 @@
+* setup
+** .maildir
++ the config here expects my local mail to be in maildir format,
+  located at =~/.maildir/local_mail=
++ it will create the =cur=, =new=, and =tmp= folders there if they
+  don't exist, but I think it wants this path to exist
++ on =kleisli=, I symlink it, e.g.:
+  #+begin_example
+    cd ~ && ln -s Stuff/Email/.maildir
+  #+end_example
++ rinse and repeat for what that path would be on other hosts
 * crontinuous integration
 + for instructions on setting up crontinuous integration, please see
   [[../cron/notes.org][these notes]]
