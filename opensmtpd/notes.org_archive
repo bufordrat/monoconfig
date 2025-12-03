@@ -1,0 +1,20 @@
+#    -*- mode: org -*-
+
+
+Archived entries from file /home/teichman/Stuff/GitHub/mine/monoconfig/opensmtpd/notes.org
+
+
+* gotchas with =opensmtpd=
+:PROPERTIES:
+:ARCHIVE_TIME: 2025-12-03 Wed 08:43
+:ARCHIVE_FILE: ~/Stuff/GitHub/mine/monoconfig/opensmtpd/notes.org
+:ARCHIVE_CATEGORY: notes
+:END:
+** it seems to want the permissions on =/var/spool/mail= to be 1775
++ otherwise, you get this error:
+  #+begin_example
+    Dec 02 13:15:40 kleisli lockspool[7666]: /var/mail: will not deliver to world-writable spool
+    Dec 02 13:15:40 kleisli mail.local[7664]: lockspool: unable to get lock
+  #+end_example
++ it's possible that it just wants the sticky bit to be set, in which
+  case 1777 is also ok?  matter for further investigation

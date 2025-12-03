@@ -11,5 +11,4 @@
           display-time-mail-string "\N{E-MAIL SYMBOL}")
     (setq message-send-mail-function 'message-send-mail-with-sendmail)
   #+end_example
-** troubleshooting
-+ see [[../opensmtpd/notes.org][these notes]] if there's an error with =opensmtpd='s =lockspool=
+
