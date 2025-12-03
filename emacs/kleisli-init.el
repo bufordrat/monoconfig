@@ -36,7 +36,8 @@
 
 ;; local mail stuff
 (setq display-time-use-mail-icon t
-      display-time-mail-string "\N{E-MAIL SYMBOL}")
+      display-time-mail-string "\N{E-MAIL SYMBOL}"
+      display-time-mail-directory (expand-file-name "~/.maildir/local_mail/new"))
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
 
 ;; fire up a dired buffer visiting monoconfig
