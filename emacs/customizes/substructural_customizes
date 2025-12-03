@@ -5,7 +5,8 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(ef-owl))
  '(custom-safe-themes
-   '("748d024b0d016cc0e7a4326577ce12c6bc918b273acecd355548d7477ad2fc5c"
+   '("332a945a80a202248b21963da38e842aa35b09d1b43c26144bd517943855fe8a"
+     "748d024b0d016cc0e7a4326577ce12c6bc918b273acecd355548d7477ad2fc5c"
      "b9c002dc827fb75b825da3311935c9f505d48d7ee48f470f0aa7ac5d2a595ab2"
      "d6b369a3f09f34cdbaed93eeefcc6a0e05e135d187252e01b0031559b1671e97"
      "cee5c56dc8b95b345bfe1c88d82d48f89e0f23008b0c2154ef452b2ce348da37"
@@ -16,18 +17,18 @@
      default))
  '(doom-modeline-height 35)
  '(package-selected-packages
-   '(abyss-theme afternoon-theme all-the-icons-dired ample-theme
-		 auto-complete badwolf-theme csv-mode diredfl
-		 disk-usage doom-modeline dune eat edit-indirect
-		 ef-themes elfeed exec-path-from-shell fish-mode
-		 gruber-darker-theme gruvbox-theme haskell-mode
-		 htmlize json-mode leuven-theme magit marginalia
-		 markdown-mode merlin-eldoc nerd-icons-dired
-		 nodejs-repl nord-theme orderless pdf-tools peg
-		 php-mode projectile pyvenv qrencode
-		 selectrum-prescient solo-jazz-theme syncthing
-		 ttl-mode tuareg utop vertico vlf vterm web-mode xclip
-		 yaml yaml-mode))
+   '(abyss-theme afternoon-theme aidermacs all-the-icons-dired
+		 ample-theme auto-complete badwolf-theme csv-mode
+		 diredfl disk-usage doom-modeline dune eat
+		 edit-indirect ef-themes elfeed ellama
+		 exec-path-from-shell fish-mode gruber-darker-theme
+		 gruvbox-theme haskell-mode htmlize json-mode
+		 leuven-theme magit marginalia markdown-mode
+		 merlin-eldoc nerd-icons-dired nodejs-repl nord-theme
+		 orderless pdf-tools peg php-mode projectile pyvenv
+		 qrencode selectrum-prescient solo-jazz-theme
+		 syncthing ttl-mode tuareg unidecode utop vertico vlf
+		 vterm web-mode xclip yaml yaml-mode))
  '(python-shell-process-environment '("PYTHON_BASIC_REPL=1"))
  '(syncthing-default-server-token "KxjecUv6gmRYvsjCc3MSvGbR2ZzyKyam"))
 (custom-set-faces
