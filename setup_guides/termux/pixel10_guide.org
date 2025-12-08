@@ -4,7 +4,7 @@
 
 * from your phone
 + install Termux from Google Play Store
-+ choose allow it to send me notifications when menu comes up
++ choose "allow it to send me notifications" when menu comes up
 * start Termux
 ** add storage
 #+begin_example
