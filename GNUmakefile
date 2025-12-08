@@ -10,7 +10,7 @@ UNAMEOS = $(shell uname -o | cut -d. -f1)
 ifeq ($(UNAMEOS),Android)
 # (this hack is necessary to run monoconfig on a smartphone because
 # termux does not expose a true hostname)
-	HOST = pixel8
+	HOST = pixel10
 else
 	HOST = $(shell uname -n | cut -d. -f1)
 endif
