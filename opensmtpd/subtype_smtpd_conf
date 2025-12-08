@@ -1,0 +1,6 @@
+table aliases file:/etc/smtpd/aliases
+listen on localhost
+action "local" maildir "~/.maildir/local_mail" alias <aliases>
+action "relay" relay
+match for local action "local"
+match from local for any action "relay"

@@ -5,10 +5,36 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(ef-elea-dark))
  '(custom-safe-themes
-   '("b41d0a9413fb0034cea34eb8c9f89f6e243bdd76bccecf8292eb1fefa42eaf0a" "a0e9bc5696ce581f09f7f3e7228b949988d76da5a8376e1f2da39d1d026af386" "541282f66e5cc83918994002667d2268f0a563205117860e71b7cb823c1a11e9" "fae5872ff90462502b3bedfe689c02d2fa281bc63d33cb007b94a199af6ccf24" "b9c002dc827fb75b825da3311935c9f505d48d7ee48f470f0aa7ac5d2a595ab2" "cee5c56dc8b95b345bfe1c88d82d48f89e0f23008b0c2154ef452b2ce348da37" "90185f1d8362727f2aeac7a3d67d3aec789f55c10bb47dada4eefb2e14aa5d01" "aff0396925324838889f011fd3f5a0b91652b88f5fd0611f7b10021cc76f9e09" "d609d9aaf89d935677b04d34e4449ba3f8bbfdcaaeeaab3d21ee035f43321ff1" "e85a354f77ae6c2e47667370a8beddf02e8772a02e1f7edb7089e793f4762a45" "d6b369a3f09f34cdbaed93eeefcc6a0e05e135d187252e01b0031559b1671e97" "59c36051a521e3ea68dc530ded1c7be169cd19e8873b7994bfc02a216041bf3b" "211621592803ada9c81ec8f8ba0659df185f9dc06183fcd0e40fbf646c995f23" "1ad12cda71588cc82e74f1cabeed99705c6a60d23ee1bb355c293ba9c000d4ac" "cd5f8f91cc2560c017cc9ec24a9ab637451e36afd22e00a03e08d7b1b87c29ca" "16ab866312f1bd47d1304b303145f339eac46bbc8d655c9bfa423b957aa23cc9" default))
+   '("b1791a921c4f38cb966c6f78633364ad880ad9cf36eef01c60982c54ec9dd088"
+     "b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d"
+     "b41d0a9413fb0034cea34eb8c9f89f6e243bdd76bccecf8292eb1fefa42eaf0a"
+     "a0e9bc5696ce581f09f7f3e7228b949988d76da5a8376e1f2da39d1d026af386"
+     "541282f66e5cc83918994002667d2268f0a563205117860e71b7cb823c1a11e9"
+     "fae5872ff90462502b3bedfe689c02d2fa281bc63d33cb007b94a199af6ccf24"
+     "b9c002dc827fb75b825da3311935c9f505d48d7ee48f470f0aa7ac5d2a595ab2"
+     "cee5c56dc8b95b345bfe1c88d82d48f89e0f23008b0c2154ef452b2ce348da37"
+     "90185f1d8362727f2aeac7a3d67d3aec789f55c10bb47dada4eefb2e14aa5d01"
+     "aff0396925324838889f011fd3f5a0b91652b88f5fd0611f7b10021cc76f9e09"
+     "d609d9aaf89d935677b04d34e4449ba3f8bbfdcaaeeaab3d21ee035f43321ff1"
+     "e85a354f77ae6c2e47667370a8beddf02e8772a02e1f7edb7089e793f4762a45"
+     "d6b369a3f09f34cdbaed93eeefcc6a0e05e135d187252e01b0031559b1671e97"
+     "59c36051a521e3ea68dc530ded1c7be169cd19e8873b7994bfc02a216041bf3b"
+     "211621592803ada9c81ec8f8ba0659df185f9dc06183fcd0e40fbf646c995f23"
+     "1ad12cda71588cc82e74f1cabeed99705c6a60d23ee1bb355c293ba9c000d4ac"
+     "cd5f8f91cc2560c017cc9ec24a9ab637451e36afd22e00a03e08d7b1b87c29ca"
+     "16ab866312f1bd47d1304b303145f339eac46bbc8d655c9bfa423b957aa23cc9"
+     default))
  '(doom-modeline-height 50)
  '(package-selected-packages
-   '(ef-themes pyvenv orderless vertico yaml-mode xclip web-mode vterm vlf use-package tuareg solarized-theme slp selectrum-prescient projectile php-mode pdf-tools ox-gfm nerd-icons-dired multi-web-mode merlin marginalia magit lsp-python-ms json-reformat json-mode idris-mode hydra htmlize haskell-mode gutenberg gruvbox-theme gnuplot gh-md forth-mode flycheck-eglot fish-mode exec-path-from-shell elm-mode eat dune doom-modeline diredfl csv-mode bbdb badwolf-theme 0blayout))
+   '(0blayout badwolf-theme bbdb csv-mode diredfl doom-modeline dune eat
+	      ef-themes ellama elm-mode exec-path-from-shell fish-mode
+	      flycheck-eglot forth-mode gh-md gnuplot gruvbox-theme
+	      gutenberg haskell-mode htmlize hydra idris-mode
+	      json-mode json-reformat lsp-python-ms magit marginalia
+	      merlin multi-web-mode nerd-icons-dired orderless ox-gfm
+	      pdf-tools php-mode projectile pyvenv selectrum-prescient
+	      slp solarized-theme tuareg use-package vertico vlf vterm
+	      web-mode xclip yaml-mode))
  '(tramp-verbose 7))
 
 
