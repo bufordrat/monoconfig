@@ -1,0 +1,43 @@
+#+TITLE: setting up termux on pixel 10
+#+AUTHOR: Matt Teichman
+#+DATE: <2025-12-08 Mon>
+
+* install Termux from Google Play Store
+* choose allow it to send me notifications when menu comes up
+* add storage
+#+begin_example
+  $ termux-setup-storage
+#+end_example
++ "all files access" menu will come up
++ select Termux (which should say "not allowed")
++ flip toggle saying "allow access to manage all files"
++ hit back button twice to get back into the shell
+* confirm you have access to phone's filesystem
+#+begin_example
+  $ ls ~/storage/shared
+#+end_example
+* find out username
+#+begin_example
+  $ whoami
+  u0_a319
+#+end_example
+* set password
+#+begin_example
+  $ passwd
+#+end_example
+* install =make=, =git=, and =rsync=
+#+begin_example
+  $ pkg install make git rsync
+#+end_example
+* clone =monoconfig=
+#+begin_example
+  $ git clone git@github.com/bufordrat/monoconfig
+#+end_example
+* make it
+#+begin_example
+  $ cd monoconfig && make
+#+end_example
+* install more packages, use =zsh=, set up =sshd=
+#+begin_example
+  $ make setup-termux
+#+end_example

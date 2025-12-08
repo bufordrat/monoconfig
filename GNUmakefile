@@ -399,7 +399,7 @@ brew:
 .PHONY: brew
 
 setup-termux:
-	brew install $(TERMUX_PACKAGES)
+	pkg install $(TERMUX_PACKAGES)
 	chsh -s zsh
 	sv-enable sshd
 .PHONY: setup-termux
