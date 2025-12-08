@@ -56,3 +56,9 @@
 #+begin_example
   $ make setup-termux
 #+end_example
+* there will be a pop-up asking you to "allow" wake-lock after reopening termux
+* start =sshd= upon startup
+#+begin_example
+  $ sv-enable sshd
+#+end_example
+* that's it, I reckon

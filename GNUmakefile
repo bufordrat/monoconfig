@@ -401,7 +401,6 @@ brew:
 setup-termux:
 	pkg install $(TERMUX_PACKAGES)
 	chsh -s zsh
-	sv-enable sshd
 .PHONY: setup-termux
 
 collect-garbage:
