@@ -2,7 +2,7 @@
 #+AUTHOR: Matt Teichman
 #+DATE: <2025-12-08 Mon>
 
-* on Android
+* from your phone
 ** install Termux from Google Play Store
 ** choose allow it to send me notifications when menu comes up
 * start Termux
