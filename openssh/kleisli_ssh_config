@@ -14,3 +14,8 @@ Host pixel8
   User u0_a339
   HostName 10.0.0.131
   Port 8022
+
+Host pixel10
+  User u0_a319
+  Hostname 10.0.0.93
+  Port 8022
