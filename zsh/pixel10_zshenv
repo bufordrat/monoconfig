@@ -1,11 +1,9 @@
 # -*- shell-script -*-
 
 if [ -z "$SSH_CONNECTION" ]
-then termux-wake-lock
+then termux-wake-lock && cd ~/monoconfig
 fi
 
 # emacs tramp
 [[ "$-" == *i* ]] || { unsetopt zle && PS1='%m$ ' && return; }
 
-# navigate to monoconfig dir
-cd ~/monoconfig
