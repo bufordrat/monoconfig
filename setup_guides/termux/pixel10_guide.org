@@ -19,7 +19,6 @@
 * find out username
 #+begin_example
   $ whoami
-  u0_a319
 #+end_example
 * find out local IP
 #+begin_example
@@ -52,10 +51,11 @@
 #+begin_example
   $ cd monoconfig && make
 #+end_example
-* install more packages, use =zsh=, set up =sshd=
+* install more packages, use =zsh=
 #+begin_example
   $ make setup-termux
 #+end_example
+* restart Termux
 * there will be a pop-up asking you to "allow" wake-lock after reopening termux
 * start =sshd= upon startup
 #+begin_example
