@@ -52,6 +52,7 @@
 #+begin_example
   $ cd monoconfig && make
 #+end_example
+* this will install =sshd= config with password auth turned off
 * install more packages, use =zsh=
 #+begin_example
   $ make setup-termux
