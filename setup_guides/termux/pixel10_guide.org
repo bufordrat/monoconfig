@@ -2,9 +2,11 @@
 #+AUTHOR: Matt Teichman
 #+DATE: <2025-12-08 Mon>
 
-* install Termux from Google Play Store
-* choose allow it to send me notifications when menu comes up
-* add storage
+* on Android
+** install Termux from Google Play Store
+** choose allow it to send me notifications when menu comes up
+* start Termux
+** add storage
 #+begin_example
   $ termux-setup-storage
 #+end_example
@@ -12,42 +14,42 @@
 + select Termux (which should say "not allowed")
 + flip toggle saying "allow access to manage all files"
 + hit back button twice to get back into the shell
-* confirm you have access to phone's filesystem
+** confirm you have access to phone's filesystem
 #+begin_example
   $ ls ~/storage/shared
 #+end_example
-* find out username
+** find out username
 #+begin_example
   $ whoami
 #+end_example
-* find out local IP
+** find out local IP
 #+begin_example
   $ ifconfig
 #+end_example
-* set password
+** set password
 #+begin_example
   $ passwd
 #+end_example
-* install =make=, =git=, =rsync=, and =openssh=
+** install =make=, =git=, =rsync=, and =openssh=
 #+begin_example
   $ pkg install make git rsync openssh
 #+end_example
-* run sshd as a one-off to prepare for =ssh=copy-id=
+** run sshd as a one-off to prepare for =ssh=copy-id=
 #+begin_example
   $ sshd
 #+end_example
 * get on a different computer
-* =ssh-copy-id= from computer w/ private key
+** =ssh-copy-id= from computer w/ private key
 + FROM a different host TO the phone:
   #+begin_example
     $ ssh-copy-id -p 8022 TERMUX_USERNAME@TERMUX_IP
   #+end_example
-* make sure =sshd= config file destined for phone has =PasswordAuthentication no=
-* try ssh-ing in
+** make sure =sshd= config file destined for phone has =PasswordAuthentication no=
+** try ssh-ing in
 #+begin_example
   $ ssh -p 8022 TERMUX_USERNAME@TERMUX_IP
 #+end_example
-* better yet, add this to your machine's ssh config:
+** better yet, add this to your machine's ssh config:
 #+begin_example
   Host pixel10
     User TERMUX_USERNAME
@@ -55,23 +57,23 @@
     Port 8022
 #+end_example
 * get back on Termux on the phone
-* clone =monoconfig=
+** clone =monoconfig=
 #+begin_example
   $ git clone https://github.com/bufordrat/monoconfig
 #+end_example
-* make it
+** make it
 #+begin_example
   $ cd monoconfig && make
 #+end_example
-* this will install =sshd= config with password auth turned off
-* install more packages, use =zsh=
+** this will install =sshd= config with password auth turned off
+** install more packages, use =zsh=
 #+begin_example
   $ make setup-termux
 #+end_example
-* restart Termux
-* there will be a pop-up asking you to "allow" wake-lock after reopening termux
-* start =sshd= upon startup
+** restart Termux
+** there will be a pop-up asking you to "allow" wake-lock after reopening termux
+** start =sshd= upon startup
 #+begin_example
   $ sv-enable sshd
 #+end_example
-* that's it, I reckon
+** that's it, I reckon
