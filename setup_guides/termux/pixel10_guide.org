@@ -21,17 +21,32 @@
   $ whoami
   u0_a319
 #+end_example
+* find out local IP
+#+begin_example
+  $ ifconfig
+#+end_example
 * set password
 #+begin_example
   $ passwd
 #+end_example
-* install =make=, =git=, and =rsync=
+* install =make=, =git=, =rsync=, and =openssh=
 #+begin_example
-  $ pkg install make git rsync
+  $ pkg install make git rsync openssh
 #+end_example
+* run sshd as a one-off to prepare for =ssh=copy-id=
+#+begin_example
+  $ sshd
+#+end_example
+* get on a different computer
+* =ssh-copy-id= from computer w/ private key
++ FROM a different host TO the phone:
+  #+begin_example
+    $ ssh-copy-id -p 8022 TERMUX_USERNAME@TERMUX_IP
+  #+end_example
+* get back on Termux on the phone
 * clone =monoconfig=
 #+begin_example
-  $ git clone git@github.com/bufordrat/monoconfig
+  $ git clone https://github.com/bufordrat/monoconfig
 #+end_example
 * make it
 #+begin_example

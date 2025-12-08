@@ -38,7 +38,9 @@ INTERNET_RULES = install-python install-ocaml install-agda
 ANDROID_RULES = zsh termux-sshd
 
 # mother of all rules
-all: $(HOST)
+all:
+	@echo $(HOST)
+# $(HOST)
 
 # use the internet
 internet: all $(INTERNET_RULES)
