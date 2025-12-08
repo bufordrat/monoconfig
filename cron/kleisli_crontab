@@ -4,7 +4,7 @@ SSH_AUTH_SOCK=/run/user/1000/ssh-agent.socket
 0 3 * * * /home/teichman/bin/update-branches /home/teichman/Stuff/GitHub/mine
 
 # DAILY: photos backup
-0 2 * * * /home/teichman/bin/photosync
+# 0 2 * * * /home/teichman/bin/photosync
 
 # DAILY: phone backup
-0 2 * * * /home/teichman/bin/phonesync
+# 0 2 * * * /home/teichman/bin/phonesync
