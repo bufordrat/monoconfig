@@ -3,8 +3,8 @@
 #+DATE: <2025-12-08 Mon>
 
 * from your phone
-** install Termux from Google Play Store
-** choose allow it to send me notifications when menu comes up
++ install Termux from Google Play Store
++ choose allow it to send me notifications when menu comes up
 * start Termux
 ** add storage
 #+begin_example
