@@ -1,4 +1,4 @@
-#+TITLE: setting up termux on pixel 10
+#+TITLE: Set Up Termux On Pixel 10
 #+AUTHOR: Matt Teichman
 #+DATE: <2025-12-08 Mon>
 
