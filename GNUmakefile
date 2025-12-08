@@ -322,10 +322,10 @@ mkinitcpio_conf:
 .PHONY: mkinitcpio_conf
 
 syncthing:
-	syncthing cli config devices $$(syncthing -device-id) name set $(HOST)
+	syncthing cli config devices $$(syncthing device-id) name set $(HOST)
 	gpg -d $@/$(HOST)_syncthing_setup.gpg 2> /dev/null | sh
 	@echo 'device name:'
-	@syncthing -device-id
+	@syncthing device-id
 	@echo 'api key:'
 	@syncthing cli config gui apikey get
 .PHONY: syncthing
