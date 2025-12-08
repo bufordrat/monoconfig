@@ -34,7 +34,7 @@
 #+begin_example
   $ pkg install make git rsync openssh
 #+end_example
-** run sshd as a one-off to prepare for =ssh=copy-id=
+** run sshd as a one-off to prepare for =ssh-copy-id=
 #+begin_example
   $ sshd
 #+end_example
