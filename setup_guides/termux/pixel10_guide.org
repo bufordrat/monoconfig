@@ -42,6 +42,7 @@
   #+begin_example
     $ ssh-copy-id -p 8022 TERMUX_USERNAME@TERMUX_IP
   #+end_example
+* make sure =sshd= config file on phone has =PasswordAuthentication no=
 * get back on Termux on the phone
 * clone =monoconfig=
 #+begin_example
