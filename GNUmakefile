@@ -64,7 +64,7 @@ profunctor: macos
 
 hedwig: homebin zsh emacs
 
-pixel8: android
+pixel10: android
 
 # os rules
 arch: $(ARCH_RULES)
