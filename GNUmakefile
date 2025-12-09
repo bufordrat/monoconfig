@@ -10,7 +10,7 @@ UNAMEOS = $(shell uname -o | cut -d. -f1)
 ifeq ($(UNAMEOS),Android)
 # (this hack is necessary to run monoconfig on a smartphone because
 # termux does not expose a true hostname)
-	HOST = pixel8
+	HOST = pixel10
 else
 	HOST = $(shell uname -n | cut -d. -f1)
 endif
@@ -64,7 +64,7 @@ profunctor: macos
 
 hedwig: homebin zsh emacs
 
-pixel8: android
+pixel10: android
 
 # os rules
 arch: $(ARCH_RULES)
@@ -149,6 +149,7 @@ homebin:
 	install -m 555 $@/pi3sync.sh $(HOMEBIN_DIR)/pi3sync
 	install -m 555 $@/photosync.sh $(HOMEBIN_DIR)/photosync
 	install -m 555 $@/phonesync.sh $(HOMEBIN_DIR)/phonesync
+	install -m 555 $@/pulsarsync.sh $(HOMEBIN_DIR)/pulsarsync
 	install -m 555 $@/semigroupsync.sh $(HOMEBIN_DIR)/semigroupsync
 	install -m 555 $@/figure_out_editor_variable.sh $(HOMEBIN_DIR)/figure_out_editor_variable
 	install -m 555 $@/sudo-lockout.sh $(HOMEBIN_DIR)/sudo-lockout
@@ -380,7 +381,7 @@ termux-sshd:
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1
 DOCKER_PACKAGES = docker docker-compose docker-buildx
-ARCH_PACKAGES = linux-lts lvm2 herbstluftwm bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode firewalld m4 ascii xclip picom dhcpcd dmenu borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop w3m $(X11_PACKAGES) $(DOCKER_PACKAGES) $(NM_PACKAGES)
+ARCH_PACKAGES = linux-lts lvm2 herbstluftwm man-pages bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode firewalld m4 ascii xclip picom dhcpcd dmenu borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop w3m $(X11_PACKAGES) $(DOCKER_PACKAGES) $(NM_PACKAGES)
 AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font
 
 # other platforms' packages
@@ -399,9 +400,8 @@ brew:
 .PHONY: brew
 
 setup-termux:
-	brew install $(TERMUX_PACKAGES)
+	pkg install $(TERMUX_PACKAGES)
 	chsh -s zsh
-	sv-enable sshd
 .PHONY: setup-termux
 
 collect-garbage:
