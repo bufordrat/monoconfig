@@ -153,7 +153,7 @@ homebin:
 	install -m 555 $@/semigroupsync.sh $(HOMEBIN_DIR)/semigroupsync
 	install -m 555 $@/figure_out_editor_variable.sh $(HOMEBIN_DIR)/figure_out_editor_variable
 	install -m 555 $@/sudo-lockout.sh $(HOMEBIN_DIR)/sudo-lockout
-	install -m 555 $@/randomount.sh $(HOMEBIN_DIR)/randomount
+	install -m 555 $@/trivies.sh $(HOMEBIN_DIR)/trivies
 	install -m 555 $@/update-branches.sh $(HOMEBIN_DIR)/update-branches
 .PHONY: homebin
 
