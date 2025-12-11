@@ -81,7 +81,7 @@ herbstluftwm:
 	install -m 555 $@/autostart $(CONFIG_DIR)/$@/autostart
 	install -m 555 $@/general_as $(CONFIG_DIR)/$@/general_as
 	install -m 555 $@/$(HOST)_as $(CONFIG_DIR)/$@/$(HOST)_as
-	install -m 444 $@/bg.png $(CONFIG_DIR)/bg.png
+	install -m 444 $@/bg.png $(CONFIG_DIR)/$@/bg.png
 .PHONY: herbstluftwm
 
 fish:
