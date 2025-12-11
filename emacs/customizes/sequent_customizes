@@ -23,8 +23,8 @@
 	   doom-modeline dune edit-indirect ellama fish-mode
 	   gruvbox-theme htmlize magit marginalia markdown-mode
 	   nerd-icons nerd-icons-dired odig orderless pacman pdf-tools
-	   projectile pyvenv simple-httpd syncthing tuareg unidecode
-	   utop vertico vlf web-mode xclip))
+	   projectile pyvenv simple-httpd syncthing tint tuareg
+	   unidecode utop vertico vlf web-mode xclip))
  '(pacman-pacdiff-command "sudo -S env DIFFPROG=diffmerge pacdiff")
  '(python-shell-process-environment '("PYTHON_BASIC_REPL=1"))
  '(smtpmail-smtp-server "localhost")
