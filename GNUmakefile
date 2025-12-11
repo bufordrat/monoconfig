@@ -352,7 +352,8 @@ cron:
 	crontab ~/.cron/$(HOST)_crontab
 .PHONY: cron
 
-opensmtpd: 
+opensmtpd:
+	mkdir -p ~/.maildir/local_mail
 	sudo install -m 444 $@/$(HOST)_smtpd_conf /etc/smtpd/smtpd.conf
 .PHONY: opensmtpd
 
