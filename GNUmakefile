@@ -81,7 +81,7 @@ herbstluftwm:
 	install -m 555 $@/autostart $(CONFIG_DIR)/$@/autostart
 	install -m 555 $@/general_as $(CONFIG_DIR)/$@/general_as
 	install -m 555 $@/$(HOST)_as $(CONFIG_DIR)/$@/$(HOST)_as
-	install -m 444 $@/bg.png $(CONFIG_DIR)/bg.png
+	install -m 444 $@/bg.png $(CONFIG_DIR)/$@/bg.png
 .PHONY: herbstluftwm
 
 fish:
@@ -153,7 +153,7 @@ homebin:
 	install -m 555 $@/semigroupsync.sh $(HOMEBIN_DIR)/semigroupsync
 	install -m 555 $@/figure_out_editor_variable.sh $(HOMEBIN_DIR)/figure_out_editor_variable
 	install -m 555 $@/sudo-lockout.sh $(HOMEBIN_DIR)/sudo-lockout
-	install -m 555 $@/randomount.sh $(HOMEBIN_DIR)/randomount
+	install -m 555 $@/trivies.sh $(HOMEBIN_DIR)/trivies
 	install -m 555 $@/update-branches.sh $(HOMEBIN_DIR)/update-branches
 .PHONY: homebin
 
@@ -352,7 +352,8 @@ cron:
 	crontab ~/.cron/$(HOST)_crontab
 .PHONY: cron
 
-opensmtpd: 
+opensmtpd:
+	mkdir -p ~/.maildir/local_mail
 	sudo install -m 444 $@/$(HOST)_smtpd_conf /etc/smtpd/smtpd.conf
 .PHONY: opensmtpd
 
@@ -381,7 +382,7 @@ termux-sshd:
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1
 DOCKER_PACKAGES = docker docker-compose docker-buildx
-ARCH_PACKAGES = linux-lts lvm2 herbstluftwm man-pages bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode firewalld m4 ascii xclip picom dhcpcd dmenu borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop w3m $(X11_PACKAGES) $(DOCKER_PACKAGES) $(NM_PACKAGES)
+ARCH_PACKAGES = linux-lts lvm2 herbstluftwm man-pages bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode firewalld m4 ascii xclip picom dhcpcd dmenu borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop w3m smartmontools gdb $(X11_PACKAGES) $(DOCKER_PACKAGES) $(NM_PACKAGES)
 AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font
 
 # other platforms' packages
