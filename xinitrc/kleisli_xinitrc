@@ -9,5 +9,8 @@ fi
 # compositor
 picom -b -c --fading=false
 
+# set meta to super
+setxkbmap -option altwin:meta_win
+
 # nm-applet for authentication to UChicago VPN
 nm-applet &
