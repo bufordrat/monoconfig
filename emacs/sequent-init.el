@@ -44,8 +44,9 @@
 (setopt browse-url-secondary-browser-function 'browse-url-firefox)
 
 ;; local mail stuff
-(setq display-time-use-mail-icon t
-      display-time-mail-string "\N{E-MAIL SYMBOL}")
+(setq display-time-use-mail-icon nil
+      display-time-mail-string "\N{OPEN MAILBOX WITH RAISED FLAG}"
+      display-time-mail-directory (expand-file-name "~/.maildir/local_mail/new"))
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
 
 ;; xclip
