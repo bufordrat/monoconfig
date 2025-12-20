@@ -3,6 +3,9 @@ Xft.dpi: 145
 XTerm.termName: xterm-256color
 XTerm.saveLines:32767
 XTerm.vt100.metaSendsEscape: true
+XTerm.vt100.font: xft:M+ 1mn:regular:pixelsize=23
+XTerm.vt100.boldFont: xft:M+ 1mn:medium:pixelsize=23
+XTerm.vt100.internalBorder: 40
 
 ! special
 *.foreground:   #ccccc6
