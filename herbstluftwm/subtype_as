@@ -10,5 +10,8 @@ hc keybind Ctrl+$Mod+End spawn ~/bin/susp.sh
 # frame gap set for high-res display
 hc set frame_gap 40
 
+# xterm
+hc keybind $Mod+Return spawn xterm -e fish
+
 # emacsclient shortcut key
 hc keybind $Mod+backslash spawn emacsclient -cn
