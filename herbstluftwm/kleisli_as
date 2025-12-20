@@ -4,7 +4,7 @@ feh --bg-fill ~/.config/herbstluftwm/bg.png
 # launcher
 hc keybind $Mod-Shift-p spawn sh -c 'dmenu_path | dmenu -f -fn "M+ 1mn-9" | xargs -d \\n urxvt -e'
 hc keybind $Mod-p spawn sh -c "dmenu_path | dmenu_run_history -fn 'M+ 1mn-9'"
-hc keybind $Mod+Return spawn "xterm -fa 'M+ 1mn:regular:pixelsize=23' -e fish"
+hc keybind $Mod+Return spawn xterm -e fish
 
 # mpd play/pause keybinding
 hc keybind Mod1+F6 spawn mpc toggle
