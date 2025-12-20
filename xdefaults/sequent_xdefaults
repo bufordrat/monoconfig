@@ -1,29 +1,9 @@
-XTerm*font:	xft:Profont:regular:pixelsize=10
-XTerm*boldFont:	xft:Profont:regular:pixelsize=10
-
-URxvt*modifier: super
-
-URxvt.saveLines:32767
-URxvt.scrollBar: false
-
-URxvt*font:	xft:Profont:regular:pixelsize=10
-URxvt*boldFont:	xft:Profont:regular:pixelsize=10
-
-URxvt.background-expr: scale keep { load "/home/teichman/background.png" }
-urxvt*transparent: false
-urxvt*shading: 30
-
-urxvt*VT100*translations: #override Ctrl Meta<Key>Y: insert-selection(PRIMARY, CUT_BUFFER0)
-
-URxvt*colorUL: #b4ff7a
-
-URxvt.perl-ext-common:  default,matcher
-URxvt.url-launcher:     /usr/bin/chromium
-URxvt.matcher.button:   1
-
-URxvt*termName: rxvt-unicode-256color
-
-URxvt.internalBorder:  15
+XTerm.termName: xterm-256color
+XTerm.saveLines:32767
+XTerm.vt100.metaSendsEscape: true
+XTerm.vt100.font: xft:Profont:regular:pixelsize=10
+XTerm.vt100.boldFont: xft:Profont:regular:pixelsize=10
+XTerm.vt100.internalBorder: 15
 
 ! special
 *.foreground:   #ccccc6

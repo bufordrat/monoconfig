@@ -16,5 +16,8 @@ fi
 # activate multiple monitors
 sh /home/teichman/.config/herbstluftwm/monitors-arandr.sh
 
+# set meta to super
+setxkbmap -option altwin:meta_win
+
 # compositor
 picom -b --no-fading-openclose
