@@ -2,3 +2,5 @@ templates:
   params:
 
 system-ghc: true
+
+notify-if-nix-on-path: false

@@ -1,24 +1,8 @@
 Xft.dpi: 145
 
-URxvt.internalBorder: 40
-
-URxvt*modifier: super
-URxvt.saveLines:32767
-URxvt.scrollBar: false
-
-URxvt*font:	xft:M+ 1mn:regular:pixelsize=23
-URxvt*boldFont:	xft:M+ 1mn:medium:pixelsize=23
-
-urxvt*transparent: false
-URxvt*colorUL: #b4ff7a
-
-urxvt*VT100*translations: #override Ctrl Meta<Key>Y: insert-selection(PRIMARY, CUT_BUFFER0)
-
-URxvt.perl-ext-common:  default,matcher
-URxvt.url-launcher:     /usr/bin/chromium
-URxvt.matcher.button:   1
-
-URxvt*termName: rxvt-unicode-256color
+XTerm.termName: xterm-256color
+XTerm.saveLines:32767
+XTerm.vt100.metaSendsEscape: true
 
 ! special
 *.foreground:   #ccccc6
