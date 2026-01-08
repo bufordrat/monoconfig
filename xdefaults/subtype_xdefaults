@@ -1,13 +1,24 @@
+! hi-res display
 Xft.dpi: 145
 
-XTerm.termName: xterm-256color
+! big terminal
 XTerm.saveLines:32767
+
+! set TERM variable etc
+XTerm.termName: xterm-256color
+
+! border
+XTerm.vt100.internalBorder: 40
+
+! fix meta key and backspace in xterm
 XTerm.vt100.metaSendsEscape: true
+Xterm.vt100.backarrowKeyIsErase: true
 XTerm.vt100.backarrowKey: false
 XTerm.ttyModes: erase ^?
+
+! set font to M+ 1mn
 XTerm.vt100.font: xft:M+ 1mn:regular:pixelsize=23
 XTerm.vt100.boldFont: xft:M+ 1mn:medium:pixelsize=23
-XTerm.vt100.internalBorder: 40
 
 ! special
 *.foreground:   #ccccc6
