@@ -1,6 +1,8 @@
 XTerm.termName: xterm-256color
 XTerm.saveLines:32767
 XTerm.vt100.metaSendsEscape: true
+XTerm.vt100.backarrowKey: false
+XTerm.ttyModes: erase ^?
 XTerm.vt100.font: xft:Profont:regular:pixelsize=10
 XTerm.vt100.boldFont: xft:Profont:regular:pixelsize=10
 XTerm.vt100.internalBorder: 15
