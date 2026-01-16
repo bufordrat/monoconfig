@@ -44,7 +44,7 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd
+sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd
 
 kleisli: arch etc_hosts cron gnus mpd samba intel abcde networkmanager emacs-systemd systemd
 
@@ -377,6 +377,16 @@ ollama-systemd:
 termux-sshd:
 	install -m 444 $@/$(HOST)_sshd_config $(PREFIX)/etc/ssh/sshd_config
 .PHONY: termux-sshd
+
+ALTHTTPD_PATH = ~/stuff/repos/fossil/althttpd
+
+althttpd:
+	cd $(ALTHTTPD_PATH) &&\
+		fossil pull &&\
+		fossil update &&\
+		make althttpd &&\
+		install -m 444 althttpd $(HOMEBIN_DIR)
+.PHONY: althttpd
 
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d
