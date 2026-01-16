@@ -385,7 +385,7 @@ althttpd:
 		fossil pull &&\
 		fossil update &&\
 		make althttpd &&\
-		install -m 444 althttpd $(HOMEBIN_DIR)
+		install -m 555 althttpd $(HOMEBIN_DIR)
 .PHONY: althttpd
 
 # arch packages
