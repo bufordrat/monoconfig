@@ -33,7 +33,7 @@ BASIC_RULES = homebin openssh emacs bash fish zsh gnupg
 ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 sshd python etc_pacman_conf boot_loader fstab opensmtpd
 
 PI_RULES = $(BASIC_RULES) mpd raspi
-MACOS_RULES = $(BASIC_RULES) iterm python
+MACOS_RULES = $(BASIC_RULES) iterm python ghostty
 INTERNET_RULES = install-python install-ocaml install-agda
 ANDROID_RULES = zsh termux-sshd
 
@@ -387,6 +387,11 @@ althttpd:
 		make althttpd &&\
 		install -m 555 althttpd $(HOMEBIN_DIR)
 .PHONY: althttpd
+
+ghostty:
+	mkdir -p ~/.config/ghostty
+	install -m 444 $@/$(HOST)_config ~/.config/ghostty/config
+.PHONY: ghostty
 
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d

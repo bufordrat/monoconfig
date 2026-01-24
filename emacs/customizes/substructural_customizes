@@ -18,7 +18,7 @@
  '(doom-modeline-height 35)
  '(package-selected-packages
    '(abyss-theme afternoon-theme aidermacs all-the-icons-dired
-		 ample-theme auto-complete badwolf-theme csv-mode
+		 ample-theme auto-complete badwolf-theme crdt csv-mode
 		 diredfl disk-usage doom-modeline dune eat
 		 edit-indirect ef-themes elfeed ellama
 		 exec-path-from-shell fish-mode gruber-darker-theme
@@ -26,9 +26,10 @@
 		 leuven-theme magit marginalia markdown-mode
 		 merlin-eldoc nerd-icons-dired nodejs-repl nord-theme
 		 orderless pdf-tools peg php-mode projectile pyvenv
-		 qrencode selectrum-prescient solo-jazz-theme
-		 syncthing ttl-mode tuareg unidecode utop vertico vlf
-		 vterm web-mode xclip yaml yaml-mode))
+		 qrencode selectrum-prescient sly solo-jazz-theme
+		 syncthing ttl-mode tuareg unidecode utop vertico
+		 visual-fill-column vlf vterm web-mode xclip yaml
+		 yaml-mode))
  '(python-shell-process-environment '("PYTHON_BASIC_REPL=1"))
  '(syncthing-default-server-token "KxjecUv6gmRYvsjCc3MSvGbR2ZzyKyam"))
 (custom-set-faces
