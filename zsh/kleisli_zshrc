@@ -17,6 +17,12 @@ fi
 # get $EDITOR to behave in Emacs
 export EDITOR=figure_out_editor_variable
 
+# get intel graphics to use intel media driver
+# commenting this out because I'm not sure it's doing anything
+# todo: delete
+# export LIBVA_DRIVER_NAME=iHD
+# export vblank_mode=1
+
 # make zsh aware of ssh-agent
 UID="$(id -u teichman)"
 export SSH_AUTH_SOCK="/run/user/$UID/ssh-agent.socket"
