@@ -7,7 +7,7 @@ then $NOTIFY -a systemd -u critical "systemd failures" "$FAILED"
 fi
 
 # compositor
-picom -b -c --fading=false --vsync
+picom -b -c --fading=false --vsync --backend glx --xrender-sync-fence --glx-no-stencil --no-use-damage --glx-no-rebind-pixmap
 
 # set meta to super
 setxkbmap -option altwin:meta_win
