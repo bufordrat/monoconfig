@@ -18,6 +18,7 @@
  '(doom-modeline-mode t)
  '(doom-modeline-window-width-limit 50)
  '(explicit-shell-file-name "zsh")
+ '(gnus-show-threads nil)
  '(package-selected-packages
    '(aider aidermacs badwolf-theme crdt dash diredfl docker
 	   dockerfile-mode doom-modeline dune edit-indirect ellama
