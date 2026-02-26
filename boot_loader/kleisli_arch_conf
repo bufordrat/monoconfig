@@ -1,5 +1,10 @@
 title Arch Linux
 linux /vmlinuz-linux
-initrd /intel-ucode.img
 initrd /initramfs-linux.img
 options root=/dev/nvme0n1p2 rw
+
+; was trying this to fix tearing on modesetting driver
+; should probably be deleted
+; i915.enable_psr=0
+
+; also got rid of initrd /intel-ucode.img because it's now in my initramfs

@@ -1,12 +1,14 @@
 Section "Device"
   Identifier "Intel Graphics"
-
-  # turn modesetting and intel off on to make mpv work
-  # Driver "modesetting"
   Driver "intel"
-
-  # Option "AccelMethod" "sna"
-  # Option "DRI" "iris"
-  Option "TearFree" "true"
-  # Option "SwapbuffersWait" "false"
+  Option "DRI" "2"
+  Option "AccelMethod" "sna"
 EndSection
+
+# Section "Device"
+#   Identifier "Intel Graphics"
+#   Driver     "modesetting"
+#   Option     "AccelMethod" "glamor"
+#   Option     "DRI" "3"
+#   Option     "TripleBuffer" "true"
+# EndSection

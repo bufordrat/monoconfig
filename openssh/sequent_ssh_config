@@ -14,3 +14,7 @@ Host nest
 Host nesttrain
   HostName nesttrain.lib.uchicago.edu
   User teichman
+
+Host ocaml
+  HostName ocaml.lib.uchicago.edu
+  User teichman
