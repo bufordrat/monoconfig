@@ -16,6 +16,7 @@
      "b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d"
      default))
  '(doom-modeline-height 35)
+ '(inferior-lisp-program "sbcl")
  '(package-selected-packages
    '(abyss-theme afternoon-theme aidermacs all-the-icons-dired
 		 ample-theme auto-complete badwolf-theme crdt csv-mode

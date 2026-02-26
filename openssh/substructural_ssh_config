@@ -17,5 +17,5 @@ Host sequent
 
 Host pixel10
   User u0_a319
-  HostName 10.150.153.152
+  HostName 10.0.0.93
   Port 8022
