@@ -10,7 +10,6 @@ jupyterlab
 notebook
 tiktoken
 matplotlib
-tensorflow
 tqdm
 numpy
 pandas
