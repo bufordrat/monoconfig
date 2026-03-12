@@ -25,8 +25,8 @@
 	   dockerfile-mode doom-modeline dune edit-indirect ellama
 	   fish-mode gruvbox-theme htmlize magit marginalia
 	   markdown-mode nerd-icons nerd-icons-dired odig orderless
-	   pacman pdf-tools projectile pyvenv simple-httpd slp sly
-	   syncthing tint tuareg unidecode utop vertico
+	   pacmacs pacman pdf-tools projectile pyvenv simple-httpd slp
+	   sly syncthing tint tuareg unidecode utop vertico
 	   visual-fill-column vlf web-mode xclip))
  '(pacman-pacdiff-command "sudo -S env DIFFPROG=diffmerge pacdiff")
  '(python-shell-process-environment '("PYTHON_BASIC_REPL=1"))
