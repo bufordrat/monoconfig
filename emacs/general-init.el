@@ -150,6 +150,9 @@
 ;; get ~/.local/bin on exec-path
 (add-to-list 'exec-path (expand-file-name "~/.local/bin"))
 
+;; lisp
+(add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
+
 ;; ocaml
 (when (executable-find "opam")
   (let ((opam-share (car (with-demoted-errors "%S" (process-lines "opam" "var" "share"))))
