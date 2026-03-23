@@ -61,7 +61,11 @@
 (add-to-list 'exec-path (expand-file-name "~/bin"))
 
 ;; vlf
-(require 'vlf-setup)
+;; (require 'vlf-setup)
+
+(use-package vlf-setup
+  :ensure vlf
+  :config)
 
 ;; repos
 (dolist (arc '(("melpa-stable" . "http://stable.melpa.org/packages/")
