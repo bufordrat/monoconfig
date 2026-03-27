@@ -400,8 +400,8 @@ sbcl:
 SWAY_CONFIG_PATH = ~/.config/sway
 
 sway:
-	install -m 444 $@/sway/$(HOST)_config $(SWAY_CONFIG_PATH)
-	install -m 444 $@/sway/$(HOST)_outputs $(SWAY_CONFIG_PATH)
+	install -m 444 $@/$(HOST)_config $(SWAY_CONFIG_PATH)/config
+	install -m 444 $@/$(HOST)_outputs $(SWAY_CONFIG_PATH)/output
 .PHONY: sway
 
 # arch packages
