@@ -44,13 +44,13 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd
+sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd sway
 
 kleisli: arch etc_hosts cron gnus mpd samba abcde networkmanager emacs-systemd systemd ghostty intel x11
 
 substructural: macos 
 
-subtype: arch netctl networkmanager emacs-systemd
+subtype: arch netctl networkmanager emacs-systemd sway
 
 semigroup: 
 
@@ -396,6 +396,13 @@ ghostty:
 sbcl:
 	install -m 444 $@/sbclrc ~/.sbclrc
 .PHONY: sbcl
+
+SWAY_CONFIG_PATH = ~/.config/sway
+
+sway:
+	install -m 444 $@/sway/$(HOST)_config $(SWAY_CONFIG_PATH)
+	install -m 444 $@/sway/$(HOST)_outputs $(SWAY_CONFIG_PATH)
+.PHONY: sway
 
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d
