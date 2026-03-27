@@ -16,7 +16,7 @@ set $right l
 # Your preferred terminal emulator
 set $term ghostty
 # Your preferred application launcher
-set $menu wmenu-run
+set $menu wmenu-run -f 'Profont 8'
 
 ### Output configuration
 #
@@ -66,6 +66,9 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+
+    # Start an emacs client
+    bindsym $mod+backslash exec 'emacsclient -cn'
 
     # Kill focused window
     bindsym $mod+Shift+c kill
@@ -239,4 +242,4 @@ include ~/.config/sway/outputs
 default_border pixel 2
 default_floating_border pixel 2
 
-
+font pango:Profont 8
