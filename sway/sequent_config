@@ -70,6 +70,9 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     # Start an emacs client
     bindsym $mod+backslash exec 'emacsclient -cn'
 
+    # lock screen
+    bindsym Ctrl+Alt+End exec swaylock
+
     # Kill focused window
     bindsym $mod+Shift+c kill
 

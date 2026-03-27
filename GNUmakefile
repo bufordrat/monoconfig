@@ -44,9 +44,9 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd sway
+sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd sway ghostty
 
-kleisli: arch etc_hosts cron gnus mpd samba abcde networkmanager emacs-systemd systemd ghostty intel x11
+kleisli: arch etc_hosts cron gnus mpd samba abcde networkmanager emacs-systemd systemd intel x11
 
 substructural: macos 
 
@@ -390,7 +390,7 @@ althttpd:
 
 ghostty:
 	mkdir -p ~/.config/ghostty
-	install -m 444 $@/$(HOST)_config ~/.config/ghostty/config
+	install -m 644 $@/$(HOST)_config ~/.config/ghostty/config
 .PHONY: ghostty
 
 sbcl:
