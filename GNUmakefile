@@ -30,7 +30,7 @@ ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
 BASIC_RULES = homebin openssh emacs bash fish zsh gnupg 
-ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 sshd python etc_pacman_conf boot_loader fstab opensmtpd sbcl
+ARCH_RULES = $(BASIC_RULES) herbstluftwm sshd python etc_pacman_conf boot_loader fstab opensmtpd sbcl
 
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python ghostty sbcl
@@ -46,7 +46,7 @@ internet: all $(INTERNET_RULES)
 # host rules
 sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd
 
-kleisli: arch etc_hosts cron gnus mpd samba abcde networkmanager emacs-systemd systemd ghostty intel 
+kleisli: arch etc_hosts cron gnus mpd samba abcde networkmanager emacs-systemd systemd ghostty intel x11
 
 substructural: macos 
 
