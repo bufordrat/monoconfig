@@ -50,7 +50,7 @@ kleisli: arch etc_hosts cron gnus mpd samba abcde networkmanager emacs-systemd s
 
 substructural: macos 
 
-subtype: arch netctl networkmanager emacs-systemd sway
+subtype: arch netctl networkmanager emacs-systemd sway ghostty
 
 semigroup: 
 

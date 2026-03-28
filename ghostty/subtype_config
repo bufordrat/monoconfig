@@ -1,0 +1,4 @@
+key-remap = super=alt
+font-family = M+ 1mn
+font-size = 12
+command = /usr/bin/fish

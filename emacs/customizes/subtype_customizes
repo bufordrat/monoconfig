@@ -24,18 +24,11 @@
      "cd5f8f91cc2560c017cc9ec24a9ab637451e36afd22e00a03e08d7b1b87c29ca"
      "16ab866312f1bd47d1304b303145f339eac46bbc8d655c9bfa423b957aa23cc9"
      default))
- '(doom-modeline-height 50)
- '(package-selected-packages
-   '(0blayout badwolf-theme bbdb csv-mode diredfl doom-modeline dune eat
-	      ef-themes ellama elm-mode exec-path-from-shell fish-mode
-	      flycheck-eglot forth-mode gh-md gnuplot gruvbox-theme
-	      gutenberg haskell-mode htmlize hydra idris-mode
-	      json-mode json-reformat lsp-python-ms magit marginalia
-	      merlin multi-web-mode nerd-icons-dired orderless ox-gfm
-	      pdf-tools php-mode projectile pyvenv selectrum-prescient
-	      slp solarized-theme tuareg use-package vertico vlf vterm
-	      web-mode xclip yaml-mode))
- '(tramp-verbose 7))
+ '(doom-modeline-height 35)
+ '(org-export-backends '(ascii html icalendar latex md odt))
+ '(package-selected-packages nil)
+ '(tramp-verbose 7)
+ '(truncate-partial-width-windows nil))
 
 
 
