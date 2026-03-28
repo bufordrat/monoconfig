@@ -1,0 +1,7 @@
+font-family = "M+ 1mn"
+font-size = 12
+shell-integration-features = ssh-env
+window-padding-x = 0
+
+command = /usr/bin/fish --login --interactive
+

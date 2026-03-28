@@ -1,0 +1,3 @@
+font-family = Bok Montecarlo
+font-size = 10
+command = /usr/bin/fish --login --interactive

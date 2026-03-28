@@ -29,11 +29,11 @@ OCAML_BASICS = dune utop prelude etude spinup mrmime ocamlnet cmdliner ocamlform
 ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
-BASIC_RULES = homebin openssh emacs bash fish zsh gnupg
-ARCH_RULES = $(BASIC_RULES) herbstluftwm x11 sshd python etc_pacman_conf boot_loader fstab opensmtpd
+BASIC_RULES = homebin openssh emacs bash fish zsh gnupg 
+ARCH_RULES = $(BASIC_RULES) herbstluftwm sshd python etc_pacman_conf boot_loader fstab opensmtpd sbcl
 
 PI_RULES = $(BASIC_RULES) mpd raspi
-MACOS_RULES = $(BASIC_RULES) iterm python ghostty
+MACOS_RULES = $(BASIC_RULES) iterm python ghostty sbcl
 INTERNET_RULES = install-python install-ocaml install-agda
 ANDROID_RULES = zsh termux-sshd
 
@@ -44,13 +44,13 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd
+sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd sway ghostty
 
-kleisli: arch etc_hosts cron gnus mpd samba intel abcde networkmanager emacs-systemd systemd
+kleisli: arch etc_hosts cron gnus mpd samba abcde networkmanager emacs-systemd systemd intel x11
 
 substructural: macos 
 
-subtype: arch netctl networkmanager emacs-systemd
+subtype: arch netctl networkmanager emacs-systemd sway
 
 semigroup: 
 
@@ -390,14 +390,26 @@ althttpd:
 
 ghostty:
 	mkdir -p ~/.config/ghostty
-	install -m 444 $@/$(HOST)_config ~/.config/ghostty/config
+	install -m 644 $@/$(HOST)_config ~/.config/ghostty/config
 .PHONY: ghostty
+
+sbcl:
+	install -m 444 $@/sbclrc ~/.sbclrc
+.PHONY: sbcl
+
+SWAY_CONFIG_PATH = ~/.config/sway
+
+sway:
+	install -m 444 $@/$(HOST)_config $(SWAY_CONFIG_PATH)/config
+	install -m 444 $@/$(HOST)_outputs $(SWAY_CONFIG_PATH)/output
+.PHONY: sway
 
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1
 DOCKER_PACKAGES = docker docker-compose docker-buildx
-ARCH_PACKAGES = linux-lts lvm2 herbstluftwm man-pages bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode firewalld m4 ascii xclip picom dhcpcd dmenu borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop w3m smartmontools gdb fossil openbsd-netcat $(X11_PACKAGES) $(DOCKER_PACKAGES) $(NM_PACKAGES)
+WAYLAND_PACKAGES = sway swaylock nwg-displays wmenu
+ARCH_PACKAGES = linux-lts lvm2 herbstluftwm man-pages bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode firewalld m4 ascii xclip picom dhcpcd dmenu borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop w3m smartmontools gdb fossil openbsd-netcat $(X11_PACKAGES) $(DOCKER_PACKAGES) $(NM_PACKAGES) $(WAYLAND_PACKAGES)
 AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font
 
 # other platforms' packages

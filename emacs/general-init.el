@@ -61,7 +61,8 @@
 (add-to-list 'exec-path (expand-file-name "~/bin"))
 
 ;; vlf
-(require 'vlf-setup)
+(use-package vlf-setup
+  :ensure vlf)
 
 ;; repos
 (dolist (arc '(("melpa-stable" . "http://stable.melpa.org/packages/")
@@ -109,12 +110,11 @@
 (setq smtpmail-smtp-service 587)
 
 ;; use web-mode for html
+(use-package web-mode
+  :ensure t)
+
 (dolist (ext '("\\.xhtml$" "\\.htm$" "\\.html$"))
   (add-to-list 'auto-mode-alist (cons ext 'web-mode)))
-
-;; bbdb
-(with-eval-after-load 'bbdb
-  (bbdb-initialize 'gnus 'message 'anniv))
 
 ;; shell mode zsh goodies
 (add-hook 'shell-mode-hook
@@ -150,7 +150,22 @@
 ;; get ~/.local/bin on exec-path
 (add-to-list 'exec-path (expand-file-name "~/.local/bin"))
 
+;; lisp
+(use-package rainbow-delimiters
+  :ensure t)
+
+(add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
+
 ;; ocaml
+(use-package tuareg-mode
+  :ensure t)
+
+(use-package projectile
+  :ensure t
+  :init
+  :config
+  (projectile-mode +1))
+
 (when (executable-find "opam")
   (let ((opam-share (car (with-demoted-errors "%S" (process-lines "opam" "var" "share"))))
         (opam-bin   (car (with-demoted-errors "%S" (process-lines "opam" "var" "bin")))))
@@ -206,7 +221,6 @@
 ;;   files for more domain-specific setq-s/setopts)
 (setq all-the-icons-dired-monochrome nil)
 (setq backup-directory-alist '(("." . "~/.squiggles")))
-(setq bbdb-file "~/bbdb/bbdb")
 (setq blink-cursor-mode nil)
 (setq browse-url-browser-function 'eww-browse-url)
 (setq comint-buffer-maximum-size 65336)
