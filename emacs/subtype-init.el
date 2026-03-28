@@ -1,5 +1,5 @@
 ;; font stuff
-(defconst matt-default-font "M+ 1mn-12")
+(defconst matt-default-font "M+ 1mn-9")
 (add-to-list 'default-frame-alist (cons 'font matt-default-font))
 (set-face-font 'default matt-default-font)
 
@@ -11,7 +11,7 @@
 (require 'nerd-icons-dired)
 (gui-mode 1)
 (setopt doom-modeline-hud t)
-(setopt doom-modeline-window-width-limit 50)
+(setopt doom-modeline-window-width-limit 30)
 
 ;; meta key
 (setopt x-super-keysym 'meta)
