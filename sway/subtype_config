@@ -231,12 +231,15 @@ bar {
     # The default just shows the current date and time.
     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
 
+    workspace_buttons no
+
     colors {
         statusline #ffffff
         background #323232
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
+
 
 include /etc/sway/config.d/*
 
