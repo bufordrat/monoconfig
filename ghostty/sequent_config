@@ -1,3 +1,4 @@
+key-remap = super=alt
 font-family = Bok Montecarlo
 font-size = 10
-command = /usr/bin/fish --login --interactive
+command = /usr/bin/fish
