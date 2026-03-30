@@ -54,3 +54,7 @@
 
 ;; fire up a dired buffer visiting monoconfig
 (dired "~/stuff/github/monoconfig")
+
+;; sway
+;; TODO: use-package sway-mode
+(sway-socket-tracker-mode)
