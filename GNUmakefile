@@ -209,6 +209,7 @@ docker-perms:
 systemd: docker-perms
 	systemctl --user enable emacs
 	systemctl --user enable ssh-agent
+	systemctl --user enable dunst
 	sudo systemctl enable cronie
 	sudo systemctl enable smtpd
 	sudo systemctl enable docker
