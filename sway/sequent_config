@@ -86,6 +86,11 @@ exec swayidle -w timeout 180 "wlopm --off '*'" resume "wlopm --on '*'"
 #
 # Moving around:
 #
+
+    # move workspace around
+    bindsym Ctrl+$mod+left exec swaymsg move workspace to output DP-1
+    bindsym Ctrl+$mod+right exec swaymsg move workspace to output DP-3
+
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
