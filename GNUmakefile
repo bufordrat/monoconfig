@@ -30,7 +30,7 @@ ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
 BASIC_RULES = homebin openssh emacs bash fish zsh gnupg 
-ARCH_RULES = $(BASIC_RULES) herbstluftwm sshd python etc_pacman_conf boot_loader fstab opensmtpd sbcl
+ARCH_RULES = $(BASIC_RULES) herbstluftwm sshd python etc_pacman_conf boot_loader fstab opensmtpd sbcl pam
 
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python ghostty sbcl
@@ -418,6 +418,10 @@ AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font
 PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
 TERMUX_PACKAGES = openssh termux-services zsh 
+
+pam:
+	install -m -644 $@/faillock_conf /etc/security/faillock.conf
+.PHONY: pam
 
 # package manager rules
 pacman: 
