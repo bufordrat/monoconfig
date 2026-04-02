@@ -209,7 +209,6 @@ docker-perms:
 systemd: docker-perms
 	systemctl --user enable emacs
 	systemctl --user enable ssh-agent
-	systemctl --user enable dunst
 	sudo systemctl enable cronie
 	sudo systemctl enable smtpd
 	sudo systemctl enable docker
@@ -420,7 +419,7 @@ MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
 TERMUX_PACKAGES = openssh termux-services zsh 
 
 pam:
-	install -m -644 $@/faillock_conf /etc/security/faillock.conf
+	sudo install -m -644 $@/faillock_conf /etc/security/faillock.conf
 .PHONY: pam
 
 # package manager rules
