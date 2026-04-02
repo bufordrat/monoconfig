@@ -419,7 +419,7 @@ MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
 TERMUX_PACKAGES = openssh termux-services zsh 
 
 pam:
-	sudo install -m -644 $@/faillock_conf /etc/security/faillock.conf
+	sudo install -m 644 $@/faillock_conf /etc/security/faillock.conf
 .PHONY: pam
 
 # package manager rules
