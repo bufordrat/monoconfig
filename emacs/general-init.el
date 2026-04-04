@@ -157,7 +157,7 @@
 (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
 
 ;; ocaml
-(use-package tuareg-mode
+(use-package tuareg
   :ensure t)
 
 (use-package projectile
@@ -196,6 +196,9 @@
               (setq-local tuareg-interactive-program "opam exec -- ocaml -nopromptcont"))))
 
 ;; haskell
+(use-package haskell-mode
+  :ensure t)
+
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 (add-to-list 'exec-path (expand-file-name "~/.ghcup/bin/"))
 (setq haskell-process-args-stack-ghci '("--ghci-options=-ferror-spans"))
