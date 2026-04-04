@@ -8,7 +8,7 @@
   :ensure t
   :defer t
   :config
-  (pdf-loader-install))
+  (pdf-loader-install :no-query))
 
 ;; gui mode
 (gui-mode 1)
