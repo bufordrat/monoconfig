@@ -242,7 +242,8 @@
 ;; doom modeline
 (use-package doom-modeline
   :ensure t
-  :defer t)
+  :defer t
+  :init (doom-modeline-mode 1))
 
 (setq doom-modeline-hud t)
 (setq doom-modeline-minor-modes t)
