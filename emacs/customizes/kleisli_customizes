@@ -33,19 +33,7 @@
      default))
  '(doom-modeline-height 45)
  '(inferior-lisp-program "/usr/bin/sbcl")
- '(package-selected-packages
-   '(all-the-icons-dired badwolf-theme bbdb command-log-mode crdt
-			 csharp-mode csv csv-mode dune eat ef-themes
-			 ein ellama emms exec-path-from-shell
-			 fish-mode git-commit gruvbox-theme htmlize
-			 image+ info-colors info-rename-buffer
-			 json-mode keepass-mode keypression lsp-mode
-			 magit marginalia merlin mingus mpdmacs
-			 nix-mode notmuch orderless pdf-tools php-mode
-			 py-autopep8 py-isort python-black pyvenv
-			 selectrum-prescient simple-mpc sly syncthing
-			 tint unidecode visual-fill-column vterm
-			 yaml-mode))
+ '(package-selected-packages nil)
  '(syncthing-default-server-token "RJbgF75mVgDQGjMhXcYVCVhX5aUjoZmc"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
