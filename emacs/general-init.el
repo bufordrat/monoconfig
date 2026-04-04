@@ -5,7 +5,6 @@
 (with-demoted-errors "%s" (load-library "shells"))
 (with-demoted-errors "%s" (load-library "ocaml"))
 (with-demoted-errors "%s" (load-library "music-sync"))
-(with-demoted-errors "%s" (load-library "bastion"))
 
 ;; cd to homedir
 (cd "~")
@@ -20,7 +19,6 @@
 (global-set-key (kbd "C-c |") #'eshell)
 (global-set-key (kbd "C-c m") #'magit-clone)
 (global-set-key (kbd "C-c i") #'mli-toggle)
-(global-set-key (kbd "C-c ;") #'bastion)
 (global-set-key (kbd "M-+") #'scroll-up-line)
 (global-set-key (kbd "M-_") #'scroll-down-line)
 (global-set-key (kbd "M-3") #'split-window-right)
@@ -139,6 +137,12 @@
 (require 'org-tempo)
 
 ;; python
+(use-package pyvenv
+  :ensure t
+  :defer t
+  :config
+  (pyvenv-mode 1))
+
 (defvar mt-venv-path "~/envs/virtualenvs/py-default")
 (pyvenv-mode +1)
 (pyvenv-activate mt-venv-path)
@@ -237,13 +241,20 @@
 
 (use-package nerd-icons-dired
   :ensure t
-  :defer t)
+  :defer t
+  :hook
+  (dired-mode . nerd-icons-dired-mode))
 
 ;; doom modeline
 (use-package doom-modeline
   :ensure t
   :defer t
   :init (doom-modeline-mode 1))
+
+;; magit
+(use-package magit
+  :ensure t
+  :defer t)
 
 (setq doom-modeline-hud t)
 (setq doom-modeline-minor-modes t)

@@ -3,6 +3,11 @@
 (add-to-list 'default-frame-alist (cons 'font matt-default-font))
 (set-face-font 'default matt-default-font)
 
+;; theme
+(use-package gruvbox-theme
+  :ensure t
+  :defer t)
+
 ;; pdf tools
 (use-package pdf-tools
   :ensure t
