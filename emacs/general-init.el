@@ -160,6 +160,12 @@
 ;; get ~/.local/bin on exec-path
 (add-to-list 'exec-path (expand-file-name "~/.local/bin"))
 
+;; xclip
+(use-package xclip
+  :ensure t
+  :defer t
+  :config (xclip-mode 1))
+
 ;; lisp
 (use-package rainbow-delimiters
   :ensure t
@@ -251,6 +257,10 @@
   :defer t
   :init (doom-modeline-mode 1))
 
+(setq doom-modeline-hud t)
+(setq doom-modeline-minor-modes t)
+(setq doom-modeline-window-width-limit 60)
+
 ;; transient
 (use-package transient
   :ensure t
@@ -260,10 +270,6 @@
 (use-package magit
   :ensure t
   :defer t)
-
-(setq doom-modeline-hud t)
-(setq doom-modeline-minor-modes t)
-(setq doom-modeline-window-width-limit 60)
 
 ;; setq-s
 ;;  (these used to be customizes, but were moved in here; see other .el
