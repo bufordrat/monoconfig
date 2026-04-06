@@ -251,6 +251,11 @@
   :defer t
   :init (doom-modeline-mode 1))
 
+;; transient
+(use-package transient
+  :ensure t
+  :defer t)
+
 ;; magit
 (use-package magit
   :ensure t
