@@ -3,8 +3,17 @@
 (add-to-list 'default-frame-alist (cons 'font matt-default-font))
 (set-face-font 'default matt-default-font)
 
+;; theme
+(use-package ef-themes
+  :ensure t
+  :defer t)
+
 ;; haskell lsp
 (add-hook 'haskell-mode-hook 'eglot-ensure)
+
+;; gui mode
+(gui-mode 1)
+
 
 ;; dired icons & doom modeline
 (require 'nerd-icons)
@@ -30,7 +39,10 @@
 (setopt shell-file-name "/bin/zsh")
 
 ;; xclip
-(xclip-mode 1)
+(use-package xclip
+  :ensure t
+  :defer t
+  :config (xclip-mode 1))
 
 ;; fire up a dired buffer visiting monoconfig
 (dired "~/Github/mine/monoconfig")
