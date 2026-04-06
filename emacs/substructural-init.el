@@ -14,15 +14,6 @@
 ;; gui mode
 (gui-mode 1)
 
-
-;; dired icons & doom modeline
-(require 'nerd-icons)
-(require 'nerd-icons-dired)
-(gui-mode 1)
-(setopt doom-modeline-hud t)
-(setopt doom-modeline-minor-modes t)
-(setopt doom-modeline-window-width-limit 60)
-
 ;; agda
 (with-demoted-errors "%S"
   (load-file (let ((coding-system-for-read 'utf-8))
@@ -37,12 +28,6 @@
      ("\\.x?html?\\'" . "open %s")
      ("\\.pdf\\'" . default)))
 (setopt shell-file-name "/bin/zsh")
-
-;; xclip
-(use-package xclip
-  :ensure t
-  :defer t
-  :config (xclip-mode 1))
 
 ;; fire up a dired buffer visiting monoconfig
 (dired "~/Github/mine/monoconfig")
