@@ -38,9 +38,8 @@
 ;; xclip
 (use-package xclip
   :ensure t
-  :defer t)
-
-(xclip-mode 1)
+  :defer t
+  :config (xclip-mode 1))
 
 ;; local mail stuff
 (setq display-time-use-mail-icon nil
