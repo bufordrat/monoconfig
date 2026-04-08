@@ -405,6 +405,11 @@ sway:
 	install -m 444 $@/$(HOST)_outputs $(SWAY_CONFIG_PATH)/output
 .PHONY: sway
 
+fbterm:
+	@echo fbterm --font-names=Noto Mono --font-size=64 -- export TERM=fbterm
+	@echo export TERM=fbterm
+.PHONY: fbterm
+
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1
@@ -414,7 +419,7 @@ ARCH_PACKAGES = linux-lts lvm2 herbstluftwm ntp man-pages bind inetutils fish op
 AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font
 
 # other platforms' packages
-PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
+PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip fbterm
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
 TERMUX_PACKAGES = openssh termux-services zsh 
 
