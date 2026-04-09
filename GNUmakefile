@@ -56,7 +56,7 @@ semigroup:
 
 pitype:
 
-fomega: pi 
+fomega: pi sway
 
 mzero:
 
@@ -401,12 +401,13 @@ sbcl:
 SWAY_CONFIG_PATH = ~/.config/sway
 
 sway:
+	mkdir -p $(SWAY_CONFIG_PATH)
 	install -m 444 $@/$(HOST)_config $(SWAY_CONFIG_PATH)/config
 	install -m 444 $@/$(HOST)_outputs $(SWAY_CONFIG_PATH)/output
 .PHONY: sway
 
 fbterm:
-	@echo fbterm --font-names=Noto Mono --font-size=64 -- export TERM=fbterm
+	@echo fbterm --font-names='Noto Mono' --font-size=64
 	@echo export TERM=fbterm
 .PHONY: fbterm
 
