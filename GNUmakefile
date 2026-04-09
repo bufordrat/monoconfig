@@ -319,8 +319,10 @@ generate_boot_loader:
 	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -P -D SIGMALICIOUS='m4_include(/dev/stdin)' $@/sequent_arch_lts_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch-lts.conf
 .PHONY: boot_loader
 
+# hostname is hardcoded here because the archiso stick makes it hard
+# to get the hostname
 mkinitcpio_conf:
-	install -m 555 $@/$(HOST)_mkinitcpio_conf /etc/mkinitcpio.conf
+	install -m 555 $@/sexp_mkinitcpio_conf /etc/mkinitcpio.conf
 .PHONY: mkinitcpio_conf
 
 syncthing:
