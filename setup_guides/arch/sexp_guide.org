@@ -1,6 +1,6 @@
-#+TITLE: arch instructions for sequent
+#+TITLE: arch instructions for sexp
 #+AUTHOR: Matt Teichman
-#+DATE: <2025-04-03 Thu>
+#+DATE: <2026-04-09 Thu>
 
 * download arch iso
 + https://archlinux.org/download/
@@ -13,9 +13,25 @@
   partition name
 + so: =/dev/sda=, not =/dev/sda1=
 * inside the arch stick environment
-** don't forget to request an IP from sysadmins if this is a new machine
-+ https://dldc.lib.uchicago.edu/forms/requests.php
-** will connect to ethernet automatically
+** create iwd config file for connecting to 802.1x network
++ =/var/lib/iwd/eduroam.8021x=
+  #+begin_src ini
+    [Security]
+    EAP-Method=PEAP
+    EAP-Identity=anonymous@uchicago.edu
+    EAP-PEAP-Phase2-Method=MSCHAPV2
+    EAP-PEAP-Phase2-Identity=your-cnetid@uchicago.edu
+    EAP-PEAP-Phase2-Password=your-cnetid-password
+  #+end_src
+** restart =iwd=
+#+begin_example
+  # systemctl restart iwd
+#+end_example
+** connect to eduroam
+#+begin_example
+  # iwctl station wlan0 connect eduroam
+#+end_example
++ change =wlan0= to your device name, where applicable
 ** update arch stick system clock
 #+begin_example
   # timedatectl set-ntp true
@@ -28,8 +44,7 @@
 + choose EFI partition for =/boot= partition and ext4 for everything
   else
 + recommended size for =/boot=: 1 GB
-+ no =/home= partition on =sequent=; shove the remainder in =/=
-  partition
++ no =/home= partition on =sexp=; shove the remainder in =/= partition
 + =/boot= is unencrypted
 + the rest is encrypted
 ** format boot partition as FAT32
@@ -70,7 +85,7 @@
 #+begin_example
   # mount /dev/vga/root /mnt
   # mkdir /mnt/boot
-  # mount /dev/efi_system_partition /mnt/boot
+  # mount /dev/efi_partition /mnt/boot
 #+end_example
 ** rank arch mirrors
 #+begin_example
@@ -78,7 +93,7 @@
 #+end_example
 ** pacstrap
 #+begin_example
-  # pacstrap -K /mnt base base-devel linux linux-firmware intel-ucode dhcpcd lvm2 vim efivar fish emacs git
+  # pacstrap -K /mnt base base-devel linux linux-firmware dhcpcd lvm2 vim efivar emacs git openssh
 #+end_example
 ** generate fstab
 #+begin_example
@@ -109,7 +124,7 @@
 #+end_example
 ** set hostname
 #+begin_example
-  # echo sequent > /etc/hostname
+  # echo sexp > /etc/hostname
 #+end_example
 ** get =monoconfig=
 #+begin_example
@@ -148,12 +163,12 @@
 #+end_example
 ** create =teichman= user
 #+begin_example
-  # useradd -m -u 1158 -g 11158 -G wheel -s /usr/bin/fish teichman
+  # useradd -m -u 1158 -g 11158 -G wheel -s /usr/bin/zsh teichman
 #+end_example
 + uid: 1158
 + gid: 11158
 + groups: wheel
-+ shell: fish
++ shell: zsh
 + =-m= to create homedir
 ** set =teichman='s password
 ** give group =wheel= sudo privileges in =visudo=
