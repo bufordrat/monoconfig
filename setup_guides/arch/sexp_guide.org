@@ -137,10 +137,10 @@
   # make pacman
 #+end_example
 ** install bootloader files
-#+begin_example
-  # cd /tmp/monoconfig
-  # make chroot_boot_loader
-#+end_example
++ base it on =sequent='s bootloader files
++ consult =generate_boot_loader= rule in makefile for reference
++ I don't recommend running that rule
++ just get the UUID out of =/etc/fstab= and put it in the options line
 ** install mkinitcpio.conf including =keyboard=, =encrypt=, and =lvm2= hooks:
 #+begin_example
   # make mkinitcpio_conf
