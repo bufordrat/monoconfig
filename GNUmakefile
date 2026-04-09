@@ -56,7 +56,7 @@ semigroup:
 
 pitype:
 
-fomega: pi 
+fomega: pi sway
 
 mzero:
 
@@ -233,7 +233,7 @@ emacs:
 	install -m 444 $@/general-init.el ~/.emacs.d/lisp
 	install -m 444 $@/$(HOST)-init.el ~/.emacs.d/lisp/$(HOST)-init.el
 	cp ~/.emacs.d/customizes.el $@/customizes/$(HOST)_customizes
-	cp ~/.emacs.d/bookmarks $@/bookmarks/$(HOST)_bookmarks
+#	cp ~/.emacs.d/bookmarks $@/bookmarks/$(HOST)_bookmarks
 .PHONY: emacs
 
 etc_hosts:
@@ -401,9 +401,15 @@ sbcl:
 SWAY_CONFIG_PATH = ~/.config/sway
 
 sway:
+	mkdir -p $(SWAY_CONFIG_PATH)
 	install -m 444 $@/$(HOST)_config $(SWAY_CONFIG_PATH)/config
 	install -m 444 $@/$(HOST)_outputs $(SWAY_CONFIG_PATH)/output
 .PHONY: sway
+
+fbterm:
+	@echo fbterm --font-names='Noto Mono' --font-size=64
+	@echo export TERM=fbterm
+.PHONY: fbterm
 
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d
@@ -414,7 +420,7 @@ ARCH_PACKAGES = linux-lts lvm2 herbstluftwm ntp man-pages bind inetutils fish op
 AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font
 
 # other platforms' packages
-PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
+PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip fbterm
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
 TERMUX_PACKAGES = openssh termux-services zsh 
 

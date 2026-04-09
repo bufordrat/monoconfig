@@ -1,4 +1,5 @@
-(require 'dash)
+(use-package dash
+  :ensure t)
 
 (defun kw-bitmap-font-p (font-spec)
   (when (memq (font-get font-spec :spacing) '(100 M 110 C)) t))

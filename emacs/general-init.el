@@ -5,7 +5,6 @@
 (with-demoted-errors "%s" (load-library "shells"))
 (with-demoted-errors "%s" (load-library "ocaml"))
 (with-demoted-errors "%s" (load-library "music-sync"))
-(with-demoted-errors "%s" (load-library "bastion"))
 
 ;; cd to homedir
 (cd "~")
@@ -20,7 +19,6 @@
 (global-set-key (kbd "C-c |") #'eshell)
 (global-set-key (kbd "C-c m") #'magit-clone)
 (global-set-key (kbd "C-c i") #'mli-toggle)
-(global-set-key (kbd "C-c ;") #'bastion)
 (global-set-key (kbd "M-+") #'scroll-up-line)
 (global-set-key (kbd "M-_") #'scroll-down-line)
 (global-set-key (kbd "M-3") #'split-window-right)
@@ -62,7 +60,8 @@
 
 ;; vlf
 (use-package vlf-setup
-  :ensure vlf)
+  :ensure vlf
+  :defer t)
 
 ;; repos
 (dolist (arc '(("melpa-stable" . "http://stable.melpa.org/packages/")
@@ -90,17 +89,20 @@
   :config (vertico-mode))
 (define-key vertico-map (kbd "RET") 'vertico-exit-input)
 (define-key vertico-map (kbd "M-RET") 'vertico-exit)
+
 (use-package marginalia
   :ensure t
   :custom
   (marginalia-max-relative-age 0)
   :init
   (marginalia-mode))
+
 (use-package orderless
   :ensure t
   :custom
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file (styles basic partial-completion)))))
+
 (setq read-file-name-completion-ignore-case t)
 (setq read-buffer-completion-ignore-case t)
 (setq extended-command-suggest-shorter nil)
@@ -111,8 +113,10 @@
 
 ;; use web-mode for html
 (use-package web-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
+;; open xhtml, htm, and html in web mode
 (dolist (ext '("\\.xhtml$" "\\.htm$" "\\.html$"))
   (add-to-list 'auto-mode-alist (cons ext 'web-mode)))
 
@@ -133,6 +137,12 @@
 (require 'org-tempo)
 
 ;; python
+(use-package pyvenv
+  :ensure t
+  :defer t
+  :config
+  (pyvenv-mode 1))
+
 (defvar mt-venv-path "~/envs/virtualenvs/py-default")
 (pyvenv-mode +1)
 (pyvenv-activate mt-venv-path)
@@ -150,18 +160,27 @@
 ;; get ~/.local/bin on exec-path
 (add-to-list 'exec-path (expand-file-name "~/.local/bin"))
 
+;; xclip
+(use-package xclip
+  :ensure t
+  :defer t
+  :config (xclip-mode 1))
+
 ;; lisp
 (use-package rainbow-delimiters
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
 
 ;; ocaml
 (use-package tuareg
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package projectile
   :ensure t
+  :defer t
   :init
   :config
   (projectile-mode +1))
@@ -197,7 +216,8 @@
 
 ;; haskell
 (use-package haskell-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 (add-to-list 'exec-path (expand-file-name "~/.ghcup/bin/"))
@@ -209,6 +229,10 @@
   (autoload f "tint" nil t))
 
 ;; dired
+(use-package diredfl
+  :ensure t
+  :defer t)
+
 (with-demoted-errors "%s" (diredfl-global-mode +1))
 (keymap-unset dired-mode-map "i" t)
 
@@ -216,13 +240,40 @@
 (setq-default truncate-lines t)
 (add-hook 'shell-command-mode-hook (lambda () (setq truncate-lines t)))
 
-;; projectile
-(require 'projectile)
+;; nerd icons
+(use-package nerd-icons
+  :ensure t
+  :defer t)
+
+(use-package nerd-icons-dired
+  :ensure t
+  :defer t
+  :hook
+  (dired-mode . nerd-icons-dired-mode))
+
+;; doom modeline
+(use-package doom-modeline
+  :ensure t
+  :defer t
+  :init (doom-modeline-mode 1))
+
+(setq doom-modeline-hud t)
+(setq doom-modeline-minor-modes t)
+(setq doom-modeline-window-width-limit 60)
+
+;; transient
+(use-package transient
+  :ensure t
+  :defer t)
+
+;; magit
+(use-package magit
+  :ensure t
+  :defer t)
 
 ;; setq-s
 ;;  (these used to be customizes, but were moved in here; see other .el
 ;;   files for more domain-specific setq-s/setopts)
-(setq all-the-icons-dired-monochrome nil)
 (setq backup-directory-alist '(("." . "~/.squiggles")))
 (setq blink-cursor-mode nil)
 (setq browse-url-browser-function 'eww-browse-url)

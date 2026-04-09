@@ -3,16 +3,20 @@
 (add-to-list 'default-frame-alist (cons 'font matt-default-font))
 (set-face-font 'default matt-default-font)
 
-;; load pdf tools
-(pdf-loader-install)
+;; theme
+(use-package gruvbox-theme
+  :ensure t
+  :defer t)
 
-;; dired icons & doom modeline
-(require 'nerd-icons)
-(require 'nerd-icons-dired)
+;; pdf tools
+(use-package pdf-tools
+  :ensure t
+  :defer t
+  :config
+  (pdf-loader-install :no-query))
+
+;; gui mode
 (gui-mode 1)
-(setopt doom-modeline-hud t)
-(setopt doom-modeline-minor-modes t)
-(setopt doom-modeline-window-width-limit 60)
 
 ;; meta key
 (setopt x-super-keysym 'meta)
@@ -30,9 +34,6 @@
      ("\\.x?html?\\'" . "firefox %s")
      ("\\.pdf\\'" . default)))
 (setopt shell-file-name "/usr/bin/zsh")
-
-;; xclip
-(xclip-mode 1)
 
 ;; local mail stuff
 (setq display-time-use-mail-icon nil

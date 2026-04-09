@@ -3,16 +3,16 @@
 (add-to-list 'default-frame-alist (cons 'font matt-default-font))
 (set-face-font 'default matt-default-font)
 
+;; theme
+(use-package ef-themes
+  :ensure t
+  :defer t)
+
 ;; haskell lsp
 (add-hook 'haskell-mode-hook 'eglot-ensure)
 
-;; dired icons & doom modeline
-(require 'nerd-icons)
-(require 'nerd-icons-dired)
+;; gui mode
 (gui-mode 1)
-(setopt doom-modeline-hud t)
-(setopt doom-modeline-minor-modes t)
-(setopt doom-modeline-window-width-limit 60)
 
 ;; agda
 (with-demoted-errors "%S"
@@ -28,9 +28,6 @@
      ("\\.x?html?\\'" . "open %s")
      ("\\.pdf\\'" . default)))
 (setopt shell-file-name "/bin/zsh")
-
-;; xclip
-(xclip-mode 1)
 
 ;; fire up a dired buffer visiting monoconfig
 (dired "~/Github/mine/monoconfig")
