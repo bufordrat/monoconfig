@@ -8,13 +8,6 @@
   :ensure t
   :defer t)
 
-;; pdf tools
-(use-package pdf-tools
-  :ensure t
-  :defer t
-  :config
-  (pdf-loader-install :no-query))
-
 ;; gui mode
 (gui-mode 1)
 

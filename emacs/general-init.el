@@ -271,6 +271,13 @@
   :ensure t
   :defer t)
 
+;; pdf tools
+(use-package pdf-tools
+  :ensure t
+  :defer t
+  :config
+  (pdf-tools-install :no-query))
+
 ;; setq-s
 ;;  (these used to be customizes, but were moved in here; see other .el
 ;;   files for more domain-specific setq-s/setopts)

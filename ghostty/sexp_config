@@ -1,0 +1,4 @@
+key-remap = super=alt
+font-family = Noto Mono
+font-size = 11
+command = /usr/bin/fish
