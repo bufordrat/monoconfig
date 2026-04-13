@@ -1,5 +1,5 @@
 ;; font stuff
-(defconst matt-default-font "M+ 1mn-12")
+(defconst matt-default-font "Noto Sans Mono-12")
 (add-to-list 'default-frame-alist (cons 'font matt-default-font))
 (set-face-font 'default matt-default-font)
 
@@ -12,11 +12,6 @@
 
 ;; meta key
 (setopt x-super-keysym 'meta)
-
-;; agda
-(with-demoted-errors "%S"
-  (load-file (let ((coding-system-for-read 'utf-8))
-               (shell-command-to-string "agda-mode locate"))))
 
 ;; other setopts
 (setopt display-battery-mode t)
@@ -32,4 +27,4 @@
 (xclip-mode 1)
 
 ;; fire up a dired buffer visiting monoconfig
-(dired "~/github/mine/monoconfig")
+(dired "~/stuff/github/monoconfig")

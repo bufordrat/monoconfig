@@ -30,7 +30,7 @@ ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
 BASIC_RULES = homebin openssh emacs bash fish zsh gnupg 
-ARCH_RULES = $(BASIC_RULES) herbstluftwm sshd python etc_pacman_conf boot_loader fstab opensmtpd sbcl pam
+ARCH_RULES = $(BASIC_RULES) herbstluftwm sshd python etc_pacman_conf boot_loader fstab opensmtpd sbcl pam sway ghostty
 
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python ghostty sbcl
@@ -44,19 +44,21 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd sway ghostty
+sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd
+
+sexp: emacs sway ghostty zsh fish homebin
 
 kleisli: arch etc_hosts cron gnus mpd samba abcde networkmanager emacs-systemd systemd intel x11
 
 substructural: macos 
 
-subtype: arch netctl networkmanager emacs-systemd sway ghostty
+subtype: arch netctl networkmanager emacs-systemd
 
 semigroup: 
 
 pitype:
 
-fomega: pi 
+fomega: pi
 
 mzero:
 
@@ -319,8 +321,10 @@ generate_boot_loader:
 	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -P -D SIGMALICIOUS='m4_include(/dev/stdin)' $@/sequent_arch_lts_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch-lts.conf
 .PHONY: boot_loader
 
+# hostname is hardcoded here because the archiso stick makes it hard
+# to get the hostname
 mkinitcpio_conf:
-	install -m 555 $@/sequent_mkinitcpio_conf /etc/mkinitcpio.conf
+	install -m 555 $@/sexp_mkinitcpio_conf /etc/mkinitcpio.conf
 .PHONY: mkinitcpio_conf
 
 syncthing:
@@ -401,20 +405,26 @@ sbcl:
 SWAY_CONFIG_PATH = ~/.config/sway
 
 sway:
+	mkdir -p $(SWAY_CONFIG_PATH)
 	install -m 444 $@/$(HOST)_config $(SWAY_CONFIG_PATH)/config
 	install -m 444 $@/$(HOST)_outputs $(SWAY_CONFIG_PATH)/output
 .PHONY: sway
 
+fbterm:
+	@echo fbterm --font-names='Noto Mono' --font-size=64
+	@echo export TERM=fbterm
+.PHONY: fbterm
+
 # arch packages
-X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d
+X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d xclip picom dmenu rxvt-unicode
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1
 DOCKER_PACKAGES = docker docker-compose docker-buildx
-WAYLAND_PACKAGES = sway swaylock nwg-displays wmenu swayidle wlopm
-ARCH_PACKAGES = linux-lts lvm2 herbstluftwm ntp man-pages bind inetutils fish openssh gnupg zsh dunst emacs opam rxvt-unicode firewalld m4 ascii xclip picom dhcpcd dmenu borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop w3m smartmontools gdb fossil openbsd-netcat $(X11_PACKAGES) $(DOCKER_PACKAGES) $(NM_PACKAGES) $(WAYLAND_PACKAGES)
-AUR_PACKAGES = yay udevil profont-otb ttf-mplus montecarlo-font
+WAYLAND_PACKAGES = sway swaylock nwg-displays wmenu swayidle wlopm ghostty
+ARCH_PACKAGES = linux-lts lvm2 herbstluftwm ntp man-pages bind inetutils ttf-mplus-nerd fish openssh gnupg zsh dunst emacs-wayland opam firewalld m4 ascii dhcpcd borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop w3m smartmontools gdb fossil openbsd-netcat util-linux $(DOCKER_PACKAGES) $(NM_PACKAGES) $(WAYLAND_PACKAGES)
+AUR_PACKAGES = yay profont-otb montecarlo-font
 
 # other platforms' packages
-PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip
+PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip fbterm
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
 TERMUX_PACKAGES = openssh termux-services zsh 
 
