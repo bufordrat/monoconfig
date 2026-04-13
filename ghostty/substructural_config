@@ -3,6 +3,6 @@ font-size = 14
 shell-integration-features = ssh-env
 window-padding-x = 0
 quick-terminal-position = center
-quick-terminal-size = 100%, 930px
+quick-terminal-size = 95%, 90%
 keybind = global:cmd+enter=toggle_quick_terminal
 command = /opt/homebrew/bin/fish --login --interactive

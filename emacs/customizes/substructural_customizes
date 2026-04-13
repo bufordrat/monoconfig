@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -5,34 +6,15 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(ef-owl))
  '(custom-safe-themes
-   '("332a945a80a202248b21963da38e842aa35b09d1b43c26144bd517943855fe8a"
-     "748d024b0d016cc0e7a4326577ce12c6bc918b273acecd355548d7477ad2fc5c"
-     "b9c002dc827fb75b825da3311935c9f505d48d7ee48f470f0aa7ac5d2a595ab2"
-     "d6b369a3f09f34cdbaed93eeefcc6a0e05e135d187252e01b0031559b1671e97"
-     "cee5c56dc8b95b345bfe1c88d82d48f89e0f23008b0c2154ef452b2ce348da37"
-     "90185f1d8362727f2aeac7a3d67d3aec789f55c10bb47dada4eefb2e14aa5d01"
-     "aff0396925324838889f011fd3f5a0b91652b88f5fd0611f7b10021cc76f9e09"
-     "836b0bc16dbd2aed387e552edabd4d67d227961efa3af412da387eb3e010d76b"
-     "b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d"
+   '("0da9f48243b77c83719c569efd88a7e47c1d8a3f2887838408745d2d52fad8a8"
      default))
  '(doom-modeline-height 35)
  '(inferior-lisp-program "sbcl")
  '(package-selected-packages
-   '(abyss-theme afternoon-theme aidermacs all-the-icons-dired
-		 ample-theme auto-complete badwolf-theme crdt csv-mode
-		 diredfl disk-usage doom-modeline dune eat
-		 edit-indirect ef-themes elfeed ellama
-		 exec-path-from-shell fish-mode gruber-darker-theme
-		 gruvbox-theme haskell-mode htmlize json-mode
-		 leuven-theme magit marginalia markdown-mode
-		 merlin-eldoc nerd-icons-dired nodejs-repl nord-theme
-		 orderless pdf-tools peg php-mode projectile pyvenv
-		 qrencode selectrum-prescient sly solo-jazz-theme
-		 syncthing ttl-mode tuareg unidecode utop vertico
-		 visual-fill-column vlf vterm web-mode xclip yaml
-		 yaml-mode))
- '(python-shell-process-environment '("PYTHON_BASIC_REPL=1"))
- '(syncthing-default-server-token "KxjecUv6gmRYvsjCc3MSvGbR2ZzyKyam"))
+   '(diredfl doom-modeline ef-themes haskell-mode magit marginalia
+	     nerd-icons-dired orderless pdf-tools projectile pyvenv
+	     rainbow-delimiters tuareg vertico vlf web-mode xclip))
+ '(python-shell-process-environment '("PYTHON_BASIC_REPL=1")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
