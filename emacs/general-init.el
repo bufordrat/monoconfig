@@ -176,12 +176,12 @@
 ;; ocaml
 (use-package tuareg
   :ensure t
-  :defer t)
+  :defer t
+  :init (require 'projectile))
 
 (use-package projectile
   :ensure t
   :defer t
-  :init
   :config
   (projectile-mode +1))
 
