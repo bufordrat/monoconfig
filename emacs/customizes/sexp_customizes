@@ -38,6 +38,7 @@
      "1d1f4f5b0f792f0bb1b8f944b8ed93b3b20bbebc4ba072c2b7daff82da23ae86"
      "5a548c9d5a6ca78d13283ed709bddf3307b65a7695e1b2e2b7e0a9dde45e8599"
      default))
+ '(doom-modeline-height 40)
  '(package-selected-packages
    '(ample-theme base16-theme diredfl doom-modeline haskell-mode magit
 		 marginalia nerd-icons-dired orderless pdf-tools
