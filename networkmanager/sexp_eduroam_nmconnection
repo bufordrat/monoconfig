@@ -2,7 +2,6 @@
 id=eduroam
 uuid=aa75782b-499d-4656-b1f3-302a30cff4ac
 type=wifi
-timestamp=1750428894
 
 [wifi]
 mode=infrastructure
