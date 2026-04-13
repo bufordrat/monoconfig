@@ -1,5 +1,5 @@
 ;; font stuff
-(defconst matt-default-font "Noto Sans Mono-12")
+(defconst matt-default-font "Noto Sans Mono-11")
 (add-to-list 'default-frame-alist (cons 'font matt-default-font))
 (set-face-font 'default matt-default-font)
 

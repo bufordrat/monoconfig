@@ -30,7 +30,7 @@ ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
 BASIC_RULES = homebin openssh emacs bash fish zsh gnupg 
-ARCH_RULES = $(BASIC_RULES) herbstluftwm sshd python etc_pacman_conf boot_loader fstab opensmtpd sbcl pam sway ghostty
+ARCH_RULES = $(BASIC_RULES) sshd python etc_pacman_conf boot_loader fstab opensmtpd sbcl pam sway ghostty
 
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python ghostty sbcl
@@ -46,9 +46,10 @@ internet: all $(INTERNET_RULES)
 # host rules
 sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd
 
-sexp: emacs sway ghostty zsh fish homebin
+sexp: arch emacs-systemd althttpd
+# emacs sway ghostty pam zsh fish homebin openssh
 
-kleisli: arch etc_hosts cron gnus mpd samba abcde networkmanager emacs-systemd systemd intel x11
+kleisli: arch etc_hosts cron gnus mpd herbstluftwm samba abcde networkmanagerd emacs-systemd systemd intel x11
 
 substructural: macos 
 
@@ -153,6 +154,7 @@ homebin:
 	install -m 555 $@/phonesync.sh $(HOMEBIN_DIR)/phonesync
 	install -m 555 $@/pulsarsync.sh $(HOMEBIN_DIR)/pulsarsync
 	install -m 555 $@/subtype_susp.sh $(HOMEBIN_DIR)/subtype_susp
+	install -m 555 $@/sexp_susp.sh $(HOMEBIN_DIR)/sexp_susp
 	install -m 555 $@/semigroupsync.sh $(HOMEBIN_DIR)/semigroupsync
 	install -m 555 $@/figure_out_editor_variable.sh $(HOMEBIN_DIR)/figure_out_editor_variable
 	install -m 555 $@/sudo-lockout.sh $(HOMEBIN_DIR)/sudo-lockout

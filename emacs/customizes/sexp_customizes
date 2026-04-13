@@ -4,10 +4,45 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(base16-eighties))
+ '(custom-safe-themes
+   '("3c3d4da72f9b26f0125280c3f5868776edbe6f53adcdc2f588e403e5a10da423"
+     "91db2df9490180a006964179f3aa4fcbc6bbf63cdcba189b41ea1ff5a606df33"
+     "14e168ce25a773e52e9032640d8cc34293f74fc599230340587fd17c96c2c97a"
+     "a24e023c71f74e8c6a79068947d706f68a566b49a774096671a5cbfe1fb90fc6"
+     "7bf34d114ec815e05a1ecb7f1acfd61ef453bfd27d12cc4c2babfa08ca1314da"
+     "c8863bf29722cf36c5d293ac723fe9698e16f778326d791516dd717951ea8cd6"
+     "661f3ff21fd9adc9facde2b11cbdeef5f1f2d482e98a456b11922bf55653ceac"
+     "93fbbb7d5c6d185ea0a4ff318208b9c8d9b23ea03041f3d9786a1b03e8fae227"
+     "9a06ccf9adfe489bda1ba63c7e622c0f31e2b22f6b4a27118dcd4e8fbad6a282"
+     "4c97de81c29f72109619ee5d755c8a8fd6890903d65124894a0ab412e45de364"
+     "a0724a2dbf003213ef1bd93c7df0f07a5368399554078fc85819b2f9f6152101"
+     "75863c7d5dca60cfb927b5de5c8f39b2a9d7756c5f346990e4423aba33cb3a9d"
+     "b54b64550215242ad351a5c7219f1b30d2cec3d1710a2121862ae6d51c7a1c12"
+     "5d205766ba4c831730cf88aaba6fa76cd77af631f8572cd85b661766f25fd206"
+     "f7fe70ecf059f036813b327285e615438802980b8a477a3bbe4733aa0176c4fd"
+     "a50d025e0eb240f59748be7fcd3251a4b0372071546443e57f701f8a8531b764"
+     "e48fc060df74469f0813aaeca2d3556693c26c8a3d7d6d80c9eb7bd43a087d06"
+     "038766672f29210977a0620789252a9a51ad9111fdf6617722aecb611a78275f"
+     "53f32cec91beb4ef88bd2a796718c41c3c21ebf19a23fa823de712b9f72941ff"
+     "a7d2594e876652f2de36e4ae18b3ffeedf89add6de587283bd6d1a09258fbc65"
+     "f97a59acd14accb731637967de96b5c88f89ddbc49ba5adb215cbe88f7dd743b"
+     "6d7c2881e47ee6ead20f43d6368b2c9b9a1fedbd7c9f0604de15b4c11d5b4841"
+     "deea4f8ef106dd1d8746a6fdccf42cf504982605bd53024b0f56c4d3e4a108e4"
+     "b19d77aca9b695b1b6219e949917160cecfa009e9901649c6b98b5d919492fee"
+     "34de8dfc73248c0ede0efc847d88fbbaf9a247dd3109343d9c4b8a093c816410"
+     "8de91e43d21b9d5cb79a146b267d29d3e377ed73888324912c7f6e514a76e5d7"
+     "e223120256455daba01b6c68510b48fac813acab05c314510e47aea377b23634"
+     "cbc8efdcd8e957c9ede1b4a82fed7fa1f3114ff6e7498c16f0cccb9509c1c17c"
+     "de385583975ed8e83b71b212b3094ee74785834718e2413bc3acff36224fba8d"
+     "1d1f4f5b0f792f0bb1b8f944b8ed93b3b20bbebc4ba072c2b7daff82da23ae86"
+     "5a548c9d5a6ca78d13283ed709bddf3307b65a7695e1b2e2b7e0a9dde45e8599"
+     default))
  '(package-selected-packages
-   '(diredfl doom-modeline haskell-mode magit marginalia nerd-icons-dired
-	     orderless pdf-tools projectile pyvenv rainbow-delimiters
-	     tuareg vertico vlf web-mode xclip)))
+   '(ample-theme base16-theme diredfl doom-modeline haskell-mode magit
+		 marginalia nerd-icons-dired orderless pdf-tools
+		 projectile pyvenv rainbow-delimiters tuareg vertico
+		 vlf web-mode xclip)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
