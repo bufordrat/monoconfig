@@ -172,5 +172,5 @@
 + =-m= to create homedir
 ** set =teichman='s password
 ** give group =wheel= sudo privileges in =visudo=
-** don't forget to install and =systemctl enable dhcpcd= before rebooting
+** don't forget to install =dhcpcd= and =systemctl enable= it before rebooting
 ** congratulations; it's time to boot into your new machine
