@@ -46,7 +46,7 @@ internet: all $(INTERNET_RULES)
 # host rules
 sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd
 
-sexp: arch emacs-systemd althttpd
+sexp: arch emacs-systemd althttpd gnus
 # emacs sway ghostty pam zsh fish homebin openssh
 
 kleisli: arch etc_hosts cron gnus mpd herbstluftwm samba abcde networkmanagerd emacs-systemd systemd intel x11
@@ -193,7 +193,7 @@ raspi:
 
 netctl: homebin
 	gpg -d --pinentry-mode loopback ~/dummy.gpg
-	gpg -d --pinentry-mode loopback ~/.secrets/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/eduroam | sudo install -m 644 /dev/stdin /etc/$@/eduroam
+	gpg -d --pinentry-mode loopback ~/.bed/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/eduroam | sudo install -m 644 /dev/stdin /etc/$@/eduroam
 .PHONY: netctl
 
 bash:
@@ -348,9 +348,9 @@ abcde:
 
 networkmanager:
 	sudo install -m 600 $@/uchicagovpn_nmconnection /etc/NetworkManager/system-connections/UChicagoVPN.nmconnection
-	gpg -d --pinentry-mode loopback ~/.secrets/rutherford_fios_router.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_fios_h2ypv_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/Fios-h2YPv.nmconnection
-	gpg -d --pinentry-mode loopback ~/.secrets/binomial_heap.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_binomial_heap_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/BinomialHeap.nmconnection
-	gpg -d --pinentry-mode loopback ~/.secrets/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_eduroam_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/eduroam.nmconnection
+	gpg -d --pinentry-mode loopback ~/.bed/rutherford_fios_router.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_fios_h2ypv_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/Fios-h2YPv.nmconnection
+	gpg -d --pinentry-mode loopback ~/.bed/binomial_heap.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_binomial_heap_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/BinomialHeap.nmconnection
+	gpg -d --pinentry-mode loopback ~/.bed/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_eduroam_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/eduroam.nmconnection
 .PHONY: networkmanager
 
 cron:
