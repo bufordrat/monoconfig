@@ -1,3 +1,4 @@
 title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
+options cryptdevice=UUID=acdc58bd-6380-46c8-95e6-653655c368ff:cryptlvm root=/dev/vga/root rw
