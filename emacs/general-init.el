@@ -51,6 +51,9 @@
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (when (fboundp 'horizontal-scroll-bar-mode) (horizontal-scroll-bar-mode -1))
 
+;; column numbers
+(column-number-mode 1)
+
 ;; package-initialize
 (setq package-enable-at-startup nil)
 (package-initialize)
