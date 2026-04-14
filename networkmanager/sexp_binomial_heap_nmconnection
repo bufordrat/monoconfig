@@ -2,7 +2,7 @@
 id=Binomial Heap
 uuid=562df2b1-9f19-4030-9d7c-bd93a6655c1c
 type=wifi
-interface-name=wlp0s20f3
+interface-name=wlan0
 
 [wifi]
 mode=infrastructure
