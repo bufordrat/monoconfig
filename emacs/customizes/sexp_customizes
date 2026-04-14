@@ -4,7 +4,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(base16-eighties))
+ '(custom-enabled-themes '(base16-ayu-mirage))
  '(custom-safe-themes
    '("8970a9dac879f60eee389caed568e9e3430a577604126de1540af5c41f5aaa60"
      "d0ee9b8a053e336bbc9123929ca42df2e622bbef5eb63766522386a0691252ea"
@@ -50,7 +50,7 @@
      "1d1f4f5b0f792f0bb1b8f944b8ed93b3b20bbebc4ba072c2b7daff82da23ae86"
      "5a548c9d5a6ca78d13283ed709bddf3307b65a7695e1b2e2b7e0a9dde45e8599"
      default))
- '(doom-modeline-height 35)
+ '(doom-modeline-height 40)
  '(package-selected-packages
    '(ample-theme base16-theme diredfl doom-modeline haskell-mode magit
 		 marginalia nerd-icons-dired orderless pdf-tools
@@ -61,4 +61,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(diredfl-date-time ((t (:foreground "medium aquamarine" :weight normal)))))
