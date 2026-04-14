@@ -253,3 +253,6 @@ font pango:M+ 1mn 11
 
 # shrink DPI a bit
 output eDP-1 scale 1.1
+
+# get on Our Stupid VPN
+exec nm-applet
