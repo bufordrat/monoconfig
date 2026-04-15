@@ -175,6 +175,7 @@
   :defer t)
 
 (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
 
 ;; ocaml
 (use-package tuareg
