@@ -1,3 +1,9 @@
+;; sly
+(use-package sly
+  :ensure t
+  :defer t
+  :init (setq inferior-lisp-program "/opt/homebrew/bin/sbcl"))
+
 ;; font stuff
 (defconst matt-default-font "M+ 1mn-14")
 (add-to-list 'default-frame-alist (cons 'font matt-default-font))
