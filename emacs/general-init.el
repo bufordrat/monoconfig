@@ -164,10 +164,10 @@
 (add-to-list 'exec-path (expand-file-name "~/.local/bin"))
 
 ;; xclip
-(use-package xclip
-  :ensure t
-  :defer t
-  :config (xclip-mode 1))
+;; (use-package xclip
+  ;; :ensure t
+  ;; :defer t
+  ;; :config (xclip-mode 1))
 
 ;; lisp
 (use-package rainbow-delimiters
