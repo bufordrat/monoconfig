@@ -92,4 +92,4 @@
 (defun mt-hires-sequent-client ()
   (interactive)
   (mt-change-font-family "M+ 1mn")
-  (mt-change-font-size "18"))
+  (mt-change-font-size "12"))
