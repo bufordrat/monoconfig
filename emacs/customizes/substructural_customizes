@@ -4,7 +4,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(ef-owl))
+ '(custom-enabled-themes '(base16-ia-dark))
  '(custom-safe-themes
    '("6018f08dd19c9fa55c348eb1793deb72624861bc79197f4dcb033243ce13af59"
      "f146b2935f915fc1f9cee018199fbb93c2887aed85c7051fb8dd57f5a05f123f"
@@ -87,8 +87,8 @@
  '(package-selected-packages
    '(base16-theme diredfl doom-modeline ef-themes haskell-mode magit
 		  marginalia nerd-icons-dired orderless pdf-tools
-		  projectile pyvenv rainbow-delimiters tuareg vertico
-		  vlf web-mode xclip))
+		  projectile pyvenv rainbow-delimiters sly tuareg
+		  vertico vlf web-mode xclip))
  '(python-shell-process-environment '("PYTHON_BASIC_REPL=1")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
