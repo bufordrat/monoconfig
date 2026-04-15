@@ -169,10 +169,14 @@
   :ensure t
   :defer t
   :config
-  (xclip-mode 1)
-  (setq xclip-select-enable-clipboard t)  
-  (setq xclip-program "wl-copy")
-  (setq xclip-method (quote wl-copy)))
+  (xclip-mode 1))
+
+;; try these if clipboard doesn't work with vanilla wl-clipboard
+;; installation
+
+;; (setq xclip-select-enable-clipboard t)
+;; (setq xclip-program "wl-copy")
+;; (setq xclip-method 'wl-copy)
 
 ;; lisp
 (use-package rainbow-delimiters
