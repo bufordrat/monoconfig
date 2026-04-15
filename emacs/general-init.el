@@ -164,10 +164,15 @@
 (add-to-list 'exec-path (expand-file-name "~/.local/bin"))
 
 ;; xclip
-;; (use-package xclip
-  ;; :ensure t
-  ;; :defer t
-  ;; :config (xclip-mode 1))
+;; use wl-clipboard (and related functions) for Wayland compatibility
+(use-package xclip
+  :ensure t
+  :defer t
+  :config
+  (xclip-mode 1)
+  (setq xclip-select-enable-clipboard t)  
+  (setq xclip-program "wl-copy")
+  (setq xclip-method (quote wl-copy)))
 
 ;; lisp
 (use-package rainbow-delimiters
