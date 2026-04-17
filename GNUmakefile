@@ -44,15 +44,19 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts cron gnus emacs-systemd ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd
+sequent: arch dunst firehol borg etc_hosts cron gnus ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd
+# emacs-systemd
 
-sexp: arch emacs-systemd althttpd gnus networkmanager
+sexp: arch althttpd gnus networkmanager
+# emacs-systemd 
 
-kleisli: arch etc_hosts cron gnus mpd herbstluftwm samba abcde networkmanager emacs-systemd systemd intel x11
+kleisli: arch etc_hosts cron gnus mpd herbstluftwm samba abcde networkmanager systemd intel x11
+# emacs-systemd
 
 substructural: macos 
 
-subtype: arch netctl networkmanager emacs-systemd
+subtype: arch netctl networkmanager
+# emacs-systemd
 
 semigroup: 
 
@@ -420,7 +424,7 @@ fbterm:
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d xclip picom dmenu rxvt-unicode
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1
 DOCKER_PACKAGES = docker docker-compose docker-buildx
-WAYLAND_PACKAGES = sway swaylock nwg-displays wmenu swayidle wlopm ghostty
+WAYLAND_PACKAGES = sway swaylock nwg-displays wmenu swayidle wlopm ghostty wl-clipboard
 ARCH_PACKAGES = linux-lts lvm2 herbstluftwm ntp man-pages bind inetutils fish openssh gnupg zsh dunst grim emacs-wayland opam firewalld m4 ascii dhcpcd borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop w3m smartmontools gdb fossil openbsd-netcat util-linux $(DOCKER_PACKAGES) $(NM_PACKAGES) $(WAYLAND_PACKAGES)
 AUR_PACKAGES = yay profont-otb montecarlo-font
 
