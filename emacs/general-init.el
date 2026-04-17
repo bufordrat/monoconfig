@@ -169,7 +169,11 @@
   :ensure t
   :defer t
   :config
-  (xclip-mode 1))
+  (xclip-mode 1)
+  (setq xclip-select-enable-clipboard t)
+  (setq xclip-program "wl-copy")
+  (setq xclip-method 'wl-copy))
+
 
 ;; try these if clipboard doesn't work with vanilla wl-clipboard
 ;; installation
