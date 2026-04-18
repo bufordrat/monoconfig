@@ -30,7 +30,7 @@ ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
 BASIC_RULES = homebin openssh emacs bash fish zsh gnupg 
-ARCH_RULES = $(BASIC_RULES) sshd python etc_pacman_conf boot_loader fstab opensmtpd sbcl pam sway ghostty
+ARCH_RULES = $(BASIC_RULES) sshd python etc_pacman_conf boot_loader fstab opensmtpd sbcl pam sway ghostty environment_d
 
 PI_RULES = $(BASIC_RULES) mpd raspi
 MACOS_RULES = $(BASIC_RULES) iterm python ghostty sbcl
@@ -45,18 +45,14 @@ internet: all $(INTERNET_RULES)
 
 # host rules
 sequent: arch dunst firehol borg etc_hosts cron gnus ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd
-# emacs-systemd
 
 sexp: arch althttpd gnus networkmanager
-# emacs-systemd 
 
 kleisli: arch etc_hosts cron gnus mpd herbstluftwm samba abcde networkmanager systemd intel x11
-# emacs-systemd
 
 substructural: macos 
 
 subtype: arch netctl networkmanager
-# emacs-systemd
 
 semigroup: 
 
@@ -240,7 +236,6 @@ emacs:
 	install -m 444 $@/general-init.el ~/.emacs.d/lisp
 	install -m 444 $@/$(HOST)-init.el ~/.emacs.d/lisp/$(HOST)-init.el
 	cp ~/.emacs.d/customizes.el $@/customizes/$(HOST)_customizes
-#	cp ~/.emacs.d/bookmarks $@/bookmarks/$(HOST)_bookmarks
 .PHONY: emacs
 
 etc_hosts:
@@ -419,6 +414,15 @@ fbterm:
 	@echo fbterm --font-names='Noto Mono' --font-size=64
 	@echo export TERM=fbterm
 .PHONY: fbterm
+
+UID=$(shell id -u teichman)
+SYSTEMD_ENVIRONMENT_PATH=~/.config/environment.d
+
+environment_d:
+	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
+	echo "SSH_AUTH_SOCK=/run/user/$(UID)/ssh-agent.socket" > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
+	chmod 444 $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
+.PHONY: environment_d
 
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d xclip picom dmenu rxvt-unicode
