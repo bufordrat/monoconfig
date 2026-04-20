@@ -174,14 +174,6 @@
   (setq xclip-program "wl-copy")
   (setq xclip-method 'wl-copy))
 
-
-;; try these if clipboard doesn't work with vanilla wl-clipboard
-;; installation
-
-;; (setq xclip-select-enable-clipboard t)
-;; (setq xclip-program "wl-copy")
-;; (setq xclip-method 'wl-copy)
-
 ;; lisp
 (use-package rainbow-delimiters
   :ensure t
@@ -201,6 +193,10 @@
   :defer t
   :config
   (projectile-mode +1))
+
+(use-package merlin
+  :ensure t
+  :defer t)
 
 (when (executable-find "opam")
   (let ((opam-share (car (with-demoted-errors "%S" (process-lines "opam" "var" "share"))))
