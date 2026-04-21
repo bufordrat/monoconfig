@@ -139,6 +139,11 @@
 (add-hook 'org-mode-hook 'org-indent-mode)
 (require 'org-tempo)
 
+;; markdown
+(use-package markdown-mode
+  :ensure t
+  :defer t)
+
 ;; python
 (use-package pyvenv
   :ensure t
