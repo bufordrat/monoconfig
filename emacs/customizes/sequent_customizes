@@ -13,7 +13,7 @@
      "8363207a952efb78e917230f5a4d3326b2916c63237c1f61d7e5fe07def8d378"
      "d046915b6ed8e52c9a94462388b26c714b2411b0b2b0c6d89ee3981938056240"
      default))
- '(doom-modeline-height 40)
+ '(doom-modeline-height 25)
  '(doom-modeline-hud t)
  '(doom-modeline-mode t)
  '(doom-modeline-window-width-limit 50)
@@ -21,7 +21,7 @@
  '(gnus-show-threads nil)
  '(inferior-lisp-program "/usr/bin/sbcl")
  '(package-selected-packages
-   '(0blayout aider aidermacs badwolf-theme crdt diredfl docker
+   '(0blayout aider aidermacs badwolf-theme calfw crdt diredfl docker
 	      dockerfile-mode doom-modeline dune edit-indirect ellama
 	      fish-mode gruvbox-theme haskell-mode htmlize ini-mode
 	      marginalia nerd-icons-dired odig orderless pacmacs
@@ -31,7 +31,8 @@
  '(pacman-pacdiff-command "sudo -S env DIFFPROG=diffmerge pacdiff")
  '(python-shell-process-environment '("PYTHON_BASIC_REPL=1"))
  '(smtpmail-smtp-server "localhost")
- '(smtpmail-smtp-service 25 t))
+ '(smtpmail-smtp-service 25 t)
+ '(syncthing-default-server-token "CpGmfqrMbrd69tvjA3vP79vpsoni4ftR"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

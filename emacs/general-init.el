@@ -5,6 +5,7 @@
 (with-demoted-errors "%s" (load-library "shells"))
 (with-demoted-errors "%s" (load-library "ocaml"))
 (with-demoted-errors "%s" (load-library "music-sync"))
+(with-demoted-errors "%s" (load-library "waypipe"))
 
 ;; cd to homedir
 (cd "~")
@@ -315,14 +316,3 @@
 (setq tuareg-opam-insinuate t)
 (setq auto-save-default nil)
 
-;; scratchpad; move this into a separate file
-
-(defun each-client-frame (f)
-  (when (and (frame-parameter f 'environment)
-	     (equal "true" (getenv "SEXP" f)))
-    (delete-frame f)))
-
-(defun zap-waypiped-client-frames ()
-  (cl-loop
-   for f in (frame-list)
-   do (each-client-frame f)))
