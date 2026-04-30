@@ -25,4 +25,4 @@ export EDITOR=figure_out_editor_variable
 
 # make zsh aware of ssh-agent
 UID="$(id -u teichman)"
-export SSH_AUTH_SOCK="/run/user/$UID/ssh-agent.socket"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"

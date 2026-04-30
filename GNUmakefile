@@ -154,6 +154,7 @@ homebin:
 	install -m 555 $@/pulsarsync.sh $(HOMEBIN_DIR)/pulsarsync
 	install -m 555 $@/subtype_susp.sh $(HOMEBIN_DIR)/subtype_susp
 	install -m 555 $@/sexp_susp.sh $(HOMEBIN_DIR)/sexp_susp
+	install -m 555 $@/remote-client.sh $(HOMEBIN_DIR)/remote-client
 	install -m 555 $@/semigroupsync.sh $(HOMEBIN_DIR)/semigroupsync
 	install -m 555 $@/figure_out_editor_variable.sh $(HOMEBIN_DIR)/figure_out_editor_variable
 	install -m 555 $@/sudo-lockout.sh $(HOMEBIN_DIR)/sudo-lockout
@@ -416,13 +417,11 @@ fbterm:
 	@echo export TERM=fbterm
 .PHONY: fbterm
 
-UID=$(shell id -u teichman)
 SYSTEMD_ENVIRONMENT_PATH=~/.config/environment.d
 
 environment_d:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
-	echo "SSH_AUTH_SOCK=/run/user/$(UID)/ssh-agent.socket" > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
-	chmod 444 $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
+	echo "SSH_AUTH_SOCK=$(XDG_RUNTIME_DIR)/ssh-agent.socket" > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
 .PHONY: environment_d
 
 # arch packages

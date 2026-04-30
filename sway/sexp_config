@@ -71,6 +71,9 @@ exec swayidle -w timeout 180 "wlopm --off '*'" resume "wlopm --on '*'"
     # Start an emacs client
     bindsym $mod+backslash exec 'emacsclient -cn'
 
+    # Start a waypiped emacs client
+    bindsym shift+$mod+backslash exec 'remote-client sequent SEXP'
+
     # lock screen
     bindsym Ctrl+Alt+End exec sexp_susp
 
