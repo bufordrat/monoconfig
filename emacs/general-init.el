@@ -34,10 +34,6 @@
 (global-set-key (kbd "C-c 9") #'winner-undo)
 (global-set-key (kbd "C-c 0") #'winner-redo)
 
-;; temporarily turning these keybindings off for off-weaning
-(global-unset-key (kbd "C-x o"))
-(global-unset-key (kbd "C-x C-;"))
-
 ;; function calls
 (winner-mode 1)
 (windmove-default-keybindings)
@@ -318,3 +314,15 @@
 (setq truncate-partial-width-windows nil)
 (setq tuareg-opam-insinuate t)
 (setq auto-save-default nil)
+
+;; scratchpad; move this into a separate file
+
+(defun each-client-frame (f)
+  (when (and (frame-parameter f 'environment)
+	     (equal "true" (getenv "SEXP" f)))
+    (delete-frame f)))
+
+(defun zap-waypiped-client-frames ()
+  (cl-loop
+   for f in (frame-list)
+   do (each-client-frame f)))
