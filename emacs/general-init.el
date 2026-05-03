@@ -293,6 +293,10 @@
   :config
   (pdf-tools-install :no-query))
 
+(use-package htmlize
+  :ensure t
+  :defer t)
+
 ;; setq-s
 ;;  (these used to be customizes, but were moved in here; see other .el
 ;;   files for more domain-specific setq-s/setopts)
