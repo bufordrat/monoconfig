@@ -430,7 +430,7 @@ X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm x
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1
 DOCKER_PACKAGES = docker docker-compose docker-buildx
 WAYLAND_PACKAGES = sway swaylock nwg-displays wmenu swayidle wlopm ghostty wl-clipboard
-ARCH_PACKAGES = linux-lts lvm2 herbstluftwm ntp man-pages bind inetutils fish openssh gnupg zsh dunst grim emacs-wayland opam firewalld texlive m4 ascii dhcpcd borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop w3m smartmontools gdb fossil openbsd-netcat util-linux mercurial $(DOCKER_PACKAGES) $(NM_PACKAGES) $(WAYLAND_PACKAGES)
+ARCH_PACKAGES = linux-lts lvm2 herbstluftwm ntp man-pages bind inetutils fish openssh gnupg zsh dunst grim emacs-wayland opam firewalld texlive m4 ascii dhcpcd borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop w3m smartmontools gdb fossil openbsd-netcat util-linux mercurial jq $(DOCKER_PACKAGES) $(NM_PACKAGES) $(WAYLAND_PACKAGES)
 AUR_PACKAGES = yay profont-otb montecarlo-font
 
 # other platforms' packages
