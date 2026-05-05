@@ -6,7 +6,6 @@
 (with-demoted-errors "%s" (load-library "ocaml"))
 (with-demoted-errors "%s" (load-library "music-sync"))
 (with-demoted-errors "%s" (load-library "waypipe"))
-(with-demoted-errors "%s" (load-library "scratchpad"))
 
 ;; cd to homedir
 (cd "~")
