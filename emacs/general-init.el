@@ -293,6 +293,16 @@
   :config
   (pdf-tools-install :no-query))
 
+;; calfw
+(use-package calfw
+  :ensure t
+  :defer t)
+
+;; htmlize
+(use-package htmlize
+  :ensure t
+  :defer t)
+
 ;; setq-s
 ;;  (these used to be customizes, but were moved in here; see other .el
 ;;   files for more domain-specific setq-s/setopts)
@@ -315,4 +325,3 @@
 (setq truncate-partial-width-windows nil)
 (setq tuareg-opam-insinuate t)
 (setq auto-save-default nil)
-

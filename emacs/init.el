@@ -11,6 +11,9 @@
 ;; load init code for this host
 (with-demoted-errors "%s" (load-library host-init))
 
+;; load scratchpad
+(with-demoted-errors "%s" (load-library "scratchpad-init"))
+
 ;; get customizes outta this file
 (setq custom-file "~/.emacs.d/customizes.el")
 (load custom-file)

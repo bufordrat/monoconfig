@@ -237,6 +237,7 @@ emacs:
 	install -m 444 $@/bastion.el ~/.emacs.d/lisp
 	install -m 444 $@/general-init.el ~/.emacs.d/lisp
 	install -m 444 $@/$(HOST)-init.el ~/.emacs.d/lisp/$(HOST)-init.el
+	install -m 444 $@/scratchpad-init.el ~/.emacs.d/lisp/scratchpad-init.el
 	cp ~/.emacs.d/customizes.el $@/customizes/$(HOST)_customizes
 .PHONY: emacs
 
