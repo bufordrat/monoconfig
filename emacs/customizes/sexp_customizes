@@ -51,12 +51,7 @@
      "5a548c9d5a6ca78d13283ed709bddf3307b65a7695e1b2e2b7e0a9dde45e8599"
      default))
  '(doom-modeline-height 40)
- '(package-selected-packages
-   '(ample-theme base16-theme bluetooth diredfl doom-modeline
-		 edit-indirect ellama haskell-mode kv magit marginalia
-		 markdown-mode nerd-icons-dired orderless pdf-tools
-		 projectile pyvenv rainbow-delimiters sly tuareg
-		 vertico vlf web-mode xclip)))
+ '(package-selected-packages nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
