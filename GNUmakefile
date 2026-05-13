@@ -44,7 +44,7 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts cron gnus ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd
+sequent: arch dunst firehol borg etc_hosts cron gnus ollama-systemd etc_pacman_conf etc_sudoers systemd firewalld althttpd
 
 sexp: arch althttpd gnus networkmanager
 
@@ -425,6 +425,11 @@ environment_d:
 	echo "SSH_AUTH_SOCK=$(XDG_RUNTIME_DIR)/ssh-agent.socket" > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
 	echo "WAYLAND_DISPLAY=wayland1" >> $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
 .PHONY: environment_d
+
+firewalld:
+	sudo install -m 644 /usr/lib/firewalld/services/mosh.xml /etc/firewalld/services
+	sudo firewall-cmd --permanent --zone=public --add-service=mosh
+.PHONY: firewalld	
 
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d xclip picom dmenu rxvt-unicode
