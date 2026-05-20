@@ -75,6 +75,8 @@
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 (setq ediff-split-window-function 'split-window-horizontally)
 
+;; TODO: fix ansi escape nonsense in man mode
+
 ;; fix ansi escape nonsense while compiling
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (when (require 'ansi-color nil t)
