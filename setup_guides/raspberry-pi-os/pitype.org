@@ -1,0 +1,22 @@
+* before getting on the pi
+** download 64-bit Raspberry Pi OS Lite image
++ link:
+  https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2026-04-21/2026-04-21-raspios-trixie-arm64-lite.img.xz
+** decompress it
+#+begin_example
+  $ unxz 2026-04-21-raspios-trixie-arm64-lite.img.xz
+#+end_example
+** identify device name with lsblk
+#+begin_example
+  $ lsblk
+#+end_example
+** make sure SD card is unmounted
+#+begin_example
+  $ sudo umount /dev/sdf
+#+end_example
+** =dd= command
+#+begin_example
+  $ sudo dd bs=4M if=2026-04-21-raspios-trixie-arm64-lite.img of=/dev/sdf conv=fsync oflag=direct status=progress
+#+end_example
++ =/dev/sdf= should be device name, not partition name like =/dev/sdff=
+
