@@ -1,0 +1,17 @@
+ServerAliveInterval 600
+ServerAliveCountMax 48
+AddKeysToAgent yes
+ForwardAgent yes
+IdentityFile ~/.ssh/id_rsa
+
+Host staff
+  HostName staff.lib.uchicago.edu
+
+Host sequent
+  HostName sequent.lib.uchicago.edu
+  ProxyJump staff.lib.uchicago.edu
+
+Host pixel10
+  User u0_a319
+  Hostname 10.0.0.93
+  Port 8022
