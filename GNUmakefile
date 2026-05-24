@@ -30,10 +30,10 @@ ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
 BASIC_RULES = homebin openssh emacs bash zsh gnupg 
-ARCH_RULES = $(BASIC_RULES) sshd python etc_pacman_conf boot_loader fstab opensmtpd sbcl pam sway ghostty environment_d
+ARCH_RULES = $(BASIC_RULES) sshd python fish etc_pacman_conf boot_loader fstab opensmtpd sbcl pam sway ghostty environment_d
 
-PI_RULES = $(BASIC_RULES) mpd raspi fbterm
-MACOS_RULES = $(BASIC_RULES) iterm python ghostty sbcl
+PI_RULES = $(BASIC_RULES) mpd raspi fbterm fstab
+MACOS_RULES = $(BASIC_RULES) iterm python ghostty sbcl fish
 INTERNET_RULES = install-python install-ocaml install-agda
 ANDROID_RULES = zsh termux-sshd
 
