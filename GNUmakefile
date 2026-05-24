@@ -29,10 +29,10 @@ OCAML_BASICS = dune utop prelude etude spinup mrmime ocamlnet cmdliner ocamlform
 ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
-BASIC_RULES = homebin openssh emacs bash fish zsh gnupg 
+BASIC_RULES = homebin openssh emacs bash zsh gnupg 
 ARCH_RULES = $(BASIC_RULES) sshd python etc_pacman_conf boot_loader fstab opensmtpd sbcl pam sway ghostty environment_d
 
-PI_RULES = $(BASIC_RULES) mpd raspi
+PI_RULES = $(BASIC_RULES) mpd raspi fbterm
 MACOS_RULES = $(BASIC_RULES) iterm python ghostty sbcl
 INTERNET_RULES = install-python install-ocaml install-agda
 ANDROID_RULES = zsh termux-sshd
@@ -56,7 +56,7 @@ subtype: arch netctl networkmanager
 
 semigroup: 
 
-pitype:
+pitype: pi
 
 fomega: pi
 
@@ -188,7 +188,6 @@ intel:
 
 raspi:
 	sudo install -m 755 $@/$(HOST)_boot_config_txt /boot/firmware/config.txt
-	sudo install -m 644 $@/$(HOST)_console_setup /etc/default/console-setup
 .PHONY: raspi
 
 netctl: homebin
