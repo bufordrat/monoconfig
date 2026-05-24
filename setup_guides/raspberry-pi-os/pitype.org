@@ -19,4 +19,4 @@
   $ sudo dd bs=4M if=2026-04-21-raspios-trixie-arm64-lite.img of=/dev/sdf conv=fsync oflag=direct status=progress
 #+end_example
 + =/dev/sdf= should be device name, not partition name like =/dev/sdff=
-
+* forgot to populate this for setup screen, oops
