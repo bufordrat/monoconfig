@@ -1,0 +1,22 @@
+;;; -*- lexical-binding: t -*-
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(badwolf))
+ '(custom-safe-themes
+   '("d046915b6ed8e52c9a94462388b26c714b2411b0b2b0c6d89ee3981938056240"
+     default))
+ '(package-selected-packages
+   '(badwolf-theme calfw diredfl doom-modeline haskell-mode htmlize magit
+		   marginalia markdown-mode merlin nerd-icons-dired
+		   orderless pdf-tools projectile pyvenv
+		   rainbow-delimiters tuareg vertico vlf web-mode
+		   xclip)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
