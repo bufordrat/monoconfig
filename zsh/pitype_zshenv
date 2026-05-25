@@ -1,0 +1,2 @@
+# opam
+opam --version > /dev/null && eval $(opam env)

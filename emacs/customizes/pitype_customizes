@@ -1,0 +1,42 @@
+;;; -*- lexical-binding: t -*-
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(tango-dark))
+ '(custom-safe-themes
+   '("34de8dfc73248c0ede0efc847d88fbbaf9a247dd3109343d9c4b8a093c816410"
+     "8de91e43d21b9d5cb79a146b267d29d3e377ed73888324912c7f6e514a76e5d7"
+     "deea4f8ef106dd1d8746a6fdccf42cf504982605bd53024b0f56c4d3e4a108e4"
+     "e0b2f460b6bee1d7a09b90635b2995e801ff5ac1a7aa66ea9c5674cd0bf1bb7a"
+     "de385583975ed8e83b71b212b3094ee74785834718e2413bc3acff36224fba8d"
+     "cbc8efdcd8e957c9ede1b4a82fed7fa1f3114ff6e7498c16f0cccb9509c1c17c"
+     "e223120256455daba01b6c68510b48fac813acab05c314510e47aea377b23634"
+     "d046915b6ed8e52c9a94462388b26c714b2411b0b2b0c6d89ee3981938056240"
+     default))
+ '(package-selected-packages
+   '(badwolf-theme base16-theme calfw diredfl doom-modeline haskell-mode
+		   htmlize magit marginalia markdown-mode merlin
+		   nerd-icons-dired orderless pdf-tools projectile
+		   pyvenv rainbow-delimiters tuareg vertico vlf
+		   web-mode xclip)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(diredfl-autofile-name ((t nil)))
+ '(diredfl-deletion ((t (:foreground "Yellow"))))
+ '(diredfl-dir-heading ((t (:foreground "Yellow"))))
+ '(diredfl-dir-name ((t (:foreground "#7474FFFFFFFF"))))
+ '(diredfl-dir-priv ((t (:foreground "#7474FFFFFFFF"))))
+ '(diredfl-exec-priv ((t nil)))
+ '(diredfl-flag-mark ((t (:foreground "Blue"))))
+ '(diredfl-flag-mark-line ((t nil)))
+ '(diredfl-no-priv ((t nil)))
+ '(diredfl-other-priv ((t nil)))
+ '(diredfl-rare-priv ((t (:foreground "Green"))))
+ '(diredfl-read-priv ((t nil)))
+ '(diredfl-tagged-autofile-name ((t nil)))
+ '(diredfl-write-priv ((t nil))))
