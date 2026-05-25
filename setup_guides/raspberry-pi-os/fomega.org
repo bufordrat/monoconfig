@@ -19,4 +19,58 @@
   $ sudo dd bs=4M if=2026-04-21-raspios-trixie-arm64-lite.img of=/dev/sdf conv=fsync oflag=direct status=progress
 #+end_example
 + =/dev/sdf= should be device name, not partition name like =/dev/sdff=
-* forgot to populate this for setup screen, oops
+* initial setup screen
+** select keyboard layout
++ English (UK) will be the default
++ to select your region of choice, choose "Other"
++ then your keyboard layout should appear
++ the one I selected was "English (US)"
+** select a username
++ type in your username
++ type in your password
++ type your password in again to confirm
+* console login
++ type the username you selected
++ type the password you selected
+* type sudo =raspi-config=
+** System Options > Wireless LAN
++ select your country
++ mine was US
++ will say "Please enter SSID"
+  + your SSID is your wifi network name
+** System Options > Audio
++ "Choose the audio output"
++ select the HDMI output you would like to send sound through
+** System Options > Hostname
++ there will be a message saying "Please note: RFCs mandate that a hostname's labels..."
++ just press ok
++ then select a hostname and hit RETURN
+** System Options > Auto Login
++ 'Would you like to automatically log into the console?'
++ yes
+** Display Options > Screen Blanking
++ 'Would you like to enable screen blanking?'
++ no
+** Interface Options > SSH
++ 'Would you like the SSH server to be enabled?'
++ yes
+** Localisation Options > Locale
++ Some explanation of what locales are.
++ 'Please choose which locales to generate.'
++ hit spacebar on =en_GB.UTF-8 UTF-8= to un-toggle it
++ hit spacebar on =en_US.UTF-8 UTF-8= to toggle your locale on
++ it will then take you to a menu called 'Configuring locales'
++ menu will say 'Default locale for the system environment:'
++ select your locale and hit RETURN
+** Localisation Options > Time Zone
++ menu called 'Configuring tzdata' will pop up
++ 'Geographic area:'
++ choose 'Americas' and hit RETURN
++ choose 'Chicago' and hit RETURN
+** Advanced Options > Expand Filesystem
++ select 'Expand Filesystem' and hit RETURN
+** Update
++ note: you must have successfully connected to wifi (i.e. with your
+  username and password) for this to work
+* set up mpd
+* set up ncmpcpp
