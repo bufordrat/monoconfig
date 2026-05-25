@@ -1,5 +1,2 @@
-# until I write that systemd unit file...
-eval $(ssh-agent -s)
-
 # opam
 opam --version > /dev/null && eval $(opam env)
