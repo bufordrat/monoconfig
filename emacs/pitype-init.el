@@ -13,3 +13,6 @@
 
 ;; fire up a dired buffer visiting monoconfig
 (dired "~/stuff/github/monoconfig/")
+
+;; no icons and stuff for pitype
+(gui-mode 0)
