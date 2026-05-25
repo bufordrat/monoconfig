@@ -10,12 +10,12 @@
    '("b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d"
      default))
  '(doom-modeline-height 45)
- '(inferior-lisp-program "/usr/bin/sbcl")
+ '(inferior-lisp-program "/usr/bin/sbcl" t)
  '(package-selected-packages
    '(diredfl doom-modeline gruvbox-theme haskell-mode magit marginalia
-	     nerd-icons-dired notmuch orderless pdf-tools projectile
-	     pyvenv rainbow-delimiters tuareg vertico vlf web-mode
-	     xclip)))
+	     merlin nerd-icons-dired notmuch nov orderless pdf-tools
+	     projectile pyvenv rainbow-delimiters sly tuareg vertico
+	     vlf web-mode xclip)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -421,8 +421,8 @@ SYSTEMD_ENVIRONMENT_PATH=~/.config/environment.d
 
 environment_d:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
-	echo "SSH_AUTH_SOCK=$(XDG_RUNTIME_DIR)/ssh-agent.socket" > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
-	echo "WAYLAND_DISPLAY=wayland-1" >> $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
+	sudo echo "SSH_AUTH_SOCK=$(XDG_RUNTIME_DIR)/ssh-agent.socket" > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
+	sudo echo "WAYLAND_DISPLAY=wayland-1" >> $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
 .PHONY: environment_d
 
 firewalld:
