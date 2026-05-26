@@ -30,6 +30,7 @@
 	      tint tuareg unidecode vertico visual-fill-column vlf
 	      web-mode xclip))
  '(pacman-pacdiff-command "sudo -S env DIFFPROG=diffmerge pacdiff")
+ '(python-fill-docstring-style 'symmetric)
  '(python-shell-process-environment '("PYTHON_BASIC_REPL=1"))
  '(smtpmail-smtp-server "localhost")
  '(smtpmail-smtp-service 25 t)

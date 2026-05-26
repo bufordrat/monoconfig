@@ -16,8 +16,8 @@ else
 endif
 
 # paths
-CONFIG_DIR = ~/.config
-HOMEBIN_DIR = ~/bin
+CONFIG_DIR = $(HOME)/.config
+HOMEBIN_DIR = $(HOME)/bin
 ENVS_DIR = $(HOME)/envs
 ENVS_CONFIG_DIR = $(ENVS_DIR)/config
 VENV_NAME = py-basics
@@ -100,27 +100,27 @@ dunst:
 .PHONY: dunst
 
 iterm:
-	install -m 644 $@/hushlogin ~/.hushlogin
+	install -m 644 $@/hushlogin $(HOME)/.hushlogin
 .PHONY: iterm
 
 xdefaults:
-	install -m 444 $@/$(HOST)_xdefaults ~/.Xdefaults
+	install -m 444 $@/$(HOST)_xdefaults $(HOME)/.Xdefaults
 .PHONY: xdefaults
 
 xinitrc:
-	mkdir -p ~/$@
-	install -m 555 $@/.xinitrc ~/.xinitrc
-	install -m 555 $@/general_xinitrc ~/$@/general_xinitrc
-	install -m 555 $@/$(HOST)_xinitrc ~/$@/$(HOST)_xinitrc
+	mkdir -p $(HOME)/$@
+	install -m 555 $@/.xinitrc $(HOME)/.xinitrc
+	install -m 555 $@/general_xinitrc $(HOME)/$@/general_xinitrc
+	install -m 555 $@/$(HOST)_xinitrc $(HOME)/$@/$(HOST)_xinitrc
 .PHONY: xinitrc
 
 x11: xinitrc xdefaults
 
 
 openssh:
-	mkdir -p ~/.ssh
-	install -m 444 $@/authorized_keys ~/.ssh/authorized_keys
-	install -m 444 $@/$(HOST)_ssh_config ~/.ssh/config
+	mkdir -p $(HOME)/.ssh
+	install -m 444 $@/authorized_keys $(HOME)/.ssh/authorized_keys
+	install -m 444 $@/$(HOST)_ssh_config $(HOME)/.ssh/config
 .PHONY: openssh
 
 sshd:
@@ -128,14 +128,14 @@ sshd:
 .PHONY: sshd
 
 gnupg:
-	mkdir -m 700 -p ~/.$@
-	install -m 444 $@/dummy.gpg ~
-	install -m 444 $@/$(HOST)_gpg_agent_conf ~/.$@/gpg-agent.conf
+	mkdir -m 700 -p $(HOME)/.$@
+	install -m 444 $@/dummy.gpg $(HOME)
+	install -m 444 $@/$(HOST)_gpg_agent_conf $(HOME)/.$@/gpg-agent.conf
 .PHONY: gnupg
 
 firehol: homebin
 	sudo mkdir -p /etc/firehol
-	gpg -d --pinentry-mode loopback ~/dummy.gpg
+	gpg -d --pinentry-mode loopback $(HOME)/dummy.gpg
 	ip address show $(ETHERFACE_NAME) > /dev/null 
 	gpg -d --pinentry-mode loopback $@/$@_conf.gpg | m4 -P -D IOTARIFFIC=$(ETHERFACE_NAME) | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
 .PHONY: firehol
@@ -175,11 +175,11 @@ samba:
 .PHONY: samba
 
 zsh:
-	mkdir -p ~/zshrc
-	install -m 444 $@/.zshrc ~/.zshrc
-	install -m 444 $@/general_zshrc ~/zshrc/general_zshrc
-	install -m 444 $@/$(HOST)_zshrc ~/zshrc/$(HOST)_zshrc
-	install -m 444 $@/$(HOST)_zshenv ~/.zshenv
+	mkdir -p $(HOME)/zshrc
+	install -m 444 $@/.zshrc $(HOME)/.zshrc
+	install -m 444 $@/general_zshrc $(HOME)/zshrc/general_zshrc
+	install -m 444 $@/$(HOST)_zshrc $(HOME)/zshrc/$(HOST)_zshrc
+	install -m 444 $@/$(HOST)_zshenv $(HOME)/.zshenv
 .PHONY: zsh
 
 intel:
@@ -191,13 +191,13 @@ raspi:
 .PHONY: raspi
 
 netctl: homebin
-	gpg -d --pinentry-mode loopback ~/dummy.gpg
-	gpg -d --pinentry-mode loopback ~/.bed/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/eduroam | sudo install -m 644 /dev/stdin /etc/$@/eduroam
+	gpg -d --pinentry-mode loopback $(HOME)/dummy.gpg
+	gpg -d --pinentry-mode loopback $(HOME)/.bed/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/eduroam | sudo install -m 644 /dev/stdin /etc/$@/eduroam
 .PHONY: netctl
 
 bash:
-	install -m 444 $@/$(HOST)_bashrc ~/.bashrc
-	install -m 444 $@/$(HOST)_bash_profile ~/.bash_profile
+	install -m 444 $@/$(HOST)_bashrc $(HOME)/.bashrc
+	install -m 444 $@/$(HOST)_bash_profile $(HOME)/.bash_profile
 .PHONY: bash
 
 borg:
@@ -222,22 +222,22 @@ emacs-systemd:
 .PHONY: emacs-systemd
 
 emacs:
-	mkdir -p ~/.emacs.d/lisp
-	mkdir -p ~/.squiggles
-	test -f ~/.emacs.d/customizes.el || touch ~/.emacs.d/customizes.el
-	install -m 444 $@/init.el ~/.emacs.d
-	install -m 444 $@/fonts.el ~/.emacs.d/lisp
-	install -m 444 $@/fishy-prompt.el ~/.emacs.d/lisp
-	install -m 444 $@/toggle-gui.el ~/.emacs.d/lisp
-	install -m 444 $@/shells.el ~/.emacs.d/lisp
-	install -m 444 $@/ocaml.el ~/.emacs.d/lisp
-	install -m 444 $@/music-sync.el ~/.emacs.d/lisp
-	install -m 444 $@/waypipe.el ~/.emacs.d/lisp
-	install -m 444 $@/bastion.el ~/.emacs.d/lisp
-	install -m 444 $@/general-init.el ~/.emacs.d/lisp
-	install -m 444 $@/$(HOST)-init.el ~/.emacs.d/lisp/$(HOST)-init.el
-	install -m 444 $@/scratchpad-init.el ~/.emacs.d/lisp/scratchpad-init.el
-	cp ~/.emacs.d/customizes.el $@/customizes/$(HOST)_customizes
+	mkdir -p $(HOME)/.emacs.d/lisp
+	mkdir -p $(HOME)/.squiggles
+	test -f $(HOME)/.emacs.d/customizes.el || touch $(HOME)/.emacs.d/customizes.el
+	install -m 444 $@/init.el $(HOME)/.emacs.d
+	install -m 444 $@/fonts.el $(HOME)/.emacs.d/lisp
+	install -m 444 $@/fishy-prompt.el $(HOME)/.emacs.d/lisp
+	install -m 444 $@/toggle-gui.el $(HOME)/.emacs.d/lisp
+	install -m 444 $@/shells.el $(HOME)/.emacs.d/lisp
+	install -m 444 $@/ocaml.el $(HOME)/.emacs.d/lisp
+	install -m 444 $@/music-sync.el $(HOME)/.emacs.d/lisp
+	install -m 444 $@/waypipe.el $(HOME)/.emacs.d/lisp
+	install -m 444 $@/bastion.el $(HOME)/.emacs.d/lisp
+	install -m 444 $@/general-init.el $(HOME)/.emacs.d/lisp
+	install -m 444 $@/$(HOST)-init.el $(HOME)/.emacs.d/lisp/$(HOST)-init.el
+	install -m 444 $@/scratchpad-init.el $(HOME)/.emacs.d/lisp/scratchpad-init.el
+	cp $(HOME)/.emacs.d/customizes.el $@/customizes/$(HOST)_customizes
 .PHONY: emacs
 
 etc_hosts:
@@ -264,7 +264,7 @@ install-python: remove-virtualenv python
 .PHONY: install-python
 
 install-opam:
-	if [ -d ~/.opam ]; then echo 'opam already initialized'; else cd ~ && opam init -y && cd -; fi
+	if [ -d $(HOME)/.opam ]; then echo 'opam already initialized'; else cd $(HOME) && opam init -y && cd -; fi
 .PHONY: install-opam
 
 remove-switch:
@@ -290,8 +290,8 @@ install-haskell:
 	ghcup set hls $(HLS_VERSION)
 	ghcup install ghc $(GHC_VERSION)
 	ghcup set ghc $(GHC_VERSION)
-	mkdir -p ~/.stack
-	install -m 444 $@/config_yaml ~/.stack/config.yaml
+	mkdir -p $(HOME)/.stack
+	install -m 444 $@/config_yaml $(HOME)/.stack/config.yaml
 .PHONY: install-haskell
 
 install-agda: install-haskell
@@ -343,29 +343,29 @@ syncthing_devices:
 .PHONY: syncthing_devices
 
 abcde:
-	install -m 444 $@/$(HOST)_$@_conf ~/.abcde.conf
+	install -m 444 $@/$(HOST)_$@_conf $(HOME)/.abcde.conf
 .PHONY: abcde
 
 networkmanager:
 	sudo install -m 600 $@/uchicagovpn_nmconnection /etc/NetworkManager/system-connections/UChicagoVPN.nmconnection
-	gpg -d --pinentry-mode loopback ~/.bed/rutherford_fios_router.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_fios_h2ypv_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/Fios-h2YPv.nmconnection
-	gpg -d --pinentry-mode loopback ~/.bed/binomial_heap.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_binomial_heap_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/BinomialHeap.nmconnection
-	gpg -d --pinentry-mode loopback ~/.bed/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_eduroam_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/eduroam.nmconnection
+	gpg -d --pinentry-mode loopback $(HOME)/.bed/rutherford_fios_router.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_fios_h2ypv_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/Fios-h2YPv.nmconnection
+	gpg -d --pinentry-mode loopback $(HOME)/.bed/binomial_heap.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_binomial_heap_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/BinomialHeap.nmconnection
+	gpg -d --pinentry-mode loopback $(HOME)/.bed/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_eduroam_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/eduroam.nmconnection
 .PHONY: networkmanager
 
 cron:
-	mkdir -p ~/.cron
-	install -m 444 $@/$(HOST)_crontab ~/.cron
-	crontab ~/.cron/$(HOST)_crontab
+	mkdir -p $(HOME)/.cron
+	install -m 444 $@/$(HOST)_crontab $(HOME)/.cron
+	crontab $(HOME)/.cron/$(HOST)_crontab
 .PHONY: cron
 
 opensmtpd:
-	mkdir -p ~/.maildir/local_mail
+	mkdir -p $(HOME)/.maildir/local_mail
 	sudo install -m 444 $@/$(HOST)_smtpd_conf /etc/smtpd/smtpd.conf
 .PHONY: opensmtpd
 
 gnus:
-	install -m 444 $@/$(HOST)_gnus_el ~/.gnus.el
+	install -m 444 $@/$(HOST)_gnus_el $(HOME)/.gnus.el
 .PHONY: gnus
 
 xauth:
@@ -385,7 +385,7 @@ termux-sshd:
 	install -m 444 $@/$(HOST)_sshd_config $(PREFIX)/etc/ssh/sshd_config
 .PHONY: termux-sshd
 
-ALTHTTPD_PATH = ~/stuff/repos/fossil/althttpd
+ALTHTTPD_PATH = $(HOME)/stuff/repos/fossil/althttpd
 
 althttpd:
 	cd $(ALTHTTPD_PATH) &&\
@@ -396,15 +396,15 @@ althttpd:
 .PHONY: althttpd
 
 ghostty:
-	mkdir -p ~/.config/ghostty
-	install -m 644 $@/$(HOST)_config ~/.config/ghostty/config
+	mkdir -p $(HOME)/.config/ghostty
+	install -m 644 $@/$(HOST)_config $(HOME)/.config/ghostty/config
 .PHONY: ghostty
 
 sbcl:
-	install -m 444 $@/sbclrc ~/.sbclrc
+	install -m 444 $@/sbclrc $(HOME)/.sbclrc
 .PHONY: sbcl
 
-SWAY_CONFIG_PATH = ~/.config/sway
+SWAY_CONFIG_PATH = $(HOME)/.config/sway
 
 sway:
 	mkdir -p $(SWAY_CONFIG_PATH)
@@ -417,25 +417,24 @@ fbterm:
 	@echo export TERM=fbterm
 .PHONY: fbterm
 
-SYSTEMD_ENVIRONMENT_PATH=~/.config/environment.d
+SYSTEMD_ENVIRONMENT_PATH=$(HOME)/.config/environment.d
 
 environment_d: environment_d_wayland environment_d_ssh_agent
 
 environment_d_wayland:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
-	sudo echo "WAYLAND_DISPLAY=wayland-1 >> $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf"
+	echo WAYLAND_DISPLAY=wayland-1 > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
 .PHONY: environment_d_wayland
 
 environment_d_ssh_agent:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
-	echo "SSH_AUTH_SOCK=$(XDG_RUNTIME_DIR)/ssh-agent.socket" > "$(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf"
+	echo SSH_AUTH_SOCK=$$XDG_RUNTIME_DIR/ssh-agent.socket > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
 .PHONY: environment_d_ssh_agent
 
 environment_d_ssh_agent_pi:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
-	sudo echo "SSH_AUTH_SOCK=$(XDG_RUNTIME_DIR)/openssh_agent" > "$(SYSTEMDB_ENVIRONMENT_PATH)/emacs.conf"
+	echo SSH_AUTH_SOCK=$$XDG_RUNTIME_DIR/openssh_agent > $(SYSTEMDB_ENVIRONMENT_PATH)/emacs.conf
 .PHONY: environment_d_ssh_agent
-
 
 firewalld:
 	sudo install -m 644 /usr/lib/firewalld/services/mosh.xml /etc/firewalld/services
