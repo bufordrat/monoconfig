@@ -73,7 +73,7 @@ arch: $(ARCH_RULES)
 
 macos: $(MACOS_RULES)
 
-pi: $(PI_RULES) environment_d_ssh_agent_pi
+pi: $(PI_RULES)
 
 android: $(ANDROID_RULES)
 
@@ -428,12 +428,12 @@ environment_d_wayland:
 
 environment_d_ssh_agent:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
-	sudo echo "SSH_AUTH_SOCK=$(XDG_RUNTIME_DIR)/ssh-agent.socket > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf"
+	echo "SSH_AUTH_SOCK=$(XDG_RUNTIME_DIR)/ssh-agent.socket" > "$(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf"
 .PHONY: environment_d_ssh_agent
 
 environment_d_ssh_agent_pi:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
-	sudo echo "SSH_AUTH_SOCK=$(XDG_RUNTIME_DIR)/openssh_agent > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf"
+	sudo echo "SSH_AUTH_SOCK=$(XDG_RUNTIME_DIR)/openssh_agent" > "$(SYSTEMDB_ENVIRONMENT_PATH)/emacs.conf"
 .PHONY: environment_d_ssh_agent
 
 
