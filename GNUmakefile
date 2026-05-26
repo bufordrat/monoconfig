@@ -73,7 +73,7 @@ arch: $(ARCH_RULES)
 
 macos: $(MACOS_RULES)
 
-pi: $(PI_RULES)
+pi: $(PI_RULES) environment_d_ssh_agent_pi
 
 android: $(ANDROID_RULES)
 
@@ -419,11 +419,23 @@ fbterm:
 
 SYSTEMD_ENVIRONMENT_PATH=~/.config/environment.d
 
-environment_d:
+environment_d: environment_d_wayland environment_d_ssh_agent
+
+environment_d_wayland:
+	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
+	sudo echo "WAYLAND_DISPLAY=wayland-1 >> $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf"
+.PHONY: environment_d_wayland
+
+environment_d_ssh_agent:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
 	sudo echo "SSH_AUTH_SOCK=$(XDG_RUNTIME_DIR)/ssh-agent.socket > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf"
-	sudo echo "WAYLAND_DISPLAY=wayland-1 >> $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf"
-.PHONY: environment_d
+.PHONY: environment_d_ssh_agent
+
+environment_d_ssh_agent_pi:
+	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
+	sudo echo "SSH_AUTH_SOCK=$(XDG_RUNTIME_DIR)/openssh_agent > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf"
+.PHONY: environment_d_ssh_agent
+
 
 firewalld:
 	sudo install -m 644 /usr/lib/firewalld/services/mosh.xml /etc/firewalld/services
