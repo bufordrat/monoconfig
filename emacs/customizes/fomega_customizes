@@ -1,0 +1,30 @@
+;;; -*- lexical-binding: t -*-
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(modus-vivendi))
+ '(custom-safe-themes
+   '("1fd6e24da8c9105cfc09820353a419fa01717ba1d12ff4e3e0fb57f5933a77fa"
+     "d8b8c09a745470f6c088dce5df19ade98894f4ced69ce32d53aded94d512826d"
+     "a7d2594e876652f2de36e4ae18b3ffeedf89add6de587283bd6d1a09258fbc65"
+     "f97a59acd14accb731637967de96b5c88f89ddbc49ba5adb215cbe88f7dd743b"
+     "6d7c2881e47ee6ead20f43d6368b2c9b9a1fedbd7c9f0604de15b4c11d5b4841"
+     "deea4f8ef106dd1d8746a6fdccf42cf504982605bd53024b0f56c4d3e4a108e4"
+     "34de8dfc73248c0ede0efc847d88fbbaf9a247dd3109343d9c4b8a093c816410"
+     "8de91e43d21b9d5cb79a146b267d29d3e377ed73888324912c7f6e514a76e5d7"
+     "e0b2f460b6bee1d7a09b90635b2995e801ff5ac1a7aa66ea9c5674cd0bf1bb7a"
+     "de385583975ed8e83b71b212b3094ee74785834718e2413bc3acff36224fba8d"
+     default))
+ '(package-selected-packages
+   '(base16-theme calfw diredfl doom-modeline haskell-mode htmlize magit
+		  marginalia markdown-mode merlin nerd-icons-dired
+		  orderless pdf-tools projectile pyvenv
+		  rainbow-delimiters tuareg vertico vlf web-mode xclip)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
