@@ -30,9 +30,9 @@ ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
 BASIC_RULES = homebin openssh emacs bash zsh gnupg 
-ARCH_RULES = $(BASIC_RULES) sshd python fish etc_pacman_conf boot_loader fstab opensmtpd sbcl pam sway ghostty environment_d
+ARCH_RULES = $(BASIC_RULES) sshd python fish etc_pacman_conf boot_loader fstab opensmtpd sbcl pam sway ghostty environment_d_arch
 
-PI_RULES = $(BASIC_RULES) mpd raspi fbterm fstab
+PI_RULES = $(BASIC_RULES) mpd raspi fbterm fstab environment_d_pi
 MACOS_RULES = $(BASIC_RULES) iterm python ghostty sbcl fish
 INTERNET_RULES = install-python install-ocaml install-agda
 ANDROID_RULES = zsh termux-sshd
@@ -419,19 +419,13 @@ fbterm:
 
 SYSTEMD_ENVIRONMENT_PATH=$(HOME)/.config/environment.d
 
-environment_d: environment_d_wayland environment_d_ssh_agent
-
-environment_d_wayland:
-	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
-	echo WAYLAND_DISPLAY=wayland-1 > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
-.PHONY: environment_d_wayland
-
-environment_d_ssh_agent:
+environment_d_arch:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
 	echo SSH_AUTH_SOCK=$$XDG_RUNTIME_DIR/ssh-agent.socket > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
-.PHONY: environment_d_ssh_agent
+	echo WAYLAND_DISPLAY=wayland-1 >> $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
+.PHONY: environment_d_wayland
 
-environment_d_ssh_agent_pi:
+environment_d_pi:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
 	echo SSH_AUTH_SOCK=$$XDG_RUNTIME_DIR/openssh_agent > $(SYSTEMDB_ENVIRONMENT_PATH)/emacs.conf
 .PHONY: environment_d_ssh_agent
