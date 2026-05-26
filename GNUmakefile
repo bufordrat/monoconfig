@@ -439,7 +439,7 @@ ARCH_PACKAGES = linux-lts lvm2 herbstluftwm ntp man-pages bind inetutils fish op
 AUR_PACKAGES = yay profont-otb montecarlo-font
 
 # other platforms' packages
-PI_PACKAGES = fish openssh gnupg zsh mpd ascii xclip fbterm
+PI_PACKAGES = openssh gnupg zsh mpd ascii xclip wl-clipboard fbterm opam
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
 TERMUX_PACKAGES = openssh termux-services zsh 
 

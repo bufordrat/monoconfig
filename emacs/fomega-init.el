@@ -1,7 +1,3 @@
-(defconst matt-default-font "Inconsolata-12")
-(add-to-list 'default-frame-alist (cons 'font matt-default-font))
-(set-face-font 'default matt-default-font)
-
 ;; setopts
 (setq org-file-apps
    '((auto-mode . emacs)
@@ -16,4 +12,7 @@
 (xclip-mode 1)
 
 ;; fire up a dired buffer visiting monoconfig
-(dired "~/github/mine/monoconfig/")
+(dired "~/stuff/github/monoconfig/")
+
+;; gui-mode off for pi-s
+(gui-mode 0)
