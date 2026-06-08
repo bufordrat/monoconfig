@@ -44,7 +44,7 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts cron gnus ollama-systemd etc_pacman_conf etc_sudoers systemd firewalld althttpd
+sequent: arch dunst firehol borg etc_hosts cron gnus ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd
 
 sexp: arch althttpd gnus networkmanager
 
@@ -430,17 +430,18 @@ environment_d_pi:
 	echo SSH_AUTH_SOCK=$$XDG_RUNTIME_DIR/openssh_agent > $(SYSTEMDB_ENVIRONMENT_PATH)/emacs.conf
 .PHONY: environment_d_ssh_agent
 
-firewalld:
-	sudo install -m 644 /usr/lib/firewalld/services/mosh.xml /etc/firewalld/services
-	sudo firewall-cmd --permanent --zone=public --add-service=mosh
-.PHONY: firewalld	
+# deprecating this since mosh is a no-go
+# firewalld:
+# 	sudo install -m 644 /usr/lib/firewalld/services/mosh.xml /etc/firewalld/services
+# 	sudo firewall-cmd --permanent --zone=public --add-service=mosh
+# .PHONY: firewalld	
 
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d xclip picom dmenu rxvt-unicode
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1
 DOCKER_PACKAGES = docker docker-compose docker-buildx
 WAYLAND_PACKAGES = sway swaylock nwg-displays wmenu swayidle wlopm ghostty wl-clipboard
-ARCH_PACKAGES = linux-lts lvm2 herbstluftwm ntp man-pages bind inetutils fish openssh gnupg zsh dunst grim emacs-wayland opam firewalld texlive m4 ascii dhcpcd borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop w3m smartmontools gdb fossil openbsd-netcat util-linux mercurial jq $(DOCKER_PACKAGES) $(NM_PACKAGES) $(WAYLAND_PACKAGES)
+ARCH_PACKAGES = linux-lts lvm2 herbstluftwm ntp man-pages bind inetutils fish openssh gnupg zsh dunst grim emacs-wayland opam texlive m4 ascii dhcpcd borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop w3m smartmontools gdb fossil openbsd-netcat util-linux mercurial jq $(DOCKER_PACKAGES) $(NM_PACKAGES) $(WAYLAND_PACKAGES)
 AUR_PACKAGES = yay profont-otb montecarlo-font
 
 # other platforms' packages

@@ -245,3 +245,6 @@ default_floating_border pixel 2
 
 # use Profont for the status bar
 font pango:Profont 8
+
+# propagate display and sway socket variables to systemd
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
