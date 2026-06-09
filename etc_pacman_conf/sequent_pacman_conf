@@ -107,3 +107,7 @@ Include = /etc/pacman.d/mirrorlist
 SigLevel = Never
 Server = http://www.lib.uchicago.edu/keith/pkgrepo/kw/$arch
 
+[dldc]
+SigLevel = Optional Trustall
+Server = http://dldc.lib.uchicago.edu/open/repos/arch
+
