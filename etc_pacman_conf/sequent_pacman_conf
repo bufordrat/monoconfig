@@ -108,6 +108,6 @@ SigLevel = Never
 Server = http://www.lib.uchicago.edu/keith/pkgrepo/kw/$arch
 
 [dldc]
-SigLevel = Optional Trustall
+SigLevel = Optional TrustAll
 Server = http://dldc.lib.uchicago.edu/open/repos/arch
 

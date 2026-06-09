@@ -95,3 +95,7 @@ Include = /etc/pacman.d/mirrorlist
 #[custom]
 #SigLevel = Optional TrustAll
 #Server = file:///home/custompkgs
+
+[dldc]
+SigLevel = Optional TrustAll
+Server = http://dldc.lib.uchicago.edu/open/repos/arch
