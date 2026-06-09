@@ -30,7 +30,9 @@ ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
 BASIC_RULES = homebin openssh emacs bash zsh gnupg 
-ARCH_RULES = $(BASIC_RULES) sshd python fish etc_pacman_conf boot_loader fstab opensmtpd sbcl pam sway ghostty environment_d_arch
+ARCH_RULES = $(BASIC_RULES) sshd python fish etc_pacman_conf boot_loader fstab opensmtpd sbcl pam sway ghostty 
+# todo: gotta fix this
+# environment_d_arch
 
 PI_RULES = $(BASIC_RULES) mpd raspi fbterm fstab environment_d_pi
 MACOS_RULES = $(BASIC_RULES) iterm python ghostty sbcl fish
