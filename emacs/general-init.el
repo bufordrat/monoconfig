@@ -231,6 +231,10 @@
                 (setq-local tuareg-interactive-program "opam exec -- dune exec lib/repl.exe")
               (setq-local tuareg-interactive-program "opam exec -- ocaml -nopromptcont"))))
 
+(use-package dune
+  :ensure t
+  :defer t)
+
 ;; haskell
 (use-package haskell-mode
   :ensure t
