@@ -1,2 +1,7 @@
+# for the love of god, no GUI popups
+allow-loopback-pinentry
+pinentry-program /usr/bin/pinentry-tty
+
+# take forever to expire
 default-cache-ttl 34560000
 max-cache-ttl 34560000
