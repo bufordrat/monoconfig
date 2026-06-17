@@ -28,7 +28,7 @@
 	      pacmacs pacman pdf-tools projectile pyvenv
 	      rainbow-delimiters simple-httpd slp sly sway syncthing
 	      tint tuareg unidecode vertico visual-fill-column vlf
-	      web-mode xclip))
+	      vterm web-mode xclip))
  '(pacman-pacdiff-command "sudo -S env DIFFPROG=diffmerge pacdiff")
  '(python-fill-docstring-style 'symmetric)
  '(python-shell-process-environment '("PYTHON_BASIC_REPL=1"))
