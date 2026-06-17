@@ -25,7 +25,7 @@
 	      dockerfile-mode doom-modeline dune edit-indirect ellama
 	      fish-mode gruvbox-theme haskell-mode htmlize ini-mode
 	      marginalia merlin nerd-icons-dired odig orderless
-	      pacmacs pacman pdf-tools projectile pyvenv
+	      pacmacs pacman pdf-tools pkgbuild-mode projectile pyvenv
 	      rainbow-delimiters simple-httpd slp sly sway syncthing
 	      tint tuareg unidecode vertico visual-fill-column vlf
 	      vterm web-mode xclip))
