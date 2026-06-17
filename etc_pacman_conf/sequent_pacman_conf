@@ -23,7 +23,7 @@ Architecture = auto
 
 # Pacman won't upgrade packages listed in IgnorePkg and members of IgnoreGroup
 #IgnorePkg   = linux linux-lts virtualbox-host-modules-arch virtualbox-host-dkms
-IgnorePkg = emacs-nativecomp tree-sitter ruby-rexml 
+IgnorePkg = emacs-nativecomp ruby-rexml 
 #IgnoreGroup =
 
 #NoUpgrade   =
