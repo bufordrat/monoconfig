@@ -1,0 +1,2 @@
+SSH_AUTH_SOCK=CONTINUATIONAGE/ssh-agent.socket
+WAYLAND_DISPLAY=wayland-1

@@ -30,9 +30,7 @@ ETHERFACE_NAME = $(shell ip -o link | awk '{print $$2}' | grep en | tr -d ':')
 
 # make rulesets
 BASIC_RULES = homebin openssh emacs bash zsh gnupg 
-ARCH_RULES = $(BASIC_RULES) sshd python fish etc_pacman_conf boot_loader fstab opensmtpd sbcl pam sway ghostty 
-# todo: gotta fix this
-# environment_d_arch
+ARCH_RULES = $(BASIC_RULES) sshd python fish etc_pacman_conf boot_loader fstab opensmtpd sbcl pam sway ghostty environment_d_arch
 
 PI_RULES = $(BASIC_RULES) mpd raspi fbterm fstab environment_d_pi
 MACOS_RULES = $(BASIC_RULES) iterm python ghostty sbcl fish
@@ -423,20 +421,13 @@ SYSTEMD_ENVIRONMENT_PATH=$(HOME)/.config/environment.d
 
 environment_d_arch:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
-	echo SSH_AUTH_SOCK=$$XDG_RUNTIME_DIR/ssh-agent.socket > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
-	echo WAYLAND_DISPLAY=wayland-1 >> $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
-.PHONY: environment_d_wayland
+	echo $$XDG_RUNTIME_DIR | tr -d '\n' | m4 -P -D CONTINUATIONAGE='m4_include(/dev/stdin)' $@/emacs_conf | install -m 555 /dev/stdin ~/.config/environment.d/emacs.conf
+.PHONY: environment_d_arch
 
 environment_d_pi:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
 	echo SSH_AUTH_SOCK=$$XDG_RUNTIME_DIR/openssh_agent > $(SYSTEMDB_ENVIRONMENT_PATH)/emacs.conf
-.PHONY: environment_d_ssh_agent
-
-# deprecating this since mosh is a no-go
-# firewalld:
-# 	sudo install -m 644 /usr/lib/firewalld/services/mosh.xml /etc/firewalld/services
-# 	sudo firewall-cmd --permanent --zone=public --add-service=mosh
-# .PHONY: firewalld	
+.PHONY: environment_d_pi
 
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d xclip picom dmenu rxvt-unicode
