@@ -421,7 +421,7 @@ SYSTEMD_ENVIRONMENT_PATH=$(HOME)/.config/environment.d
 
 environment_d_arch:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
-	echo $$XDG_RUNTIME_DIR | tr -d '\n' | m4 -P -D CONTINUATIONAGE='m4_include(/dev/stdin)' $@/emacs_conf | install -m 555 /dev/stdin ~/.config/environment.d/emacs.conf
+	m4 -P -D CONTINUATIONAGE=$(XDG_RUNTIME_DIR) $@/emacs_conf | install -m 555 /dev/stdin ~/.config/environment.d/emacs.conf
 .PHONY: environment_d_arch
 
 environment_d_pi:
