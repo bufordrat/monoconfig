@@ -421,12 +421,12 @@ SYSTEMD_ENVIRONMENT_PATH=$(HOME)/.config/environment.d
 
 environment_d_arch:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
-	m4 -P -D CONTINUATIONAGE=$(XDG_RUNTIME_DIR) $@/emacs_conf | install -m 555 /dev/stdin $(SYSTEMDB_ENVIRONMENT_PATH)/emacs.conf
+	m4 -P -D CONTINUATIONAGE=$(XDG_RUNTIME_DIR) $@/emacs_conf | install -m 555 /dev/stdin $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
 .PHONY: environment_d_arch
 
 environment_d_pi:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
-	echo SSH_AUTH_SOCK=$$XDG_RUNTIME_DIR/openssh_agent > $(SYSTEMDB_ENVIRONMENT_PATH)/emacs.conf
+	echo SSH_AUTH_SOCK=$$XDG_RUNTIME_DIR/openssh_agent > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
 .PHONY: environment_d_pi
 
 # arch packages
