@@ -44,10 +44,10 @@ exec swayidle -w timeout 180 "wlopm --off '*'" resume "wlopm --on '*'"
 #       middle_emulation enabled
 #   }
 #
-#   input type:keyboard {
-#       xkb_layout "eu"
-#   }
-#
+input * {
+    xkb_options "altwin:meta_win"
+}
+
 # You can also configure each device individually.
 # Read `man 5 sway-input` for more information about this section.
 
