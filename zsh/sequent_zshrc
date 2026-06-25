@@ -6,11 +6,18 @@
 # get man, git log, etc. not to use more/less in an Emacs shell
 if [ -n "$INSIDE_EMACS" ]
 then
+  # bracketed paste
   unset    zle_bracketed_paste
   unsetopt ZLE CORRECT
+
+  # env variables
   export MANPAGER=cat
   export PAGER=cat
   export TERM=ansi
+  # 2026-06-25 revisit this in a bit and see whether there's a
+  # different way to avoid those annoying ansi escape sequences
+  export TERM=dumb
+
   grep --version | grep GNU > /dev/null && alias grep='command grep --color=auto'
   ls   --version | grep GNU > /dev/null && alias ls='command   ls   --color=auto'
   diff --version | grep GNU > /dev/null && alias diff='command diff --color=auto'
