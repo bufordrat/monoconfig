@@ -429,6 +429,11 @@ environment_d_pi:
 	echo SSH_AUTH_SOCK=$$XDG_RUNTIME_DIR/openssh_agent > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
 .PHONY: environment_d_pi
 
+keyd:
+	sudo mkdir -p /etc/$@
+	sudo install -m 444 $@/default_conf /etc/$@/default.conf
+.PHONY: keyd
+
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d xclip picom dmenu rxvt-unicode
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1
