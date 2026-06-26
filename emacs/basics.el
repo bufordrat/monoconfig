@@ -39,6 +39,9 @@
 ;; column numbers
 (column-number-mode 1)
 
+;; meta key
+(setopt x-super-keysym 'meta)
+
 ;; crucial setq-s
 (setq backup-directory-alist '(("." . "~/.squiggles")))
 (setq dired-dwim-target t)
@@ -50,3 +53,4 @@
 (setq ring-bell-function 'ignore)
 (setq tooltip-mode nil)
 (setq truncate-partial-width-windows nil)
+
