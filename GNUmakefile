@@ -234,11 +234,20 @@ emacs:
 	install -m 444 $@/music-sync.el $(HOME)/.emacs.d/lisp
 	install -m 444 $@/waypipe.el $(HOME)/.emacs.d/lisp
 	install -m 444 $@/bastion.el $(HOME)/.emacs.d/lisp
+	install -m 444 $@/basics.el $(HOME)/.emacs.d/lisp
 	install -m 444 $@/general-init.el $(HOME)/.emacs.d/lisp
 	install -m 444 $@/$(HOST)-init.el $(HOME)/.emacs.d/lisp/$(HOST)-init.el
 	install -m 444 $@/scratchpad-init.el $(HOME)/.emacs.d/lisp/scratchpad-init.el
 	cp $(HOME)/.emacs.d/customizes.el $@/customizes/$(HOST)_customizes
 .PHONY: emacs
+
+minimacs:
+	mkdir -p $(HOME)/.emacs.d/lisp
+	mkdir -p $(HOME)/.squiggles
+	test -f $(HOME)/.emacs.d/customizes.el || touch $(HOME)/.emacs.d/customizes.el
+	install -m 444 emacs/basics-init.el $(HOME)/.emacs.d/init.el
+	install -m 444 emacs/basics.el $(HOME)/.emacs.d/lisp
+.PHONY: minimacs
 
 etc_hosts:
 	sudo install -m 444 $@/$(HOST)_etc_hosts /etc/hosts
