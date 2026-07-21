@@ -85,11 +85,11 @@
  '(doom-modeline-height 35)
  '(inferior-lisp-program "sbcl" t)
  '(package-selected-packages
-   '(base16-theme diredfl disk-usage doom-modeline ef-themes haskell-mode
-		  htmlize magit marginalia markdown-mode
-		  nerd-icons-dired orderless pdf-tools projectile
-		  pyvenv rainbow-delimiters sly tuareg vertico vlf
-		  vterm web-mode xclip))
+   '(base16-theme calfw diredfl disk-usage doom-modeline dune ef-themes
+		  haskell-mode htmlize magit marginalia markdown-mode
+		  merlin nerd-icons-dired orderless pdf-tools
+		  projectile pyvenv rainbow-delimiters sly tuareg
+		  unidecode vertico vlf vterm web-mode xclip))
  '(python-shell-process-environment '("PYTHON_BASIC_REPL=1")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
