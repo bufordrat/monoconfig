@@ -160,6 +160,7 @@ homebin:
 	install -m 555 $@/sudo-lockout.sh $(HOMEBIN_DIR)/sudo-lockout
 	install -m 555 $@/trivies.sh $(HOMEBIN_DIR)/trivies
 	install -m 555 $@/wagtail-lint.sh $(HOMEBIN_DIR)/wagtail-lint
+	install -m 555 $@/npm-library-website.sh $(HOMEBIN_DIR)/npm-library-website
 	install -m 555 $@/update-branches.sh $(HOMEBIN_DIR)/update-branches
 .PHONY: homebin
 
