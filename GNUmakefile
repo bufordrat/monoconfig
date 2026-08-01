@@ -50,7 +50,7 @@ sexp: arch althttpd gnus networkmanager
 
 kleisli: arch etc_hosts cron gnus mpd herbstluftwm samba abcde networkmanager systemd intel x11
 
-substructural: macos 
+substructural: macos dosbox
 
 subtype: arch netctl networkmanager
 
@@ -445,9 +445,11 @@ keyd:
 	sudo install -m 444 $@/default_conf /etc/$@/default.conf
 .PHONY: keyd
 
-# dosbox:
-# 	install -m
-# .PHONY: dosbox
+DOSBOX_PATH = /Users/teichman/Library/Preferences/DOSBox
+
+dosbox:
+	install -m 644 $@/$(HOST)_dosbox_staging_conf $(DOSBOX_PATH)/dosbox-staging.conf
+.PHONY: dosbox
 
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d xclip picom dmenu rxvt-unicode
