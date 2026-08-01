@@ -90,7 +90,8 @@
 		  merlin nerd-icons-dired orderless pdf-tools
 		  projectile pyvenv rainbow-delimiters sly tuareg
 		  unidecode vertico vlf vterm web-mode xclip))
- '(python-shell-process-environment '("PYTHON_BASIC_REPL=1")))
+ '(python-shell-process-environment '("PYTHON_BASIC_REPL=1"))
+ '(vterm-shell "/bin/bash"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

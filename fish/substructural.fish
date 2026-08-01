@@ -1,6 +1,7 @@
 # add homebrew to path
 fish_add_path /opt/homebrew/opt/make/libexec/gnubin
 fish_add_path /opt/homebrew/bin
+set -gx MANPATH $MANPATH /opt/homebrew/share/man
 
 # add ~/local/bin to path for Agda
 fish_add_path ~/.local/bin
