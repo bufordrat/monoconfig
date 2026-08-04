@@ -445,6 +445,10 @@ keyd:
 	sudo install -m 444 $@/default_conf /etc/$@/default.conf
 .PHONY: keyd
 
+# dosbox:
+# 	install -m
+# .PHONY: dosbox
+
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d xclip picom dmenu rxvt-unicode
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1
