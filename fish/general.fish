@@ -70,3 +70,4 @@ set -x LESS_TERMCAP_us (printf "\033[01;32m")
 set -gx DIFFPROG diffmerge
 set -gx EDITOR figure_out_editor_variable
 set -gx MANPATH /usr/share/man
+set -gx SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
