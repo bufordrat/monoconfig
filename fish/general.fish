@@ -69,4 +69,3 @@ set -x LESS_TERMCAP_us (printf "\033[01;32m")
 # global variables
 set -gx DIFFPROG diffmerge
 set -gx EDITOR figure_out_editor_variable
-set -gx MANPATH /usr/share/man
