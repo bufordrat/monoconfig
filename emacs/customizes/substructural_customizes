@@ -86,10 +86,10 @@
  '(inferior-lisp-program "sbcl" t)
  '(package-selected-packages
    '(base16-theme calfw diredfl disk-usage doom-modeline dune ef-themes
-		  haskell-mode htmlize magit marginalia markdown-mode
-		  merlin nerd-icons-dired orderless pdf-tools
-		  projectile pyvenv rainbow-delimiters sly tuareg
-		  unidecode vertico vlf vterm web-mode xclip))
+		  ellama haskell-mode htmlize magit marginalia
+		  markdown-mode merlin nerd-icons-dired orderless
+		  pdf-tools projectile pyvenv rainbow-delimiters sly
+		  tuareg unidecode vertico vlf vterm web-mode xclip))
  '(python-shell-process-environment '("PYTHON_BASIC_REPL=1"))
  '(vterm-shell "/bin/bash"))
 (custom-set-faces
