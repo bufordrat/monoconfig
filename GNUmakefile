@@ -46,7 +46,7 @@ internet: all $(INTERNET_RULES)
 # host rules
 sequent: arch dunst firehol borg etc_hosts cron gnus ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd
 
-sexp: arch althttpd gnus networkmanager
+sexp: arch althttpd gnus networkmanager etc_hosts
 
 kleisli: arch etc_hosts cron gnus mpd herbstluftwm samba abcde networkmanager systemd intel x11
 
