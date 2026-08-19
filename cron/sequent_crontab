@@ -1,8 +1,8 @@
 SSH_AUTH_SOCK=/run/user/1158/ssh-agent.socket
 PATH=/home/teichman/.opam/ocaml-basics/bin:/home/teichman/bin:/home/teichman/.ghcup/bin:/home/teichman/.stack/bin:/home/teichman/.local/bin:/home/teichman/.cabal/bin:/home/teichman/envs/virtualenvs/py-default/bin:/usr/local/bin:/usr/bin
 
-# DAILY: git backup
-0 3 * * * /home/teichman/bin/update-branches /home/teichman/stuff/github
+# DAILY: silent git backup
+0 3 * * * /home/teichman/bin/update-branches /home/teichman/stuff/github > /dev/null
 
 # DAILY: run trivy security check on all my projects
 # put bmrc back in here as a cmdline arg to trivies once docker
@@ -20,3 +20,6 @@ PATH=/home/teichman/.opam/ocaml-basics/bin:/home/teichman/bin:/home/teichman/.gh
 
 # WEEKLY: run spinup tests regardless of updates
 0 1 * * 6 zsh -c 'make -C /home/teichman/stuff/testing/spinup -j -k FORCE_TESTS=true'
+
+# DAILY: loud git backup
+0 1 * * 6 /home/teichman/bin/update-branches /home/teichman/stuff/github
