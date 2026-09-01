@@ -63,7 +63,6 @@ input * {
 
     # lock screen
     bindsym Ctrl+Alt+End exec waylock
-
     # Kill focused window
     bindsym $mod+Shift+c kill
 
@@ -245,3 +244,6 @@ default_floating_border pixel 2
 
 # use Profont for the status bar
 font pango:Profont 8
+
+# run VNC server
+exec wayvnc
