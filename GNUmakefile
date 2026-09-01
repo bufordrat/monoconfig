@@ -46,7 +46,7 @@ internet: all $(INTERNET_RULES)
 # host rules
 sequent: arch dunst firehol borg etc_hosts cron gnus ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd
 
-sexp: arch althttpd gnus networkmanager etc_hosts
+sexp: arch althttpd gnus networkmanager etc_hosts vnc
 
 kleisli: arch etc_hosts cron gnus mpd herbstluftwm samba abcde networkmanager systemd intel x11
 
@@ -450,6 +450,10 @@ DOSBOX_PATH = /Users/teichman/Library/Preferences/DOSBox
 dosbox:
 	install -m 644 $@/$(HOST)_dosbox_staging_conf $(DOSBOX_PATH)/dosbox-staging.conf
 .PHONY: dosbox
+
+vnc:
+	install -m 644 $@/wayvnc-tunnel.service ~/.config/systemd/user
+.PHONY: vnc
 
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d xclip picom dmenu rxvt-unicode

@@ -1,0 +1,13 @@
+[Unit]
+Description=WayVNC SSH Tunnel
+After=network-online.target ssh-agent.servic
+Requires=ssh-agent.service
+
+[Service]
+Environment="SSH_AUTH_SOCK=%t/ssh-agent.socket"
+ExecStart=/usr/bin/ssh -o "ServerAliveInterval=10" \
+		       -o "ServerAliveCountMax=3" \
+		       -o "ExitOnForwardFailure=yes" \
+		       -N -L 5900:localhost:5900 sequent
+Restart=on-failure
+RestartSec=15s

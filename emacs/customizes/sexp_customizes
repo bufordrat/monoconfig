@@ -54,10 +54,10 @@
  '(package-selected-packages
    '(ample-theme base16-theme bluetooth calfw diredfl dockerfile-mode
 		 doom-modeline dune edit-indirect ellama haskell-mode
-		 htmlize kv magit marginalia markdown-mode merlin
-		 nerd-icons-dired orderless pdf-tools projectile
-		 pyvenv rainbow-delimiters refer-mode sly tuareg
-		 vertico vlf web-mode xclip)))
+		 htmlize ini-mode kv magit marginalia markdown-mode
+		 merlin nerd-icons-dired orderless pdf-tools
+		 projectile pyvenv rainbow-delimiters refer-mode sly
+		 tuareg vertico vlf web-mode xclip)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
