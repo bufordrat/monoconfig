@@ -251,6 +251,13 @@ bar {
     }
 }
 
+# Set up toggle for when I VNC into sequent
+mode "vnc" {
+     bindsym $mod+F8 mode "default"
+}
+
+bindsym $mod+F8 mode "vnc"
+
 
 include /etc/sway/config.d/*
 
@@ -269,3 +276,4 @@ output eDP-1 scale 1.1
 
 # get on Our Stupid VPN
 exec nm-applet
+
