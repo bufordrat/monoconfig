@@ -9,10 +9,12 @@
 (add-to-list 'default-frame-alist (cons 'font matt-default-font))
 (set-face-font 'default matt-default-font)
 
+;; load pdf tools
+(pdf-loader-install)
+
 ;; dired icons & doom modeline
 (require 'nerd-icons)
 (require 'nerd-icons-dired)
-(gui-mode 1)
 (setopt doom-modeline-hud t)
 (setopt doom-modeline-window-width-limit 30)
 
