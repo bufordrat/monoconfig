@@ -1,6 +1,6 @@
 [Unit]
 Description=WayVNC SSH Tunnel
-After=network-online.target ssh-agent.servic
+After=network-online.target ssh-agent.service
 Requires=ssh-agent.service
 
 [Service]
