@@ -11,3 +11,7 @@ ExecStart=/usr/bin/ssh -o "ServerAliveInterval=10" \
 		       -N -L 5900:localhost:5900 sequent
 Restart=on-failure
 RestartSec=15s
+StartLimitIntervalSec=0
+
+[Install]
+WantedBy=default.target
