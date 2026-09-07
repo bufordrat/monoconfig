@@ -461,7 +461,7 @@ NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet g
 DOCKER_PACKAGES = docker docker-compose docker-buildx
 WAYLAND_PACKAGES = sway swaylock nwg-displays wmenu swayidle wlopm ghostty wl-clipboard
 ARCH_PACKAGES = linux-lts lvm2 herbstluftwm ntp man-pages bind inetutils fish openssh gnupg zsh dunst grim emacs-wayland opam texlive m4 ascii dhcpcd borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop w3m smartmontools gdb fossil openbsd-netcat util-linux mercurial jq android-tools $(DOCKER_PACKAGES) $(NM_PACKAGES) $(WAYLAND_PACKAGES)
-AUR_PACKAGES = yay profont-otb montecarlo-font
+AUR_PACKAGES = yay profont-otb montecarlo-font claude-code claude-agent-acp
 
 # other platforms' packages
 PI_PACKAGES = openssh gnupg zsh mpd ascii xclip wl-clipboard fbterm opam
