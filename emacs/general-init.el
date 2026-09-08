@@ -310,6 +310,11 @@
   :ensure t
   :defer t)
 
+;; agent-shell
+(use-package agent-shell
+  :ensure t
+  :defer t)
+
 ;; setq-s
 ;;  (these used to be customizes, but were moved in here; see other .el
 ;;   files for more domain-specific setq-s/setopts)
