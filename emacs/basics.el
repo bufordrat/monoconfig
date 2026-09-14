@@ -54,3 +54,12 @@
 (setq tooltip-mode nil)
 (setq truncate-partial-width-windows nil)
 
+
+;; downgrade errors during use-package to warnings
+(defun install-handler (keyword err)
+  (lwarn 'use-package :warning "%s" (error-message-string-err)))
+
+(setq use-package-defaults
+      (append use-package-defaults
+	      '((use-package-handler/catch
+		 #'install-handler))))
