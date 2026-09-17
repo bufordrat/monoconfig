@@ -18,3 +18,6 @@ Host nesttrain
 Host ocaml
   HostName ocaml.lib.uchicago.edu
   User teichman
+
+Host suffix3
+  HostName suffix3.lib.uchicago.edu
