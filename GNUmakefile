@@ -286,9 +286,9 @@ install-ocaml: install-opam remove-switch
 	opam switch create -y $(SWITCH_NAME) $(SWITCH_VERSION) && opam switch set $(SWITCH_NAME) && eval $$(opam env) && opam repository add dldc 'https://dldc.lib.uchicago.edu/opam' && opam update -y && opam upgrade -y && opam install -y $(OCAML_BASICS) && opam switch set ocaml-basics && eval $$(opam env)
 .PHONY: install-ocaml
 
-CABAL_VERSION = 3.14.1.1
-STACK_VERSION = 3.3.1
-HLS_VERSION = 2.11.0.0
+CABAL_VERSION = 3.16.1.0
+STACK_VERSION = 3.11.1
+HLS_VERSION = 2.14.1.0
 GHC_VERSION = 9.10.2
 AGDA_STDLIB_VERSION = 2.2
 
