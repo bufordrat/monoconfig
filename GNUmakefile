@@ -310,7 +310,7 @@ install-agda: install-haskell
 	ghcup set cabal $(CABAL_VERSION)
 	cabal update
 	cabal v2-install --overwrite-policy=always --install-method=copy Agda
-	cd $$(shell dirname $$(shell agda-mode locate)) && emacs --batch --eval '(push "." load-path)' -f batch-byte-compile eri.el *.el || true
+	cd $$(dirname $$(agda-mode locate)) && emacs --batch --eval '(push "." load-path)' -f batch-byte-compile eri.el *.el || true
 	ghcup rm cabal $(CABAL_VERSION)
 	rm -rf $$(agda --print-agda-app-dir)
 	mkdir -p $$(agda --print-agda-app-dir)
