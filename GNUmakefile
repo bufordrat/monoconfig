@@ -288,7 +288,7 @@ install-ocaml: install-opam remove-switch
 
 CABAL_VERSION = 3.16.1.0
 STACK_VERSION = 3.11.1
-HLS_VERSION = 2.14.1.0
+HLS_VERSION = 2.14.0.0
 GHC_VERSION = 9.10.2
 AGDA_STDLIB_VERSION = 2.2
 
