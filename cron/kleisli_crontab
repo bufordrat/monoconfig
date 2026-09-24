@@ -7,6 +7,7 @@ SSH_AUTH_SOCK=/run/user/1000/ssh-agent.socket
 0 2 * * * /home/teichman/bin/photosync
 
 # DAILY: phone backup
-0 2 * * * adb pull /sdcard/Phone /home/teichman/adb-dump
+0 2 * * * /home/teichman/bin/phonesync
+
 
 
