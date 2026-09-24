@@ -1,8 +1,15 @@
-;;; The following lines added by ql:add-to-init-file:
+;; in case quicklisp is not available, still load uiop
+(require 'uiop)
+
+;; feature that loads quicklisp if it isn't already loaded
 #-quicklisp
-(let ((quicklisp-init (merge-pathnames ".quicklisp/setup.lisp"
+(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
                                        (user-homedir-pathname))))
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
 
+;; needed to access *central-registry*
+(require 'asdf)
+
+;; allow quicklisp to load development code from current directory
 (pushnew (uiop:getcwd) asdf:*central-registry*)
