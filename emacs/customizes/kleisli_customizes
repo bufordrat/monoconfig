@@ -16,8 +16,8 @@
    '(calfw diredfl docker doom-modeline dune edit-indirect gruvbox-theme
 	   haskell-mode htmlize magit marginalia markdown-mode merlin
 	   nerd-icons-dired notmuch nov orderless pdf-tools projectile
-	   pyvenv rainbow-delimiters sly tuareg vertico vlf web-mode
-	   xclip)))
+	   pyvenv rainbow-delimiters ready-player sly tuareg vertico
+	   vlf web-mode xclip)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

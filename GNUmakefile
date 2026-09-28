@@ -162,6 +162,7 @@ homebin:
 	install -m 555 $@/wagtail-lint.sh $(HOMEBIN_DIR)/wagtail-lint
 	install -m 555 $@/npm-library-website.sh $(HOMEBIN_DIR)/npm-library-website
 	install -m 555 $@/update-branches.sh $(HOMEBIN_DIR)/update-branches
+	install -m 555 $@/debranch.sh $(HOMEBIN_DIR)/debranch
 .PHONY: homebin
 
 # note: I have not yet set this repo up on semigroup, pitype, or
@@ -286,10 +287,10 @@ install-ocaml: install-opam remove-switch
 	opam switch create -y $(SWITCH_NAME) $(SWITCH_VERSION) && opam switch set $(SWITCH_NAME) && eval $$(opam env) && opam repository add dldc 'https://dldc.lib.uchicago.edu/opam' && opam update -y && opam upgrade -y && opam install -y $(OCAML_BASICS) && opam switch set ocaml-basics && eval $$(opam env)
 .PHONY: install-ocaml
 
-CABAL_VERSION = 3.16.1.0
+CABAL_VERSION = 3.18.1.0
 STACK_VERSION = 3.11.1
 HLS_VERSION = 2.14.0.0
-GHC_VERSION = 9.10.2
+GHC_VERSION = 9.10.3
 AGDA_STDLIB_VERSION = 2.2
 
 install-haskell:
