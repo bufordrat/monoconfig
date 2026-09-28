@@ -1,7 +1,7 @@
 Host *
   ForwardAgent yes
-
-AddKeysToAgent yes
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
 
 Host motacilla
   HostName motacilla.lib.uchicago.edu
