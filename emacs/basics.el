@@ -6,7 +6,7 @@
 (global-set-key (kbd "C-c g") #'gui-mode)
 (global-set-key (kbd "C-c \\") #'mt-shell)
 (global-set-key (kbd "C-c |") #'eshell)
-(global-set-key (kbd "C-c m") #'magit-clone)
+(global-set-key (kbd "C-c c") #'magit-clone)
 (global-set-key (kbd "C-c i") #'mli-toggle)
 (global-set-key (kbd "M-+") #'scroll-up-line)
 (global-set-key (kbd "M-_") #'scroll-down-line)

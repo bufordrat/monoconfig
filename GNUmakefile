@@ -287,10 +287,10 @@ install-ocaml: install-opam remove-switch
 	opam switch create -y $(SWITCH_NAME) $(SWITCH_VERSION) && opam switch set $(SWITCH_NAME) && eval $$(opam env) && opam repository add dldc 'https://dldc.lib.uchicago.edu/opam' && opam update -y && opam upgrade -y && opam install -y $(OCAML_BASICS) && opam switch set ocaml-basics && eval $$(opam env)
 .PHONY: install-ocaml
 
-CABAL_VERSION = 3.14.1.1
-STACK_VERSION = 3.3.1
-HLS_VERSION = 2.11.0.0
-GHC_VERSION = 9.10.2
+CABAL_VERSION = 3.18.1.0
+STACK_VERSION = 3.11.1
+HLS_VERSION = 2.14.0.0
+GHC_VERSION = 9.10.3
 AGDA_STDLIB_VERSION = 2.2
 
 install-haskell:
@@ -311,7 +311,7 @@ install-agda: install-haskell
 	ghcup set cabal $(CABAL_VERSION)
 	cabal update
 	cabal v2-install --overwrite-policy=always --install-method=copy Agda
-	cd $$(shell dirname $$(shell agda-mode locate)) && emacs --batch --eval '(push "." load-path)' -f batch-byte-compile eri.el *.el || true
+	cd $$(dirname $$(agda-mode locate)) && emacs --batch --eval '(push "." load-path)' -f batch-byte-compile eri.el *.el || true
 	ghcup rm cabal $(CABAL_VERSION)
 	rm -rf $$(agda --print-agda-app-dir)
 	mkdir -p $$(agda --print-agda-app-dir)
