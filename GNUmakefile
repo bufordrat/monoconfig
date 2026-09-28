@@ -162,6 +162,7 @@ homebin:
 	install -m 555 $@/wagtail-lint.sh $(HOMEBIN_DIR)/wagtail-lint
 	install -m 555 $@/npm-library-website.sh $(HOMEBIN_DIR)/npm-library-website
 	install -m 555 $@/update-branches.sh $(HOMEBIN_DIR)/update-branches
+	install -m 555 $@/debranch.sh $(HOMEBIN_DIR)/debranch
 .PHONY: homebin
 
 # note: I have not yet set this repo up on semigroup, pitype, or
