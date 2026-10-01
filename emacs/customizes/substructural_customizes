@@ -86,6 +86,7 @@
  '(doom-modeline-height 35)
  '(haskell-process-type 'stack-ghci)
  '(inferior-lisp-program "sbcl" t)
+ '(locate-command "mdfind")
  '(package-selected-packages
    '(agent-shell base16-theme calfw diredfl disk-usage doom-modeline dune
 		 edit-indirect ef-themes ellama emms haskell-mode
