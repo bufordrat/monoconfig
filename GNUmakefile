@@ -320,6 +320,11 @@ install-agda: install-haskell
 	echo standard-library > $$(agda --print-agda-app-dir)/defaults
 .PHONY: install-agda
 
+.PHONY: install-quicklisp
+install-quicklisp: sbcl
+	sbcl --load /usr/share/quicklisp/quicklisp.lisp
+	sbcl --eval "(progn (quicklisp-quickstart:install) (ql:add-to-init-file))" --quit
+
 boot_loader:
 	mkdir -p /boot/loader/entries
 	sudo install -m 555 $@/loader_conf /boot/loader/loader.conf
@@ -412,9 +417,9 @@ ghostty:
 	install -m 644 $@/$(HOST)_config $(HOME)/.config/ghostty/config
 .PHONY: ghostty
 
+.PHONY: sbcl
 sbcl:
 	install -m 444 $@/sbclrc $(HOME)/.sbclrc
-.PHONY: sbcl
 
 SWAY_CONFIG_PATH = $(HOME)/.config/sway
 
@@ -461,7 +466,7 @@ X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm x
 NM_PACKAGES = networkmanager networkmanager-openconnect network-manager-applet gcr libnma-gtk4 libnma webkit2gtk-4.1
 DOCKER_PACKAGES = docker docker-compose docker-buildx
 WAYLAND_PACKAGES = sway swaylock nwg-displays wmenu swayidle wlopm ghostty wl-clipboard
-ARCH_PACKAGES = linux-lts lvm2 herbstluftwm ntp man-pages bind inetutils fish openssh gnupg zsh dunst grim emacs-wayland opam texlive m4 ascii dhcpcd borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop w3m smartmontools gdb fossil openbsd-netcat util-linux mercurial jq android-tools cmake $(DOCKER_PACKAGES) $(NM_PACKAGES) $(WAYLAND_PACKAGES)
+ARCH_PACKAGES = linux-lts lvm2 herbstluftwm ntp man-pages bind inetutils fish openssh gnupg zsh dunst grim emacs-wayland opam texlive m4 ascii dhcpcd borg wget firefox less man net-tools cronie opensmtpd s-nail syncthing nodejs npm zip ollama signal-desktop w3m smartmontools gdb fossil openbsd-netcat util-linux mercurial jq android-tools cmake sbcl quicklisp $(DOCKER_PACKAGES) $(NM_PACKAGES) $(WAYLAND_PACKAGES)
 AUR_PACKAGES = yay profont-otb montecarlo-font claude-code claude-agent-acp
 
 # other platforms' packages
