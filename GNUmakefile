@@ -322,8 +322,10 @@ install-agda: install-haskell
 
 .PHONY: install-quicklisp
 install-quicklisp: sbcl
-	sbcl --load /usr/share/quicklisp/quicklisp.lisp
-	sbcl --eval "(progn (quicklisp-quickstart:install) (ql:add-to-init-file))" --quit
+	sbcl --load /usr/share/quicklisp/quicklisp.lisp \
+	     --eval '(unless (probe-file (merge-pathnames "quicklisp/setup.lisp" (user-homedir-pathname))) (quicklisp-quickstart:install))' \
+	     --quit
+# sbcl --load /usr/share/quicklisp/quicklisp.lisp --eval "(progn (quicklisp-quickstart:install) (ql:add-to-init-file))" --quit
 
 boot_loader:
 	mkdir -p /boot/loader/entries
