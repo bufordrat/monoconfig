@@ -322,7 +322,7 @@ install-agda: install-haskell
 
 .PHONY: install-quicklisp-arch
 install-quicklisp-arch: sbcl
-	ls /usr/share/quicklisp/quicklisp.lisp
+	pacman -Qi quicklisp
 	sbcl --load /usr/share/quicklisp/quicklisp.lisp \
 	     --eval '(unless (probe-file (merge-pathnames "quicklisp/setup.lisp" (user-homedir-pathname))) (quicklisp-quickstart:install))' \
 	     --quit
