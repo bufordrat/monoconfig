@@ -320,8 +320,9 @@ install-agda: install-haskell
 	echo standard-library > $$(agda --print-agda-app-dir)/defaults
 .PHONY: install-agda
 
-.PHONY: install-quicklisp
-install-quicklisp: sbcl
+.PHONY: install-quicklisp-arch
+install-quicklisp-arch: sbcl
+	pacman -Qi quicklisp
 	sbcl --load /usr/share/quicklisp/quicklisp.lisp \
 	     --eval '(unless (probe-file (merge-pathnames "quicklisp/setup.lisp" (user-homedir-pathname))) (quicklisp-quickstart:install))' \
 	     --quit
