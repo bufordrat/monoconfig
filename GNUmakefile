@@ -210,12 +210,16 @@ borg:
 	install -m 555 $@/borgtastic.sh $(HOMEBIN_DIR)/borgtastic
 	install -m 444 $@/$(HOST)_borg_config $(CONFIG_DIR)/borg-config
 
+.PHONY: docker
+docker:
+	sudo systemctl edit --stdin docker < $@/$(HOST)_override_conf
+
 .PHONY: docker-perms
 docker-perms:
 	sudo usermod -aG docker $$(whoami)
 
 .PHONY: systemd
-systemd: docker-perms
+systemd: docker docker-perms
 	systemctl --user enable emacs
 	systemctl --user enable ssh-agent
 	sudo systemctl enable cronie

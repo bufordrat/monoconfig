@@ -1,0 +1,2 @@
+[Service]
+ExecStartPre=/bin/sh -c 'until firewall-cmd --state >/dev/null 2>&1; do sleep 0.2; done'
