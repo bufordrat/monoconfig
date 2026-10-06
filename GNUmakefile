@@ -48,7 +48,8 @@ sequent: arch dunst firehol borg etc_hosts cron gnus ollama-systemd etc_pacman_c
 
 sexp: arch althttpd gnus networkmanager etc_hosts vnc
 
-kleisli: arch etc_hosts cron gnus mpd herbstluftwm samba abcde networkmanager systemd intel x11
+kleisli: arch etc_hosts cron gnus mpd herbstluftwm samba abcde networkmanager systemd x11
+# intel
 
 substructural: macos dosbox
 
@@ -78,72 +79,72 @@ pi: $(PI_RULES)
 android: $(ANDROID_RULES)
 
 # app/config rules
+.PHONY: herbstluftwm
 herbstluftwm:
 	mkdir -p $(CONFIG_DIR)/$@
 	install -m 555 $@/autostart $(CONFIG_DIR)/$@/autostart
 	install -m 555 $@/general_as $(CONFIG_DIR)/$@/general_as
 	install -m 555 $@/$(HOST)_as $(CONFIG_DIR)/$@/$(HOST)_as
 	install -m 444 $@/bg.png $(CONFIG_DIR)/$@/bg.png
-.PHONY: herbstluftwm
 
+.PHONY: fish
 fish:
 	mkdir -p $(CONFIG_DIR)/$@
 	install -m 444 $@/config.fish $(CONFIG_DIR)/$@/config.fish
 	install -m 444 $@/general.fish $(CONFIG_DIR)/$@/general.fish
 	install -m 444 $@/ssh_gpg.fish $(CONFIG_DIR)/$@/ssh_gpg.fish
 	install -m 444 $@/$(HOST).fish $(CONFIG_DIR)/$@/$(HOST).fish
-.PHONY: fish
 
+.PHONY: dunst
 dunst:
 	mkdir -p $(CONFIG_DIR)/$@
 	install -m 444 $@/dunstrc $(CONFIG_DIR)/$@/dunstrc
-.PHONY: dunst
 
+.PHONY: iterm
 iterm:
 	install -m 644 $@/hushlogin $(HOME)/.hushlogin
-.PHONY: iterm
 
+.PHONY: xdefaults
 xdefaults:
 	install -m 444 $@/$(HOST)_xdefaults $(HOME)/.Xdefaults
-.PHONY: xdefaults
 
+.PHONY: xinitrc
 xinitrc:
 	mkdir -p $(HOME)/$@
 	install -m 555 $@/.xinitrc $(HOME)/.xinitrc
 	install -m 555 $@/general_xinitrc $(HOME)/$@/general_xinitrc
 	install -m 555 $@/$(HOST)_xinitrc $(HOME)/$@/$(HOST)_xinitrc
-.PHONY: xinitrc
 
 x11: xinitrc xdefaults
 
-
+.PHONY: openssh
 openssh:
 	mkdir -p $(HOME)/.ssh
 	install -m 444 $@/authorized_keys $(HOME)/.ssh/authorized_keys
 	install -m 444 $@/$(HOST)_ssh_config $(HOME)/.ssh/config
-.PHONY: openssh
 
+.PHONY: sshd
 sshd:
 	sudo install -m 444 $@/$(HOST)_sshd_config /etc/ssh/sshd_config
-.PHONY: sshd
 
+.PHONY: gnupg
 gnupg:
 	mkdir -m 700 -p $(HOME)/.$@
 	install -m 444 $@/dummy.gpg $(HOME)
 	install -m 444 $@/$(HOST)_gpg_agent_conf $(HOME)/.$@/gpg-agent.conf
-.PHONY: gnupg
 
+.PHONY: firehol
 firehol: homebin
 	sudo mkdir -p /etc/firehol
 	gpg -d --pinentry-mode loopback $(HOME)/dummy.gpg
 	ip address show $(ETHERFACE_NAME) > /dev/null 
 	gpg -d --pinentry-mode loopback $@/$@_conf.gpg | m4 -P -D IOTARIFFIC=$(ETHERFACE_NAME) | sudo install -m 444 /dev/stdin /etc/$@/$@.conf
-.PHONY: firehol
 
+.PHONY: fstab
 fstab:
 	cp /etc/fstab $@/$(HOST)_fstab
-.PHONY: fstab
 
+.PHONY: homebin
 homebin:
 	mkdir -p $(HOMEBIN_DIR)
 	install -m 555 $@/dmenu_run_history.sh $(HOMEBIN_DIR)/dmenu_run_history
@@ -163,67 +164,73 @@ homebin:
 	install -m 555 $@/npm-library-website.sh $(HOMEBIN_DIR)/npm-library-website
 	install -m 555 $@/update-branches.sh $(HOMEBIN_DIR)/update-branches
 	install -m 555 $@/debranch.sh $(HOMEBIN_DIR)/debranch
-.PHONY: homebin
+
 
 # note: I have not yet set this repo up on semigroup, pitype, or
 # mzero, so these mpd config files are currently only here for backup;
 # the only one that's being used is kleisli
+.PHONY: mpd
 mpd:
 	mkdir -p $(CONFIG_DIR)/mpd
 	install -m 444 $@/$(HOST)_mpd_conf $(CONFIG_DIR)/$@/mpd.conf
-.PHONY: mpd
 
+.PHONY: samba
 samba:
 	sudo install -m 444 $@/$(HOST)_smb_conf /etc/samba/smb.conf
-.PHONY: samba
 
+.PHONY: zsh
 zsh:
 	mkdir -p $(HOME)/zshrc
 	install -m 444 $@/.zshrc $(HOME)/.zshrc
 	install -m 444 $@/general_zshrc $(HOME)/zshrc/general_zshrc
 	install -m 444 $@/$(HOST)_zshrc $(HOME)/zshrc/$(HOST)_zshrc
 	install -m 444 $@/$(HOST)_zshenv $(HOME)/.zshenv
-.PHONY: zsh
 
+# deprecating this in anticipation of installing Wayland on kleisli
+.PHONY: intel
 intel:
 	sudo install -m 444 $@/$(HOST)_20_intel_conf /etc/X11/xorg.conf.d/20-intel.conf
-.PHONY: intel
 
+.PHONY: raspi
 raspi:
 	sudo install -m 755 $@/$(HOST)_boot_config_txt /boot/firmware/config.txt
-.PHONY: raspi
 
+.PHONY: netctl
 netctl: homebin
 	gpg -d --pinentry-mode loopback $(HOME)/dummy.gpg
 	gpg -d --pinentry-mode loopback $(HOME)/.bed/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/eduroam | sudo install -m 644 /dev/stdin /etc/$@/eduroam
-.PHONY: netctl
 
+.PHONY: bash
 bash:
 	install -m 444 $@/$(HOST)_bashrc $(HOME)/.bashrc
 	install -m 444 $@/$(HOST)_bash_profile $(HOME)/.bash_profile
-.PHONY: bash
 
+.PHONY: borg
 borg:
 	install -m 555 $@/borgtastic.sh $(HOMEBIN_DIR)/borgtastic
 	install -m 444 $@/$(HOST)_borg_config $(CONFIG_DIR)/borg-config
-.PHONY: borg
 
+.PHONY: docker
+docker:
+	sudo systemctl edit --stdin docker < $@/$(HOST)_override_conf
+
+.PHONY: docker-perms
 docker-perms:
 	sudo usermod -aG docker $$(whoami)
-.PHONY: docker-perms
 
-systemd: docker-perms
+.PHONY: systemd
+systemd: docker docker-perms
 	systemctl --user enable emacs
 	systemctl --user enable ssh-agent
 	sudo systemctl enable cronie
 	sudo systemctl enable smtpd
 	sudo systemctl enable docker
-.PHONY: systemd
 
+.PHONY: emacs-systemd
 emacs-systemd:
 	systemctl --user edit --full --stdin emacs.service < $@/unit_files/$(HOST)_emacs_service || true
-.PHONY: emacs-systemd
 
+.PHONY: emacs
 emacs:
 	mkdir -p $(HOME)/.emacs.d/lisp
 	mkdir -p $(HOME)/.squiggles
@@ -242,50 +249,49 @@ emacs:
 	install -m 444 $@/$(HOST)-init.el $(HOME)/.emacs.d/lisp/$(HOST)-init.el
 	install -m 444 $@/scratchpad-init.el $(HOME)/.emacs.d/lisp/scratchpad-init.el
 	cp $(HOME)/.emacs.d/customizes.el $@/customizes/$(HOST)_customizes
-.PHONY: emacs
 
+.PHONY: minimacs
 minimacs:
 	mkdir -p $(HOME)/.emacs.d/lisp
 	mkdir -p $(HOME)/.squiggles
 	test -f $(HOME)/.emacs.d/customizes.el || touch $(HOME)/.emacs.d/customizes.el
 	install -m 444 emacs/basics-init.el $(HOME)/.emacs.d/init.el
 	install -m 444 emacs/basics.el $(HOME)/.emacs.d/lisp
-.PHONY: minimacs
 
+.PHONY: etc_hosts
 etc_hosts:
 	sudo install -m 444 $@/$(HOST)_etc_hosts /etc/hosts
-.PHONY: etc_hosts
 
+.PHONY: etc_pacman_conf
 etc_pacman_conf:
 	sudo install -m 444 $@/$(HOST)_pacman_conf /etc/pacman.conf
-.PHONY: etc_pacman_conf
 
+.PHONY: remove-virtualenv
 remove-virtualenv:
 	rm -rf $(VENV_DIR)
-.PHONY: remove-virtualenv
 
+.PHONY: python
 python:
 	mkdir -p $(VENV_REQUIREMENTS_DIR)
 	install -m 444 $@/config_lsp_requirements $(VENV_REQUIREMENTS_DIR)/requirements.txt
-.PHONY: python
 
+.PHONY: install-python
 install-python: remove-virtualenv python
 	mkdir -p $(VENV_DIR)
 	python3 -m venv $(VENV_DIR)
 	source $(VENV_DIR)/bin/activate && python3 -m ensurepip && pip install --upgrade pip && pip install -r $(VENV_REQUIREMENTS_DIR)/requirements.txt && deactivate
-.PHONY: install-python
 
+.PHONY: install-opam
 install-opam:
 	if [ -d $(HOME)/.opam ]; then echo 'opam already initialized'; else cd $(HOME) && opam init -y && cd -; fi
-.PHONY: install-opam
 
+.PHONY: remove-switch
 remove-switch:
 	opam switch remove -y $(SWITCH_NAME) || true
-.PHONY: remove-switch
 
+.PHONY: install-ocaml
 install-ocaml: install-opam remove-switch
 	opam switch create -y $(SWITCH_NAME) $(SWITCH_VERSION) && opam switch set $(SWITCH_NAME) && eval $$(opam env) && opam repository add dldc 'https://dldc.lib.uchicago.edu/opam' && opam update -y && opam upgrade -y && opam install -y $(OCAML_BASICS) && opam switch set ocaml-basics && eval $$(opam env)
-.PHONY: install-ocaml
 
 CABAL_VERSION = 3.18.1.0
 STACK_VERSION = 3.11.1
@@ -293,6 +299,7 @@ HLS_VERSION = 2.14.0.0
 GHC_VERSION = 9.10.3
 AGDA_STDLIB_VERSION = 2.2
 
+.PHONY: install-haskell
 install-haskell:
 	ghcup nuke || true
 	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | env BOOTSTRAP_HASKELL_NONINTERACTIVE=1 BOOTSTRAP_HASKELL_MINIMAL=1 sh
@@ -304,8 +311,8 @@ install-haskell:
 	ghcup set ghc $(GHC_VERSION)
 	mkdir -p $(HOME)/.stack
 	install -m 444 $@/config_yaml $(HOME)/.stack/config.yaml
-.PHONY: install-haskell
 
+.PHONY: install-agda
 install-agda: install-haskell
 	ghcup install cabal $(CABAL_VERSION)
 	ghcup set cabal $(CABAL_VERSION)
@@ -318,7 +325,6 @@ install-agda: install-haskell
 	cd $$(agda --print-agda-app-dir) && wget -O stdlib.tar.gz 'https://github.com/agda/agda-stdlib/archive/v$(AGDA_STDLIB_VERSION).tar.gz' && tar xzvf stdlib.tar.gz
 	echo $$(agda --print-agda-app-dir)/agda-stdlib-$(AGDA_STDLIB_VERSION)/standard-library.agda-lib > $$(agda --print-agda-app-dir)/libraries
 	echo standard-library > $$(agda --print-agda-app-dir)/defaults
-.PHONY: install-agda
 
 .PHONY: install-quicklisp-arch
 install-quicklisp-arch: sbcl
@@ -326,29 +332,31 @@ install-quicklisp-arch: sbcl
 	sbcl --load /usr/share/quicklisp/quicklisp.lisp \
 	     --eval '(unless (probe-file (merge-pathnames "quicklisp/setup.lisp" (user-homedir-pathname))) (quicklisp-quickstart:install))' \
 	     --quit
-# sbcl --load /usr/share/quicklisp/quicklisp.lisp --eval "(progn (quicklisp-quickstart:install) (ql:add-to-init-file))" --quit
 
+.PHONY: boot_loader
 boot_loader:
 	mkdir -p /boot/loader/entries
 	sudo install -m 555 $@/loader_conf /boot/loader/loader.conf
 	sudo install -m 555 $@/$(HOST)_arch_conf /boot/loader/entries/arch.conf
 	sudo install -m 555 $@/$(HOST)_arch_lts_conf /boot/loader/entries/arch-lts.conf
-.PHONY: boot_loader
+
 
 # not yet tested; check the output after first using
+.PHONY: boot_loader
 generate_boot_loader:
 	mkdir -p /boot/loader/entries
 	sudo install -m 555 boot_loader/loader_conf /boot/loader/loader.conf
 	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -P -D SIGMALICIOUS='m4_include(/dev/stdin)' $@/sequent_arch_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch.conf
 	lsblk -P -o fstype,uuid | grep crypto_LUKS | head -n 1 | awk -F= '{print $$3}' | tr -d '"\012' | m4 -P -D SIGMALICIOUS='m4_include(/dev/stdin)' $@/sequent_arch_lts_conf | sudo install -m 555 /dev/stdin /boot/loader/entries/arch-lts.conf
-.PHONY: boot_loader
+
 
 # hostname is hardcoded here because the archiso stick makes it hard
 # to get the hostname
+.PHONY: mkinitcpio_conf
 mkinitcpio_conf:
 	install -m 555 $@/sexp_mkinitcpio_conf /etc/mkinitcpio.conf
-.PHONY: mkinitcpio_conf
 
+.PHONY: syncthing
 syncthing:
 	syncthing cli config devices $$(syncthing device-id) name set $(HOST)
 	gpg -d $@/$(HOST)_syncthing_setup.gpg 2> /dev/null | sh
@@ -356,69 +364,68 @@ syncthing:
 	@syncthing device-id
 	@echo 'api key:'
 	@syncthing cli config gui apikey get
-.PHONY: syncthing
 
+.PHONY: syncthing_devices
 syncthing_devices:
 	@syncthing cli config devices list | while read device; do printf "%s\t%s\n" "$$(syncthing cli config devices $$device name get)" $$device; done | column -s "`printf '\t'`" -t
-.PHONY: syncthing_devices
 
+.PHONY: abcde
 abcde:
 	install -m 444 $@/$(HOST)_$@_conf $(HOME)/.abcde.conf
-.PHONY: abcde
 
+.PHONY: networkmanager
 networkmanager:
 	sudo install -m 600 $@/uchicagovpn_nmconnection /etc/NetworkManager/system-connections/UChicagoVPN.nmconnection
 	gpg -d --pinentry-mode loopback $(HOME)/.bed/rutherford_fios_router.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_fios_h2ypv_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/Fios-h2YPv.nmconnection
 	gpg -d --pinentry-mode loopback $(HOME)/.bed/binomial_heap.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_binomial_heap_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/BinomialHeap.nmconnection
 	gpg -d --pinentry-mode loopback $(HOME)/.bed/cnetid.gpg 2> /dev/null | tr -d '\012' | m4 -P $@/$(HOST)_eduroam_nmconnection | sudo install -m 600 /dev/stdin /etc/NetworkManager/system-connections/eduroam.nmconnection
-.PHONY: networkmanager
 
+.PHONY: cron
 cron:
 	mkdir -p $(HOME)/.cron
 	install -m 444 $@/$(HOST)_crontab $(HOME)/.cron
 	crontab $(HOME)/.cron/$(HOST)_crontab
-.PHONY: cron
 
+.PHONY: opensmtpd
 opensmtpd:
 	mkdir -p $(HOME)/.maildir/local_mail
 	sudo install -m 444 $@/$(HOST)_smtpd_conf /etc/smtpd/smtpd.conf
-.PHONY: opensmtpd
 
+.PHONY: gnus
 gnus:
 	install -m 444 $@/$(HOST)_gnus_el $(HOME)/.gnus.el
-.PHONY: gnus
 
+.PHONY: xauth
 xauth:
 	sudo install -m 444 $@/$(HOST)_xauthority /root/.Xauthority
-.PHONY: xauth
 
+.PHONY: etc_sudoers
 etc_sudoers:
 	sudo install -m 440 $@/$(HOST)_01_fix_diffprog /etc/sudoers.d/01_fix_diffprog
 	sudo visudo -c
-.PHONY: etc_sudoers
 
+.PHONY: ollama-systemd
 ollama-systemd:
 	sudo systemctl edit --full --stdin ollama.service < $@/$(HOST)_ollama_service || true
-.PHONY: ollama-systemd
 
+.PHONY: termux-sshd
 termux-sshd:
 	install -m 444 $@/$(HOST)_sshd_config $(PREFIX)/etc/ssh/sshd_config
-.PHONY: termux-sshd
 
 ALTHTTPD_PATH = $(HOME)/stuff/repos/fossil/althttpd
 
+.PHONY: althttpd
 althttpd:
 	cd $(ALTHTTPD_PATH) &&\
 		fossil pull &&\
 		fossil update &&\
 		make althttpd &&\
 		install -m 555 althttpd $(HOMEBIN_DIR)
-.PHONY: althttpd
 
+.PHONY: ghostty
 ghostty:
 	mkdir -p $(HOME)/.config/ghostty
 	install -m 644 $@/$(HOST)_config $(HOME)/.config/ghostty/config
-.PHONY: ghostty
 
 .PHONY: sbcl
 sbcl:
@@ -426,43 +433,38 @@ sbcl:
 
 SWAY_CONFIG_PATH = $(HOME)/.config/sway
 
+.PHONY: sway
 sway:
 	mkdir -p $(SWAY_CONFIG_PATH)
 	install -m 444 $@/$(HOST)_config $(SWAY_CONFIG_PATH)/config
 	install -m 444 $@/$(HOST)_outputs $(SWAY_CONFIG_PATH)/output
-.PHONY: sway
 
+.PHONY: fbterm
 fbterm:
 	@echo fbterm --font-names='Noto Mono' --font-size=64
 	@echo export TERM=fbterm
-.PHONY: fbterm
 
 SYSTEMD_ENVIRONMENT_PATH=$(HOME)/.config/environment.d
 
+.PHONY: environment_d_arch
 environment_d_arch:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
 	m4 -P -D CONTINUATIONAGE=$(XDG_RUNTIME_DIR) $@/emacs_conf | install -m 555 /dev/stdin $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
-.PHONY: environment_d_arch
 
+.PHONY: environment_d_pi
 environment_d_pi:
 	mkdir -p $(SYSTEMD_ENVIRONMENT_PATH)
 	echo SSH_AUTH_SOCK=$$XDG_RUNTIME_DIR/openssh_agent > $(SYSTEMD_ENVIRONMENT_PATH)/emacs.conf
-.PHONY: environment_d_pi
-
-keyd:
-	sudo mkdir -p /etc/$@
-	sudo install -m 444 $@/default_conf /etc/$@/default.conf
-.PHONY: keyd
 
 DOSBOX_PATH = /Users/teichman/Library/Preferences/DOSBox
 
+.PHONY: dosbox
 dosbox:
 	install -m 644 $@/$(HOST)_dosbox_staging_conf $(DOSBOX_PATH)/dosbox-staging.conf
-.PHONY: dosbox
 
+.PHONY: vnc
 vnc:
 	install -m 644 $@/wayvnc-tunnel.service ~/.config/systemd/user
-.PHONY: vnc
 
 # arch packages
 X11_PACKAGES = xorg-server xorg-xinit xorg-twm xorg-xclock xorg-xsetroot xterm xorg-fonts-misc xorg-bdftopcf xorg-font-util xaw3d xclip picom dmenu rxvt-unicode
@@ -477,25 +479,21 @@ PI_PACKAGES = openssh gnupg zsh mpd ascii xclip wl-clipboard fbterm opam
 MACOS_PACKAGES = fish iterm pinentry-mac opam ascii xclip make wget
 TERMUX_PACKAGES = openssh termux-services zsh 
 
+.PHONY: pam
 pam:
 	sudo install -m 644 $@/faillock_conf /etc/security/faillock.conf
-.PHONY: pam
 
 # package manager rules
+.PHONY: pacman
 pacman: 
 	sudo pacman -S $(ARCH_PACKAGES)
 	sudo rm -f /etc/fonts/conf.d/70-no-bitmaps-except-emoji.conf
-.PHONY: pacman
 
+.PHONY: brew
 brew:
 	brew install $(MACOS_PACKAGES)
-.PHONY: brew
 
+.PHONY: setup-termux
 setup-termux:
 	pkg install $(TERMUX_PACKAGES)
 	chsh -s zsh
-.PHONY: setup-termux
-
-collect-garbage:
-	sudo pacman -Rs $(TEMP_PACKAGES)
-.PHONY: collect-garbage
