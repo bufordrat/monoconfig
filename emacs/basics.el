@@ -1,4 +1,5 @@
 ;; repos
+(require 'package)
 (dolist (arc '(("melpa-stable" . "http://stable.melpa.org/packages/")
 	       ("melpa" . "http://melpa.org/packages/")
                ("kw" . "http://www.lib.uchicago.edu/keith/software/emacs/packages/")))
