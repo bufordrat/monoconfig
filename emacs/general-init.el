@@ -23,13 +23,6 @@
   :ensure vlf
   :defer t)
 
-;; repos
-(dolist (arc '(("melpa-stable" . "http://stable.melpa.org/packages/")
-	       ("melpa" . "http://melpa.org/packages/")
-               ("kw" . "http://www.lib.uchicago.edu/keith/software/emacs/packages/")))
-  (add-to-list 'package-archives arc t))
-(setq package-archive-priorities '(("kw" . 11) ("melpa-stable" . 10))) 
-
 ;; no defcustoms for these; sad
 (setq default-major-mode 'fundamental-mode)
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)

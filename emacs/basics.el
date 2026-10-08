@@ -1,3 +1,10 @@
+;; repos
+(dolist (arc '(("melpa-stable" . "http://stable.melpa.org/packages/")
+	       ("melpa" . "http://melpa.org/packages/")
+               ("kw" . "http://www.lib.uchicago.edu/keith/software/emacs/packages/")))
+  (add-to-list 'package-archives arc t))
+(setq package-archive-priorities '(("kw" . 11) ("melpa-stable" . 10))) 
+
 ;; keybindings
 (global-set-key (kbd "C-c v") #'visual-line-mode)
 (global-set-key (kbd "C-c f p") #'mt-change-font-family)
@@ -53,4 +60,3 @@
 (setq ring-bell-function 'ignore)
 (setq tooltip-mode nil)
 (setq truncate-partial-width-windows nil)
-
