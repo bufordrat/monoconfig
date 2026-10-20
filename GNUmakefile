@@ -44,7 +44,7 @@ all: $(HOST)
 internet: all $(INTERNET_RULES)
 
 # host rules
-sequent: arch dunst firehol borg etc_hosts cron gnus ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd
+sequent: arch dunst firehol borg etc_hosts cron gnus ollama-systemd etc_pacman_conf etc_sudoers systemd althttpd docker docker-perms
 
 sexp: arch althttpd gnus networkmanager etc_hosts vnc
 
@@ -219,7 +219,7 @@ docker-perms:
 	sudo usermod -aG docker $$(whoami)
 
 .PHONY: systemd
-systemd: docker docker-perms
+systemd:
 	systemctl --user enable emacs
 	systemctl --user enable ssh-agent
 	sudo systemctl enable cronie
