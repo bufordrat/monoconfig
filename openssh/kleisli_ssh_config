@@ -4,7 +4,7 @@ AddKeysToAgent yes
 
 Host *
   ForwardAgent yes
-  IdentityFile ~/.ssh/id_rsa
+  IdentityFile ~/.ssh/id_ed25519
 
 Host sequent
   HostName sequent.lib.uchicago.edu
