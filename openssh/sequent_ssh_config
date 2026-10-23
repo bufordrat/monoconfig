@@ -3,6 +3,11 @@ Host *
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_ed25519
 
+Host jackhammer
+  HostName jackhammer.lib.uchicago.edu
+  User teichman
+  Port 2222
+
 Host motacilla
   HostName motacilla.lib.uchicago.edu
   User teichman
