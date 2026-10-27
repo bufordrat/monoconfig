@@ -21,6 +21,12 @@
  '(explicit-shell-file-name "zsh")
  '(gnus-show-threads nil)
  '(inferior-lisp-program "/usr/bin/sbcl")
+ '(markdown-command "pandoc -f gfm -t html5")
+ '(markdown-css-paths
+   '("https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css"))
+ '(markdown-xhtml-body-epilogue "</article>")
+ '(markdown-xhtml-body-preamble
+   "<article class=\"markdown-body\" style=\"max-width:900px;margin:2em auto;padding:0 1em;\">")
  '(package-selected-packages
    '(0blayout agent-shell ahk-mode aider badwolf-theme calfw crdt
 	      csv-mode diredfl docker dockerfile-mode doom-modeline

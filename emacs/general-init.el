@@ -92,7 +92,14 @@
 ;; markdown
 (use-package markdown-mode
   :ensure t
-  :defer t)
+  :mode ("\\.md\\'" . gfm-mode)
+  :defer t
+  :hook
+  (markdown-mode . mt-markdown-export-on-save))
+
+(defun mt-markdown-export-on-save ()
+  "Re-export the buffer to HTML each time it is saved."
+  (add-hook 'after-save-hook #'markdown-export nil t))
 
 ;; python
 (use-package pyvenv
