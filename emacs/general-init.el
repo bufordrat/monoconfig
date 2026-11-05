@@ -264,8 +264,7 @@
 ;; ready-player-mode
 (use-package ready-player
   :ensure t
-  :config
-  (ready-player-mode +1))
+  :defer t)
 
 ;; setq-s
 ;;  (these used to be customizes, but were moved in here; see other .el

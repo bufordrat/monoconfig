@@ -7,7 +7,14 @@
  '(agent-shell-cwd-function '(lambda nil default-directory))
  '(custom-enabled-themes '(base16-ia-dark))
  '(custom-safe-themes
-   '("6018f08dd19c9fa55c348eb1793deb72624861bc79197f4dcb033243ce13af59"
+   '("f7fe70ecf059f036813b327285e615438802980b8a477a3bbe4733aa0176c4fd"
+     "838b3a05aee24bab7b4dafde51e2455dc40aceb004323dc873a89db66d1b3c0e"
+     "53b9dd9615039a563a211a7b2437a0af67a0a4bca7323ae6d18ec87606bb8be0"
+     "b0fea725c1b6e74d1de532f3905b8ef46071f9e15940732223fc696438fee96f"
+     "8ca212d6ef076ad444f44bf6e57a9841930cbeb0c3f7d7525a21e20a57a3d7f6"
+     "6bdac64e63054091f250439eede14920055c25391c139b8e3cf71cac9ead7d71"
+     "7dafc13a94124433b68285e3a8860744a02042a40b0105fe4f4af8768676de91"
+     "6018f08dd19c9fa55c348eb1793deb72624861bc79197f4dcb033243ce13af59"
      "f146b2935f915fc1f9cee018199fbb93c2887aed85c7051fb8dd57f5a05f123f"
      "94256a2952c7a6a77b4f290e6a16d1b2ded393591e7e7fc03edf8cfd34a9b55e"
      "f8a16292b06df595902fe9ff742af8b160d33106db91f69d4efba46e2f151d48"
@@ -89,11 +96,11 @@
  '(locate-command "mdfind")
  '(package-selected-packages
    '(agent-shell base16-theme calfw diredfl disk-usage doom-modeline dune
-		 edit-indirect ef-themes ellama emms haskell-mode
-		 htmlize magit marginalia markdown-mode merlin
-		 nerd-icons-dired orderless pdf-tools projectile
-		 pyvenv rainbow-delimiters ready-player sly tuareg
-		 unidecode vertico vlf vterm web-mode xclip))
+		 edit-indirect ef-themes ellama emms gruvbox-theme
+		 haskell-mode htmlize magit marginalia markdown-mode
+		 merlin nerd-icons-dired orderless pdf-tools
+		 projectile pyvenv rainbow-delimiters ready-player sly
+		 tuareg unidecode vertico vlf vterm web-mode xclip))
  '(python-shell-process-environment '("PYTHON_BASIC_REPL=1"))
  '(vterm-shell "/bin/bash"))
 (custom-set-faces
