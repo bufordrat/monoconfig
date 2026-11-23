@@ -6,8 +6,9 @@ PATH=/home/teichman/.opam/ocaml-basics/bin:/home/teichman/bin:/home/teichman/.gh
 
 # DAILY: run trivy security check on all my projects
 # commenting dibs out till python is upgraded on dibs01 and marble
-# temporarily reverting the trivies invocation till I figure out what the heck is going on with cvebump
-0 4 * * * zsh -c "/home/teichman/bin/trivies /home/teichman/stuff/github/spinup /home/teichman/stuff/github/etude /home/teichman/stuff/github/mboxer /home/teichman/stuff/github/attachment-converter /home/teichman/stuff/github/httpr_cohttp /home/teichman/stuff/github/lucy /home/teichman/stuff/github/monoconfig /home/teichman/stuff/github/uchicago-dissertation /home/teichman/stuff/github/flask_hello_world /home/teichman/stuff/github/library_website /home/teichman/stuff/github/research_data /home/teichman/stuff/github/dibs /home/teichman/stuff/github/dibsiiif /home/teichman/stuff/github/bmrc | cvebump | jq"
+# temporarily commenting out dibs/dibsiiif till python is upgraded
+# /home/teichman/stuff/github/dibs /home/teichman/stuff/github/dibsiiif
+0 4 * * * zsh -c "/home/teichman/bin/trivies /home/teichman/stuff/github/spinup /home/teichman/stuff/github/etude /home/teichman/stuff/github/mboxer /home/teichman/stuff/github/attachment-converter /home/teichman/stuff/github/httpr_cohttp /home/teichman/stuff/github/lucy /home/teichman/stuff/github/monoconfig /home/teichman/stuff/github/uchicago-dissertation /home/teichman/stuff/github/flask_hello_world /home/teichman/stuff/github/library_website /home/teichman/stuff/github/research_data /home/teichman/stuff/github/bmrc | cvebump | jq"
 
 # DAILY: run attc kaegiw test if there are updates to any branches
 0 3 * * * make -C /home/teichman/stuff/testing/attc -j -k
