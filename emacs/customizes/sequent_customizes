@@ -10,7 +10,24 @@
  '(aidermacs-editor-model "ollama_chat/qwen2.5-coder:7b")
  '(custom-enabled-themes '(badwolf))
  '(custom-safe-themes
-   '("836b0bc16dbd2aed387e552edabd4d67d227961efa3af412da387eb3e010d76b"
+   '("aa02aab622c14c08c6924138fed29225bb2aa57a50b976c6911d90b36c34d89c"
+     "2ebd6217d74282fe204f58a64adea7d210c60a5cd11e57f9e435b01e35d2b028"
+     "270cd94be3efd6208fc731862e1b7dbb1ad7fec585773bd7b19f7622cd758463"
+     "6e14d67edb9336686b4824223320cc7fa5e88fdf15fc030bd6c92ebaca9db963"
+     "ecd76ed4cdfc0534b90b663fb18afdd18bd29d7f40761f658d995c9a82f6490b"
+     "58cf241518aa8217fc728302af7d0b59b271eb1a0c1808b6650c0fa8080cfa2b"
+     "17df42390ed61ea41f7e3c30a98bc5ed268e7bfd9d3b781d3f424fd0b80fae0e"
+     "bd17d0f6495c2626c493322ff37c64dc76ddb06c10dbadfead6a4f92775f00f3"
+     "8b18b903355488061707df445acc97309acf4977ba40ba58bca110036e235097"
+     "720e8768e7a9bbda94758aba8ef29314fdc51a3e22ac8146726c752fa0a97221"
+     "1fc299974daa270e19d1b206ec40aab3a0ce35e7c6a7d389b156bcd411e41a3c"
+     "a50d025e0eb240f59748be7fcd3251a4b0372071546443e57f701f8a8531b764"
+     "6d7c2881e47ee6ead20f43d6368b2c9b9a1fedbd7c9f0604de15b4c11d5b4841"
+     "deea4f8ef106dd1d8746a6fdccf42cf504982605bd53024b0f56c4d3e4a108e4"
+     "2902694c7ef5d2a757146f0a7ce67976c8d896ea0a61bd21d3259378add434c4"
+     "d3e76a24fbdb051ea1ac68c7e8483c8eaf15f15aa90fe38093924cf01f799bf7"
+     "510e19b4a05e8403c5761f7356788a3951b39206613d4faca0337b2f6aa3860b"
+     "836b0bc16dbd2aed387e552edabd4d67d227961efa3af412da387eb3e010d76b"
      "8363207a952efb78e917230f5a4d3326b2916c63237c1f61d7e5fe07def8d378"
      "d046915b6ed8e52c9a94462388b26c714b2411b0b2b0c6d89ee3981938056240"
      default))
@@ -28,15 +45,16 @@
  '(markdown-xhtml-body-preamble
    "<article class=\"markdown-body\" style=\"max-width:900px;margin:2em auto;padding:0 1em;\">")
  '(package-selected-packages
-   '(0blayout agent-shell ahk-mode aider badwolf-theme calfw crdt
-	      csv-mode diredfl docker dockerfile-mode doom-modeline
-	      dune edit-indirect ellama fish-mode gruvbox-theme
-	      haskell-mode htmlize ini-mode jsonian marginalia merlin
-	      monkeytype nerd-icons-dired odig orderless pacmacs
-	      pacman pdf-tools pkgbuild-mode projectile pyvenv
-	      rainbow-delimiters simple-httpd slp sly speed-type sway
-	      syncthing tint tuareg typit unidecode vertico
-	      visual-fill-column vlf vterm web-mode xclip))
+   '(0blayout agent-shell ahk-mode aider badwolf-theme base16-theme calfw
+	      crdt csv-mode diredfl docker dockerfile-mode
+	      doom-modeline dune edit-indirect ellama fish-mode
+	      gruvbox-theme haskell-mode htmlize ini-mode jsonian
+	      marginalia material-theme merlin monkeytype
+	      nerd-icons-dired odig orderless pacmacs pacman pdf-tools
+	      pkgbuild-mode projectile pyvenv rainbow-delimiters
+	      simple-httpd slp sly speed-type sway syncthing tint
+	      tuareg typit unidecode vertico visual-fill-column vlf
+	      vterm web-mode xclip))
  '(pacman-pacdiff-command "sudo -S env DIFFPROG=diffmerge pacdiff")
  '(python-fill-docstring-style 'symmetric)
  '(python-shell-process-environment '("PYTHON_BASIC_REPL=1"))
